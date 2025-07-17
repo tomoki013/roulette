@@ -20,12 +20,12 @@ const Header = () => {
                 {t('mainTitle')}
             </h1>
             <div className="flex items-center gap-4">
-                <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
+                {/* <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
                     {t('templates')}
                 </button>
                 <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
                     {t('login')}
-                </button>
+                </button> */}
                 <LanguageSwitcher />
             </div>
         </motion.header>
