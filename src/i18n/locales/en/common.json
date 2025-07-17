@@ -1,0 +1,18 @@
+{
+    "mainTitle": "Waku Waku Roulette",
+    "templates": "Templates",
+    "login": "Login",
+    "settingsTitle": "Roulette Settings",
+    "rouletteTitleLabel": "Title",
+    "rouletteTitlePlaceholder": "Enter roulette title",
+    "addItem": "Add Item",
+    "settings": "Settings",
+    "save": "Save",
+    "share": "Share",
+    "previewTitle": "My Roulette",
+    "spin": "Spin!",
+    "spinning": "Spinning...",
+    "resultModalTitle": "The result is!",
+    "close": "Close",
+    "optionDefault": "Option"
+}
