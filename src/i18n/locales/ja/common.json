@@ -1,0 +1,18 @@
+{
+    "mainTitle": "ワクワクルーレット",
+    "templates": "テンプレート",
+    "login": "ログイン",
+    "settingsTitle": "ルーレット設定",
+    "rouletteTitleLabel": "タイトル",
+    "rouletteTitlePlaceholder": "ルーレットのタイトルを入力",
+    "addItem": "項目を追加",
+    "settings": "設定",
+    "save": "保存",
+    "share": "共有",
+    "previewTitle": "私のルーレット",
+    "spin": "回す！",
+    "spinning": "回転中...",
+    "resultModalTitle": "結果発表！",
+    "close": "閉じる",
+    "optionDefault": "オプション"
+}

@@ -1,8 +1,12 @@
+// src/app/page.tsx
 'use client';
 
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, X, Settings, Save, Share2, Sparkles, Trophy, Play } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
+
 
 interface Item {
 	name: string;
@@ -10,13 +14,15 @@ interface Item {
 }
 
 const RouletteApp = () => {
+    const { t } = useTranslation();
+
     const [items, setItems] = useState<Item[]>([
-        { name: 'オプション1', ratio: 1 },
-        { name: 'オプション2', ratio: 1 },
-        { name: 'オプション3', ratio: 1 },
+        { name: `${t('optionDefault')} 1`, ratio: 1 },
+        { name: `${t('optionDefault')} 2`, ratio: 1 },
+        { name: `${t('optionDefault')} 3`, ratio: 1 },
     ]);
 
-    const [title, setTitle] = useState('私のルーレット');
+    const [title, setTitle] = useState(t('previewTitle'));
     const [isSpinning, setIsSpinning] = useState(false);
     const [rotation, setRotation] = useState(0);
     const [result, setResult] = useState<Item | null>(null);
@@ -27,7 +33,7 @@ const RouletteApp = () => {
     const spinRef = useRef(null);
 
     const addItem = () => {
-        setItems([...items, { name: `オプション${items.length + 1}`, ratio: 1 }]);
+        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1 }]);
     };
 
     const removeItem = (index: number) => {
@@ -48,7 +54,7 @@ const RouletteApp = () => {
         setIsSpinning(true);
         setShowResult(false);
 
-        // 1. 重み付けに基づいて当選アイテムを決定
+        // 1. Determine the winning item based on weight
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         const random = Math.random() * totalRatio;
         let currentWeight = 0;
@@ -62,8 +68,7 @@ const RouletteApp = () => {
             }
         }
 
-        // 2. 当選セクションの中心角度を計算
-        // SVGの描画は3時の方向が0度で、反時計回りに角度が増加する
+        // 2. Calculate the center angle of the winning section
         const totalAngle = 360;
         let angleAccumulator = 0;
         let targetAngle = 0;
@@ -77,17 +82,10 @@ const RouletteApp = () => {
             angleAccumulator += sectionAngle;
         }
 
-        // 3. 最終的な回転角度を計算
-        const spins = 8; // アニメーションのための回転数
+        // 3. Calculate the final rotation angle
+        const spins = 8; // Number of spins for animation
         const degreesPerSpin = 360;
-
-        // 目的のセクション(targetAngle)が真上(270度)に来るように補正
-        // CSSのrotateは時計回りなので、(270 - targetAngle)だけ回転させる
-        const landingAngleCorrection = 270 - targetAngle;
-
-        // 毎回同じ角度に止まらないように、現在の回転にさらに回転を加える
-        // `rotation % degreesPerSpin` で現在の半端な回転角度を取得し、それを引くことで
-        // 一旦キリの良い回転数にリセットしてから計算する
+        const landingAngleCorrection = 270 - targetAngle; // Correction to land at the top (270 deg)
         const newRotation = rotation - (rotation % degreesPerSpin) + (spins * degreesPerSpin) + landingAngleCorrection;
 
         setRotation(newRotation);
@@ -166,15 +164,16 @@ const RouletteApp = () => {
       	  	>
       	  	  	<h1 className="text-3xl font-bold text-white flex items-center gap-2">
       	  	  	  	<Sparkles className="text-yellow-300" />
-      	  	  	  	ワクワクルーレット
+      	  	  	  	{t('mainTitle')}
       	  	  	</h1>
-      	  	  	<div className="flex gap-4">
+      	  	  	<div className="flex items-center gap-4">
       	  	  	  	<button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
-      	  	  	  	  	テンプレート
+      	  	  	  	  	{t('templates')}
       	  	  	  	</button>
       	  	  	  	<button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
-      	  	  	  	  	ログイン
+      	  	  	  	  	{t('login')}
       	  	  	  	</button>
+                    <LanguageSwitcher />
       	  	  	</div>
       	  	</motion.header>
 
@@ -187,19 +186,19 @@ const RouletteApp = () => {
       	  	  	  	transition={{ duration: 0.6, delay: 0.2 }}
       	  	  	>
       	  	  	  	<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-      	  	  	  	  	<h2 className="text-xl font-semibold text-white mb-4">ルーレット設定</h2>
+      	  	  	  	  	<h2 className="text-xl font-semibold text-white mb-4">{t('settingsTitle')}</h2>
 
       	  	  	  	  	{/* タイトル入力 */}
       	  	  	  	  	<div className="mb-6">
       	  	  	  	  	  	<label className="block text-white/80 text-sm font-medium mb-2">
-      	  	  	  	  	  	  	タイトル
+      	  	  	  	  	  	  	{t('rouletteTitleLabel')}
       	  	  	  	  	  	</label>
       	  	  	  	  	  	<input
       	  	  	  	  	  	  	type="text"
       	  	  	  	  	  	  	value={title}
       	  	  	  	  	  	  	onChange={(e) => setTitle(e.target.value)}
       	  	  	  	  	  	  	className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-      	  	  	  	  	  	  	placeholder="ルーレットのタイトルを入力"
+      	  	  	  	  	  	  	placeholder={t('rouletteTitlePlaceholder')}
       	  	  	  	  	  	/>
       	  	  	  	  	</div>
 
@@ -250,7 +249,7 @@ const RouletteApp = () => {
       	  	  	  	  	  	  	className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
       	  	  	  	  	  	>
       	  	  	  	  	  	  	<Plus size={20} />
-      	  	  	  	  	  	  	項目を追加
+      	  	  	  	  	  	  	{t('addItem')}
       	  	  	  	  	  	</button>
       	  	  	  	  	</div>
 						
@@ -261,15 +260,15 @@ const RouletteApp = () => {
       	  	  	  	  	  	  	className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors flex items-center gap-2"
       	  	  	  	  	  	>
       	  	  	  	  	  	  	<Settings size={16} />
-      	  	  	  	  	  	  	設定
+      	  	  	  	  	  	  	{t('settings')}
       	  	  	  	  	  	</button>
       	  	  	  	  	  	<button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors flex items-center gap-2">
       	  	  	  	  	  	  	<Save size={16} />
-      	  	  	  	  	  	  	保存
+      	  	  	  	  	  	  	{t('save')}
       	  	  	  	  	  	</button>
       	  	  	  	  	  	<button className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors flex items-center gap-2">
       	  	  	  	  	  	  	<Share2 size={16} />
-      	  	  	  	  	  	  	共有
+      	  	  	  	  	  	  	{t('share')}
       	  	  	  	  	  	</button>
       	  	  	  	  	</div>
       	  	  	  	</div>
@@ -329,12 +328,12 @@ const RouletteApp = () => {
       	  	  	  	  	  	{isSpinning ? (
       	  	  	  	  	  	  	<>
       	  	  	  	  	  	  	  	<div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
-      	  	  	  	  	  	  	  	回転中...
+      	  	  	  	  	  	  	  	{t('spinning')}
       	  	  	  	  	  	  	</>
       	  	  	  	  	  	) : (
       	  	  	  	  	  	  	<>
       	  	  	  	  	  	  	  	<Play size={24} />
-      	  	  	  	  	  	  	  	回す！
+      	  	  	  	  	  	  	  	{t('spin')}
       	  	  	  	  	  	  	</>
       	  	  	  	  	  	)}
       	  	  	  	  	</motion.button>
@@ -389,7 +388,7 @@ const RouletteApp = () => {
 							
       	  	  	  	  	  	<div className="relative z-10">
       	  	  	  	  	  	  	<Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-      	  	  	  	  	  	  	<h2 className="text-2xl font-bold text-gray-800 mb-4">結果発表！</h2>
+      	  	  	  	  	  	  	<h2 className="text-2xl font-bold text-gray-800 mb-4">{t('resultModalTitle')}</h2>
       	  	  	  	  	  	  	<div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
       	  	  	  	  	  	  	  	{result?.name}
       	  	  	  	  	  	  	</div>
@@ -397,7 +396,7 @@ const RouletteApp = () => {
       	  	  	  	  	  	  	  	onClick={closeResult}
       	  	  	  	  	  	  	  	className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors font-semibold"
       	  	  	  	  	  	  	>
-      	  	  	  	  	  	  	  	閉じる
+      	  	  	  	  	  	  	  	{t('close')}
       	  	  	  	  	  	  	</button>
       	  	  	  	  	  	</div>
       	  	  	  	  	</motion.div>
