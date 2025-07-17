@@ -1,5 +1,4 @@
-// src/i18n/settings.ts
-export function getOptions(locale: string) {
+export function getOptions(locale: string = 'ja') {
     return {
         // debug: true, // デバッグ時に有効化
         supportedLngs: ['ja', 'en'],

@@ -3,7 +3,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Settings, Save, Share2 } from 'lucide-react';
+import {
+    Plus,
+    X,
+    // Settings,
+    // Save,
+    // Share2
+} from 'lucide-react';
 import { Item } from '@/types';
 
 interface SettingsPanelProps {
@@ -27,7 +33,7 @@ const SettingsPanel = ({
 }: SettingsPanelProps
 ) => {
     const { t } = useTranslation();
-    const [showSettings, setShowSettings] = React.useState(false);
+    // const [showSettings, setShowSettings] = React.useState(false);
 
     return (
         <motion.div 
@@ -102,7 +108,7 @@ const SettingsPanel = ({
                 </div>
                 
                 {/* Action Buttons */}
-                <div className="flex gap-3 mt-6">
+                {/* <div className="flex gap-3 mt-6">
                     <button
                         onClick={() => setShowSettings(!showSettings)}
                         className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors flex items-center gap-2"
@@ -118,7 +124,7 @@ const SettingsPanel = ({
                         <Share2 size={16} />
                         {t('share')}
                     </button>
-                </div>
+                </div> */}
             </div>
         </motion.div>
     );

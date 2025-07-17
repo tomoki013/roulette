@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-// Headerのインポートを削除
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
 import RoulettePreview from '@/components/features/roulette/RoulettePreview';
 import ResultModal from '@/components/features/roulette/ResultModal';
