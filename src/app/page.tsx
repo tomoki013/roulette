@@ -48,41 +48,49 @@ const RouletteApp = () => {
         setIsSpinning(true);
         setShowResult(false);
 
-        // 重み付き抽選
+        // 1. 重み付けに基づいて当選アイテムを決定
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         const random = Math.random() * totalRatio;
-        let current = 0;
+        let currentWeight = 0;
         let selectedIndex = 0;
 
         for (let i = 0; i < items.length; i++) {
-            current += items[i].ratio;
-            if (random <= current) {
+            currentWeight += items[i].ratio;
+            if (random <= currentWeight) {
                 selectedIndex = i;
                 break;
             }
         }
 
-        // 回転角度を計算（頂点に来るように調整）
+        // 2. 当選セクションの中心角度を計算
+        // SVGの描画は3時の方向が0度で、反時計回りに角度が増加する
         const totalAngle = 360;
-        let currentAngle = 0;
+        let angleAccumulator = 0;
         let targetAngle = 0;
 
-        // 選択されたセクションの中央角度を計算
         for (let i = 0; i < items.length; i++) {
             const sectionAngle = (items[i].ratio / totalRatio) * totalAngle;
             if (i === selectedIndex) {
-                targetAngle = currentAngle + (sectionAngle / 2);
+                targetAngle = angleAccumulator + sectionAngle / 2;
                 break;
             }
-            currentAngle += sectionAngle;
+            angleAccumulator += sectionAngle;
         }
 
-        // 頂点（12時方向）に来るように角度を調整
-        const adjustedTargetAngle = 90 - targetAngle; // 90度は12時方向
-        const spins = 5; // 5回転
-        const finalRotation = rotation + (spins * 360) + adjustedTargetAngle;
+        // 3. 最終的な回転角度を計算
+        const spins = 8; // アニメーションのための回転数
+        const degreesPerSpin = 360;
 
-        setRotation(finalRotation);
+        // 目的のセクション(targetAngle)が真上(270度)に来るように補正
+        // CSSのrotateは時計回りなので、(270 - targetAngle)だけ回転させる
+        const landingAngleCorrection = 270 - targetAngle;
+
+        // 毎回同じ角度に止まらないように、現在の回転にさらに回転を加える
+        // `rotation % degreesPerSpin` で現在の半端な回転角度を取得し、それを引くことで
+        // 一旦キリの良い回転数にリセットしてから計算する
+        const newRotation = rotation - (rotation % degreesPerSpin) + (spins * degreesPerSpin) + landingAngleCorrection;
+
+        setRotation(newRotation);
         setResult(items[selectedIndex]);
 
         // アニメーション完了後に結果を表示
