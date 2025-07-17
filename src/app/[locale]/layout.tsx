@@ -2,6 +2,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import I18nProvider from "@/components/I18nProvider";
+import Header from "@/components/layout/Header"; // Headerをインポート
 import { i18n } from "../../../i18n-config";
 
 const geistSans = Geist({
@@ -14,28 +15,26 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-// ビルド時に静的なパスを生成します
 export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ locale }));
 }
 
-//【重要】コンポーネントを `async function` として定義します
 export default async function LocaleLayout({
     children,
-    params // ここでは params オブジェクト全体を受け取る
+    params,
 }: {
     children: React.ReactNode;
     params: { locale: string };
 }) {
-  //【重要】関数の本体で locale を安全に取り出す
-  const { locale } = await params;
+    const { locale } = params;
 
     return (
-        // lang属性を動的に設定します
         <div lang={locale} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            {/* クライアントコンポーネントにlocaleをpropとして渡します */}
             <I18nProvider locale={locale}>
-                {children}
+                <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4">
+                    <Header /> {/* Headerコンポーネントをここに配置 */}
+                    <main>{children}</main> {/* ページコンポーネントがここに表示される */}
+                </div>
             </I18nProvider>
         </div>
     );
