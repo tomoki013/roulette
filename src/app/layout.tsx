@@ -1,6 +1,6 @@
-import Script from "next/script";
 import "./globals.css";
 import { Metadata } from "next";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   	title: 'Webでルーレット',
@@ -49,18 +49,7 @@ export default function RootLayout({
 				{/* Google Adsense */}
 				<meta name="google-adsense-account" content="ca-pub-8687520805381056" />
 				{/* Google Analytics */}
-				{/* Google tag (gtag.js) */}
-				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-L4CDHVGSSL"></Script>
-				<Script id="google-analytics">
-				  	{`
-				  		window.dataLayer = window.dataLayer || [];
-				  		function gtag(){dataLayer.push(arguments);}
-				  		gtag('js', new Date());
-						
-				  		gtag('config', 'G-L4CDHVGSSL');
-				  	`}
-				</Script>
-
+				<GoogleAnalytics />
 			</head>
   	  	  	<body>{children}</body>
   	  	</html>

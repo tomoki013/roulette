@@ -1,10 +1,12 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 const TermsOfServicePage = () => {
     const { t, i18n } = useTranslation();
     const isJapanese = i18n.language === 'ja';
+    const locale = i18n.language;
 
     return (
         <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
@@ -20,7 +22,13 @@ const TermsOfServicePage = () => {
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第1条（適用）</h2>
                         <p>本規約は、ユーザーと当サイトとの間の本サービスの利用に関わる一切の関係に適用されるものとします。</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第2条（禁止事項）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第2条（Cookieの使用）</h2>
+                        <p>当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（アクセス解析ツール）</h2>
+                        <p>当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（禁止事項）</h2>
                         <p>ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>法令または公序良俗に違反する行為</li>
@@ -29,13 +37,13 @@ const TermsOfServicePage = () => {
                             <li>その他、当サイトが不適切と判断する行為</li>
                         </ul>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（免責事項）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（免責事項）</h2>
                         <p>当サイトは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。</p>
-                        
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（サービス内容の変更等）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第6条（サービス内容の変更等）</h2>
                         <p>当サイトは、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとします。</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（準拠法・裁判管轄）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（準拠法・裁判管轄）</h2>
                         <p>本規約の解釈にあたっては、日本法を準拠法とします。</p>
                         <p className="pt-4">以上</p>
                     </>
@@ -46,7 +54,14 @@ const TermsOfServicePage = () => {
                         </p>
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 1 (Application)</h2>
                         <p>These Terms shall apply to all relationships between the User and the Site concerning the use of the Service.</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Prohibited Matters)</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Use of Cookies)</h2>
+                        <p>This site uses cookies to improve convenience and for ad delivery. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Access Analysis Tool)</h2>
+                        <p>This site uses Google Analytics to improve our services. This collects usage data in a way that does not personally identify individuals. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Prohibited Matters)</h2>
                         <p>Users shall not engage in the following acts when using the Service.</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>Acts that violate laws and regulations or public order and morals.</li>
@@ -54,13 +69,13 @@ const TermsOfServicePage = () => {
                             <li>Acts that destroy or interfere with the functions of the Site&apos;s servers or network.</li>
                             <li>Any other acts that the Site deems inappropriate.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Disclaimer)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Disclaimer)</h2>
                         <p>The Site shall not be liable for any damages incurred by the User arising from the Service.</p>
-                        
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Changes to Service Content, etc.)</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Changes to Service Content, etc.)</h2>
                         <p>The Site may change the content of the Service or discontinue providing the Service without notice to the User.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Governing Law and Jurisdiction)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Governing Law and Jurisdiction)</h2>
                         <p>The laws of Japan shall be the governing law for the interpretation of these Terms.</p>
                         <p className="pt-4">End</p>
                     </>

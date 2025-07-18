@@ -24,5 +24,10 @@
     "mainTitleShort": "Web Roulette",
     "footerTagline": "Create and share your own custom roulettes instantly.",
     "legal": "Legal",
-    "social": "Social"
+    "social": "Social",
+    "cookieBannerText": "This site uses cookies to improve our services and display ads.",
+    "seeDetails": "See Details",
+    "accept": "Accept",
+    "decline": "Decline",
+    "declineConfirmation": "Your settings have been saved. No information will be collected on this site."
 }

@@ -24,5 +24,10 @@
     "mainTitleShort": "Roulette Web",
     "footerTagline": "Créez et partagez instantanément vos propres roulettes personnalisées.",
     "legal": "Légal",
-    "social": "Social"
+    "social": "Social",
+    "cookieBannerText": "Ce site utilise des cookies pour améliorer nos services et afficher des publicités.",
+    "seeDetails": "Voir les détails",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "declineConfirmation": "Vos paramètres ont été enregistrés. Aucune information ne sera collectée sur ce site."
 }
