@@ -29,6 +29,9 @@ const CookieBanner = () => {
         setTimeout(() => {
             setShowBanner(false);
         }, 3000); // 3秒後にバナーを非表示
+        setTimeout(() => {
+            window.location.reload();
+        }, 3500); // 3.5秒後にページをリロード
     };
 
     const locale = i18n.language;
