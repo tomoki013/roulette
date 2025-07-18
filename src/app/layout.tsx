@@ -50,6 +50,7 @@ export default function RootLayout({
 				<meta name="google-adsense-account" content="ca-pub-8687520805381056" />
 				{/* Google Analytics */}
 				<GoogleAnalytics />
+				
 			</head>
   	  	  	<body>{children}</body>
   	  	</html>

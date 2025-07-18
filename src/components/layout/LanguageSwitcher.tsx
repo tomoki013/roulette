@@ -64,12 +64,7 @@ const LanguageSwitcher = () => {
                 newPath = pathname === '/' ? '/' : pathname;
             }
             
-            let finalPath;
-            if (newLocale === i18nConfig.defaultLocale) {
-                finalPath = newPath;
-            } else {
-                finalPath = newPath === '/' ? `/${newLocale}` : `/${newLocale}${newPath}`;
-            }
+            const finalPath = newPath === '/' ? `/${newLocale}` : `/${newLocale}${newPath}`;
             
             router.push(finalPath);
             i18n.changeLanguage(newLocale); // こちらも遷移の一部として扱う
