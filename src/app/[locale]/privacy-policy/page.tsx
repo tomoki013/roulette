@@ -5,19 +5,20 @@ import { useTranslation } from 'react-i18next';
 
 const PrivacyPolicyPage = () => {
     const { t, i18n } = useTranslation();
-    const isJapanese = i18n.language === 'ja';
 
     return (
         <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
             <h1 className="text-3xl font-bold mb-6">{t('privacyTitle')}</h1>
             <div className="space-y-4 text-white/90">
                 <p>{t('lastUpdated')}</p>
-                {isJapanese ? (
+
+                {/* Japanese Version */}
+                {i18n.language === 'ja' && (
                     <>
                         <p>
                             「Webでルーレット」（以下、「当サイト」といいます。）は、ユーザーの皆様のプライバシーを尊重し、個人情報の保護に最大限の注意を払っています。このプライバシーポリシーは、当サイトが収集する情報、その利用方法、および情報の保護について説明するものです。
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">1. Cookie（クッキー）について</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2" id='cookie-info-ja'>1. Cookie（クッキー）について</h2>
                         <p>
                             Cookieとは、ユーザーがウェブサイトを閲覧した際に、ブラウザを通じてユーザーのコンピュータに一時的にデータを保存する仕組みです。当サイトでは、サービスの向上、およびユーザー体験の改善を目的としてCookieを使用しています。これにより、ユーザーの設定を記憶したり、より関連性の高い広告を表示したりすることが可能になります。
                         </p>
@@ -66,19 +67,137 @@ const PrivacyPolicyPage = () => {
                             修正された最新のプライバシーポリシーは常に本ページにて開示されます。
                         </p>
                     </>
-                ) : (
+                )}
+
+                {/* French Version */}
+                {i18n.language === 'fr' && (
                     <>
+                        <p>
+                            &quot;Roulette sur le Web&quot; (ci-après dénommé &quot;ce site&quot;) respecte votre vie privée et accorde la plus grande attention à la protection des informations personnelles. Cette politique de confidentialité explique quelles informations ce site collecte, comment elles sont utilisées et comment elles sont protégées.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2" id='cookie-info-fr'>1. À propos des cookies</h2>
+                        <p>
+                            Un cookie est un mécanisme qui stocke temporairement des données sur l&apos;ordinateur d&apos;un utilisateur via le navigateur lorsque l&apos;utilisateur navigue sur un site web. Ce site utilise des cookies pour améliorer nos services et l&apos;expérience utilisateur. Cela nous permet de mémoriser les paramètres de l&apos;utilisateur et d&apos;afficher des publicités plus pertinentes.
+                        </p>
+                        <p>
+                            Les utilisateurs peuvent désactiver l&apos;utilisation des cookies en modifiant les paramètres de leur navigateur. Si vous sélectionnez &quot;Refuser&quot; sur notre bannière de consentement aux cookies, aucune information ne sera collectée sur ce site. Cependant, veuillez noter que dans de tels cas, certaines fonctions pourraient ne pas être disponibles sur certains sites web, y compris celui-ci. Pour savoir comment modifier les paramètres des cookies dans les principaux navigateurs, veuillez consulter les liens ci-dessous.
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li><Link href="https://support.google.com/chrome/answer/95647?hl=ja" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Chrome</Link></li>
+                            <li><Link href="https://support.mozilla.org/fr/kb/effacer-les-cookies-pour-supprimer-les-information" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Mozilla Firefox</Link></li>
+                            <li><Link href="https://support.apple.com/fr-fr/105082" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Apple Safari</Link></li>
+                            <li><Link href="https://support.microsoft.com/fr-fr/windows/supprimer-et-g%C3%A9rer-les-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Microsoft Edge</Link></li>
+                        </ul>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">2. À propos de la publicité</h2>
+                        <p>
+                            Ce site utilise le service de publicité tiers &quot;Google AdSense&quot;.
+                            Les distributeurs de publicité peuvent utiliser des &quot;cookies&quot; (qui n&apos;incluent pas votre nom, adresse, adresse e-mail ou numéro de téléphone) pour afficher des publicités pour des produits et services qui correspondent à vos intérêts.
+                            Pour plus d&apos;informations sur Google AdSense et sur la manière de désactiver les cookies, veuillez consulter &quot;<Link href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Publicité – Règles et Conditions d&apos;utilisation – Google</Link>&quot;.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">3. À propos des outils d&apos;analyse d&apos;audience</h2>
+                        <p>
+                            Ce site utilise &quot;Google Analytics&quot;, un outil d&apos;analyse d&apos;audience fourni par Google.
+                            Google Analytics utilise des cookies pour comprendre comment les utilisateurs interagissent avec le site. Ces données de trafic sont collectées de manière anonyme et ne vous identifient pas personnellement. Les données collectées sont utilisées pour améliorer le site et analyser les modèles d&apos;utilisation.
+                        </p>
+                        <h3 className="text-xl font-semibold pt-2 pb-1">Désactivation de la collecte de données</h3>
+                        <p>
+                            Vous pouvez refuser la collecte de ces données en désactivant les cookies dans les paramètres de votre navigateur. Vous pouvez également désactiver la collecte de données par Google Analytics en installant le &quot;Module complémentaire de désactivation de Google Analytics&quot; ci-dessous.
+                        </p>
+                        <p>
+                            <Link href="https://tools.google.com/dlpage/gaoptout?hl=fr" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Module complémentaire de désactivation de Google Analytics</Link>
+                        </p>
+                        <p>
+                            Pour plus d&apos;informations sur les conditions d&apos;utilisation et la politique de confidentialité de Google Analytics, veuillez consulter les liens ci-dessous.
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li><Link href="https://marketingplatform.google.com/about/analytics/terms/fr/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Conditions d&apos;utilisation de Google Analytics</Link></li>
+                            <li><Link href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Politique de confidentialité de Google</Link></li>
+                        </ul>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Clause de non-responsabilité</h2>
+                        <p>
+                            Veuillez noter que nous ne sommes pas responsables des dommages ou pertes causés par le contenu de ce site.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Modifications de cette politique de confidentialité</h2>
+                        <p>
+                            Ce site se conformera aux lois et réglementations japonaises applicables aux informations personnelles et révisera et améliorera cette politique de temps à autre.
+                            La dernière politique de confidentialité révisée sera toujours publiée sur cette page.
+                        </p>
+                    </>
+                )}
+
+                {/* Spanish Version */}
+                {i18n.language === 'es' && (
+                    <>
+                        <p>
+                            &quot;Ruleta en la Web&quot; (en adelante, &quot;este sitio&quot;) respeta su privacidad y presta la máxima atención a la protección de la información personal. Esta política de privacidad explica qué información recopila este sitio, cómo se utiliza y cómo se protege.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2" id='cookie-info-es'>1. Acerca de las cookies</h2>
+                        <p>
+                            Una cookie es un mecanismo que almacena temporalmente datos en el ordenador de un usuario a través del navegador cuando el usuario navega por un sitio web. Este sitio utiliza cookies para mejorar nuestros servicios y la experiencia del usuario. Esto nos permite recordar la configuración del usuario y mostrar anuncios más relevantes.
+                        </p>
+                        <p>
+                            Los usuarios pueden deshabilitar el uso de cookies cambiando la configuración de su navegador. Si selecciona &quot;Rechazar&quot; en nuestro banner de consentimiento de cookies, no se recopilará información en este sitio. Sin embargo, tenga en cuenta que, en tales casos, es posible que algunas funciones no estén disponibles en algunos sitios web, sin limitarse a este sitio. Para obtener información sobre cómo cambiar la configuración de cookies en los principales navegadores, consulte los enlaces a continuación.
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li><Link href="https://support.google.com/chrome/answer/95647?hl=ja" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Chrome</Link></li>
+                            <li><Link href="https://support.mozilla.org/es/kb/borrar-cookies" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Mozilla Firefox</Link></li>
+                            <li><Link href="https://support.apple.com/es-es/105082" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Apple Safari</Link></li>
+                            <li><Link href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Microsoft Edge</Link></li>
+                        </ul>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">2. Acerca de la publicidad</h2>
+                        <p>
+                            Este sitio utiliza el servicio de publicidad de terceros &quot;Google AdSense&quot;.
+                            Los distribuidores de publicidad pueden usar &quot;cookies&quot; (que no incluyen su nombre, dirección, dirección de correo electrónico o número de teléfono) para mostrar anuncios de productos y servicios que coincidan con sus intereses.
+                            Para obtener más información sobre Google AdSense y cómo deshabilitar las cookies, consulte &quot;<Link href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Publicidad – Políticas y Términos – Google</Link>&quot;.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">3. Acerca de las herramientas de análisis de acceso</h2>
+                        <p>
+                            Este sitio utiliza &quot;Google Analytics&quot;, una herramienta de análisis de acceso proporcionada por Google.
+                            Google Analytics utiliza cookies para comprender cómo los usuarios interactúan con el sitio. Estos datos de tráfico se recopilan de forma anónima y no lo identifican personalmente. Los datos recopilados se utilizan para mejorar el sitio y analizar los patrones de uso.
+                        </p>
+                        <h3 className="text-xl font-semibold pt-2 pb-1">Exclusión de la recopilación de datos</h3>
+                        <p>
+                            Puede negarse a que se recopilen estos datos desactivando las cookies en la configuración de su navegador. También puede deshabilitar la recopilación de datos por parte de Google Analytics instalando el &quot;Complemento de inhabilitación para navegadores de Google Analytics&quot; a continuación.
+                        </p>
+                        <p>
+                            <Link href="https://tools.google.com/dlpage/gaoptout?hl=es" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Complemento de inhabilitación para navegadores de Google Analytics</Link>
+                        </p>
+                        <p>
+                            Para obtener más información sobre los términos de servicio y la política de privacidad de Google Analytics, consulte los enlaces a continuación.
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li><Link href="https://marketingplatform.google.com/about/analytics/terms/es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Términos de servicio de Google Analytics</Link></li>
+                            <li><Link href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Política de privacidad de Google</Link></li>
+                        </ul>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Descargo de responsabilidad</h2>
+                        <p>
+                            Tenga en cuenta que no somos responsables de ningún daño o pérdida causada por el contenido de este sitio.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Cambios en esta Política de Privacidad</h2>
+                        <p>
+                            Este sitio cumplirá con las leyes y regulaciones japonesas aplicables a la información personal y revisará y mejorará esta política de vez en cuando.
+                            La última política de privacidad revisada siempre se publicará en esta página.
+                        </p>
+                    </>
+                )}
+
+                {/* English (Default) Version */}
+                {/* Renders if language is not 'ja', 'fr', or 'es' */}
+                {!'ja_fr_es'.includes(i18n.language) && (
+                     <>
                         <p>
                             &quot;Roulette on the Web&quot;(hereinafter referred to as &quot;this site&quot;) respects your privacy and pays the utmost attention to the protection of personal information. This privacy policy explains what information this site collects, how it is used, and how it is protected.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">1. About Cookies</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2" id='cookie-info-en'>1. About Cookies</h2>
                         <p>
                             A cookie is a mechanism that temporarily stores data on a user&apos;s computer through the browser when the user browses a website. This site uses cookies to improve our services and enhance the user experience. This allows us to remember user settings and display more relevant advertisements.
                         </p>
                         <p>
                             Users can disable the use of cookies by changing their browser settings. If you select &quot;Decline&quot; on our cookie consent banner, no information will be collected in this site. However, please note that in such cases, some functions may not be available on some websites, not limited to this site. For information on how to change cookie settings in major browsers, please refer to the links below.
                         </p>
-                         <ul className="list-disc list-inside pl-4 space-y-1">
+                        <ul className="list-disc list-inside pl-4 space-y-1">
                             <li><Link href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Chrome</Link></li>
                             <li><Link href="https://support.mozilla.org/en-US/kb/block-websites-storing-cookies-site-data-firefox" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Mozilla Firefox</Link></li>
                             <li><Link href="https://support.apple.com/en-us/105082" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Apple Safari</Link></li>
@@ -107,8 +226,8 @@ const PrivacyPolicyPage = () => {
                             For more information on the Google Analytics terms of service and privacy policy, please see the links below.
                         </p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
-                           <li><Link href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Analytics Terms of Service</Link></li>
-                           <li><Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google&apos;s Privacy Policy</Link></li>
+                            <li><Link href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Analytics Terms of Service</Link></li>
+                            <li><Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google&apos;s Privacy Policy</Link></li>
                         </ul>
                         <h2 className="text-2xl font-semibold pt-4 pb-2">4. Disclaimer</h2>
                         <p>
