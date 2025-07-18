@@ -6,7 +6,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 // Loader2アイコンをインポート
-import { Languages, ChevronDown, Check, Loader2 } from 'lucide-react';
+import { Languages, ChevronDown, Check, Loader2, ChevronUp } from 'lucide-react';
 import { i18n as i18nConfig } from '../../../i18n-config';
 import Image from 'next/image';
 
@@ -96,7 +96,7 @@ const LanguageSwitcher = () => {
     };
 
     return (
-        <div ref={wrapperRef} className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
+        <div ref={wrapperRef} className="fixed bottom-4 right-4 sm:top-6 sm:right-6 z-50">
             <div className="relative">
                 <motion.button
                     onClick={() => setIsOpen(!isOpen)}
@@ -128,7 +128,8 @@ const LanguageSwitcher = () => {
                                 animate={{ rotate: isOpen ? 180 : 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <ChevronDown size={16} />
+                                <ChevronDown size={16} className='hidden sm:block' />
+                                <ChevronUp size={16} className='sm:hidden' />
                             </motion.div>
                         </>
                     )}
@@ -141,7 +142,8 @@ const LanguageSwitcher = () => {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            className="absolute right-0 mt-2 w-48 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+                            // 【変更点】sm未満では上、sm以上では下にメニューを表示するようにクラスを修正
+                            className="absolute right-0 w-48 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden bottom-full mb-2 sm:top-full sm:mt-2 sm:bottom-auto sm:mb-0"
                             role="menu"
                             aria-orientation="vertical"
                         >
