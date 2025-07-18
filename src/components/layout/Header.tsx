@@ -3,7 +3,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
-import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
 const Header = () => {
     const { t } = useTranslation();
@@ -19,15 +18,14 @@ const Header = () => {
                 <Sparkles className="text-yellow-300" />
                 {t('mainTitle')}
             </h1>
-            <div className="flex items-center gap-4">
-                {/* <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
+            {/* <div className="flex items-center gap-4">
+                <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
                     {t('templates')}
                 </button>
                 <button className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors">
                     {t('login')}
-                </button> */}
-                <LanguageSwitcher />
-            </div>
+                </button>
+            </div> */}
         </motion.header>
     );
 };
