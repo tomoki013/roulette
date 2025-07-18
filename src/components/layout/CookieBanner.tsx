@@ -59,7 +59,7 @@ const CookieBanner = () => {
                         </div>
                         {!declined && (
                             <div className="flex gap-2 flex-shrink-0">
-                                <Link href={`/${locale}/privacy-policy`}>
+                                <Link href={`/${locale}/privacy-policy#cookie-info-${locale}`}>
                                     <button className="px-4 py-2 bg-white/20 text-white rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
                                         {t('seeDetails')}
                                     </button>
