@@ -64,7 +64,7 @@ const SettingsPanel = ({
                     {items.map((item, index) => (
                         <motion.div
                             key={index}
-                            className="flex items-center gap-3 p-3 bg-white/5 rounded-lg"
+                            className="flex items-center gap-3 p-3 bg-white/5 rounded-lg flex-wrap"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -77,7 +77,7 @@ const SettingsPanel = ({
                                 type="text"
                                 value={item.name}
                                 onChange={(e) => onItemUpdate(index, 'name', e.target.value)}
-                                className="flex-1 px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                                className="flex-1 min-w-[150px] px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
                             />
                             <select
                                 value={item.ratio}
