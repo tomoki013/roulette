@@ -84,7 +84,7 @@ const RouletteApp = () => {
         }, 3000);
     };
 
-    if (!i18n.isInitialized || !title) {
+    if (!i18n.isInitialized) {
         return <LoadingScreen />;
     }
 
