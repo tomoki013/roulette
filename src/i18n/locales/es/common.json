@@ -24,5 +24,10 @@
     "mainTitleShort": "Ruleta Web",
     "footerTagline": "Crea y comparte tus propias ruletas personalizadas al instante.",
     "legal": "Legal",
-    "social": "Social"
+    "social": "Social",
+    "cookieBannerText": "Este sitio utiliza cookies para mejorar nuestros servicios y mostrar anuncios.",
+    "seeDetails": "Ver detalles",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "declineConfirmation": "Tu configuración ha sido guardada. No se recopilará información en este sitio."
 }

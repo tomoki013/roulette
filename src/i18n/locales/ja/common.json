@@ -25,5 +25,10 @@
     "mainTitleShort": "Webでルーレット",
     "footerTagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。",
     "legal": "法務",
-    "social": "ソーシャル"
+    "social": "ソーシャル",
+    "cookieBannerText": "当サイトではサービスの向上と広告の表示を目的としてCookieを使用しています。",
+    "seeDetails": "詳細を見る",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。"
 }
