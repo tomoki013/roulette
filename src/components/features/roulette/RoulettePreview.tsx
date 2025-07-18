@@ -12,7 +12,6 @@ interface RoulettePreviewProps {
     rotation: number;
     isSpinning: boolean;
     onSpin: () => void;
-    colors: string[];
 }
 
 const RoulettePreview = ({
@@ -21,10 +20,9 @@ const RoulettePreview = ({
     rotation,
     isSpinning,
     onSpin,
-    colors
-}: RoulettePreviewProps
-) => {
+}: RoulettePreviewProps) => {
     const { t } = useTranslation();
+    const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
 
     return (
         <motion.div 
@@ -36,7 +34,7 @@ const RoulettePreview = ({
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center">
                 <h3 className="text-xl font-semibold text-white mb-6">{title}</h3>
 
-                <RouletteWheel items={items} rotation={rotation} isSpinning={isSpinning} colors={colors} />
+                <RouletteWheel items={items} rotation={rotation} isSpinning={isSpinning} />
                   
                 <motion.button
                     onClick={onSpin}
@@ -61,6 +59,24 @@ const RoulettePreview = ({
                         </>
                     )}
                 </motion.button>
+
+                <div className="w-full mt-6 space-y-2">
+                    {items.map((item, index) => {
+                        const probability = totalRatio > 0 ? ((item.ratio / totalRatio) * 100).toFixed(1) : '0.0';
+                        return (
+                            <div key={index} className="flex items-center justify-between text-white bg-black/20 p-2 rounded-lg">
+                                <div className="flex items-center gap-2">
+                                    <div
+                                        className="w-4 h-4 rounded-full"
+                                        style={{ backgroundColor: item.color }}
+                                    />
+                                    <span>{item.name}</span>
+                                </div>
+                                <span>{probability}%</span>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </motion.div>
     );
