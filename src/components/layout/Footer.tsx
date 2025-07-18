@@ -13,7 +13,7 @@ const Footer = () => {
 
     return (
         <motion.footer
-            className="w-full mt-16 bg-black/20 backdrop-blur-sm border-t border-white/20 text-white"
+            className="w-full mt-16 bg-black/20 backdrop-blur-sm border-t border-white/20 text-white rounded-md"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
