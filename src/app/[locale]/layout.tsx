@@ -4,6 +4,13 @@ import Header from "@/components/layout/Header";
 import { i18n } from "../../../i18n-config";
 import { Metadata } from "next";
 
+interface Props {
+    children: React.ReactNode;
+    params: {
+        locale: string
+    };
+}
+
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -31,13 +38,9 @@ export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-    children,
-    params,
-}: {
-    children: React.ReactNode;
-    params: { locale: string };
-}) {
+const LocaleLayout = async (props: Props) => {
+    const { children } = await props;
+    const params = await props.params;
     const { locale } = await params;
 
     return (
@@ -45,9 +48,13 @@ export default async function LocaleLayout({
             <I18nProvider locale={locale}>
                 <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4">
                     <Header />
-                    <main>{children}</main>
+                    <main>
+                        {children}
+                    </main>
                 </div>
             </I18nProvider>
         </div>
     );
 }
+
+export default LocaleLayout;
