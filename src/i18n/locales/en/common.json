@@ -14,5 +14,15 @@
     "spinning": "Spinning...",
     "resultModalTitle": "The result is!",
     "close": "Close",
-    "optionDefault": "Option"
+    "optionDefault": "Option",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "copyright": "Roulette on the Web. All Rights Reserved.",
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms of Service",
+    "lastUpdated": "Last Updated: July 19, 2024",
+    "mainTitleShort": "Web Roulette",
+    "footerTagline": "Create and share your own custom roulettes instantly.",
+    "legal": "Legal",
+    "social": "Social"
 }

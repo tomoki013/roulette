@@ -3,6 +3,8 @@ import I18nProvider from "@/components/I18nProvider";
 import Header from "@/components/layout/Header";
 import { i18n } from "../../../i18n-config";
 import { Metadata } from "next";
+import Footer from "@/components/layout/Footer";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -43,11 +45,13 @@ const LocaleLayout = async ({
     return (
         <div lang={locale} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <I18nProvider locale={locale}>
-                <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4">
+                <LanguageSwitcher />
+                <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4 flex flex-col">
                     <Header />
-                    <main>
+                    <main className="flex-grow">
                         {children}
                     </main>
+                    <Footer />
                 </div>
             </I18nProvider>
         </div>

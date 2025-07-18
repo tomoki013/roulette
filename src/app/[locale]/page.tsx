@@ -6,6 +6,7 @@ import SettingsPanel from '@/components/features/roulette/SettingsPanel';
 import RoulettePreview from '@/components/features/roulette/RoulettePreview';
 import ResultModal from '@/components/features/roulette/ResultModal';
 import { Item } from '@/types';
+import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 
 const RouletteApp = () => {
     const { t, i18n } = useTranslation();
@@ -84,7 +85,7 @@ const RouletteApp = () => {
     };
 
     if (!i18n.isInitialized || !title) {
-        return <div className="flex items-center justify-center text-white">Loading...</div>;
+        return <LoadingScreen />;
     }
 
     return (
