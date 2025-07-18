@@ -1,5 +1,39 @@
 import Script from "next/script";
 import "./globals.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  	title: 'Webでルーレット',
+  	description: 'Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。',
+  	authors: [{ name: 'ともきち' }],
+  	openGraph: {
+  	  	title: 'Webでルーレット',
+  	  	description: 'Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。',
+  	  	url: 'https://webroulette.netlify.app',
+  	  	siteName: 'Webでルーレット',
+  	  	type: 'website',
+  	  	images: [
+  	  	  	{
+  	  	  	  	url: 'favicon.ico',
+  	  	  	  	width: 1200,
+  	  	  	  	height: 630,
+  	  	  	  	alt: 'Webでルーレット',
+  	  	  	},
+  	  	],
+  	},
+  	twitter: {
+  	  	card: 'summary_large_image',
+  	  	title: 'Webでルーレット',
+  	  	description: 'Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。',
+  	  	images: ['favicon.ico'],
+  	},
+  	metadataBase: new URL('https://webroulette.netlify.app'),
+}
+
+export const viewport = {
+  	width: 'device-width',
+  	initialScale: 1,
+};
 
 export default function RootLayout({
   	children,
