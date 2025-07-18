@@ -4,13 +4,6 @@ import Header from "@/components/layout/Header";
 import { i18n } from "../../../i18n-config";
 import { Metadata } from "next";
 
-interface Props {
-    children: React.ReactNode;
-    params: {
-        locale: string
-    };
-}
-
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -38,9 +31,13 @@ export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ locale }));
 }
 
-const LocaleLayout = async (props: Props) => {
-    const { children } = await props;
-    const params = await props.params;
+const LocaleLayout = async ({
+    children,
+    params,
+}: {
+    children: React.ReactNode;
+    params: {locale: string};
+}) => {
     const { locale } = await params;
 
     return (
