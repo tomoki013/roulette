@@ -42,7 +42,7 @@ export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ locale }));
 }
 
-const LocaleLayout = async ({
+const RootLayout = async ({
     children,
     params,
 }: {
@@ -77,4 +77,4 @@ const LocaleLayout = async ({
     );
 }
 
-export default LocaleLayout;
+export default RootLayout;
