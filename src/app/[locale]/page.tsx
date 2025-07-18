@@ -22,16 +22,17 @@ const RouletteApp = () => {
     useEffect(() => {
         if (i18n.isInitialized) {
             setItems([
-                { name: `${t('optionDefault')} 1`, ratio: 1 },
-                { name: `${t('optionDefault')} 2`, ratio: 1 },
-                { name: `${t('optionDefault')} 3`, ratio: 1 },
+                { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
+                { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
+                { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
             ]);
             setTitle(t('previewTitle'));
         }
-    }, [i18n.isInitialized, t]);
+    }, [i18n.isInitialized, t, colors]);
 
     const addItem = () => {
-        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1 }]);
+        const newItemColor = colors[items.length % colors.length];
+        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
 
     const removeItem = (index: number) => {
@@ -42,7 +43,8 @@ const RouletteApp = () => {
 
     const updateItem = (index: number, field: keyof Item, value: string | number) => {
         const newItems = [...items];
-        newItems[index] = { ...newItems[index], [field]: value };
+        const updatedValue = field === 'color' ? String(value) : value;
+        newItems[index] = { ...newItems[index], [field]: updatedValue };
         setItems(newItems);
     };
 
@@ -98,7 +100,6 @@ const RouletteApp = () => {
                     onItemAdd={addItem}
                     onItemRemove={removeItem}
                     onItemUpdate={updateItem}
-                    colors={colors}
                 />
                 <RoulettePreview
                     title={title}
@@ -106,7 +107,6 @@ const RouletteApp = () => {
                     rotation={rotation}
                     isSpinning={isSpinning}
                     onSpin={spinRoulette}
-                    colors={colors}
                 />
             </div>
             

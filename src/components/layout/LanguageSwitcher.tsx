@@ -8,14 +8,15 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 // Loader2アイコンをインポート
 import { Languages, ChevronDown, Check, Loader2 } from 'lucide-react';
 import { i18n as i18nConfig } from '../../../i18n-config';
+import Image from 'next/image';
 
 type Locale = typeof i18nConfig.locales[number];
 
-const languageMap: Record<Locale, { name: string; flag: string }> = {
-    ja: { name: '日本語', flag: '🇯🇵' },
-    en: { name: 'English', flag: '🇺🇸' },
-    es: { name: 'Español', flag: '🇪🇸' },
-    fr: { name: 'Français', flag: '🇫🇷' },
+const languageMap: Record<Locale, { name: string; code: string }> = {
+    ja: { name: '日本語', code: 'jp' },
+    en: { name: 'English', code: 'us' },
+    es: { name: 'Español', code: 'es' },
+    fr: { name: 'Français', code: 'fr' },
     // ここに他の言語を追加
 };
 
@@ -118,8 +119,15 @@ const LanguageSwitcher = () => {
                     ) : (
                         <>
                             <Languages size={18} />
+                            <Image
+                                src={`https://flagcdn.com/w20/${languageMap[currentLocale]?.code}.png`}
+                                width="20"
+                                height="15"
+                                alt={currentLocale}
+                                className="rounded-sm"
+                            />
                             <span className="font-semibold text-sm">
-                                {languageMap[currentLocale]?.flag} {currentLocale.toUpperCase()}
+                                {currentLocale.toUpperCase()}
                             </span>
                             <motion.div
                                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -138,7 +146,7 @@ const LanguageSwitcher = () => {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            className="absolute right-0 mt-2 w-48 bg-black/50 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+                            className="absolute right-0 mt-2 w-48 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
                             role="menu"
                             aria-orientation="vertical"
                         >
@@ -157,7 +165,13 @@ const LanguageSwitcher = () => {
                                             }`}
                                             role="menuitem"
                                         >
-                                            <span className="text-xl">{languageMap[locale]?.flag}</span>
+                                            <Image
+                                                src={`https://flagcdn.com/w20/${languageMap[locale]?.code}.png`}
+                                                width="20"
+                                                height="15"
+                                                alt={languageMap[locale]?.name}
+                                                className="rounded-sm"
+                                            />
                                             <span className="flex-grow">{languageMap[locale]?.name}</span>
                                             {currentLocale === locale && <Check size={16} className="text-yellow-300" />}
                                         </button>

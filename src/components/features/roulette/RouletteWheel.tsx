@@ -7,16 +7,13 @@ interface RouletteWheelProps {
     items: Item[];
     rotation: number;
     isSpinning: boolean;
-    colors: string[];
 }
 
 const RouletteWheel = ({
     items,
     rotation,
     isSpinning,
-    colors
-}: RouletteWheelProps
-) => {
+}: RouletteWheelProps) => {
     const generateWheelSections = () => {
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         let currentAngle = 0;
@@ -43,7 +40,7 @@ const RouletteWheel = ({
                 <g key={index}>
                     <path
                         d={pathData}
-                        fill={colors[index % colors.length]}
+                        fill={item.color}
                         stroke="#fff"
                         strokeWidth="3"
                         className="drop-shadow-lg"

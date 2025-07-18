@@ -2,7 +2,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* ここには他の設定（例: reactStrictMode: true）は残して大丈夫です */
+  	images: {
+  	  	remotePatterns: [
+  	  	  	{
+  	  	  	  	protocol: 'https',
+  	  	  	  	hostname: 'flagcdn.com',
+  	  	  	  	port: '',
+  	  	  	  	pathname: '/**',
+  	  	  	},
+  	  	],
+  	},
 };
 
 export default nextConfig;
