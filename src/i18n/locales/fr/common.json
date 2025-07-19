@@ -1,5 +1,5 @@
 {
-    "mainTitle": "Roulette sur le Web | Créez votre propre roulette originale",
+    "mainTitle": "Roulette sur le Web",
     "description": "Outil gratuit de création de roulette personnalisée pour le web. Vous pouvez rapidement créer votre propre roulette de loterie en configurant vos articles et ratios préférés. Aucune inscription requise, compatible PC et smartphone.",
     "templates": "Modèles",
     "login": "Connexion",
@@ -40,5 +40,6 @@
     "templatesFeature": "Modèles de roulette",
     "templatesFeatureDescription": "Choisissez parmi une variété de modèles prédéfinis pour démarrer rapidement.",
     "service": "Service",
-    "createRoulette": "Créer une roulette"
+    "createRoulette": "Créer une roulette",
+    "createOriginalRoulette": "Créer une roulette originale"
 }

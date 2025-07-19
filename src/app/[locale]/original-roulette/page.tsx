@@ -92,6 +92,9 @@ const RouletteApp = () => {
 
     return (
         <>
+            <h1 className="text-4xl font-bold text-white text-center mb-8">
++               {t('createOriginalRoulette')}
++           </h1>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel
                     title={title}
