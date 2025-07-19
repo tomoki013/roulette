@@ -1,6 +1,7 @@
 {
     "mainTitle": "Ruleta en la Web | Crea tu propia ruleta original",
-    "templates": "Herramienta gratuita para crear ruletas personalizadas en la web. Puedes crear rápidamente tu propia ruleta de sorteo configurando tus elementos y proporciones favoritas. No requiere registro, compatible con PC y smartphone.",
+    "description": "Herramienta gratuita para crear ruletas personalizadas en la web. Puedes crear rápidamente tu propia ruleta de sorteo configurando tus elementos y proporciones favoritas. No requiere registro, compatible con PC y smartphone.",
+    "templates": "Plantillas",
     "login": "Iniciar sesión",
     "settingsTitle": "Configuración de la ruleta",
     "rouletteTitleLabel": "Título",
@@ -29,5 +30,15 @@
     "seeDetails": "Ver detalles",
     "accept": "Aceptar",
     "decline": "Rechazar",
-    "declineConfirmation": "Tu configuración ha sido guardada. No se recopilará información en este sitio."
+    "declineConfirmation": "Tu configuración ha sido guardada. No se recopilará información en este sitio.",
+    "createRouletteNow": "Crear ruleta ahora",
+    "futureFeaturesTitle": "Próximas funciones",
+    "loginFeature": "Función de inicio de sesión",
+    "loginFeatureDescription": "Guarda tus ruletas y accede a ellas desde cualquier dispositivo.",
+    "myPageFeature": "Mi página",
+    "myPageFeatureDescription": "Gestiona tus ruletas guardadas y consulta tu historial.",
+    "templatesFeature": "Plantillas de ruleta",
+    "templatesFeatureDescription": "Elige entre una variedad de plantillas predefinidas para empezar rápidamente.",
+    "service": "Servicio",
+    "createRoulette": "Crear Ruleta"
 }

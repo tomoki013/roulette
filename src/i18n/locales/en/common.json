@@ -1,6 +1,7 @@
 {
     "mainTitle": "Roulette on the Web | Create your own original roulette",
-    "templates": "Free custom roulette creation tool for the web. You can quickly create your own lottery roulette by setting up your favorite items and ratios. No registration required, PC and smartphone compatible.",
+    "description": "Free custom roulette creation tool for the web. You can quickly create your own lottery roulette by setting up your favorite items and ratios. No registration required, PC and smartphone compatible.",
+    "templates": "Templates",
     "login": "Login",
     "settingsTitle": "Roulette Settings",
     "rouletteTitleLabel": "Title",
@@ -29,5 +30,15 @@
     "seeDetails": "See Details",
     "accept": "Accept",
     "decline": "Decline",
-    "declineConfirmation": "Your settings have been saved. No information will be collected on this site."
+    "declineConfirmation": "Your settings have been saved. No information will be collected on this site.",
+    "createRouletteNow": "Create Roulette Now",
+    "futureFeaturesTitle": "Future Features",
+    "loginFeature": "Login Functionality",
+    "loginFeatureDescription": "Save your roulettes and access them from any device.",
+    "myPageFeature": "My Page",
+    "myPageFeatureDescription": "Manage your saved roulettes and view your history.",
+    "templatesFeature": "Roulette Templates",
+    "templatesFeatureDescription": "Choose from a variety of pre-made templates to get started quickly.",
+    "service": "Service",
+    "createRoulette": "Create Roulette"
 }

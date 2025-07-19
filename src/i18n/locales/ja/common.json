@@ -30,5 +30,15 @@
     "seeDetails": "詳細を見る",
     "accept": "同意する",
     "decline": "拒否する",
-    "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。"
+    "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。",
+    "createRouletteNow": "今すぐルーレットを作成",
+    "futureFeaturesTitle": "今後の機能",
+    "loginFeature": "ログイン機能",
+    "loginFeatureDescription": "作成したルーレットを保存し、どのデバイスからでもアクセスできます。",
+    "myPageFeature": "マイページ",
+    "myPageFeatureDescription": "保存したルーレットを管理したり、履歴を確認したりできます。",
+    "templatesFeature": "テンプレート機能",
+    "templatesFeatureDescription": "様々なテンプレートから選んで、すぐにルーレットを作成できます。",
+    "service": "サービス",
+    "createRoulette": "ルーレット作成"
 }

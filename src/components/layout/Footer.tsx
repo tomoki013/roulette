@@ -9,8 +9,8 @@ import CookieBanner from './CookieBanner';
 
 const Footer = () => {
     const { t, i18n } = useTranslation();
-    // const currentYear = new Date().getFullYear();
     const locale = i18n.language;
+    const currentYear = new Date().getFullYear();
 
     return (
         <>
@@ -23,15 +23,25 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-6 py-12">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {/* ブランドセクション */}
-                        <div className="col-span-1 md:col-span-2">
+                        <div className="col-span-1">
                             <Link href={`/${locale}`} className="flex items-center gap-2 mb-4">
                                 <Sparkles className="text-yellow-300" size={28} />
                                 <span className="text-2xl font-bold">{t('mainTitleShort')}</span>
                             </Link>
-                            <p className="text-white/70 max-w-sm">
+                            <p className="text-white/70">
                                 {t('footerTagline')}
                             </p>
                         </div>
+                        
+                        {/* サービスリンク */}
+                        <div>
+                             <h3 className="font-semibold mb-4 tracking-widest uppercase">{t('service')}</h3>
+                             <nav className="flex flex-col space-y-3">
+                                 <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 transition-colors">
+                                     {t('createRoulette')}
+                                 </Link>
+                             </nav>
+                         </div>
 
                         {/* 法務リンク */}
                         <div>
@@ -57,7 +67,10 @@ const Footer = () => {
 
                     {/* コピーライト */}
                     <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
-                        <p>&copy; 2025 {/* -{currentYear} */}{t('copyright')}</p>
+                        <p>&copy; 2025
+                            { currentYear > 2025 ? `-${currentYear} ` : ' ' }
+                            {t('copyright')}
+                        </p>
                     </div>
                 </div>
             </motion.footer>
