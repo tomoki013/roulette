@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <motion.header 
-            className="flex items-center justify-between p-6 pr-24 bg-white/10 backdrop-blur-sm rounded-2xl mb-8 relative"
+            className="flex items-center justify-between p-6 bg-white/10 backdrop-blur-sm rounded-2xl mb-8 relative"
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
