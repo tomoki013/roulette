@@ -1,122 +1,64 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import SettingsPanel from '@/components/features/roulette/SettingsPanel';
-import RoulettePreview from '@/components/features/roulette/RoulettePreview';
-import ResultModal from '@/components/features/roulette/ResultModal';
-import { Item } from '@/types';
-import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const RouletteApp = () => {
+const HomePage = () => {
     const { t, i18n } = useTranslation();
-
-    const [items, setItems] = useState<Item[]>([]);
-    const [title, setTitle] = useState('');
-    const [isSpinning, setIsSpinning] = useState(false);
-    const [rotation, setRotation] = useState(0);
-    const [result, setResult] = useState<Item | null>(null);
-    const [showResult, setShowResult] = useState(false);
-    const [colors] = useState(['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']);
-
-    useEffect(() => {
-        if (i18n.isInitialized) {
-            setItems([
-                { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
-                { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
-                { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
-            ]);
-            setTitle(t('previewTitle'));
-        }
-    }, [i18n.isInitialized, t, colors]);
-
-    const addItem = () => {
-        const newItemColor = colors[items.length % colors.length];
-        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
-    };
-
-    const removeItem = (index: number) => {
-        if (items.length > 2) {
-            setItems(items.filter((_, i) => i !== index));
-        }
-    };
-
-    const updateItem = (index: number, field: keyof Item, value: string | number) => {
-        const newItems = [...items];
-        const updatedValue = field === 'color' ? String(value) : value;
-        newItems[index] = { ...newItems[index], [field]: updatedValue };
-        setItems(newItems);
-    };
-
-    const spinRoulette = () => {
-        if (isSpinning || items.length === 0) return;
-        setIsSpinning(true);
-        setShowResult(false);
-        const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
-        const random = Math.random() * totalRatio;
-        let currentWeight = 0;
-        let selectedIndex = 0;
-        for (let i = 0; i < items.length; i++) {
-            currentWeight += items[i].ratio;
-            if (random <= currentWeight) {
-                selectedIndex = i;
-                break;
-            }
-        }
-        const totalAngle = 360;
-        let angleAccumulator = 0;
-        let targetAngle = 0;
-        for (let i = 0; i < items.length; i++) {
-            const sectionAngle = (items[i].ratio / totalRatio) * totalAngle;
-            if (i === selectedIndex) {
-                targetAngle = angleAccumulator + sectionAngle / 2;
-                break;
-            }
-            angleAccumulator += sectionAngle;
-        }
-        const spins = 8;
-        const degreesPerSpin = 360;
-        const landingAngleCorrection = 270 - targetAngle;
-        const newRotation = rotation - (rotation % degreesPerSpin) + (spins * degreesPerSpin) + landingAngleCorrection;
-        setRotation(newRotation);
-        setResult(items[selectedIndex]);
-        setTimeout(() => {
-            setIsSpinning(false);
-            setShowResult(true);
-        }, 3000);
-    };
-
-    if (!i18n.isInitialized) {
-        return <LoadingScreen />;
-    }
+    const locale = i18n.language;
 
     return (
-        <>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <SettingsPanel
-                    title={title}
-                    onTitleChange={setTitle}
-                    items={items}
-                    onItemAdd={addItem}
-                    onItemRemove={removeItem}
-                    onItemUpdate={updateItem}
-                />
-                <RoulettePreview
-                    title={title}
-                    items={items}
-                    rotation={rotation}
-                    isSpinning={isSpinning}
-                    onSpin={spinRoulette}
-                />
-            </div>
-            
-            <ResultModal 
-                isOpen={showResult} 
-                result={result} 
-                onClose={() => setShowResult(false)} 
-            />
-        </>
+        <div className="flex flex-col items-center justify-center text-center text-white py-12">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-3xl"
+            >
+                <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-200 pb-4">
+                    {t('mainTitle')}
+                </h1>
+                <p className="mt-4 text-lg md:text-xl text-white/80">
+                    {t('description')}
+                </p>
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <Link
+                        href={`/${locale}/original-roulette`}
+                        className="mt-8 inline-block bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+                    >
+                        {t('createRouletteNow')}
+                    </Link>
+                </motion.div>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="mt-24 max-w-5xl w-full"
+            >
+                <h2 className="text-3xl font-bold mb-8">{t('futureFeaturesTitle')}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left">
+                        <h3 className="text-xl font-semibold mb-2">{t('loginFeature')}</h3>
+                        <p className="text-white/70">{t('loginFeatureDescription')}</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left">
+                        <h3 className="text-xl font-semibold mb-2">{t('myPageFeature')}</h3>
+                        <p className="text-white/70">{t('myPageFeatureDescription')}</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left">
+                        <h3 className="text-xl font-semibold mb-2">{t('templatesFeature')}</h3>
+                        <p className="text-white/70">{t('templatesFeatureDescription')}</p>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
     );
 };
 
-export default RouletteApp;
+export default HomePage;
