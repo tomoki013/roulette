@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 const TermsOfServicePage = () => {
     const { t, i18n } = useTranslation();
-    const isJapanese = i18n.language === 'ja';
     const locale = i18n.language;
 
     return (
@@ -13,21 +12,19 @@ const TermsOfServicePage = () => {
             <h1 className="text-3xl font-bold mb-6">{t('termsTitle')}</h1>
             <div className="space-y-4 text-white/90">
                 <p>{t('lastUpdated')}</p>
-                {isJapanese ? (
+                
+                {/* Japanese Version */}
+                {i18n.language === 'ja' && (
                     <>
                         <p>
                             この利用規約（以下、「本規約」といいます。）は、「Webでルーレット」（以下、「当サイト」といいます。）の利用条件を定めるものです。ユーザーの皆様（以下、「ユーザー」といいます。）には、本規約に従って本サービスをご利用いただきます。
                         </p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第1条（適用）</h2>
                         <p>本規約は、ユーザーと当サイトとの間の本サービスの利用に関わる一切の関係に適用されるものとします。</p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第2条（Cookieの使用）</h2>
                         <p>当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（アクセス解析ツール）</h2>
                         <p>当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（禁止事項）</h2>
                         <p>ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
@@ -36,18 +33,88 @@ const TermsOfServicePage = () => {
                             <li>当サイトのサーバーまたはネットワークの機能を破壊したり、妨害したりする行為</li>
                             <li>その他、当サイトが不適切と判断する行為</li>
                         </ul>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（免責事項）</h2>
                         <p>当サイトは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。</p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第6条（サービス内容の変更等）</h2>
                         <p>当サイトは、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとします。</p>
-
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（準拠法・裁判管轄）</h2>
                         <p>本規約の解釈にあたっては、日本法を準拠法とします。</p>
                         <p className="pt-4">以上</p>
                     </>
-                ) : (
+                )}
+
+                {/* French Version */}
+                {i18n.language === 'fr' && (
+                    <>
+                        <p>
+                            Les présentes Conditions d&apos;utilisation (ci-après dénommées les « Conditions ») définissent les conditions d&apos;utilisation du service « Roulette sur le Web » (ci-après dénommé le « Site »). Les utilisateurs (ci-après dénommés les « Utilisateurs ») utiliseront le Service conformément aux présentes Conditions.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 1 (Application)</h2>
+                        <p>Les présentes Conditions s&apos;appliquent à toutes les relations entre l&apos;Utilisateur et le Site concernant l&apos;utilisation du Service.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Utilisation des cookies)</h2>
+                        <p>Ce site utilise des cookies pour améliorer la commodité et pour la diffusion de publicités. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Outil d&apos;analyse d&apos;audience)</h2>
+                        <p>Ce site utilise Google Analytics pour améliorer nos services. Cela collecte des données d&apos;utilisation d&apos;une manière qui n&apos;identifie pas personnellement les individus. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Interdictions)</h2>
+                        <p>Les Utilisateurs ne doivent pas se livrer aux actes suivants lors de l&apos;utilisation du Service.</p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>Actes qui violent les lois et règlements ou l&apos;ordre public et la morale.</li>
+                            <li>Actes liés à des actes criminels.</li>
+                            <li>Actes qui détruisent ou interfèrent avec les fonctions des serveurs ou du réseau du Site.</li>
+                            <li>Tout autre acte que le Site juge inapproprié.</li>
+                        </ul>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Clause de non-responsabilité)</h2>
+                        <p>Le Site ne sera pas responsable des dommages subis par l&apos;Utilisateur découlant du Service.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Modification du contenu du service, etc.)</h2>
+                        <p>Le Site peut modifier le contenu du Service ou cesser de fournir le Service sans préavis à l&apos;Utilisateur.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Droit applicable et juridiction)</h2>
+                        <p>Les lois du Japon seront le droit applicable pour l&apos;interprétation des présentes Conditions.</p>
+                        <p className="pt-4">Fin</p>
+                    </>
+                )}
+
+                {/* Spanish Version */}
+                {i18n.language === 'es' && (
+                     <>
+                        <p>
+                            Estos Términos de servicio (en adelante, los &quot;Términos&quot;) establecen los términos y condiciones para el uso del servicio &quot;Ruleta en la Web&quot; (en adelante, el &quot;Sitio&quot;). Los usuarios (en adelante, los &quot;Usuarios&quot;) utilizarán el Servicio de acuerdo con estos Términos.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 1 (Aplicación)</h2>
+                        <p>Estos Términos se aplicarán a todas las relaciones entre el Usuario y el Sitio con respecto al uso del Servicio.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 2 (Uso de cookies)</h2>
+                        <p>Este sitio utiliza cookies para mejorar la comodidad y para la entrega de anuncios. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 3 (Herramienta de análisis de acceso)</h2>
+                        <p>Este sitio utiliza Google Analytics para mejorar nuestros servicios. Esto recopila datos de uso de una manera que no identifica personalmente a las personas. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 4 (Asuntos prohibidos)</h2>
+                        <p>Los usuarios no participarán en los siguientes actos al utilizar el Servicio.</p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>Actos que violen las leyes y regulaciones o el orden público y la moral.</li>
+                            <li>Actos relacionados con actos delictivos.</li>
+                            <li>Actos que destruyan o interfieran con las funciones de los servidores o la red del Sitio.</li>
+                            <li>Cualquier otro acto que el Sitio considere inapropiado.</li>
+                        </ul>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 5 (Descargo de responsabilidad)</h2>
+                        <p>El Sitio no será responsable de ningún daño incurrido por el Usuario que surja del Servicio.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 6 (Cambios en el contenido del servicio, etc.)</h2>
+                        <p>El Sitio puede cambiar el contenido del Servicio o dejar de proporcionar el Servicio sin previo aviso al Usuario.</p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 7 (Ley aplicable y jurisdicción)</h2>
+                        <p>Las leyes de Japón serán la ley aplicable para la interpretación de estos Términos.</p>
+                        <p className="pt-4">Fin</p>
+                    </>
+                )}
+
+                {/* English (Default) Version */}
+                {i18n.language === 'en' && (
                     <>
                         <p>
                            These Terms of Service (hereinafter referred to as the &quot;Terms&quot;) set forth the terms and conditions for use of the &quot;Roulette on the Web&quot; (hereinafter referred to as the &quot;Site&quot;). Users (hereinafter referred to as &quot;Users&quot;) shall use the Service in accordance with these Terms.
