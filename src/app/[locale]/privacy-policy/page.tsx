@@ -57,11 +57,15 @@ const PrivacyPolicyPage = () => {
                             <li><Link href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Analytics利用規約</Link></li>
                             <li><Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Googleのプライバシーポリシー</Link></li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. 免責事項</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. お問い合わせフォームで取得する個人情報について</h2>
+                        <p>
+                            当サイトのお問い合わせフォームでは、名前（ニックネーム可）とメールアドレスの入力が必須となっています。取得したこれらの個人情報は、お問い合わせに対する返信や連絡のためにのみ利用し、本人の許可なく第三者に開示することはありません。
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. 免責事項</h2>
                         <p>
                             当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. プライバシーポリシーの変更について</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. プライバシーポリシーの変更について</h2>
                         <p>
                             当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。
                             修正された最新のプライバシーポリシーは常に本ページにて開示されます。
@@ -114,11 +118,15 @@ const PrivacyPolicyPage = () => {
                             <li><Link href="https://marketingplatform.google.com/about/analytics/terms/fr/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Conditions d&apos;utilisation de Google Analytics</Link></li>
                             <li><Link href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Politique de confidentialité de Google</Link></li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Clause de non-responsabilité</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. À propos des informations personnelles collectées via le formulaire de contact</h2>
+                        <p>
+                            Notre formulaire de contact vous demande de saisir votre nom (un surnom est acceptable) et votre adresse e-mail. Ces informations personnelles seront utilisées uniquement dans le but de répondre à votre demande et ne seront pas divulguées à des tiers sans votre permission.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Clause de non-responsabilité</h2>
                         <p>
                             Veuillez noter que nous ne sommes pas responsables des dommages ou pertes causés par le contenu de ce site.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Modifications de cette politique de confidentialité</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Modifications de cette politique de confidentialité</h2>
                         <p>
                             Ce site se conformera aux lois et réglementations japonaises applicables aux informations personnelles et révisera et améliorera cette politique de temps à autre.
                             La dernière politique de confidentialité révisée sera toujours publiée sur cette page.
@@ -171,11 +179,15 @@ const PrivacyPolicyPage = () => {
                             <li><Link href="https://marketingplatform.google.com/about/analytics/terms/es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Términos de servicio de Google Analytics</Link></li>
                             <li><Link href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Política de privacidad de Google</Link></li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Descargo de responsabilidad</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Sobre la información personal recopilada a través del formulario de contacto</h2>
+                        <p>
+                            Nuestro formulario de contacto requiere que introduzca su nombre (se acepta un apodo) y su dirección de correo electrónico. Esta información personal se utilizará únicamente con el fin de responder a su consulta y no se revelará a terceros sin su permiso.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Descargo de responsabilidad</h2>
                         <p>
                             Tenga en cuenta que no somos responsables de ningún daño o pérdida causada por el contenido de este sitio.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Cambios en esta Política de Privacidad</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Cambios en esta Política de Privacidad</h2>
                         <p>
                             Este sitio cumplirá con las leyes y regulaciones japonesas aplicables a la información personal y revisará y mejorará esta política de vez en cuando.
                             La última política de privacidad revisada siempre se publicará en esta página.
@@ -229,11 +241,15 @@ const PrivacyPolicyPage = () => {
                             <li><Link href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google Analytics Terms of Service</Link></li>
                             <li><Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Google&apos;s Privacy Policy</Link></li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. Disclaimer</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">4. About Personal Information Collected Through the Contact Form</h2>
+                        <p>
+                            Our contact form requires you to enter your name (a nickname is acceptable) and email address. This personal information will be used solely for the purpose of responding to your inquiry and will not be disclosed to third parties without your permission.
+                        </p>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Disclaimer</h2>
                         <p>
                             Please note that we are not responsible for any damage or loss caused by the content of this site.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Changes to This Privacy Policy</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Changes to This Privacy Policy</h2>
                         <p>
                             This site will comply with Japanese laws and regulations applicable to personal information and will review and improve this policy from time to time.
                             The latest revised privacy policy will always be disclosed on this page.
