@@ -73,5 +73,16 @@
         "messageLength": "Message must be at least 10 characters.",
         "inquiryTypeRequired": "Please select a type of inquiry.",
         "agreeToTermsRequired": "You must agree to the privacy policy."
-    }
+    },
+    "contactHeroTitle": "We'd love to hear from you",
+    "contactHeroDescription": "To make this site better, we are looking for your opinions and feedback. Please feel free to let us know about feature requests, improvements, etc.",
+    "languageHeroTitle": "Supports Multiple Languages",
+    "languageHeroDescription": "This site supports Japanese, English, Spanish, and French. You can change the language at any time from the language switcher button in the bottom right corner of the screen.",
+    "about": "About",
+    "aboutTitle": "About Roulette on the Web",
+    "aboutSection1Title": "Purpose of This Site",
+    "aboutSection1Content": "'Roulette on the Web' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We want to help people make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
+    "aboutSection2Title": "Target Audience",
+    "aboutSection2Content": "This tool can be used by a wide range of people for personal, business, and educational purposes, such as deciding where to have lunch with friends, choosing a penalty in a game stream, selecting students in an educational setting, or picking winners at online events.",
+    "aboutSection3Content": "We sincerely await your feedback. Please feel free to contact us through the inquiry page as it will be a reference for future development."
 }
