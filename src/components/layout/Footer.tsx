@@ -35,9 +35,9 @@ const Footer = () => {
                         
                         {/* サービスリンク */}
                         <div>
-                             <h3 className="font-semibold mb-4 tracking-widest uppercase">{t('service')}</h3>
+                             <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('service')}</h3>
                              <nav className="flex flex-col space-y-3">
-                                 <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 transition-colors">
+                                 <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                      {t('createRoulette')}
                                  </Link>
                              </nav>
@@ -45,20 +45,23 @@ const Footer = () => {
 
                         {/* 法務リンク */}
                         <div>
-                            <h3 className="font-semibold mb-4 tracking-widest uppercase">{t('legal')}</h3>
+                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('legal')}</h3>
                             <nav className="flex flex-col space-y-3">
-                                <Link href={`/${locale}/terms-of-service`} className="text-sm hover:text-yellow-300 transition-colors">
+                                <Link href={`/${locale}/terms-of-service`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                     {t('termsOfService')}
                                 </Link>
-                                <Link href={`/${locale}/privacy-policy`} className="text-sm hover:text-yellow-300 transition-colors">
+                                <Link href={`/${locale}/privacy-policy`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                     {t('privacyPolicy')}
+                                </Link>
+                                <Link href={`/${locale}/contact`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                    {t('contact')}
                                 </Link>
                             </nav>
                         </div>
 
                         {/* ソーシャルリンク */}
                         <div>
-                            <h3 className="font-semibold mb-4 tracking-widest uppercase">{t('social')}</h3>
+                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('social')}</h3>
                             <div className="flex space-x-4">
                                 <GitHubIcon />
                             </div>

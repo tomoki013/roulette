@@ -15,7 +15,7 @@ const IconTheme = ({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl text-white/70 hover:text-white transition-colors"
+            className="text-xl hover:text-yellow-300 transition-colors"
         >
             {children}
         </Link>
