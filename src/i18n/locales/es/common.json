@@ -73,5 +73,16 @@
         "messageLength": "El mensaje debe tener al menos 10 caracteres.",
         "inquiryTypeRequired": "Seleccione un tipo de consulta.",
         "agreeToTermsRequired": "Debe aceptar la política de privacidad."
-    }
+    },
+    "contactHeroTitle": "Nos encantaría saber de usted",
+    "contactHeroDescription": "Para mejorar este sitio, buscamos sus opiniones y comentarios. No dude en informarnos sobre solicitudes de funciones, mejoras, etc.",
+    "languageHeroTitle": "Soporta múltiples idiomas",
+    "languageHeroDescription": "Este sitio es compatible con japonés, inglés, español y francés. Puede cambiar el idioma en cualquier momento desde el botón de cambio de idioma en la esquina inferior derecha de la pantalla.",
+    "about": "Acerca de",
+    "aboutTitle": "Acerca de Ruleta en la Web",
+    "aboutSection1Title": "Propósito de este sitio",
+    "aboutSection1Content": "'Ruleta en la Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Queremos ayudar a las personas a tomar decisiones justas mientras se divierten en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos.",
+    "aboutSection2Title": "Público objetivo",
+    "aboutSection2Content": "Esta herramienta puede ser utilizada por una amplia gama de personas para fines personales, comerciales y educativos, como decidir dónde almorzar con amigos, elegir un castigo en una transmisión de juegos, seleccionar estudiantes en un entorno educativo o elegir ganadores en eventos en línea.",
+    "aboutSection3Content": "Esperamos sinceramente sus comentarios. No dude en ponerse en contacto con nosotros a través de la página de consulta, ya que será una referencia para el desarrollo futuro."
 }

@@ -47,14 +47,17 @@ const Footer = () => {
                         <div>
                             <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('legal')}</h3>
                             <nav className="flex flex-col space-y-3">
-                                <Link href={`/${locale}/terms-of-service`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('termsOfService')}
+                                <Link href={`/${locale}/about`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                    {t('about')}
+                                </Link>
+                                <Link href={`/${locale}/contact`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                    {t('contact')}
                                 </Link>
                                 <Link href={`/${locale}/privacy-policy`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                     {t('privacyPolicy')}
                                 </Link>
-                                <Link href={`/${locale}/contact`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('contact')}
+                                <Link href={`/${locale}/terms-of-service`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                    {t('termsOfService')}
                                 </Link>
                             </nav>
                         </div>
