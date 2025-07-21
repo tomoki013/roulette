@@ -5,6 +5,7 @@ import { i18n } from "../../../i18n-config";
 import { Metadata } from "next";
 import Footer from "@/components/layout/Footer";
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import { AuthProvider } from "@/store/AuthContext";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -52,16 +53,18 @@ const LocaleLayout = async ({
 
     return (
         <div lang={locale} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            <I18nProvider locale={locale}>
-                <LanguageSwitcher />
-                <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4 flex flex-col">
-                    <Header />
-                    <main className="flex-grow">
-                        {children}
-                    </main>
-                    <Footer />
-                </div>
-            </I18nProvider>
+            <AuthProvider>
+                <I18nProvider locale={locale}>
+                    <LanguageSwitcher />
+                    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4 flex flex-col">
+                        <Header />
+                        <main className="flex-grow">
+                            {children}
+                        </main>
+                        <Footer />
+                    </div>
+                </I18nProvider>
+            </AuthProvider>
         </div>
     );
 }

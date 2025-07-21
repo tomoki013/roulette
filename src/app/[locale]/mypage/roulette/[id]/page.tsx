@@ -2,21 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
+// FIX: useRouterに加えてuseParamsをインポートします
+import { useRouter, useParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
 import RoulettePreview from '@/components/features/roulette/RoulettePreview';
 import ResultModal from '@/components/features/roulette/ResultModal';
 import { Item } from '@/types';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 import { useAuth } from '@/lib/hooks/useAuth';
-import { createRoulette } from '@/lib/services/rouletteService';
-// Supabaseが生成した型定義からJson型をインポートします
+import { getRouletteById, updateRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
 
-const CreateRoulettePage = () => {
+// ページコンポーネント
+// FIX: propsからparamsを削除します
+const EditRoulettePage = () => {
     const { t, i18n } = useTranslation();
     const router = useRouter();
+    // FIX: useParamsフックを使ってパラメータを取得します
+    const params = useParams<{ id: string; locale: string }>();
     const { user, loading: authLoading } = useAuth();
+    const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
@@ -24,21 +29,41 @@ const CreateRoulettePage = () => {
     const [rotation, setRotation] = useState(0);
     const [result, setResult] = useState<Item | null>(null);
     const [showResult, setShowResult] = useState(false);
-    const [colors] = useState(['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']);
     const [isSaving, setIsSaving] = useState(false);
 
+    // URLから取得したIDでルーレットデータを取得し、stateを初期化
     useEffect(() => {
-        if (i18n.isInitialized) {
-            setItems([
-                { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
-                { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
-                { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
-            ]);
-            setTitle(t('previewTitle'));
+        if (authLoading) return;
+        if (!user) {
+            router.replace(`/${i18n.language}/auth`);
+            return;
         }
-    }, [i18n.isInitialized, t, colors]);
+
+        // params.idが取得できてから処理を開始
+        if (!params.id) return;
+
+        const fetchRouletteData = async () => {
+            try {
+                const roulette = await getRouletteById(params.id as string);
+                if (roulette && roulette.user_id === user.id) {
+                    setTitle(roulette.title);
+                    setItems(roulette.items as unknown as Item[]);
+                } else {
+                    router.replace(`/${i18n.language}/mypage`);
+                }
+            } catch (error) {
+                console.error("Failed to fetch roulette data:", error);
+                router.replace(`/${i18n.language}/mypage`);
+            } finally {
+                setInitialDataLoaded(true);
+            }
+        };
+        fetchRouletteData();
+    }, [params.id, user, authLoading, router, i18n.language]);
+
 
     const addItem = () => {
+        const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
         const newItemColor = colors[items.length % colors.length];
         setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
@@ -62,10 +87,8 @@ const CreateRoulettePage = () => {
         setShowResult(false);
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         const random = Math.random() * totalRatio;
-        
         let currentWeight = 0;
         let selectedIndex = 0;
-
         for (let i = 0; i < items.length; i++) {
             currentWeight += items[i].ratio;
             if (random <= currentWeight) {
@@ -96,38 +119,34 @@ const CreateRoulettePage = () => {
         }, 3000);
     };
 
-    // 保存処理
-    const handleSave = async () => {
+    // 更新処理
+    const handleUpdate = async () => {
         if (!user) {
             router.push(`/${i18n.language}/auth`);
             return;
         }
         setIsSaving(true);
         try {
-            await createRoulette({
-                user_id: user.id,
+            await updateRoulette(params.id as string, {
                 title,
-                // `items`を`unknown`を経由して`Json`型にキャストします。
-                // これにより、TypeScriptの厳密な型チェックとESLintの`no-any`ルールの両方をクリアできます。
                 items: items as unknown as Json,
-                supported_languages: [i18n.language],
             });
             router.push(`/${i18n.language}/mypage`);
         } catch (error) {
-            console.error("Failed to save roulette:", error);
+            console.error("Failed to update roulette:", error);
         } finally {
             setIsSaving(false);
         }
     };
 
-    if (authLoading || !i18n.isInitialized) {
+    if (authLoading || !initialDataLoaded) {
         return <LoadingScreen />;
     }
 
     return (
         <>
             <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {t('createOriginalRoulette')}
+                {title || t('createOriginalRoulette')}
             </h1>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel
@@ -137,7 +156,7 @@ const CreateRoulettePage = () => {
                     onItemAdd={addItem}
                     onItemRemove={removeItem}
                     onItemUpdate={updateItem}
-                    onSave={handleSave}
+                    onSave={handleUpdate}
                     isSaving={isSaving}
                     isLoggedIn={!!user}
                 />
@@ -159,4 +178,4 @@ const CreateRoulettePage = () => {
     );
 };
 
-export default CreateRoulettePage;
+export default EditRoulettePage;

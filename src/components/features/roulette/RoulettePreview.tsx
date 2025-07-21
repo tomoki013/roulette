@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, Loader2 } from 'lucide-react';
 import { Item } from '@/types';
 import RouletteWheel from './RouletteWheel';
 
@@ -49,7 +49,7 @@ const RoulettePreview = ({
                 >
                     {isSpinning ? (
                         <>
-                            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <Loader2 size={24} className="animate-spin" />
                             {t('spinning')}
                         </>
                     ) : (
