@@ -33,10 +33,6 @@
     "declineConfirmation": "Tu configuración ha sido guardada. No se recopilará información en este sitio.",
     "createRouletteNow": "Crear ruleta ahora",
     "futureFeaturesTitle": "Próximas funciones",
-    "loginFeature": "Función de inicio de sesión",
-    "loginFeatureDescription": "Guarda tus ruletas y accede a ellas desde cualquier dispositivo.",
-    "myPageFeature": "Mi página",
-    "myPageFeatureDescription": "Gestiona tus ruletas guardadas y consulta tu historial.",
     "templatesFeature": "Plantillas de ruleta",
     "templatesFeatureDescription": "Elige entre una variedad de plantillas predefinidas para empezar rápidamente.",
     "service": "Servicio",
@@ -78,11 +74,38 @@
     "contactHeroDescription": "Para mejorar este sitio, buscamos sus opiniones y comentarios. No dude en informarnos sobre solicitudes de funciones, mejoras, etc.",
     "languageHeroTitle": "Soporta múltiples idiomas",
     "languageHeroDescription": "Este sitio es compatible con japonés, inglés, español y francés. Puede cambiar el idioma en cualquier momento desde el botón de cambio de idioma en la esquina inferior derecha de la pantalla.",
+    "loginHeroTitle": "Guarda y gestiona tus ruletas",
+    "loginHeroDescription": "Al registrarte, puedes guardar tus ruletas originales en Mi Página. Puedes acceder y editarlas en cualquier momento.",
+    "goToMyPage": "Ir a Mi Página",
     "about": "Acerca de",
     "aboutTitle": "Acerca de Ruleta en la Web",
     "aboutSection1Title": "Propósito de este sitio",
-    "aboutSection1Content": "'Ruleta en la Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Queremos ayudar a las personas a tomar decisiones justas mientras se divierten en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos.",
+    "aboutSection1Content": "'Ruleta en la Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Queremos ayudar a las personas a tomar decisiones justas mientras se divierten en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos. Al registrar una cuenta, también puedes guardar, editar y reutilizar las ruletas que crees.",
     "aboutSection2Title": "Público objetivo",
-    "aboutSection2Content": "Esta herramienta puede ser utilizada por una amplia gama de personas para fines personales, comerciales y educativos, como decidir dónde almorzar con amigos, elegir un castigo en una transmisión de juegos, seleccionar estudiantes en un entorno educativo o elegir ganadores en eventos en línea.",
-    "aboutSection3Content": "Esperamos sinceramente sus comentarios. No dude en ponerse en contacto con nosotros a través de la página de consulta, ya que será una referencia para el desarrollo futuro."
+    "aboutSection2Content": "Esta herramienta puede ser utilizada por una amplia gama de personas para fines personales, comerciales y educativos, como decidir dónde almorzar con amigos, elegir un castigo en una transmisión de juegos, seleccionar estudiantes en un entorno educativo o elegir ganadores en eventos en línea. También es perfecto para aquellos que quieren guardar y reutilizar sus ruletas.",
+    "aboutSection3Content": "Esperamos sinceramente sus comentarios. No dude en ponerse en contacto con nosotros a través de la página de consulta, ya que será una referencia para el desarrollo futuro.",
+    "myPage": "Mi Página",
+    "saveInProgress": "Guardando...",
+    "auth": {
+        "signUp": "Registrarse",
+        "logout": "Cerrar sesión",
+        "username": "Nombre de usuario",
+        "usernamePlaceholder": "Introduce tu nombre de usuario",
+        "email": "Dirección de correo electrónico",
+        "password": "Contraseña",
+        "loginToSave": "¿Necesitas iniciar sesión para guardar. Ir a la página de inicio de sesión?",
+        "error": {
+            "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
+            "passwordLength": "La contraseña debe tener al menos 6 caracteres."
+        }
+    },
+    "mypage": {
+        "savedRoulettes": "Roulettes guardadas",
+        "noRoulettes": "Aún no has creado ninguna ruleta.",
+        "createdAt": "Creado el",
+        "publicSettings": "Configuración pública",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "deleteConfirm": "¿Estás seguro de que quieres eliminar esta ruleta?"
+    }
 }

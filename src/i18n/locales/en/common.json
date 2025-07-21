@@ -33,10 +33,6 @@
     "declineConfirmation": "Your settings have been saved. No information will be collected on this site.",
     "createRouletteNow": "Create Roulette Now",
     "futureFeaturesTitle": "Future Features",
-    "loginFeature": "Login Functionality",
-    "loginFeatureDescription": "Save your roulettes and access them from any device.",
-    "myPageFeature": "My Page",
-    "myPageFeatureDescription": "Manage your saved roulettes and view your history.",
     "templatesFeature": "Roulette Templates",
     "templatesFeatureDescription": "Choose from a variety of pre-made templates to get started quickly.",
     "service": "Service",
@@ -78,11 +74,38 @@
     "contactHeroDescription": "To make this site better, we are looking for your opinions and feedback. Please feel free to let us know about feature requests, improvements, etc.",
     "languageHeroTitle": "Supports Multiple Languages",
     "languageHeroDescription": "This site supports Japanese, English, Spanish, and French. You can change the language at any time from the language switcher button in the bottom right corner of the screen.",
+    "loginHeroTitle": "Save & Manage Roulettes",
+    "loginHeroDescription": "By registering, you can save your original roulettes to My Page. You can access and edit them anytime.",
+    "goToMyPage": "Go to My Page",
     "about": "About",
     "aboutTitle": "About Roulette on the Web",
     "aboutSection1Title": "Purpose of This Site",
-    "aboutSection1Content": "'Roulette on the Web' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We want to help people make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
+    "aboutSection1Content": "'Roulette on the Web' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We want to help people make fair choices while having fun in various situations, from small daily decisions to event lotteries. By registering an account, you can also save, edit, and reuse your created roulettes.",
     "aboutSection2Title": "Target Audience",
-    "aboutSection2Content": "This tool can be used by a wide range of people for personal, business, and educational purposes, such as deciding where to have lunch with friends, choosing a penalty in a game stream, selecting students in an educational setting, or picking winners at online events.",
-    "aboutSection3Content": "We sincerely await your feedback. Please feel free to contact us through the inquiry page as it will be a reference for future development."
+    "aboutSection2Content": "This tool can be used by a wide range of people for personal, business, and educational purposes, such as deciding where to have lunch with friends, choosing a penalty in a game stream, selecting students in an educational setting, or picking winners at online events. It's also perfect for those who want to save and reuse their roulettes.",
+    "aboutSection3Content": "We sincerely await your feedback. Please feel free to contact us through the inquiry page as it will be a reference for future development.",
+    "myPage": "My Page",
+    "saveInProgress": "Saving...",
+    "auth": {
+        "signUp": "Sign Up",
+        "logout": "Logout",
+        "username": "Username",
+        "usernamePlaceholder": "Enter your username",
+        "email": "Email Address",
+        "password": "Password",
+        "loginToSave": "You need to be logged in to save. Go to the login page?",
+        "error": {
+            "emailInvalid": "Please enter a valid email address.",
+            "passwordLength": "Password must be at least 6 characters."
+        }
+    },
+    "mypage": {
+        "savedRoulettes": "Saved Roulettes",
+        "noRoulettes": "You haven't created any roulettes yet.",
+        "createdAt": "Created At",
+        "publicSettings": "Public Settings",
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteConfirm": "Are you sure you want to delete this roulette?"
+    }
 }

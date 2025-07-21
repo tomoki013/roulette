@@ -43,27 +43,6 @@ const SettingsPanel = ({
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold text-white">{t('settingsTitle')}</h2>
-                    {isLoggedIn && (
-                        <motion.button
-                            onClick={onSave}
-                            disabled={isSaving}
-                            className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
-                            whileHover={!isSaving ? { scale: 1.05 } : {}}
-                            whileTap={!isSaving ? { scale: 0.95 } : {}}
-                        >
-                            {isSaving ? (
-                                <>
-                                    <Loader2 size={16} className="animate-spin" />
-                                    {t('saveInProgress')}
-                                </>
-                            ) : (
-                                <>
-                                    <Save size={16} />
-                                    {t('save')}
-                                </>
-                            )}
-                        </motion.button>
-                    )}
                 </div>
 
                 {/* Title Input */}
@@ -132,6 +111,27 @@ const SettingsPanel = ({
                         <Plus size={20} />
                         {t('addItem')}
                     </button>
+                </div>
+                <div className='mt-6 flex justify-end'>
+                    <motion.button
+                        onClick={onSave}
+                        disabled={isSaving && isLoggedIn} // ログインしている保存中のみ無効化
+                        className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
+                        whileHover={!(isSaving && isLoggedIn) ? { scale: 1.05 } : {}}
+                        whileTap={!(isSaving && isLoggedIn) ? { scale: 0.95 } : {}}
+                    >
+                        {isSaving && isLoggedIn ? (
+                            <>
+                                <Loader2 size={16} className="animate-spin" />
+                                {t('saveInProgress')}
+                            </>
+                        ) : (
+                            <>
+                                <Save size={16} />
+                                {t('save')}
+                            </>
+                        )}
+                    </motion.button>
                 </div>
             </div>
         </motion.div>

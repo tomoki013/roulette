@@ -40,6 +40,9 @@ const Footer = () => {
                                  <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                      {t('createRoulette')}
                                  </Link>
+                                 <Link href={`/${locale}/mypage`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                     {t('myPage')}
+                                 </Link>
                              </nav>
                          </div>
 
