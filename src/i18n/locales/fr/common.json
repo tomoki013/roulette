@@ -33,10 +33,6 @@
     "declineConfirmation": "Vos paramètres ont été enregistrés. Aucune information ne sera collectée sur ce site.",
     "createRouletteNow": "Créer une roulette maintenant",
     "futureFeaturesTitle": "Fonctionnalités à venir",
-    "loginFeature": "Fonctionnalité de connexion",
-    "loginFeatureDescription": "Enregistrez vos roulettes et accédez-y depuis n'importe quel appareil.",
-    "myPageFeature": "Ma page",
-    "myPageFeatureDescription": "Gérez vos roulettes enregistrées et consultez votre historique.",
     "templatesFeature": "Modèles de roulette",
     "templatesFeatureDescription": "Choisissez parmi une variété de modèles prédéfinis pour démarrer rapidement.",
     "service": "Service",
@@ -78,11 +74,38 @@
     "contactHeroDescription": "Pour améliorer ce site, nous recherchons vos opinions et vos commentaires. N'hésitez pas à nous faire part de vos demandes de fonctionnalités, d'améliorations, etc.",
     "languageHeroTitle": "Prend en charge plusieurs langues",
     "languageHeroDescription": "Ce site prend en charge le japonais, l'anglais, l'espagnol et le français. Vous pouvez changer de langue à tout moment à partir du bouton de changement de langue dans le coin inférieur droit de l'écran.",
+    "loginHeroTitle": "Enregistrez et gérez vos roulettes",
+    "loginHeroDescription": "En vous inscrivant, vous pouvez enregistrer vos roulettes originales sur Ma Page. Vous pouvez y accéder et les modifier à tout moment.",
+    "goToMyPage": "Aller à Ma Page",
     "about": "À propos",
     "aboutTitle": "À propos de Roulette sur le Web",
     "aboutSection1Title": "But de ce site",
-    "aboutSection1Content": "'Roulette sur le Web' a été développé pour fournir un outil de création de roulette personnalisée que tout le monde peut utiliser facilement et intuitivement. Nous voulons aider les gens à faire des choix équitables tout en s'amusant dans diverses situations, des petites décisions quotidiennes aux loteries d'événements.",
+    "aboutSection1Content": "'Roulette sur le Web' a été développé pour fournir un outil de création de roulette personnalisée que tout le monde peut utiliser facilement et intuitivement. Nous voulons aider les gens à faire des choix équitables tout en s'amusant dans diverses situations, des petites décisions quotidiennes aux loteries d'événements. En créant un compte, vous pouvez également enregistrer, modifier et réutiliser les roulettes que vous avez créées.",
     "aboutSection2Title": "Public Cible",
-    "aboutSection2Content": "Cet outil peut être utilisé par un large éventail de personnes à des fins personnelles, professionnelles et éducatives, telles que décider où déjeuner avec des amis, choisir une pénalité dans un streaming de jeu, sélectionner des étudiants dans un cadre éducatif ou choisir des gagnants lors d'événements en ligne.",
-    "aboutSection3Content": "Nous attendons sincèrement vos commentaires. N'hésitez pas à nous contacter via la page de contact car cela nous servira de référence pour le développement futur."
+    "aboutSection2Content": "Cet outil peut être utilisé par un large éventail de personnes à des fins personnelles, professionnelles et éducatives, telles que décider où déjeuner avec des amis, choisir une pénalité dans un streaming de jeu, sélectionner des étudiants dans un cadre éducatif ou choisir des gagnants lors d'événements en ligne. Il est également parfait pour ceux qui souhaitent enregistrer et réutiliser leurs roulettes.",
+    "aboutSection3Content": "Nous attendons sincèrement vos commentaires. N'hésitez pas à nous contacter via la page de contact car cela nous servira de référence pour le développement futur.",
+    "myPage": "Ma Page",
+    "saveInProgress": "Enregistrement...",
+    "auth": {
+        "signUp": "S'inscrire",
+        "logout": "Déconnexion",
+        "username": "Nom d'utilisateur",
+        "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+        "email": "Adresse e-mail",
+        "password": "Mot de passe",
+        "loginToSave": "Vous devez être connecté pour sauvegarder. Aller à la page de connexion ?",
+        "error": {
+            "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+            "passwordLength": "Le mot de passe doit comporter au moins 6 caractères."
+        }
+    },
+    "mypage": {
+        "savedRoulettes": "Roulettes enregistrées",
+        "noRoulettes": "Vous n'avez pas encore créé de roulette.",
+        "createdAt": "Créé le",
+        "publicSettings": "Paramètres publics",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette roulette ?"
+    }
 }

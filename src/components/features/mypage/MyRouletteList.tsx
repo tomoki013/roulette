@@ -44,7 +44,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
     }
 
     return (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
             {roulettes.map((roulette, index) => (
                 // FIX: リンク先を /mypage/roulette/[id] に変更
                 <Link key={roulette.id} href={`/${i18n.language}/mypage/roulette/${roulette.id}`} passHref>

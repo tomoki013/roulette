@@ -21,15 +21,24 @@ const TermsOfServicePage = () => {
                         </p>
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第1条（適用）</h2>
                         <p>本規約は、ユーザーと当サイトとの間の本サービスの利用に関わる一切の関係に適用されるものとします。</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第2条（Cookieの使用）</h2>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第2条（ユーザー登録）</h2>
+                        <p>
+                            当サイトの一部の機能を利用するにあたり、ユーザー登録が必要な場合があります。ユーザーは、自己の責任において、メールアドレス及びパスワードを適切に管理するものとします。当サイトは、入力されたメールアドレスとパスワードの組み合わせが登録情報と一致してログインされた場合には、そのユーザーIDを登録している本人による利用とみなします。ユーザーが作成したルーレットデータは、当該ユーザーのアカウントに紐づけて保存されます。
+                        </p>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（Cookieの使用）</h2>
                         <p>当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（アクセス解析ツール）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（アクセス解析ツール）</h2>
                         <p>当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（お問い合わせ）</h2>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（お問い合わせ）</h2>
                         <p>
                             ユーザーが当サイトのお問い合わせフォームを利用する際には、当サイトのプライバシーポリシーに同意したものとみなします。詳細はプライバシーポリシーをご確認ください。
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（禁止事項）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第6条（禁止事項）</h2>
                         <p>ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>法令または公序良俗に違反する行為</li>
@@ -37,11 +46,14 @@ const TermsOfServicePage = () => {
                             <li>当サイトのサーバーまたはネットワークの機能を破壊したり、妨害したりする行為</li>
                             <li>その他、当サイトが不適切と判断する行為</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第6条（免責事項）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（免責事項）</h2>
                         <p>当サイトは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（サービス内容の変更等）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第8条（サービス内容の変更等）</h2>
                         <p>当サイトは、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとします。</p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第8条（準拠法・裁判管轄）</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第9条（準拠法・裁判管轄）</h2>
                         <p>本規約の解釈にあたっては、日本法を準拠法とします。</p>
                         <p className="pt-4">以上</p>
                     </>
@@ -56,18 +68,23 @@ const TermsOfServicePage = () => {
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 1 (Application)</h2>
                         <p>Les présentes Conditions s&apos;appliquent à toutes les relations entre l&apos;Utilisateur et le Site concernant l&apos;utilisation du Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Utilisation des cookies)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Inscription de l&apos;utilisateur)</h2>
+                        <p>
+                            L&apos;inscription de l&apos;utilisateur peut être requise pour utiliser certaines fonctionnalités de ce site. Les utilisateurs sont responsables de la gestion appropriée de leurs adresses e-mail et mots de passe. Si une connexion est établie avec une combinaison d&apos;adresse e-mail et de mot de passe qui correspond aux informations enregistrées, ce site considérera qu&apos;elle est utilisée par la personne qui a enregistré cet ID utilisateur. Les données de roulette créées par l&apos;utilisateur seront enregistrées en association avec le compte de cet utilisateur.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Utilisation des cookies)</h2>
                         <p>Ce site utilise des cookies pour améliorer la commodité et pour la diffusion de publicités. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Outil d&apos;analyse d&apos;audience)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Outil d&apos;analyse d&apos;audience)</h2>
                         <p>Ce site utilise Google Analytics pour améliorer nos services. Cela collecte des données d&apos;utilisation d&apos;une manière qui n&apos;identifie pas personnellement les individus. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
                         
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Demandes de renseignements)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Demandes de renseignements)</h2>
                         <p>
                             En utilisant le formulaire de contact sur ce site, vous êtes réputé avoir accepté notre politique de confidentialité. Veuillez consulter la politique de confidentialité pour plus de détails.
                         </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Interdictions)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Interdictions)</h2>
                         <p>Les Utilisateurs ne doivent pas se livrer aux actes suivants lors de l&apos;utilisation du Service.</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>Actes qui violent les lois et règlements ou l&apos;ordre public et la morale.</li>
@@ -75,13 +92,13 @@ const TermsOfServicePage = () => {
                             <li>Actes qui détruisent ou interfèrent avec les fonctions des serveurs ou du réseau du Site.</li>
                             <li>Tout autre acte que le Site juge inapproprié.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Clause de non-responsabilité)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Clause de non-responsabilité)</h2>
                         <p>Le Site ne sera pas responsable des dommages subis par l&apos;Utilisateur découlant du Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Modification du contenu du service, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Modification du contenu du service, etc.)</h2>
                         <p>Le Site peut modifier le contenu du Service ou cesser de fournir le Service sans préavis à l&apos;Utilisateur.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Droit applicable et juridiction)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Droit applicable et juridiction)</h2>
                         <p>Les lois du Japon seront le droit applicable pour l&apos;interprétation des présentes Conditions.</p>
                         <p className="pt-4">Fin</p>
                     </>
@@ -96,18 +113,23 @@ const TermsOfServicePage = () => {
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 1 (Aplicación)</h2>
                         <p>Estos Términos se aplicarán a todas las relaciones entre el Usuario y el Sitio con respecto al uso del Servicio.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 2 (Uso de cookies)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 2 (Registro de usuario)</h2>
+                        <p>
+                           Es posible que se requiera el registro de usuario para utilizar algunas funciones de este sitio. Los usuarios son responsables de administrar adecuadamente sus direcciones de correo electrónico y contraseñas. Si se inicia sesión con una combinación de dirección de correo electrónico y contraseña que coincide con la información registrada, este sitio lo considerará como un uso por parte de la persona que registró esa ID de usuario. Los datos de la ruleta creados por el usuario se guardarán en asociación con la cuenta de ese usuario.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 3 (Uso de cookies)</h2>
                         <p>Este sitio utiliza cookies para mejorar la comodidad y para la entrega de anuncios. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 3 (Herramienta de análisis de acceso)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 4 (Herramienta de análisis de acceso)</h2>
                         <p>Este sitio utiliza Google Analytics para mejorar nuestros servicios. Esto recopila datos de uso de una manera que no identifica personalmente a las personas. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 4 (Consultas)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 5 (Consultas)</h2>
                         <p>
                             Al utilizar el formulario de contacto de este sitio, se considera que ha aceptado nuestra Política de privacidad. Consulte la Política de privacidad para obtener más detalles.
                         </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 5 (Asuntos prohibidos)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 6 (Asuntos prohibidos)</h2>
                         <p>Los usuarios no participarán en los siguientes actos al utilizar el Servicio.</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>Actos que violen las leyes y regulaciones o el orden público y la moral.</li>
@@ -115,13 +137,13 @@ const TermsOfServicePage = () => {
                             <li>Actos que destruyan o interfieran con las funciones de los servidores o la red del Sitio.</li>
                             <li>Cualquier otro acto que el Sitio considere inapropiado.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 6 (Descargo de responsabilidad)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 7 (Descargo de responsabilidad)</h2>
                         <p>El Sitio no será responsable de ningún daño incurrido por el Usuario que surja del Servicio.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 7 (Cambios en el contenido del servicio, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 8 (Cambios en el contenido del servicio, etc.)</h2>
                         <p>El Sitio puede cambiar el contenido del Servicio o dejar de proporcionar el Servicio sin previo aviso al Usuario.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 8 (Ley aplicable y jurisdicción)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 9 (Ley aplicable y jurisdicción)</h2>
                         <p>Las leyes de Japón serán la ley aplicable para la interpretación de estos Términos.</p>
                         <p className="pt-4">Fin</p>
                     </>
@@ -136,18 +158,23 @@ const TermsOfServicePage = () => {
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 1 (Application)</h2>
                         <p>These Terms shall apply to all relationships between the User and the Site concerning the use of the Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (Use of Cookies)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 2 (User Registration)</h2>
+                        <p>
+                            User registration may be required to use some features of this site. Users are responsible for appropriately managing their email addresses and passwords. If a login is made with a combination of email address and password that matches the registered information, this site will deem it as use by the person who registered that user ID. Roulette data created by the user will be saved in association with that user&apos;s account.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Use of Cookies)</h2>
                         <p>This site uses cookies to improve convenience and for ad delivery. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Access Analysis Tool)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Access Analysis Tool)</h2>
                         <p>This site uses Google Analytics to improve our services. This collects usage data in a way that does not personally identify individuals. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
                         
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Inquiries)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Inquiries)</h2>
                         <p>
                             By using the contact form on this site, you are deemed to have agreed to our Privacy Policy. Please review the Privacy Policy for details.
                         </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Prohibited Matters)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Prohibited Matters)</h2>
                         <p>Users shall not engage in the following acts when using the Service.</p>
                         <ul className="list-disc list-inside pl-4 space-y-1">
                             <li>Acts that violate laws and regulations or public order and morals.</li>
@@ -155,13 +182,13 @@ const TermsOfServicePage = () => {
                             <li>Acts that destroy or interfere with the functions of the Site&apos;s servers or network.</li>
                             <li>Any other acts that the Site deems inappropriate.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Disclaimer)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Disclaimer)</h2>
                         <p>The Site shall not be liable for any damages incurred by the User arising from the Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 6 (Changes to Service Content, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Changes to Service Content, etc.)</h2>
                         <p>The Site may change the content of the Service or discontinue providing the Service without notice to the User.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Governing Law and Jurisdiction)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Governing Law and Jurisdiction)</h2>
                         <p>The laws of Japan shall be the governing law for the interpretation of these Terms.</p>
                         <p className="pt-4">End</p>
                     </>

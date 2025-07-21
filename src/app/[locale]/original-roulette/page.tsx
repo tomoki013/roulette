@@ -99,16 +99,19 @@ const CreateRoulettePage = () => {
     // 保存処理
     const handleSave = async () => {
         if (!user) {
-            router.push(`/${i18n.language}/auth`);
+            // ログインしていない場合は確認ダイアログを表示し、ログインページへ誘導
+            if (window.confirm(t('auth.loginToSave'))) {
+                router.push(`/${i18n.language}/auth`);
+            }
             return;
         }
+
+        // ログイン済みの場合は保存処理を実行
         setIsSaving(true);
         try {
             await createRoulette({
                 user_id: user.id,
                 title,
-                // `items`を`unknown`を経由して`Json`型にキャストします。
-                // これにより、TypeScriptの厳密な型チェックとESLintの`no-any`ルールの両方をクリアできます。
                 items: items as unknown as Json,
                 supported_languages: [i18n.language],
             });
