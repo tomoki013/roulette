@@ -52,7 +52,9 @@ export default function RootLayout({
 				<GoogleAnalytics />
 				
 			</head>
-  	  	  	<body>{children}</body>
+  	  	  	<body>
+				{children}
+			</body>
   	  	</html>
   	);
 }
