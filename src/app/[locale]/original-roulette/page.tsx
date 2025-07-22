@@ -10,13 +10,14 @@ import { Item } from '@/types';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { createRoulette } from '@/lib/services/rouletteService';
-// Supabaseが生成した型定義からJson型をインポートします
 import { Json } from '@/types/database.types';
+import { useModal } from '@/lib/hooks/useModal'; // useModalをインポート
 
 const CreateRoulettePage = () => {
     const { t, i18n } = useTranslation();
     const router = useRouter();
     const { user, loading: authLoading } = useAuth();
+    const { showModal, closeModal } = useModal(); // モーダル用のフックを利用
 
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
@@ -99,10 +100,17 @@ const CreateRoulettePage = () => {
     // 保存処理
     const handleSave = async () => {
         if (!user) {
-            // ログインしていない場合は確認ダイアログを表示し、ログインページへ誘導
-            if (window.confirm(t('auth.loginToSave'))) {
-                router.push(`/${i18n.language}/auth`);
-            }
+            showModal({
+                title: t('auth.loginToSave'),
+                message: '',
+                confirmText: t('login'),
+                cancelText: t('close'),
+                onConfirm: () => {
+                    router.push(`/${i18n.language}/auth`);
+                    closeModal();
+                },
+                onCancel: closeModal
+            });
             return;
         }
 
