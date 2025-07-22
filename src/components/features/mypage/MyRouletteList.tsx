@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Trash2, PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import { deleteRoulette } from '@/lib/services/rouletteService';
+import { useModal } from '@/lib/hooks/useModal'; // useModalをインポート
 
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 
@@ -17,18 +18,29 @@ interface MyRouletteListProps {
 const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
     const { t, i18n } = useTranslation();
     const [roulettes, setRoulettes] = useState(initialRoulettes);
+    const { showModal, closeModal } = useModal(); // モーダル用のフックを利用
 
     const handleDelete = async (e: React.MouseEvent, id: string) => {
         e.stopPropagation(); // リンクの遷移を防ぐ
         e.preventDefault(); // デフォルトのリンク挙動も防ぐ
-        if (!window.confirm(t('mypage.deleteConfirm'))) return;
-
-        try {
-            await deleteRoulette(id);
-            setRoulettes(roulettes.filter(r => r.id !== id));
-        } catch (error) {
-            console.error("Failed to delete roulette:", error);
-        }
+        
+        showModal({
+            title: t('mypage.deleteConfirm'),
+            message: '',
+            confirmText: t('delete'),
+            cancelText: t('close'),
+            onConfirm: async () => {
+                try {
+                    await deleteRoulette(id);
+                    setRoulettes(roulettes.filter(r => r.id !== id));
+                } catch (error) {
+                    console.error("Failed to delete roulette:", error);
+                } finally {
+                    closeModal();
+                }
+            },
+            onCancel: closeModal,
+        });
     };
 
     if (roulettes.length === 0) {
@@ -61,9 +73,6 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                             </p>
                         </div>
                         <div className="flex items-center gap-2">
-                            {/* <button onClick={(e) => { e.stopPropagation(); e.preventDefault(); }} className="p-2 hover:bg-white/20 rounded-lg transition-colors" title={t('mypage.publicSettings')}>
-                                <Settings size={20} className="text-white" />
-                            </button> */}
                             <button onClick={(e) => handleDelete(e, roulette.id)} className="p-2 hover:bg-red-500/30 rounded-lg transition-colors" title={t('mypage.delete')}>
                                 <Trash2 size={20} className="text-red-300" />
                             </button>
