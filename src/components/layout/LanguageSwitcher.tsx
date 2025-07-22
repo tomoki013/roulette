@@ -99,7 +99,7 @@ const LanguageSwitcher = ({ direction = 'down' }: LanguageSwitcherProps) => {
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 disabled={isPending}
-                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg text-white hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex items-center justify-center gap-2 bg-black/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg text-white hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-70 disabled:cursor-not-allowed"
                 aria-label="Language Selector"
                 aria-haspopup="true"
                 aria-expanded={isOpen}
