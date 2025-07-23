@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus, X, Save, Loader2, LogIn } from 'lucide-react';
 import { Item } from '@/types';
 
 interface SettingsPanelProps {
@@ -33,9 +34,19 @@ const SettingsPanel = ({
     saveButtonText, // propsを受け取る
     showSaveButton = true,
 }: SettingsPanelProps) => {
+
     const { t } = useTranslation();
-    
+    const [showLoginModal, setShowLoginModal] = useState(false);
     const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
+
+    // ログインしていない場合の保存ボタン挙動
+    const handleSave = () => {
+        if (!isLoggedIn) {
+            setShowLoginModal(true);
+            return;
+        }
+        onSave();
+    };
 
     return (
         <motion.div 
@@ -114,10 +125,10 @@ const SettingsPanel = ({
                         {t('addItem')}
                     </button>
                 </div>
-                {isLoggedIn && showSaveButton && (
+                {showSaveButton && (
                     <div className="flex justify-end mt-6">
                         <motion.button
-                            onClick={onSave}
+                            onClick={handleSave}
                             disabled={isSaving}
                             className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
                             whileHover={!isSaving ? { scale: 1.05 } : {}}
@@ -131,13 +142,61 @@ const SettingsPanel = ({
                             ) : (
                                 <>
                                     <Save size={16} />
-                                    {/* propsで渡されたテキストがあればそれを、なければデフォルトの'save'を表示 */}
                                     {saveButtonText || t('save')}
                                 </>
                             )}
                         </motion.button>
                     </div>
                 )}
+                {/* ログインモーダル（ResultModal風） */}
+                <AnimatePresence>
+                    {showLoginModal && (
+                        <motion.div
+                            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setShowLoginModal(false)}
+                        >
+                            <motion.div
+                                className="bg-white rounded-2xl p-8 max-w-xs w-full text-center relative overflow-hidden"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.8, opacity: 0 }}
+                                transition={{ type: 'spring', duration: 0.5 }}
+                                onClick={e => e.stopPropagation()}
+                            >
+                                <button
+                                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+                                    onClick={() => setShowLoginModal(false)}
+                                    aria-label="Close"
+                                >
+                                    <X size={20} />
+                                </button>
+                                <div className="mb-4">
+                                    <LogIn className="w-12 h-12 text-purple-500 mx-auto" />
+                                </div>
+                                <h3 className="text-lg font-bold mb-2">{t('loginRequired', 'ログインが必要です')}</h3>
+                                <p className="text-gray-700 mb-6">{t('pleaseLoginToSave', '保存するにはログインしてください。')}</p>
+                                <div className="flex flex-col sm:flex-row justify-center gap-3">
+                                    <Link
+                                        href="/ja/auth" // 必要に応じてロケールを動的に
+                                        className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-colors flex items-center justify-center gap-2"
+                                        onClick={() => setShowLoginModal(false)}
+                                    >
+                                        <LogIn size={18} /> {t('goToLogin', 'ログインページへ')}
+                                    </Link>
+                                    <button
+                                        onClick={() => setShowLoginModal(false)}
+                                        className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors"
+                                    >
+                                        {t('close', '閉じる')}
+                                    </button>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </motion.div>
     );
