@@ -94,15 +94,15 @@ const LanguageSwitcher = ({
     };
     
     const menuDirectionClass = direction === 'up'
-        ? "absolute right-0 bottom-full mb-2 w-48 bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
-        : "absolute right-0 top-full mt-2 w-48 bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden";
+        ? "absolute right-0 bottom-full mb-2 w-48 bg-black/20 backdrop-blur-sm text-white/80 border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+        : "absolute right-0 top-full mt-2 w-48 bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden";
 
     return (
         <div ref={wrapperRef} className="relative z-50">
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 disabled={isPending}
-                className="flex items-center justify-center gap-2 bg-black/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg text-white hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex items-center justify-center gap-2 bg-black/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg text-white hover:bg-black/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-70 disabled:cursor-not-allowed"
                 aria-label="Language Selector"
                 aria-haspopup="true"
                 aria-expanded={isOpen}
@@ -155,8 +155,8 @@ const LanguageSwitcher = ({
                                         onClick={() => changeLanguage(locale)}
                                         className={`w-full text-left px-3 py-2.5 text-sm flex items-center gap-3 rounded-lg transition-colors duration-200 ${
                                             currentLocale === locale
-                                                ? 'bg-white/20 text-white font-bold'
-                                                : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                                ? 'bg-black/20 text-white font-bold'
+                                                : 'text-white/80 hover:bg-black/10 hover:text-white'
                                         }`}
                                         role="menuitem"
                                     >
