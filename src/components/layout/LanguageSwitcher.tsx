@@ -91,8 +91,8 @@ const LanguageSwitcher = ({ direction = 'down' }: LanguageSwitcherProps) => {
     };
     
     const menuDirectionClass = direction === 'up'
-        ? "absolute right-0 bottom-full mb-2 w-48 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
-        : "absolute right-0 top-full mt-2 w-48 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden";
+        ? "absolute right-0 bottom-full mb-2 w-48 bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+        : "absolute right-0 top-full mt-2 w-48 bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-2xl overflow-hidden";
 
     return (
         <div ref={wrapperRef} className="relative z-50">

@@ -107,5 +107,8 @@
         "edit": "Edit",
         "delete": "Delete",
         "deleteConfirm": "Are you sure you want to delete this roulette?"
-    }
+    },
+    "copySuccessTitle": "Copied!",
+    "copySuccessMessageResult": "Copied the result URL to the clipboard!",
+    "copySuccessMessageRoulette": "Copied the roulette URL to the clipboard!"
 }

@@ -166,6 +166,7 @@ const EditRoulettePage = () => {
                     rotation={rotation}
                     isSpinning={isSpinning}
                     onSpin={spinRoulette}
+                    result={result}
                 />
             </div>
             

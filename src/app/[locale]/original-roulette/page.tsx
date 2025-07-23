@@ -1,8 +1,10 @@
+// src/app/[locale]/original-roulette/page.tsx
+
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
 import RoulettePreview from '@/components/features/roulette/RoulettePreview';
 import ResultModal from '@/components/features/roulette/ResultModal';
@@ -11,33 +13,61 @@ import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen'
 import { useAuth } from '@/lib/hooks/useAuth';
 import { createRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
-import { useModal } from '@/lib/hooks/useModal'; // useModalをインポート
+import { useModal } from '@/lib/hooks/useModal';
+import html2canvas from 'html2canvas';
 
 const CreateRoulettePage = () => {
     const { t, i18n } = useTranslation();
     const router = useRouter();
+    const searchParams = useSearchParams();
     const { user, loading: authLoading } = useAuth();
-    const { showModal, closeModal } = useModal(); // モーダル用のフックを利用
+    const { showModal, closeModal } = useModal();
+    const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
     const [isSpinning, setIsSpinning] = useState(false);
     const [rotation, setRotation] = useState(0);
     const [result, setResult] = useState<Item | null>(null);
-    const [showResult, setShowResult] = useState(false);
+    const [showResultModal, setShowResultModal] = useState(false);
     const [colors] = useState(['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']);
     const [isSaving, setIsSaving] = useState(false);
 
     useEffect(() => {
-        if (i18n.isInitialized) {
-            setItems([
-                { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
-                { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
-                { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
-            ]);
-            setTitle(t('previewTitle'));
+        if (!i18n.isInitialized) return;
+
+        const configParam = searchParams.get('config');
+        const resultParam = searchParams.get('result');
+
+        if (configParam) {
+            try {
+                // --- ここから修正 ---
+                const decodedConfig = JSON.parse(decodeURIComponent(atob(configParam)));
+                // --- ここまで修正 ---
+                if (decodedConfig.title && Array.isArray(decodedConfig.items)) {
+                    setTitle(decodedConfig.title);
+                    setItems(decodedConfig.items);
+
+                    if (resultParam) {
+                        const foundResult = decodedConfig.items.find((item: Item) => item.name === resultParam);
+                        if (foundResult) setResult(foundResult);
+                    }
+                    return;
+                }
+            } catch (error) {
+                console.error("URLからの設定復元に失敗しました:", error);
+            }
         }
-    }, [i18n.isInitialized, t, colors]);
+
+        const initialItems = [
+            { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
+            { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
+            { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
+        ];
+        setItems(initialItems);
+        setTitle(t('previewTitle'));
+
+    }, [i18n.isInitialized, t, colors, searchParams]);
 
     const addItem = () => {
         const newItemColor = colors[items.length % colors.length];
@@ -59,8 +89,9 @@ const CreateRoulettePage = () => {
 
     const spinRoulette = () => {
         if (isSpinning || items.length === 0) return;
+        setResult(null);
         setIsSpinning(true);
-        setShowResult(false);
+        setShowResultModal(false);
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         const random = Math.random() * totalRatio;
         
@@ -90,14 +121,65 @@ const CreateRoulettePage = () => {
         const landingAngleCorrection = 270 - targetAngle;
         const newRotation = rotation - (rotation % degreesPerSpin) + (spins * degreesPerSpin) + landingAngleCorrection;
         setRotation(newRotation);
-        setResult(items[selectedIndex]);
+        
         setTimeout(() => {
             setIsSpinning(false);
-            setShowResult(true);
+            setResult(items[selectedIndex]);
+            setShowResultModal(true);
         }, 3000);
     };
 
-    // 保存処理
+    const handleShareImage = async () => {
+        if (roulettePreviewRef.current) {
+            const canvas = await html2canvas(roulettePreviewRef.current, { background: undefined });
+            const image = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = `roulette-result-${Date.now()}.png`;
+            link.click();
+        }
+    };
+
+    const handleShareUrl = () => {
+        const config = { title, items };
+        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+        const url = new URL(window.location.href);
+        url.search = '';
+        url.searchParams.set('config', encodedConfig);
+        if (result) {
+            url.searchParams.set('result', result.name);
+        }
+        navigator.clipboard.writeText(url.toString())
+            .then(() => {
+                showModal({
+                    title: t('copySuccessTitle'),
+                    message: t('copySuccessMessageResult'),
+                    onConfirm: closeModal,
+                    confirmText: 'OK',
+                    type: 'success',
+                });
+            });
+    };
+
+    // const handleShareRoulette = () => {
+    //     const config = { title, items };
+    //     const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+    //     const url = new URL(window.location.href);
+    //     url.search = '';
+    //     url.searchParams.set('config', encodedConfig);
+
+    //     navigator.clipboard.writeText(url.toString())
+    //         .then(() => {
+    //             showModal({
+    //                 title: t('copySuccessTitle'),
+    //                 message: t('copySuccessMessageRoulette'),
+    //                 onConfirm: closeModal,
+    //                 confirmText: 'OK',
+    //                 type: 'success',
+    //             });
+    //         });
+    // };
+    
     const handleSave = async () => {
         if (!user) {
             showModal({
@@ -114,7 +196,6 @@ const CreateRoulettePage = () => {
             return;
         }
 
-        // ログイン済みの場合は保存処理を実行
         setIsSaving(true);
         try {
             await createRoulette({
@@ -151,20 +232,27 @@ const CreateRoulettePage = () => {
                     onSave={handleSave}
                     isSaving={isSaving}
                     isLoggedIn={!!user}
+                    // onShareRoulette={handleShareRoulette}
                 />
                 <RoulettePreview
+                    ref={roulettePreviewRef}
                     title={title}
                     items={items}
                     rotation={rotation}
                     isSpinning={isSpinning}
                     onSpin={spinRoulette}
+                    result={result}
+                    onShareImage={handleShareImage}
+                    onShareUrl={handleShareUrl}
                 />
             </div>
             
             <ResultModal 
-                isOpen={showResult} 
+                isOpen={showResultModal} 
                 result={result} 
-                onClose={() => setShowResult(false)} 
+                onClose={() => setShowResultModal(false)}
+                onShareImage={handleShareImage}
+                onShareUrl={handleShareUrl}
             />
         </>
     );
