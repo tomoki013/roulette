@@ -50,7 +50,7 @@ You can experience the application here: **[Roulette on the Web](https://webroul
 
 This project follows a standard Next.js App Router structure with additional directories for organization.
 
-```
+```text
 /
 ├── src/
 │   ├── app/
@@ -396,7 +396,7 @@ Puedes probar la aplicación aquí: **[Ruleta en la Web](https://webroulette.net
 
 Este proyecto sigue una estructura estándar de Next.js App Router con directorios adicionales para una mejor organización.
 
-```bash
+```text
 /
 ├── src/
 │   ├── app/
@@ -441,14 +441,14 @@ Sigue estos pasos para obtener una copia local y ponerla en funcionamiento.
 
 ### Instalación
 
-1.  **Clona el repositorio:**
+1. **Clona el repositorio:**
 
     ```bash
     git clone https://github.com/tomoki013/roulette.git
     cd roulette
     ```
 
-2.  **Instala las dependencias:**
+2. **Instala las dependencias:**
 
     ```bash
     npm install
@@ -549,9 +549,9 @@ Vous pouvez découvrir l'application ici : **[Roulette sur le Web](https://webro
 
 * **Connexion via les réseaux sociaux**: Connexion avec Google ou X (anciennement Twitter).
 * **Système de modèles**:
-   * **Modèles publics**: Permettre aux utilisateurs de publier leurs roulettes en tant que modèles pour les autres.
-   * **Recherche et filtrage de modèles**: Rechercher des modèles par mot-clé, langue, popularité ou date de création.
-   * **Duplication de modèles**: Copier et personnaliser des modèles existants.
+  * **Modèles publics**: Permettre aux  utilisateurs de publier leurs roulettes en  tant que modèles pour les autres.
+  * **Recherche et filtrage de modèles**:  Rechercher des modèles par mot-clé, langue,  popularité ou date de création.
+  * **Duplication de modèles**: Copier et  personnaliser des modèles existants.
 * **Partage amélioré**: Partage en temps réel des résultats de la roulette entre plusieurs utilisateurs.
 * **Personnalisation avancée**: Options de conception supplémentaires pour la roue de la roulette et l'arrière-plan.
 
@@ -569,7 +569,7 @@ Vous pouvez découvrir l'application ici : **[Roulette sur le Web](https://webro
 
 Ce projet suit une structure standard de Next.js App Router avec des répertoires supplémentaires pour l'organisation.
 
-```
+```text
 /
 ├── src/
 │   ├── app/
@@ -614,14 +614,14 @@ Suivez ces étapes pour obtenir une copie locale et la faire fonctionner.
 
 ### Installation
 
-1.  **Clonez le dépôt :**
+1. **Clonez le dépôt :**
 
     ```bash
     git clone https://github.com/tomoki013/roulette.git
     cd roulette
     ```
 
-2.  **Installez les dépendances :**
+2. **Installez les dépendances :**
 
     ```bash
     npm install
@@ -632,7 +632,6 @@ Suivez ces étapes pour obtenir une copie locale et la faire fonctionner.
     ```
 
 ### Lancement du serveur de développement
-
 
 Démarrez le serveur de développement avec la commande suivante :
 

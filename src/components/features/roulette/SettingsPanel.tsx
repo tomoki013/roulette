@@ -1,11 +1,9 @@
-// src/components/features/roulette/SettingsPanel.tsx
-
 'use client';
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2 } from 'lucide-react'; // Share2をインポート
+import { Plus, X, Save, Loader2 } from 'lucide-react';
 import { Item } from '@/types';
 
 interface SettingsPanelProps {
@@ -18,7 +16,8 @@ interface SettingsPanelProps {
     onSave: () => void;
     isSaving: boolean;
     isLoggedIn: boolean;
-    // onShareRoulette: () => void;
+    saveButtonText?: string; // 保存ボタンのテキストを外部から指定できるようにする
+    showSaveButton?: boolean; // 保存ボタンの表示制御
 }
 
 const SettingsPanel = ({
@@ -31,9 +30,12 @@ const SettingsPanel = ({
     onSave,
     isSaving,
     isLoggedIn,
-    // onShareRoulette,
+    saveButtonText, // propsを受け取る
+    showSaveButton = true,
 }: SettingsPanelProps) => {
     const { t } = useTranslation();
+    
+    const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
 
     return (
         <motion.div 
@@ -47,7 +49,7 @@ const SettingsPanel = ({
                     <h2 className="text-xl font-semibold text-white">{t('settingsTitle')}</h2>
                 </div>
 
-                {/* Title Input */}
+                {/* (以降のコードは変更なし) */}
                 <div className="mb-6">
                     <label className="block text-white/80 text-sm font-medium mb-2">
                         {t('rouletteTitleLabel')}
@@ -60,8 +62,6 @@ const SettingsPanel = ({
                         placeholder={t('rouletteTitlePlaceholder')}
                     />
                 </div>
-
-                {/* Item Settings */}
                 <div className="space-y-3">
                     {items.map((item, index) => (
                         <motion.div
@@ -93,6 +93,9 @@ const SettingsPanel = ({
                                     <option key={num} value={num} className="bg-gray-800">{num}</option>
                                 ))}
                             </select>
+                            <div className="text-white/80 text-sm w-20 text-center">
+                                {((item.ratio / totalRatio) * 100 || 0).toFixed(1)}%
+                            </div>
                             {items.length > 2 && (
                                 <button
                                     onClick={() => onItemRemove(index)}
@@ -111,36 +114,30 @@ const SettingsPanel = ({
                         {t('addItem')}
                     </button>
                 </div>
-                <div className='mt-6 flex justify-end gap-3'>
-                    {/* <motion.button
-                        onClick={onShareRoulette}
-                        className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <Share2 size={16} />
-                        {t('share')}
-                    </motion.button> */}
-                    <motion.button
-                        onClick={onSave}
-                        disabled={isSaving && isLoggedIn}
-                        className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
-                        whileHover={!(isSaving && isLoggedIn) ? { scale: 1.05 } : {}}
-                        whileTap={!(isSaving && isLoggedIn) ? { scale: 0.95 } : {}}
-                    >
-                        {isSaving && isLoggedIn ? (
-                            <>
-                                <Loader2 size={16} className="animate-spin" />
-                                {t('saveInProgress')}
-                            </>
-                        ) : (
-                            <>
-                                <Save size={16} />
-                                {t('save')}
-                            </>
-                        )}
-                    </motion.button>
-                </div>
+                {isLoggedIn && showSaveButton && (
+                    <div className="flex justify-end mt-6">
+                        <motion.button
+                            onClick={onSave}
+                            disabled={isSaving}
+                            className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
+                            whileHover={!isSaving ? { scale: 1.05 } : {}}
+                            whileTap={!isSaving ? { scale: 0.95 } : {}}
+                        >
+                            {isSaving ? (
+                                <>
+                                    <Loader2 size={16} className="animate-spin" />
+                                    {t('saveInProgress')}
+                                </>
+                            ) : (
+                                <>
+                                    <Save size={16} />
+                                    {/* propsで渡されたテキストがあればそれを、なければデフォルトの'save'を表示 */}
+                                    {saveButtonText || t('save')}
+                                </>
+                            )}
+                        </motion.button>
+                    </div>
+                )}
             </div>
         </motion.div>
     );

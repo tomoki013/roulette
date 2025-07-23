@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LogIn, LogOut, User, Menu } from 'lucide-react';
+import { LogIn, LogOut, User, Menu, Layers } from 'lucide-react';
 import { useAuth } from '@/lib/hooks/useAuth';
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
@@ -24,6 +24,11 @@ const StickyControls = () => {
                 <div className="flex items-center gap-4">
                     {/* Desktop Controls: Changed to a capsule shape with a darker background */}
                     <div className="hidden md:flex items-center gap-4 p-3 bg-black/20 backdrop-blur-md rounded-full border border-white/10 shadow-lg">
+                    {/* テンプレートページへのリンクを追加 */}
+                        <Link href={`/${locale}/templates`} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors">
+                            <Layers size={20} />
+                            <span className="hidden sm:inline">{t('template')}</span>
+                        </Link>
                         {user ? (
                             <>
                                 <Link href={`/${locale}/mypage`} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2">

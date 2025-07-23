@@ -1,9 +1,55 @@
 import { supabase } from '../supabaseClient';
+// Supabase CLIで生成した型定義をインポートします
 import { Database } from '@/types/database.types';
 
+// 型エイリアスを設定して使いやすくします
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 type RouletteInsert = Database['public']['Tables']['roulettes']['Insert'];
 type RouletteUpdate = Database['public']['Tables']['roulettes']['Update'];
+
+/**
+ * 公開されているテンプレートを取得します
+ * @param query - 検索キーワード
+ * @param sortBy - ソート順 ('created_at' or 'like_count')
+ * @param language - 言語フィルター
+ * @returns テンプレートの配列
+ */
+export const getPublicTemplates = async (
+    query: string,
+    sortBy: 'created_at' | 'like_count',
+    language: string | null
+): Promise<Roulette[]> => {
+    let supabaseQuery = supabase
+        .from('roulettes')
+        .select('*, profiles(username)') // profilesテーブルからusernameも取得
+        .eq('is_template', true);
+
+    // キーワード検索 (タイトルと説明文を対象)
+    if (query) {
+        // 注意: descriptionはjsonb型なので、textにキャストして検索します
+        supabaseQuery = supabaseQuery.or(`title.ilike.%${query}%,description::text.ilike.%${query}%`);
+    }
+
+    // 言語フィルター
+    if (language) {
+        supabaseQuery = supabaseQuery.contains('supported_languages', [language]);
+    }
+
+    // ソート
+    supabaseQuery = supabaseQuery.order(sortBy, { ascending: false });
+
+    const { data, error } = await supabaseQuery;
+
+    if (error) {
+        console.error('Error fetching public templates:', error);
+        throw new Error(error.message);
+    }
+    // dataがnullの場合も考慮して空配列を返す
+    return data || [];
+};
+
+
+// --- 既存の関数 (変更なし) ---
 
 /**
  * IDで特定のルーレットを取得します
@@ -19,7 +65,6 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
 
     if (error) {
         console.error('Error fetching roulette by id:', error);
-        // 行が見つからないエラー(PGRST116)は正常系として扱う
         if (error.code === 'PGRST116') {
             return null;
         }

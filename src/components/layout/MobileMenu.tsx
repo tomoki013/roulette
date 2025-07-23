@@ -72,10 +72,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                         </Link>
                                     </motion.li>
                                     <motion.li variants={linkVariants}>
-                                        <div className="flex items-center gap-3 text-lg text-white/50 cursor-not-allowed" title='Coming soon...'>
+                                        <Link href={`/${locale}/templates`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                             <LayoutGrid size={20} />
-                                            <span>{t('templates')}</span>
-                                        </div>
+                                            <span>{t('template')}</span>
+                                        </Link>
                                     </motion.li>
                                 </motion.ul>
 
