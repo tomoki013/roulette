@@ -2,7 +2,7 @@
 
 ## 英語 (English)
 
-**Read in other languages: [日本語](#日本語-japanese) | [Español](#español-spanish) | [Français](#français-french)**
+**Read in other languages:** [日本語](#%e6%97%a5%e6%9c%ac%e8%aa%9e-japanese) | [Español](#espa%c3%b1ol-spanish) | [Français](#fran%c3%a7ais-french)
 
 ## Roulette on the Web
 
@@ -118,12 +118,6 @@ Start the development server with the following command:
 
 ```bash
 npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
-```
-npm run dev
 # or
 yarn dev
 # or
@@ -181,7 +175,7 @@ This project is licensed under the MIT License.
 
 ## 日本語 (Japanese)
 
-**他の言語で読む: [English](#roulette-on-the-web) | [Español](#español-spanish) | [Français](#français-french)**
+**他の言語で読む:** [English](#roulette-on-the-web) | [Español](#espa%c3%b1ol-spanish) | [Français](#fran%c3%a7ais-french)
 
 # Webでルーレット (Roulette on the Web)
 
@@ -229,7 +223,7 @@ This project is licensed under the MIT License.
 
 このプロジェクトは、標準的なNext.js App Routerの構成に従い、整理のために追加のディレクトリを設けています。
 
-```
+```text
 /
 ├── src/
 │   ├── app/
@@ -354,7 +348,7 @@ pnpm dev
 
 ## スペイン語 (Spanish)
 
-**Leer en otros idiomas: [English](#roulette-on-the-web) | [日本語](#日本語-japanese) | [Français](#français-french)**
+**Leer en otros idiomas:** [English](#roulette-on-the-web) | [日本語](#%e6%97%a5%e6%9c%ac%e8%aa%9e-japanese) | [Français](#fran%c3%a7ais-french)
 
 # Ruleta en la Web
 
@@ -527,7 +521,7 @@ Este proyecto está bajo la Licencia MIT.
 
 ## Français (French)
 
-**Lire dans d'autres langues: [English](#roulette-on-the-web) | [日本語](#日本語-japanese) | [Español](#español-spanish)**
+**Lire dans d'autres langues:** [English](#roulette-on-the-web) | [日本語](#%e6%97%a5%e6%9c%ac%e8%aa%9e-japanese) | [Español](#espa%c3%b1ol-spanish)
 
 # Roulette sur le Web
 
