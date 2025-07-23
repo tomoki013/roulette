@@ -1,20 +1,26 @@
+// src/components/features/roulette/ResultModal.tsx
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy } from 'lucide-react';
+import { Trophy, Share2 } from 'lucide-react';
 import { Item } from '@/types';
 
 interface ResultModalProps {
     isOpen: boolean;
     result: Item | null;
     onClose: () => void;
+    onShareImage?: () => void;
+    onShareUrl?: () => void;
 }
 
 const ResultModal = ({
     isOpen,
     result,
-    onClose
+    onClose,
+    onShareImage,
+    onShareUrl,
 }: ResultModalProps
 ) => {
     const { t } = useTranslation();
@@ -43,12 +49,30 @@ const ResultModal = ({
                             <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
                                 {result?.name}
                             </div>
-                            <button
-                                onClick={onClose}
-                                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors font-semibold"
-                            >
-                                {t('close')}
-                            </button>
+                            <div className="flex flex-col sm:flex-row justify-center gap-3">
+                                <button
+                                    onClick={onClose}
+                                    className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+                                >
+                                    {t('close')}
+                                </button>
+                                {onShareImage && onShareUrl && (
+                                    <>
+                                    {/* <button
+                                        onClick={onShareImage}
+                                        className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-colors font-semibold flex items-center justify-center gap-2"
+                                    >
+                                        <ImageIcon size={20} /> 画像で共有
+                                    </button> */}
+                                    <button
+                                        onClick={onShareUrl}
+                                        className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-600 transition-colors font-semibold flex items-center justify-center gap-2"
+                                    >
+                                        <Share2 size={20} /> URLで共有
+                                    </button>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 </motion.div>

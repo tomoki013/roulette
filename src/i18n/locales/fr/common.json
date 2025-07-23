@@ -107,5 +107,8 @@
         "edit": "Modifier",
         "delete": "Supprimer",
         "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette roulette ?"
-    }
+    },
+    "copySuccessTitle": "Copié !",
+    "copySuccessMessageResult": "L'URL du résultat a été copiée dans le presse-papiers !",
+    "copySuccessMessageRoulette": "L'URL de la roulette a été copiée dans le presse-papiers !"
 }

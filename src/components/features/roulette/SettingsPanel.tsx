@@ -1,9 +1,11 @@
+// src/components/features/roulette/SettingsPanel.tsx
+
 'use client';
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2 } from 'lucide-react';
+import { Plus, X, Save, Loader2 } from 'lucide-react'; // Share2をインポート
 import { Item } from '@/types';
 
 interface SettingsPanelProps {
@@ -16,6 +18,7 @@ interface SettingsPanelProps {
     onSave: () => void;
     isSaving: boolean;
     isLoggedIn: boolean;
+    // onShareRoulette: () => void;
 }
 
 const SettingsPanel = ({
@@ -28,10 +31,9 @@ const SettingsPanel = ({
     onSave,
     isSaving,
     isLoggedIn,
+    // onShareRoulette,
 }: SettingsPanelProps) => {
     const { t } = useTranslation();
-    
-    const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
 
     return (
         <motion.div 
@@ -91,9 +93,6 @@ const SettingsPanel = ({
                                     <option key={num} value={num} className="bg-gray-800">{num}</option>
                                 ))}
                             </select>
-                            <div className="text-white/80 text-sm w-20 text-center">
-                                {((item.ratio / totalRatio) * 100 || 0).toFixed(1)}%
-                            </div>
                             {items.length > 2 && (
                                 <button
                                     onClick={() => onItemRemove(index)}
@@ -112,10 +111,19 @@ const SettingsPanel = ({
                         {t('addItem')}
                     </button>
                 </div>
-                <div className='mt-6 flex justify-end'>
+                <div className='mt-6 flex justify-end gap-3'>
+                    {/* <motion.button
+                        onClick={onShareRoulette}
+                        className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <Share2 size={16} />
+                        {t('share')}
+                    </motion.button> */}
                     <motion.button
                         onClick={onSave}
-                        disabled={isSaving && isLoggedIn} // ログインしている保存中のみ無効化
+                        disabled={isSaving && isLoggedIn}
                         className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg disabled:opacity-50"
                         whileHover={!(isSaving && isLoggedIn) ? { scale: 1.05 } : {}}
                         whileTap={!(isSaving && isLoggedIn) ? { scale: 0.95 } : {}}

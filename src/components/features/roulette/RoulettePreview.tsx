@@ -1,8 +1,11 @@
+// src/components/features/roulette/RoulettePreview.tsx
+
 'use client';
 
+import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Play, Loader2 } from 'lucide-react';
+import { Play, Loader2, Share2 } from 'lucide-react';
 import { Item } from '@/types';
 import RouletteWheel from './RouletteWheel';
 
@@ -12,15 +15,21 @@ interface RoulettePreviewProps {
     rotation: number;
     isSpinning: boolean;
     onSpin: () => void;
+    result: Item | null;
+    onShareImage?: () => void;
+    onShareUrl?: () => void;
 }
 
-const RoulettePreview = ({
+const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(({
     title,
     items,
     rotation,
     isSpinning,
     onSpin,
-}: RoulettePreviewProps) => {
+    result,
+    onShareImage,
+    onShareUrl,
+}, ref) => {
     const { t } = useTranslation();
     const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
 
@@ -31,7 +40,7 @@ const RoulettePreview = ({
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center">
+            <div ref={ref} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center">
                 <h3 className="text-xl font-semibold text-white mb-6">{title}</h3>
 
                 <RouletteWheel items={items} rotation={rotation} isSpinning={isSpinning} />
@@ -60,6 +69,32 @@ const RoulettePreview = ({
                     )}
                 </motion.button>
 
+                {result && !isSpinning && (
+                    <motion.div
+                        className="mt-6 text-center w-full bg-black/20 p-4 rounded-xl"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                    >
+                        <p className="text-white/80" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>{t('resultModalTitle')}</p>
+                        <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400 my-2" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+                            {result.name}
+                        </p>
+                        {onShareImage && onShareUrl && (
+                            <div className="flex justify-center gap-2 mt-4">
+                                {/* <button onClick={onShareImage} className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
+                                    <ImageIcon size={16} />
+                                    画像で共有
+                                </button> */}
+                                <button onClick={onShareUrl} className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
+                                    <Share2 size={16} />
+                                    URLで共有
+                                </button>
+                            </div>
+                        )}
+                    </motion.div>
+                )}
+
+
                 <div className="w-full mt-6 space-y-2">
                     {items.map((item, index) => {
                         const probability = totalRatio > 0 ? ((item.ratio / totalRatio) * 100).toFixed(1) : '0.0';
@@ -80,6 +115,7 @@ const RoulettePreview = ({
             </div>
         </motion.div>
     );
-};
+});
 
+RoulettePreview.displayName = 'RoulettePreview';
 export default RoulettePreview;

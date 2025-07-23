@@ -104,5 +104,8 @@
         "edit": "編集",
         "delete": "削除",
         "deleteConfirm": "このルーレットを本当に削除しますか？"
-    }
+    },
+    "copySuccessTitle": "コピー完了",
+    "copySuccessMessageResult": "結果のURLをクリップボードにコピーしました！",
+    "copySuccessMessageRoulette": "ルーレットのURLをクリップボードにコピーしました！"
 }
