@@ -62,13 +62,13 @@ const ResultModal = ({
                                         onClick={onShareImage}
                                         className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-colors font-semibold flex items-center justify-center gap-2"
                                     >
-                                        <ImageIcon size={20} /> 画像で共有
+                                        <ImageIcon size={20} /> {t('roulette.shareImage')}
                                     </button> */}
                                     <button
                                         onClick={onShareUrl}
                                         className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-600 transition-colors font-semibold flex items-center justify-center gap-2"
                                     >
-                                        <Share2 size={20} /> URLで共有
+                                        <Share2 size={20} /> {t('roulette.shareUrl')}
                                     </button>
                                     </>
                                 )}

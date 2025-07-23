@@ -21,7 +21,10 @@ interface LanguageSwitcherProps {
     direction?: 'up' | 'down';
 }
 
-const LanguageSwitcher = ({ direction = 'down' }: LanguageSwitcherProps) => {
+const LanguageSwitcher = ({
+    direction = 'down'
+}: LanguageSwitcherProps
+) => {
     const { i18n } = useTranslation();
     const router = useRouter();
     const pathname = usePathname();

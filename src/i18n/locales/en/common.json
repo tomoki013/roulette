@@ -110,5 +110,9 @@
     },
     "copySuccessTitle": "Copied!",
     "copySuccessMessageResult": "Copied the result URL to the clipboard!",
-    "copySuccessMessageRoulette": "Copied the roulette URL to the clipboard!"
+    "copySuccessMessageRoulette": "Copied the roulette URL to the clipboard!",
+    "roulette": {
+        "shareImage": "Share as Image",
+        "shareUrl": "Share as URL"
+    }
 }

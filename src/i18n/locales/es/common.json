@@ -110,5 +110,9 @@
     },
     "copySuccessTitle": "¡Copiado!",
     "copySuccessMessageResult": "¡Se ha copiado la URL del resultado en el portapapeles!",
-    "copySuccessMessageRoulette": "¡Se ha copiado la URL de la ruleta en el portapapeles!"
+    "copySuccessMessageRoulette": "¡Se ha copiado la URL de la ruleta en el portapapeles!",
+    "roulette": {
+        "shareImage": "Compartir como imagen",
+        "shareUrl": "Compartir como URL"
+    }
 }
