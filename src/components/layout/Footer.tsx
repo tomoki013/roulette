@@ -6,10 +6,12 @@ import { Sparkles } from 'lucide-react';
 import GitHubIcon from '../elements/icons/GithubIcon';
 import { motion } from 'framer-motion';
 import CookieBanner from './CookieBanner';
+import { useAuth } from '@/lib/hooks/useAuth';
 
 const Footer = () => {
     const { t, i18n } = useTranslation();
     const locale = i18n.language;
+    const { user } = useAuth();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -40,9 +42,15 @@ const Footer = () => {
                                  <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                      {t('createRoulette')}
                                  </Link>
-                                 <Link href={`/${locale}/mypage`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                     {t('myPage')}
+                                 {/* テンプレートページへのリンクを追加 */}
+                                 <Link href={`/${locale}/templates`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                     {t('template')}
                                  </Link>
+                                 {user && (
+                                    <Link href={`/${locale}/mypage`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                        {t('myPage')}
+                                    </Link>
+                                 )}
                              </nav>
                          </div>
 

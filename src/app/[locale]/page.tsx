@@ -69,6 +69,37 @@ const HomePage = () => {
                 </div>
             </motion.div>
 
+            {/* Templates Hero Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mt-8 max-w-5xl w-full bg-white/10 backdrop-blur-sm p-8 rounded-2xl"
+            >
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="text-center md:text-left">
+                        <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
+                            <Mail className="text-yellow-300" />
+                            {t('templatesHeroTitle')}
+                        </h2>
+                        <p className="text-white/80 mb-6">
+                            {t('templatesHeroDescription')}
+                        </p>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link
+                                href={`/${locale}/templates`}
+                                className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                            >
+                                {t('template')}
+                            </Link>
+                        </motion.div>
+                    </div>
+                </div>
+            </motion.div>
+
             {/* Contact Hero Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -120,7 +151,7 @@ const HomePage = () => {
                 </div>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -133,7 +164,7 @@ const HomePage = () => {
                         <p className="text-white/70">{t('templatesFeatureDescription')}</p>
                     </div>
                 </div>
-            </motion.div>
+            </motion.div> */}
         </div>
     );
 };
