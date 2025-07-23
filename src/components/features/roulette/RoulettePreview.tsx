@@ -83,11 +83,11 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(({
                             <div className="flex justify-center gap-2 mt-4">
                                 {/* <button onClick={onShareImage} className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
                                     <ImageIcon size={16} />
-                                    画像で共有
+                                    {t('roulette.shareImage')}
                                 </button> */}
                                 <button onClick={onShareUrl} className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
                                     <Share2 size={16} />
-                                    URLで共有
+                                    {t('roulette.shareUrl')}
                                 </button>
                             </div>
                         )}

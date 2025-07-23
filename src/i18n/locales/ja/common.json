@@ -107,5 +107,9 @@
     },
     "copySuccessTitle": "コピー完了",
     "copySuccessMessageResult": "結果のURLをクリップボードにコピーしました！",
-    "copySuccessMessageRoulette": "ルーレットのURLをクリップボードにコピーしました！"
+    "copySuccessMessageRoulette": "ルーレットのURLをクリップボードにコピーしました！",
+    "roulette": {
+        "shareImage": "画像で共有",
+        "shareUrl": "URLで共有"
+    }
 }

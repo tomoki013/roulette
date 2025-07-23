@@ -110,5 +110,9 @@
     },
     "copySuccessTitle": "Copié !",
     "copySuccessMessageResult": "L'URL du résultat a été copiée dans le presse-papiers !",
-    "copySuccessMessageRoulette": "L'URL de la roulette a été copiée dans le presse-papiers !"
+    "copySuccessMessageRoulette": "L'URL de la roulette a été copiée dans le presse-papiers !",
+    "roulette": {
+        "shareImage": "Partager en tant qu'image",
+        "shareUrl": "Partager en tant qu'URL"
+    }
 }
