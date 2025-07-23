@@ -47,13 +47,21 @@ const TermsOfServicePage = () => {
                             <li>その他、当サイトが不適切と判断する行為</li>
                         </ul>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（免責事項）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第7条（ユーザーコンテンツ）</h2>
+                        <ol className="list-decimal list-inside pl-4 space-y-1">
+                            <li>ユーザーは、当サイトのテンプレート機能を利用して、自らが作成したルーレット（以下、「ユーザーコンテンツ」といいます。）を公開することができます。</li>
+                            <li>ユーザーは、ユーザーコンテンツが第三者の著作権、商標権、プライバシー権、その他の権利を侵害しないことを保証するものとします。</li>
+                            <li>当サイトは、ユーザーコンテンツが不適切であると判断した場合、当該ユーザーに通知することなく、ユーザーコンテンツを削除することができるものとします。</li>
+                            <li>ユーザーは、自らが作成したユーザーコンテンツに対し、当サイトがサービスを提供する上で必要な範囲において、無償で利用する権利（複製、公衆送信、翻案等を含みます）を許諾するものとします。この権利許諾は、ユーザーがアカウントを削除した後も有効に存続するものとします。</li>
+                        </ol>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第8条（免責事項）</h2>
                         <p>当サイトは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第8条（サービス内容の変更等）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第9条（サービス内容の変更等）</h2>
                         <p>当サイトは、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとします。</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">第9条（準拠法・裁判管轄）</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">第10条（準拠法・裁判管轄）</h2>
                         <p>本規約の解釈にあたっては、日本法を準拠法とします。</p>
                         <p className="pt-4">以上</p>
                     </>
@@ -92,13 +100,22 @@ const TermsOfServicePage = () => {
                             <li>Actes qui détruisent ou interfèrent avec les fonctions des serveurs ou du réseau du Site.</li>
                             <li>Tout autre acte que le Site juge inapproprié.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Clause de non-responsabilité)</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Contenu utilisateur)</h2>
+                        <ol className="list-decimal list-inside pl-4 space-y-1">
+                            <li>Les utilisateurs peuvent publier des roulettes qu&apos;ils ont créées (ci-après dénommées « Contenu utilisateur ») en utilisant la fonction de modèle de ce site.</li>
+                            <li>L&apos;utilisateur garantit que le Contenu utilisateur ne viole pas les droits d&apos;auteur, les marques de commerce, les droits à la vie privée ou tout autre droit de tiers.</li>
+                            <li>Si le Site détermine que le Contenu utilisateur est inapproprié, il peut supprimer le Contenu utilisateur sans en avertir l&apos;utilisateur.</li>
+                            <li>L&apos;utilisateur accorde au Site une licence gratuite d&apos;utilisation du Contenu utilisateur qu&apos;il a créé (y compris la reproduction, la transmission publique, l&apos;adaptation, etc.) dans la mesure nécessaire à la fourniture du service. Cette licence restera en vigueur même après la suppression du compte de l&apos;utilisateur.</li>
+                        </ol>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Clause de non-responsabilité)</h2>
                         <p>Le Site ne sera pas responsable des dommages subis par l&apos;Utilisateur découlant du Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Modification du contenu du service, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Modification du contenu du service, etc.)</h2>
                         <p>Le Site peut modifier le contenu du Service ou cesser de fournir le Service sans préavis à l&apos;Utilisateur.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Droit applicable et juridiction)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 10 (Droit applicable et juridiction)</h2>
                         <p>Les lois du Japon seront le droit applicable pour l&apos;interprétation des présentes Conditions.</p>
                         <p className="pt-4">Fin</p>
                     </>
@@ -137,13 +154,22 @@ const TermsOfServicePage = () => {
                             <li>Actos que destruyan o interfieran con las funciones de los servidores o la red del Sitio.</li>
                             <li>Cualquier otro acto que el Sitio considere inapropiado.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 7 (Descargo de responsabilidad)</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 7 (Contenido del usuario)</h2>
+                        <ol className="list-decimal list-inside pl-4 space-y-1">
+                            <li>Los usuarios pueden publicar ruletas que hayan creado (en adelante, &quot;Contenido del usuario&quot;) utilizando la función de plantilla de este sitio.</li>
+                            <li>El usuario garantiza que el Contenido del usuario no infringe los derechos de autor, marcas comerciales, derechos de privacidad u otros derechos de terceros.</li>
+                            <li>Si el Sitio determina que el Contenido del usuario es inapropiado, puede eliminar el Contenido del usuario sin notificar al usuario.</li>
+                            <li>El usuario otorga al Sitio una licencia gratuita para usar el Contenido del usuario que ha creado (incluida la reproducción, transmisión pública, adaptación, etc.) en la medida necesaria para proporcionar el servicio. Esta concesión de licencia seguirá vigente incluso después de que el usuario elimine su cuenta.</li>
+                        </ol>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 8 (Descargo de responsabilidad)</h2>
                         <p>El Sitio no será responsable de ningún daño incurrido por el Usuario que surja del Servicio.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 8 (Cambios en el contenido del servicio, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 9 (Cambios en el contenido del servicio, etc.)</h2>
                         <p>El Sitio puede cambiar el contenido del Servicio o dejar de proporcionar el Servicio sin previo aviso al Usuario.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 9 (Ley aplicable y jurisdicción)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 10 (Ley aplicable y jurisdicción)</h2>
                         <p>Las leyes de Japón serán la ley aplicable para la interpretación de estos Términos.</p>
                         <p className="pt-4">Fin</p>
                     </>
@@ -182,13 +208,22 @@ const TermsOfServicePage = () => {
                             <li>Acts that destroy or interfere with the functions of the Site&apos;s servers or network.</li>
                             <li>Any other acts that the Site deems inappropriate.</li>
                         </ul>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (Disclaimer)</h2>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 7 (User Content)</h2>
+                        <ol className="list-decimal list-inside pl-4 space-y-1">
+                            <li>Users can publish roulettes they have created (hereinafter referred to as &quot;User Content&quot;) using the template feature of this site.</li>
+                            <li>The user warrants that the User Content does not infringe on the copyrights, trademark rights, privacy rights, or other rights of third parties.</li>
+                            <li>If the Site determines that the User Content is inappropriate, it may delete the User Content without notifying the user.</li>
+                            <li>The user grants the Site a free license to use the User Content they have created (including reproduction, public transmission, adaptation, etc.) to the extent necessary to provide the service. This license grant shall remain in effect even after the user deletes their account.</li>
+                        </ol>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Disclaimer)</h2>
                         <p>The Site shall not be liable for any damages incurred by the User arising from the Service.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 8 (Changes to Service Content, etc.)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Changes to Service Content, etc.)</h2>
                         <p>The Site may change the content of the Service or discontinue providing the Service without notice to the User.</p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 9 (Governing Law and Jurisdiction)</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">Article 10 (Governing Law and Jurisdiction)</h2>
                         <p>The laws of Japan shall be the governing law for the interpretation of these Terms.</p>
                         <p className="pt-4">End</p>
                     </>

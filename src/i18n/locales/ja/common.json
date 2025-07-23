@@ -129,5 +129,9 @@
         "noDescription": "説明がありません。",
         "anonymous": "匿名ユーザー",
         "useTemplate": "このテンプレートを使う"
+    },
+    "roulette": {
+        "shareImage": "画像で共有",
+        "shareUrl": "URLで共有"
     }
 }
