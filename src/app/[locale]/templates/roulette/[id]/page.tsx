@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter, useParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
@@ -11,6 +11,7 @@ import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen'
 import { useAuth } from '@/lib/hooks/useAuth';
 import { getRouletteById, createRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
+import { useModal } from '@/lib/hooks/useModal';
 
 const TemplateRoulettePage = () => {
     const { t, i18n } = useTranslation();
@@ -18,6 +19,8 @@ const TemplateRoulettePage = () => {
     const params = useParams<{ id: string; locale: string }>();
     const { user, loading: authLoading } = useAuth();
     const [initialDataLoaded, setInitialDataLoaded] = useState(false);
+    const { showModal, closeModal } = useModal();
+    const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
@@ -111,6 +114,38 @@ const TemplateRoulettePage = () => {
         }, 3000);
     };
 
+    const handleShareImage = async () => {
+        if (roulettePreviewRef.current) {
+            const canvas = await html2canvas(roulettePreviewRef.current, { background: undefined });
+            const image = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = `roulette-result-${Date.now()}.png`;
+            link.click();
+        }
+    };
+
+    const handleShareUrl = () => {
+        const config = { title, items };
+        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+        const url = new URL(window.location.href);
+        url.search = '';
+        url.searchParams.set('config', encodedConfig);
+        if (result) {
+            url.searchParams.set('result', result.name);
+        }
+        navigator.clipboard.writeText(url.toString())
+            .then(() => {
+                showModal({
+                    title: t('copySuccessTitle'),
+                    message: t('copySuccessMessageResult'),
+                    onConfirm: closeModal,
+                    confirmText: 'OK',
+                    type: 'success',
+                });
+            });
+    };
+
     // 「複製して保存」処理
     const handleForkAndSave = async () => {
         if (!allowFork) return; // 複製が許可されていなければ何もしない
@@ -169,6 +204,8 @@ const TemplateRoulettePage = () => {
                     isSpinning={isSpinning}
                     onSpin={spinRoulette}
                     result={result}
+                    onShareImage={handleShareImage}
+                    onShareUrl={handleShareUrl}
                 />
             </div>
             
@@ -176,6 +213,8 @@ const TemplateRoulettePage = () => {
                 isOpen={showResult} 
                 result={result} 
                 onClose={() => setShowResult(false)} 
+                onShareImage={handleShareImage}
+                onShareUrl={handleShareUrl}
             />
         </>
     );

@@ -50,12 +50,6 @@ const ResultModal = ({
                                 {result?.name}
                             </div>
                             <div className="flex flex-col sm:flex-row justify-center gap-3">
-                                <button
-                                    onClick={onClose}
-                                    className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
-                                >
-                                    {t('close')}
-                                </button>
                                 {onShareImage && onShareUrl && (
                                     <>
                                     {/* <button
@@ -72,6 +66,12 @@ const ResultModal = ({
                                     </button>
                                     </>
                                 )}
+                                <button
+                                    onClick={onClose}
+                                    className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+                                >
+                                    {t('close')}
+                                </button>
                             </div>
                         </div>
                     </motion.div>

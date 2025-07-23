@@ -62,7 +62,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
                     </div>
                 </div>
                 {/* FIX: リンク先を新しいテンプレート実行ページに変更 */}
-                <Link href={`/${locale}/roulette/${template.id}`} passHref>
+                <Link href={`/${locale}/templates/roulette/${template.id}`} passHref>
                     <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white font-semibold transition-colors">
                         {t('templates.useTemplate')}
                         <ChevronsRight size={18} />

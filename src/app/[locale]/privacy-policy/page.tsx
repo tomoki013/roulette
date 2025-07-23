@@ -62,16 +62,29 @@ const PrivacyPolicyPage = () => {
                         <p>
                             当サイトでは、ユーザー登録機能の提供にあたり、メールアドレスを取得します。この情報は、アカウントの認証、管理、およびパスワード再設定などの連絡のためにのみ利用されます。ユーザーが作成したルーレットのタイトルや項目などのデータは、ユーザーのアカウントに紐づけて当サイトのデータベースに保存されます。当サイトの認証機能およびデータベースはSupabaseを利用しており、ユーザーの情報は<Link href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Supabaseのプライバシーポリシー</Link>に基づき安全に管理されます。
                         </p>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. テンプレート機能について</h2>
+                        <p>
+                            当サイトでは、ユーザーが作成したルーレットを他のユーザーが利用できる「テンプレート」として公開する機能を提供します。ルーレットをテンプレートとして公開した場合、以下の情報が他のユーザーに表示されます。
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>ユーザー名</li>
+                            <li>ルーレットのタイトル</li>
+                            <li>ルーレットの項目と設定</li>
+                        </ul>
+                        <p>
+                            公開されたくない個人情報や第三者の権利を侵害するような情報を、ユーザー名やルーレットの内容に含めないようご注意ください。テンプレートの公開設定は、マイページからいつでも変更できます。
+                        </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. お問い合わせフォームで取得する個人情報について</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. お問い合わせフォームで取得する個人情報について</h2>
                         <p>
                             当サイトのお問い合わせフォームでは、名前（ニックネーム可）とメールアドレスの入力が必須となっています。取得したこれらの個人情報は、お問い合わせに対する返信や連絡のためにのみ利用し、本人の許可なく第三者に開示することはありません。
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. 免責事項</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. 免責事項</h2>
                         <p>
                             当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. プライバシーポリシーの変更について</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">8. プライバシーポリシーの変更について</h2>
                         <p>
                             当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。
                             修正された最新のプライバシーポリシーは常に本ページにて開示されます。
@@ -130,15 +143,28 @@ const PrivacyPolicyPage = () => {
                             Ce site recueille des adresses e-mail pour fournir une fonctionnalité d&apos;enregistrement des utilisateurs. Ces informations sont utilisées uniquement pour l&apos;authentification du compte, la gestion et la communication, comme la réinitialisation des mots de passe. Les données telles que les titres de roulette et les éléments créés par l&apos;utilisateur sont stockées dans la base de données de notre site en association avec le compte de l&apos;utilisateur. Les fonctionnalités d&apos;authentification et la base de données de ce site sont alimentées par Supabase, et les informations des utilisateurs sont gérées en toute sécurité conformément à la <Link href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">politique de confidentialité de Supabase</Link>.
                         </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. À propos des informations personnelles collectées via le formulaire de contact</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. À propos de la fonction de modèle</h2>
+                        <p>
+                            Ce site offre une fonctionnalité permettant de publier les roulettes que vous avez créées en tant que « modèles » que d&apos;autres utilisateurs peuvent utiliser. Si vous publiez une roulette en tant que modèle, les informations suivantes seront visibles par les autres utilisateurs :
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>Nom d&apos;utilisateur</li>
+                            <li>Titre de la roulette</li>
+                            <li>Éléments et paramètres de la roulette</li>
+                        </ul>
+                        <p>
+                            Veuillez faire attention à ne pas inclure d&apos;informations personnelles que vous ne souhaitez pas divulguer ou d&apos;informations qui enfreignent les droits de tiers dans votre nom d&apos;utilisateur ou le contenu de votre roulette. Vous pouvez modifier les paramètres de publication de vos modèles à tout moment depuis votre page personnelle.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. À propos des informations personnelles collectées via le formulaire de contact</h2>
                         <p>
                             Notre formulaire de contact vous demande de saisir votre nom (un surnom est acceptable) et votre adresse e-mail. Ces informations personnelles seront utilisées uniquement dans le but de répondre à votre demande et ne seront pas divulguées à des tiers sans votre permission.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Clause de non-responsabilité</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Clause de non-responsabilité</h2>
                         <p>
                             Veuillez noter que nous ne sommes pas responsables des dommages ou pertes causés par le contenu de ce site.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Modifications de cette politique de confidentialité</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">8. Modifications de cette politique de confidentialité</h2>
                         <p>
                             Ce site se conformera aux lois et réglementations japonaises applicables aux informations personnelles et révisera et améliorera cette politique de temps à autre.
                             La dernière politique de confidentialité révisée sera toujours publiée sur cette page.
@@ -196,16 +222,29 @@ const PrivacyPolicyPage = () => {
                         <p>
                             Este sitio recopila direcciones de correo electrónico para proporcionar la función de registro de usuarios. Esta información se utiliza únicamente para la autenticación de la cuenta, la gestión y la comunicación, como el restablecimiento de contraseñas. Los datos como los títulos de la ruleta y los elementos creados por el usuario se almacenan en la base de datos de nuestro sitio en asociación con la cuenta del usuario. Las funciones de autenticación y la base de datos de este sitio funcionan con Supabase, y la información del usuario se gestiona de forma segura de acuerdo con la <Link href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">política de privacidad de Supabase</Link>.
                         </p>
+                        
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Acerca de la función de plantilla</h2>
+                        <p>
+                            Este sitio ofrece una función para publicar las ruletas que ha creado como &quot;plantillas&quot; que otros usuarios pueden utilizar. Si publica una ruleta como plantilla, la siguiente información será visible para otros usuarios:
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>Nombre de usuario</li>
+                            <li>Título de la ruleta</li>
+                            <li>Elementos y configuración de la ruleta</li>
+                        </ul>
+                        <p>
+                            Tenga cuidado de no incluir información personal que no desee revelar o información que infrinja los derechos de terceros en su nombre de usuario o en el contenido de su ruleta. Puede cambiar la configuración de publicación de sus plantillas en cualquier momento desde su página personal.
+                        </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. Sobre la información personal recopilada a través del formulario de contacto</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Sobre la información personal recopilada a través del formulario de contacto</h2>
                         <p>
                             Nuestro formulario de contacto requiere que introduzca su nombre (se acepta un apodo) y su dirección de correo electrónico. Esta información personal se utilizará únicamente con el fin de responder a su consulta y no se revelará a terceros sin su permiso.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Descargo de responsabilidad</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Descargo de responsabilidad</h2>
                         <p>
                             Tenga en cuenta que no somos responsables de ningún daño o pérdida causada por el contenido de este sitio.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Cambios en esta Política de Privacidad</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">8. Cambios en esta Política de Privacidad</h2>
                         <p>
                             Este sitio cumplirá con las leyes y regulaciones japonesas aplicables a la información personal y revisará y mejorará esta política de vez en cuando.
                             La última política de privacidad revisada siempre se publicará en esta página.
@@ -265,15 +304,28 @@ const PrivacyPolicyPage = () => {
                             This site collects email addresses to provide a user registration feature. This information is used solely for account authentication, management, and communication, such as for password resets. Data such as roulette titles and items created by the user are stored in our site&apos;s database in association with the user&apos;s account. This site&apos;s authentication features and database are powered by Supabase, and user information is securely managed in accordance with <Link href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">Supabase&apos;s privacy policy</Link>.
                         </p>
 
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. About Personal Information Collected Through the Contact Form</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">5. About the Template Feature</h2>
+                        <p>
+                            This site provides a feature to publish the roulettes you have created as &quot;templates&quot; for other users to use. If you publish a roulette as a template, the following information will be visible to other users:
+                        </p>
+                        <ul className="list-disc list-inside pl-4 space-y-1">
+                            <li>Username</li>
+                            <li>Roulette title</li>
+                            <li>Roulette items and settings</li>
+                        </ul>
+                        <p>
+                            Please be careful not to include personal information you do not want to disclose or information that infringes on the rights of third parties in your username or roulette content. You can change the publication settings of your templates at any time from your My Page.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. About Personal Information Collected Through the Contact Form</h2>
                         <p>
                             Our contact form requires you to enter your name (a nickname is acceptable) and email address. This personal information will be used solely for the purpose of responding to your inquiry and will not be disclosed to third parties without your permission.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">6. Disclaimer</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Disclaimer</h2>
                         <p>
                             Please note that we are not responsible for any damage or loss caused by the content of this site.
                         </p>
-                        <h2 className="text-2xl font-semibold pt-4 pb-2">7. Changes to This Privacy Policy</h2>
+                        <h2 className="text-2xl font-semibold pt-4 pb-2">8. Changes to This Privacy Policy</h2>
                         <p>
                             This site will comply with Japanese laws and regulations applicable to personal information and will review and improve this policy from time to time.
                             The latest revised privacy policy will always be disclosed on this page.
