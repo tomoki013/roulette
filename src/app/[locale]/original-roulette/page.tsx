@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter, useSearchParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
@@ -13,6 +13,7 @@ import { createRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
 import html2canvas from 'html2canvas';
+import AuthModal from '@/components/features/auth/AuthModal';
 
 const CreateRoulettePage = () => {
     const { t, i18n } = useTranslation();
@@ -22,6 +23,9 @@ const CreateRoulettePage = () => {
     const { showModal, closeModal } = useModal();
     const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
+    const configParam = searchParams.get('config');
+    const resultParam = searchParams.get('result');
+
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
     const [isSpinning, setIsSpinning] = useState(false);
@@ -30,12 +34,11 @@ const CreateRoulettePage = () => {
     const [showResultModal, setShowResultModal] = useState(false);
     const [colors] = useState(['#f6e05e', '#f97316', '#ec4899', '#d946ef', '#8b5cf6', '#6366f1']);
     const [isSaving, setIsSaving] = useState(false);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [saveActionPending, setSaveActionPending] = useState(false);
 
     useEffect(() => {
         if (!i18n.isInitialized) return;
-
-        const configParam = searchParams.get('config');
-        const resultParam = searchParams.get('result');
 
         if (configParam) {
             try {
@@ -66,7 +69,7 @@ const CreateRoulettePage = () => {
         setItems(initialItems);
         setTitle(t('roulette.preview.title'));
 
-    }, [i18n.isInitialized, t, colors, searchParams]);
+    }, [i18n.isInitialized, t, colors, configParam, resultParam]);
 
     const addItem = () => {
         const newItemColor = colors[items.length % colors.length];
@@ -130,7 +133,7 @@ const CreateRoulettePage = () => {
 
     const handleShareImage = async () => {
         if (roulettePreviewRef.current) {
-            const canvas = await html2canvas(roulettePreviewRef.current, { background: undefined });
+            const canvas = await html2canvas(roulettePreviewRef.current, { background: '#1a202c' });
             const image = canvas.toDataURL('image/png');
             const link = document.createElement('a');
             link.href = image;
@@ -182,22 +185,16 @@ const CreateRoulettePage = () => {
         }
     };
     
-    const handleSave = async () => {
+    // ★ 修正点: 保存処理の本体。役割を「保存とリダイレクト」に集中させる。
+    const handleSave = useCallback(async () => {
+        // ユーザーがいない場合は、認証モーダルを開くための準備をする
         if (!user) {
-            showModal({
-                title: t('auth.loginToSave'),
-                message: '',
-                confirmText: t('auth.login'),
-                cancelText: t('close'),
-                onConfirm: () => {
-                    router.push(`/${i18n.language}/auth`);
-                    closeModal();
-                },
-                onCancel: closeModal
-            });
+            setSaveActionPending(true);
+            setIsAuthModalOpen(true);
             return;
         }
 
+        // ユーザーがいる場合は、保存処理を実行
         setIsSaving(true);
         try {
             await createRoulette({
@@ -206,13 +203,47 @@ const CreateRoulettePage = () => {
                 items: items as unknown as Json,
                 supported_languages: [i18n.language],
             });
+            // 保存成功後、そのままマイページへリダイレクト
             router.push(`/${i18n.language}/mypage`);
         } catch (error) {
             console.error("Failed to save roulette:", error);
+            // エラー時のみモーダルを表示
+            showModal({
+                title: t('roulette.save.errorTitle', '保存エラー'),
+                message: t('roulette.save.errorMessage', '保存中にエラーが発生しました。'),
+                confirmText: t('common.ok', 'OK'),
+                onConfirm: closeModal,
+                type: 'error',
+            });
         } finally {
             setIsSaving(false);
         }
-    };
+    }, [user, title, items, i18n.language, router, showModal, closeModal, t]);
+
+    // ★ 修正点: ログイン状態を監視し、ログイン成功後にモーダルで通知してから保存処理を実行する
+    useEffect(() => {
+        if (user && saveActionPending) {
+            // 再実行を防ぐために、ペンディング状態をすぐに解除
+            setSaveActionPending(false); 
+            
+            showModal({
+                title: t('auth.loginSuccessTitle', 'ログインしました'),
+                message: t('auth.loginSuccessMessage', 'ルーレットを保存してマイページへ移動します。'),
+                confirmText: t('common.ok', 'OK'),
+                onConfirm: () => {
+                    closeModal();
+                    // モーダルを閉じた後に保存処理を実行
+                    handleSave(); 
+                },
+                onCancel: () => {
+                    // モーダルがキャンセルされた場合（外側クリックなど）は閉じるだけ
+                    closeModal();
+                },
+                type: 'success',
+            });
+        }
+    }, [user, saveActionPending, handleSave, showModal, closeModal, t]);
+
 
     if (authLoading || !i18n.isInitialized) {
         return <LoadingScreen />;
@@ -256,6 +287,14 @@ const CreateRoulettePage = () => {
                 onClose={() => setShowResultModal(false)}
                 onShareImage={handleShareImage}
                 onShareUrl={() => handleShareUrl(true)}
+            />
+
+            <AuthModal
+                isOpen={isAuthModalOpen} 
+                onClose={() => {
+                    setIsAuthModalOpen(false);
+                    setSaveActionPending(false);
+                }} 
             />
         </>
     );
