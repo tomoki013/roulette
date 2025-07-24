@@ -10,7 +10,7 @@ const PrivacyPolicyPage = () => {
         <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
             <h1 className="text-3xl font-bold mb-6">{t('privacyTitle')}</h1>
             <div className="space-y-4 text-white/90">
-                <p>{t('lastUpdated')}</p>
+                <p>{t('privacyPolicy.lastUpdated')}</p>
 
                 {/* Japanese Version */}
                 {i18n.language === 'ja' && (

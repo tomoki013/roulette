@@ -60,18 +60,18 @@ const CreateRoulettePage = () => {
         }
 
         const initialItems = [
-            { name: `${t('optionDefault')} 1`, ratio: 1, color: colors[0] },
-            { name: `${t('optionDefault')} 2`, ratio: 1, color: colors[1] },
-            { name: `${t('optionDefault')} 3`, ratio: 1, color: colors[2] },
+            { name: `${t('roulette.settings.optionDefault')} 1`, ratio: 1, color: colors[0] },
+            { name: `${t('roulette.settings.optionDefault')} 2`, ratio: 1, color: colors[1] },
+            { name: `${t('roulette.settings.optionDefault')} 3`, ratio: 1, color: colors[2] },
         ];
         setItems(initialItems);
-        setTitle(t('previewTitle'));
+        setTitle(t('roulette.preview.title'));
 
     }, [i18n.isInitialized, t, colors, searchParams]);
 
     const addItem = () => {
         const newItemColor = colors[items.length % colors.length];
-        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
+        setItems([...items, { name: `${t('roulette.settings.optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
 
     const removeItem = (index: number) => {
@@ -152,8 +152,8 @@ const CreateRoulettePage = () => {
         navigator.clipboard.writeText(url.toString())
             .then(() => {
                 showModal({
-                    title: t('copySuccessTitle'),
-                    message: t('copySuccessMessageResult'),
+                    title: t('roulette.copy.success'),
+                    message: t('roulette.copy.successMessageResult'),
                     onConfirm: closeModal,
                     confirmText: 'OK',
                     type: 'success',
@@ -185,7 +185,7 @@ const CreateRoulettePage = () => {
             showModal({
                 title: t('auth.loginToSave'),
                 message: '',
-                confirmText: t('login'),
+                confirmText: t('auth.login'),
                 cancelText: t('close'),
                 onConfirm: () => {
                     router.push(`/${i18n.language}/auth`);
@@ -219,7 +219,7 @@ const CreateRoulettePage = () => {
     return (
         <>
             <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {t('createOriginalRoulette')}
+                {t('heroSection.createRoulette.title')}
             </h1>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel

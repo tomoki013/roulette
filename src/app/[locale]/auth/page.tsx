@@ -79,12 +79,12 @@ const AuthPage = () => {
         >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
                 <div className="flex justify-center mb-6">
-                    <button onClick={() => setIsLoginView(true)} className={`px-4 py-2 text-lg font-semibold ${isLoginView ? 'text-yellow-300 border-b-2 border-yellow-300' : 'text-white/70'}`}>{t('login')}</button>
+                    <button onClick={() => setIsLoginView(true)} className={`px-4 py-2 text-lg font-semibold ${isLoginView ? 'text-yellow-300 border-b-2 border-yellow-300' : 'text-white/70'}`}>{t('auth.login')}</button>
                     <button onClick={() => setIsLoginView(false)} className={`px-4 py-2 text-lg font-semibold ${!isLoginView ? 'text-yellow-300 border-b-2 border-yellow-300' : 'text-white/70'}`}>{t('auth.signUp')}</button>
                 </div>
 
                 <h1 className="text-3xl font-bold text-center mb-6">
-                    {isLoginView ? t('login') : t('auth.signUp')}
+                    {isLoginView ? t('auth.login') : t('auth.signUp')}
                 </h1>
 
                 {authError && <p className="bg-red-500/30 text-red-200 text-center p-3 rounded-lg mb-4">{authError}</p>}
@@ -108,7 +108,7 @@ const AuthPage = () => {
                         {form.formState.errors.password && <p className="text-red-400 text-sm mt-1">{form.formState.errors.password.message}</p>}
                     </div>
                     <button type="submit" disabled={isLoading} className="w-full button-primary">
-                        {isLoading ? t('spinning') : (isLoginView ? t('login') : t('auth.signUp'))}
+                        {isLoading ? t('loading') : (isLoginView ? t('auth.login') : t('auth.signUp'))}
                     </button>
                 </form>
             </div>

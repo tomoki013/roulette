@@ -60,7 +60,7 @@ const TemplateRoulettePage = () => {
     const addItem = () => {
         const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
         const newItemColor = colors[items.length % colors.length];
-        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
+        setItems([...items, { name: `${t('roulette.settings.optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
 
     const removeItem = (index: number) => {
@@ -137,8 +137,8 @@ const TemplateRoulettePage = () => {
         navigator.clipboard.writeText(url.toString())
             .then(() => {
                 showModal({
-                    title: t('copySuccessTitle'),
-                    message: t('copySuccessMessageResult'),
+                    title: t('roulette.copy.success'),
+                    message: t('roulette.copy.successMessageResult'),
                     onConfirm: closeModal,
                     confirmText: 'OK',
                     type: 'success',
@@ -193,7 +193,6 @@ const TemplateRoulettePage = () => {
                     onSave={handleForkAndSave}
                     isSaving={isSaving}
                     isLoggedIn={!!user}
-                    // 複製が許可されている場合のみ保存ボタンを表示
                     showSaveButton={allowFork}
                     saveButtonText={t('templates.forkAndSave')}
                 />

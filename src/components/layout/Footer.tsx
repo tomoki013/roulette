@@ -28,27 +28,27 @@ const Footer = () => {
                         <div className="col-span-1">
                             <Link href={`/${locale}`} className="flex items-center gap-2 mb-4">
                                 <Sparkles className="text-yellow-300" size={28} />
-                                <span className="text-2xl font-bold">{t('mainTitleShort')}</span>
+                                <span className="text-2xl font-bold">{t('title')}</span>
                             </Link>
                             <p className="text-white/70">
-                                {t('footerTagline')}
+                                {t('footer.tagline')}
                             </p>
                         </div>
                         
                         {/* サービスリンク */}
                         <div>
-                             <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('service')}</h3>
+                             <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('footer.services')}</h3>
                              <nav className="flex flex-col space-y-3">
                                  <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                     {t('createRoulette')}
+                                     {t('roulette.title')}
                                  </Link>
                                  {/* テンプレートページへのリンクを追加 */}
                                  <Link href={`/${locale}/templates`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                     {t('template')}
+                                     {t('templates.template')}
                                  </Link>
                                  {user && (
                                     <Link href={`/${locale}/mypage`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                        {t('myPage')}
+                                        {t('mypage.title')}
                                     </Link>
                                  )}
                              </nav>
@@ -56,26 +56,26 @@ const Footer = () => {
 
                         {/* 法務リンク */}
                         <div>
-                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('legal')}</h3>
+                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('footer.legal')}</h3>
                             <nav className="flex flex-col space-y-3">
                                 <Link href={`/${locale}/about`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('about')}
+                                    {t('about.title')}
                                 </Link>
                                 <Link href={`/${locale}/contact`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('contact')}
+                                    {t('contact.title')}
                                 </Link>
                                 <Link href={`/${locale}/privacy-policy`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('privacyPolicy')}
+                                    {t('privacyPolicy.title')}
                                 </Link>
                                 <Link href={`/${locale}/terms-of-service`} className="text-sm hover:text-yellow-300 underline transition-colors">
-                                    {t('termsOfService')}
+                                    {t('termsOfService.title')}
                                 </Link>
                             </nav>
                         </div>
 
                         {/* ソーシャルリンク */}
                         <div>
-                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('social')}</h3>
+                            <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">{t('footer.social')}</h3>
                             <div className="flex space-x-4">
                                 <GitHubIcon />
                             </div>
@@ -86,7 +86,7 @@ const Footer = () => {
                     <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
                         <p>&copy; 2025
                             { currentYear > 2025 ? `-${currentYear} ` : ' ' }
-                            {t('copyright')}
+                            {t('footer.copyright')}
                         </p>
                     </div>
                 </div>

@@ -73,12 +73,12 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                         <div className="space-y-4">
                             {/* テンプレートとして公開 */}
                             <div className="flex items-center justify-between bg-white/10 p-4 rounded-lg">
-                                <div>
+                                <div className='flex-1'>
                                     <label htmlFor="isTemplate" className="font-semibold">{t('mypage.publishAsTemplate')}</label>
-                                    <p className="text-xs text-white/60">{t('mypage.publishAsTemplateDesc')}</p>
+                                    <p className="text-xs text-white/60">{t('mypage.publishAsTemplateExcerpt')}</p>
                                 </div>
-                                <button onClick={() => setIsTemplate(!isTemplate)} className={`w-12 h-6 rounded-full flex items-center transition-colors ${isTemplate ? 'bg-yellow-400' : 'bg-gray-600'}`}>
-                                    <motion.div layout className={`w-5 h-5 bg-white rounded-full shadow-md transform ${isTemplate ? 'translate-x-6' : 'translate-x-1'}`} />
+                                <button onClick={() => setIsTemplate(!isTemplate)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${isTemplate ? 'bg-yellow-400' : 'bg-gray-600'}`}>
+                                    <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${isTemplate ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
                                 </button>
                             </div>
 
@@ -91,12 +91,12 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                                     exit={{ opacity: 0, height: 0 }}
                                     className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
                                 >
-                                    <div>
+                                    <div className='flex-1'>
                                         <label htmlFor="allowFork" className="font-semibold">{t('mypage.allowFork')}</label>
-                                        <p className="text-xs text-white/60">{t('mypage.allowForkDesc')}</p>
+                                        <p className="text-xs text-white/60">{t('mypage.allowForkExcerpt')}</p>
                                     </div>
-                                    <button onClick={() => setAllowFork(!allowFork)} className={`w-12 h-6 rounded-full flex items-center transition-colors ${allowFork ? 'bg-yellow-400' : 'bg-gray-600'}`}>
-                                        <motion.div layout className={`w-5 h-5 bg-white rounded-full shadow-md transform ${allowFork ? 'translate-x-6' : 'translate-x-1'}`} />
+                                    <button onClick={() => setAllowFork(!allowFork)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${allowFork ? 'bg-yellow-400' : 'bg-gray-600'}`}>
+                                        <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${allowFork ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
                                     </button>
                                 </motion.div>
                             )}
@@ -107,7 +107,7 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                             <button onClick={onClose} className="px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 rounded-lg transition-colors">{t('close')}</button>
                             <button onClick={handleSave} disabled={isSaving} className="px-6 py-2 text-sm font-semibold bg-yellow-500 hover:bg-yellow-600 rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50">
                                 {isSaving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
-                                {t('save')}
+                                {t('roulette.settings.save')}
                             </button>
                         </div>
                     </motion.div>

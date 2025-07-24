@@ -65,7 +65,7 @@ const EditRoulettePage = () => {
     const addItem = () => {
         const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
         const newItemColor = colors[items.length % colors.length];
-        setItems([...items, { name: `${t('optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
+        setItems([...items, { name: `${t('roulette.settings.optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
 
     const removeItem = (index: number) => {
@@ -146,7 +146,7 @@ const EditRoulettePage = () => {
     return (
         <>
             <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {title || t('createOriginalRoulette')}
+                {title || t('heroSection.createRoulette.title')}
             </h1>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel

@@ -6,7 +6,6 @@ import { getPublicTemplates } from '@/lib/services/rouletteService';
 import { Database } from '@/types/database.types';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 import TemplateCard from '@/components/features/templates/TemplateCard';
-import { Search, SlidersHorizontal } from 'lucide-react';
 
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 type Profile = Database['public']['Tables']['profiles']['Row'];
