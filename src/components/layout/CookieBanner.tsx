@@ -67,7 +67,7 @@ const CookieBanner = () => {
                             {/* Main Content (Text) */}
                             <div className="flex-grow">
                                 <p className="text-sm">
-                                    {declined ? t('declineConfirmation') : t('cookieBannerText')}
+                                    {declined ? t('cookie.declineConfirmation') : t('cookie.bannerText')}
                                 </p>
                             </div>
                             
@@ -76,20 +76,20 @@ const CookieBanner = () => {
                                 <div className="flex flex-wrap gap-2 justify-start sm:justify-end">
                                     <Link href={`/${locale}/privacy-policy#cookie-info-${locale}`}>
                                         <button className="px-4 py-2 bg-white/20 text-white rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
-                                            {t('seeDetails')}
+                                            {t('cookie.seeDetails')}
                                         </button>
                                     </Link>
                                     <button
                                         onClick={handleDecline}
                                         className="px-4 py-2 bg-red-500/50 text-white rounded-lg text-sm font-semibold hover:bg-red-500/70 transition-colors"
                                     >
-                                        {t('decline')}
+                                        {t('cookie.decline')}
                                     </button>
                                     <button
                                         onClick={handleAccept}
                                         className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg text-sm font-semibold hover:from-yellow-500 hover:to-orange-600 transition-colors"
                                     >
-                                        {t('accept')}
+                                        {t('cookie.accept')}
                                     </button>
                                 </div>
                             )}

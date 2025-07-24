@@ -68,13 +68,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                      <motion.li variants={linkVariants}>
                                         <Link href={`/${locale}/original-roulette`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                             <PlusCircle size={20} />
-                                            <span>{t('createRoulette')}</span>
+                                            <span>{t('roulette.title')}</span>
                                         </Link>
                                     </motion.li>
                                     <motion.li variants={linkVariants}>
                                         <Link href={`/${locale}/templates`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                             <LayoutGrid size={20} />
-                                            <span>{t('template')}</span>
+                                            <span>{t('templates.template')}</span>
                                         </Link>
                                     </motion.li>
                                 </motion.ul>
@@ -93,7 +93,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                             <motion.li variants={linkVariants}>
                                                 <Link href={`/${locale}/mypage`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                                     <User size={20} />
-                                                    <span>{t('myPage')}</span>
+                                                    <span>{t('mypage.title')}</span>
                                                 </Link>
                                             </motion.li>
                                             <motion.li variants={linkVariants}>
@@ -107,7 +107,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                         <motion.li variants={linkVariants}>
                                             <Link href={`/${locale}/auth`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                                 <LogIn size={20} />
-                                                <span>{t('login')}</span>
+                                                <span>{t('auth.login')}</span>
                                             </Link>
                                         </motion.li>
                                     )}

@@ -24,14 +24,14 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
   
     return {
-        title: t.mainTitle,
+        title: t.title,
         description: t.description,
         openGraph: {
-            title: t.mainTitle,
+            title: t.title,
             description: t.description,
         },
         twitter: {
-            title: t.mainTitle,
+            title: t.title,
             description: t.description,
         }
     };

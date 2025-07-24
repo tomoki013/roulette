@@ -52,7 +52,7 @@ const MyPage = () => {
     return (
         <div className="max-w-5xl mx-auto">
             <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {t('myPage')}
+                {t('mypage.title')}
             </h1>
             <MyRouletteList initialRoulettes={roulettes} />
         </div>

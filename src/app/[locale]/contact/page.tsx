@@ -16,22 +16,22 @@ const ContactPage = () => {
 
     const formSchema = z.object({
         name: z.string().min(2, {
-            message: t('errorMessage.nameLength'),
+            message: t('contact.error.nameRequired'),
         }),
         email: z.string().email({
-            message: t('errorMessage.emailInvalid'),
+            message: t('contact.error.emailRequired'),
         }),
         subject: z.string().min(5, {
-            message: t('errorMessage.subjectLength'),
+            message: t('contact.submit.error.subjectLength'),
         }),
         message: z.string().min(10, {
-            message: t('errorMessage.messageLength'),
+            message: t('contact.submit.error.messageLength'),
         }),
         inquiryType: z.string({
-            required_error: t('errorMessage.inquiryTypeRequired'),
-        }).refine(value => value !== "", { message: t('errorMessage.inquiryTypeRequired') }),
+            required_error: t('contact.submit.error.inquiryTypeRequired'),
+        }).refine(value => value !== "", { message: t('contact.submit.error.inquiryTypeRequired') }),
         agreeToTerms: z.boolean().refine(val => val === true, {
-            message: t('errorMessage.agreeToTermsRequired'),
+            message: t('contact.submit.error.agreeToTermsRequired'),
         }),
     });
 
@@ -74,14 +74,14 @@ const ContactPage = () => {
             } else {
                 // サーバーがエラーレスポンスを返した場合 (ステータスコード 4xx, 5xx)
                 const errorData = await response.json().catch(() => null); // JSON以外のレスポンスも考慮
-                const serverMessage = errorData?.message || t('submitErrorServerDefault', 'サーバー側で予期せぬエラーが発生しました。');
-                setErrorMessage(`${t('submitErrorServerPrefix', 'サーバーエラー')}: ${serverMessage}`);
+                const serverMessage = errorData?.message || t('contact.submit.errorServer', 'サーバー側で予期せぬエラーが発生しました。');
+                setErrorMessage(`${t('contact.submit.errorSeverPrefix', 'サーバーエラー')}: ${serverMessage}`);
                 // エラー表示のためにトップへスクロール
                 topRef.current?.scrollIntoView({ behavior: 'smooth' });
             }
         } catch {
             // ネットワークエラーなど、リクエスト自体が失敗した場合
-            setErrorMessage(t('submitErrorNetwork', 'ネットワーク接続に問題があるようです。接続を確認後、再度お試しください。'));
+            setErrorMessage(t('contact.submit.errorNetwork', 'ネットワーク接続に問題があるようです。接続を確認後、再度お試しください。'));
             // エラー表示のためにトップへスクロール
             topRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
@@ -91,8 +91,8 @@ const ContactPage = () => {
     if (isSubmitted) {
         return (
             <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white text-center">
-                <h1 className="text-3xl font-bold mb-4">{t('submitSuccessTitle')}</h1>
-                <p className="text-white/80 mb-8">{t('submitSuccessDescription')}</p>
+                <h1 className="text-3xl font-bold mb-4">{t('contact.submit.successTitle')}</h1>
+                <p className="text-white/80 mb-8">{t('contact.submit.successExcerpt')}</p>
                 <button 
                     onClick={() => {
                         setIsSubmitted(false)
@@ -100,7 +100,7 @@ const ContactPage = () => {
                     }} 
                     className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-colors font-semibold"
                 >
-                    {t('newInquiry')}
+                    {t('contact.newInquiry')}
                 </button>
             </div>
         )
@@ -109,8 +109,8 @@ const ContactPage = () => {
     return (
         // 作成したrefをトップレベルのdivにアタッチ
         <div ref={topRef} className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
-            <h1 className="text-3xl font-bold mb-4">{t('contactTitle')}</h1>
-            <p className="text-white/80 mb-8">{t('contactDescription')}</p>
+            <h1 className="text-3xl font-bold mb-4">{t('contact.title')}</h1>
+            <p className="text-white/80 mb-8">{t('contact.excerpt')}</p>
             
             {/* エラーメッセージの表示をより分かりやすく改善 */}
             {errorMessage && (
@@ -120,7 +120,7 @@ const ContactPage = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" />
                         </svg>
                         <h3 className="font-semibold text-red-300">
-                            {t('submissionError', 'メッセージの送信に失敗しました')}
+                            {t('contact.submit.error', 'メッセージの送信に失敗しました')}
                         </h3>
                     </div>
                     <p className="mt-2 text-sm text-red-300/90 pl-9">
@@ -132,54 +132,56 @@ const ContactPage = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">{t('nameLabel')}</label>
+                        <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">{t('contact.name')}</label>
                         <input type="text" {...form.register("name")} id="name" className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all" />
                         {form.formState.errors.name && <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>}
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-2">{t('emailLabel')}</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-2">{t('contact.email')}</label>
                         <input type="email" {...form.register("email")} id="email" className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all" />
                         {form.formState.errors.email && <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>}
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="inquiryType" className="block text-sm font-medium text-white/90 mb-2">{t('inquiryTypeLabel')}</label>
+                    <label htmlFor="inquiryType" className="block text-sm font-medium text-white/90 mb-2">{t('contact.inquiryType.title')}</label>
                     <select {...form.register("inquiryType")} id="inquiryType" className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all">
-                        <option value="" >{t('inquiryTypePlaceholder')}</option>
-                        <option value="general" className="bg-gray-800">{t('inquiryTypeGeneral')}</option>
-                        <option value="feedback" className="bg-gray-800">{t('inquiryTypeFeedback')}</option>
-                        <option value="collaboration" className="bg-gray-800">{t('inquiryTypeCollaboration')}</option>
-                        <option value="correction" className="bg-gray-800">{t('inquiryTypeCorrection')}</option>
-                        <option value="other" className="bg-gray-800">{t('inquiryTypeOther')}</option>
+                        <option value="" >{t('contact.inquiryType.placeholder')}</option>
+                        <option value="general" className="bg-gray-800">{t('contact.inquiryType.options.general')}</option>
+                        <option value="feedback" className="bg-gray-800">{t('contact.inquiryType.options.feedback')}</option>
+                        <option value="bugReport" className="bg-gray-800">{t('contact.inquiryType.options.bugReport')}</option>
+                        <option value="collaboration" className="bg-gray-800">{t('contact.inquiryType.options.collaboration')}</option>
+                        <option value="correction" className="bg-gray-800">{t('contact.inquiryType.options.correction')}</option>
+                        <option value="featureRequest" className="bg-gray-800">{t('contact.inquiryType.options.featureRequest')}</option>
+                        <option value="other" className="bg-gray-800">{t('contact.inquiryType.options.other')}</option>
                     </select>
                     {form.formState.errors.inquiryType && <p className="text-red-400 text-sm mt-1">{form.formState.errors.inquiryType.message}</p>}
                 </div>
                 <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-white/90 mb-2">{t('subjectLabel')}</label>
+                    <label htmlFor="subject" className="block text-sm font-medium text-white/90 mb-2">{t('contact.subject')}</label>
                     <input type="text" {...form.register("subject")} id="subject" className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all" />
                     {form.formState.errors.subject && <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>}
                 </div>
                 <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">{t('messageLabel')}</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">{t('contact.message')}</label>
                     <textarea {...form.register("message")} id="message" rows={5} className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"></textarea>
                     {form.formState.errors.message && <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>}
                 </div>
                 <div className="flex items-start space-x-3">
                     <input type="checkbox" {...form.register("agreeToTerms")} id="agreeToTerms" className="h-4 w-4 mt-1 rounded border-gray-300 text-yellow-400 focus:ring-yellow-400" />
                     <div className="text-sm">
-                        <label htmlFor="agreeToTerms" className="font-medium text-white/90">{t('agreeToTermsLabel')}</label>
-                        <p className="text-white/70">{t('agreeToTermsDescription')}</p>
+                        <label htmlFor="agreeToTerms" className="font-medium text-white/90">{t('contact.agreeToTerms')}</label>
+                        <p className="text-white/70">{t('contact.agreeToTermsExcerpt')}</p>
                         {form.formState.errors.agreeToTerms && <p className="text-red-400 text-sm mt-1">{form.formState.errors.agreeToTerms.message}</p>}
                     </div>
                 </div>
                 <div>
                     <Link href={`/${locale}/privacy-policy`} className="hover:text-yellow-300 underline transition-colors">
-                        {t('privacyPolicy')}
+                        {t('privacyPolicy.title')}
                     </Link>
                 </div>
                 <div>
                     <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-colors font-semibold disabled:opacity-50" disabled={form.formState.isSubmitting}>
-                        {form.formState.isSubmitting ? t('spinning') : t('submitButton')}
+                        {form.formState.isSubmitting ? t('loading') : t('contact.submit.button')}
                     </button>
                 </div>
             </form>

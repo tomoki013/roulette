@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, X, Save, Loader2, LogIn } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Plus, X, Save, Loader2 } from 'lucide-react';
 import { Item } from '@/types';
+import { useModal } from '@/lib/hooks/useModal'; // useModalをインポート
+import { useRouter } from 'next/navigation'; // useRouterをインポート
 
 interface SettingsPanelProps {
     title: string;
@@ -17,8 +18,8 @@ interface SettingsPanelProps {
     onSave: () => void;
     isSaving: boolean;
     isLoggedIn: boolean;
-    saveButtonText?: string; // 保存ボタンのテキストを外部から指定できるようにする
-    showSaveButton?: boolean; // 保存ボタンの表示制御
+    saveButtonText?: string;
+    showSaveButton?: boolean;
 }
 
 const SettingsPanel = ({
@@ -31,25 +32,36 @@ const SettingsPanel = ({
     onSave,
     isSaving,
     isLoggedIn,
-    saveButtonText, // propsを受け取る
+    saveButtonText,
     showSaveButton = true,
 }: SettingsPanelProps) => {
 
-    const { t } = useTranslation();
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    const { t, i18n } = useTranslation();
     const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
+    const { showModal, closeModal } = useModal(); // useModalフックを使用
+    const router = useRouter(); // useRouterフックを使用
 
-    // ログインしていない場合の保存ボタン挙動
     const handleSave = () => {
         if (!isLoggedIn) {
-            setShowLoginModal(true);
+            // 共通モーダルを使用してログインを促す
+            showModal({
+                title: t('auth.loginRequired', 'ログインが必要です'),
+                message: t('auth.loginToSave', '保存するにはログインしてください。'),
+                confirmText: t('heroSection.login.goToLogin', 'ログインページへ'),
+                cancelText: t('close'),
+                onConfirm: () => {
+                    router.push(`/${i18n.language}/auth`);
+                    closeModal();
+                },
+                onCancel: closeModal,
+            });
             return;
         }
         onSave();
     };
 
     return (
-        <motion.div 
+        <motion.div
             className="space-y-6"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -57,20 +69,19 @@ const SettingsPanel = ({
         >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-xl font-semibold text-white">{t('settingsTitle')}</h2>
+                    <h2 className="text-xl font-semibold text-white">{t('roulette.settings.title')}</h2>
                 </div>
 
-                {/* (以降のコードは変更なし) */}
                 <div className="mb-6">
                     <label className="block text-white/80 text-sm font-medium mb-2">
-                        {t('rouletteTitleLabel')}
+                        {t('roulette.settings.name')}
                     </label>
                     <input
                         type="text"
                         value={title}
                         onChange={(e) => onTitleChange(e.target.value)}
                         className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-                        placeholder={t('rouletteTitlePlaceholder')}
+                        placeholder={t('roulette.settings.namePlaceholder')}
                     />
                 </div>
                 <div className="space-y-3">
@@ -122,7 +133,7 @@ const SettingsPanel = ({
                         className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
                     >
                         <Plus size={20} />
-                        {t('addItem')}
+                        {t('roulette.settings.items.addItem')}
                     </button>
                 </div>
                 {showSaveButton && (
@@ -137,66 +148,17 @@ const SettingsPanel = ({
                             {isSaving ? (
                                 <>
                                     <Loader2 size={16} className="animate-spin" />
-                                    {t('saveInProgress')}
+                                    {t('roulette.settings.saveInProgress')}
                                 </>
                             ) : (
                                 <>
                                     <Save size={16} />
-                                    {saveButtonText || t('save')}
+                                    {saveButtonText || t('roulette.settings.save')}
                                 </>
                             )}
                         </motion.button>
                     </div>
                 )}
-                {/* ログインモーダル（ResultModal風） */}
-                <AnimatePresence>
-                    {showLoginModal && (
-                        <motion.div
-                            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setShowLoginModal(false)}
-                        >
-                            <motion.div
-                                className="bg-white rounded-2xl p-8 max-w-xs w-full text-center relative overflow-hidden"
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0.8, opacity: 0 }}
-                                transition={{ type: 'spring', duration: 0.5 }}
-                                onClick={e => e.stopPropagation()}
-                            >
-                                <button
-                                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
-                                    onClick={() => setShowLoginModal(false)}
-                                    aria-label="Close"
-                                >
-                                    <X size={20} />
-                                </button>
-                                <div className="mb-4">
-                                    <LogIn className="w-12 h-12 text-purple-500 mx-auto" />
-                                </div>
-                                <h3 className="text-lg font-bold mb-2">{t('loginRequired', 'ログインが必要です')}</h3>
-                                <p className="text-gray-700 mb-6">{t('pleaseLoginToSave', '保存するにはログインしてください。')}</p>
-                                <div className="flex flex-col sm:flex-row justify-center gap-3">
-                                    <Link
-                                        href="/ja/auth" // 必要に応じてロケールを動的に
-                                        className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-colors flex items-center justify-center gap-2"
-                                        onClick={() => setShowLoginModal(false)}
-                                    >
-                                        <LogIn size={18} /> {t('goToLogin', 'ログインページへ')}
-                                    </Link>
-                                    <button
-                                        onClick={() => setShowLoginModal(false)}
-                                        className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors"
-                                    >
-                                        {t('close', '閉じる')}
-                                    </button>
-                                </div>
-                            </motion.div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </div>
         </motion.div>
     );

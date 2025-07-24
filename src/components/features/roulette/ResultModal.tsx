@@ -45,7 +45,7 @@ const ResultModal = ({
                     >
                         <div className="relative z-10">
                             <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('resultModalTitle')}</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('roulette.result.title')}</h2>
                             <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
                                 {result?.name}
                             </div>

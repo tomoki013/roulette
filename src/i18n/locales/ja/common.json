@@ -1,97 +1,20 @@
 {
-    "mainTitle": "Webでルーレット",
-    "description": "Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。",
-    "template": "テンプレート",
-    "templatesHeroTitle": "テンプレートから探す",
-    "templatesHeroDescription": "他のユーザーが作成したユニークなルーレットを見つけて、すぐに使ってみましょう。",
-    "login": "ログイン",
-    "settingsTitle": "ルーレット設定",
-    "rouletteTitleLabel": "タイトル",
-    "rouletteTitlePlaceholder": "ルーレットのタイトルを入力",
-    "addItem": "項目を追加",
-    "settings": "設定",
-    "save": "保存",
-    "saveInProgress": "保存中...",
-    "share": "共有",
-    "previewTitle": "私のルーレット",
-    "spin": "回す！",
-    "spinning": "処理中...",
-    "resultModalTitle": "結果発表！",
+    "title": "Webでルーレット",
+    "description": "Webでルーレットは、カスタムルーレットを簡単に作成・共有できるツールです。オリジナルのルーレットを作成して、友人や家族と楽しみましょう。",
     "close": "閉じる",
-    "optionDefault": "オプション",
-    "privacyPolicy": "プライバシーポリシー",
-    "termsOfService": "利用規約",
-    "copyright": "Webでルーレット. All Rights Reserved.",
-    "privacyTitle": "プライバシーポリシー",
-    "termsTitle": "利用規約",
-    "lastUpdated": "制定日: 2024年7月19日",
-    "mainTitleShort": "Webでルーレット",
-    "footerTagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。",
-    "legal": "法務",
-    "social": "ソーシャル",
-    "cookieBannerText": "当サイトではユーザ体験の向上とサイトの利用状況分析のためにCookieを使用しています。これには、Google Analyticsによるトラフィック分析が含まれます。Cookieの使用に同意いただくことで、より良いサービスの提供に役立てることができます。",
-    "seeDetails": "詳細を見る",
-    "accept": "同意する",
-    "decline": "拒否する",
-    "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。",
-    "createRouletteNow": "今すぐルーレットを作成",
-    "futureFeaturesTitle": "今後の機能",
-    "loginFeature": "ログイン機能",
-    "loginFeatureDescription": "作成したルーレットを保存し、どのデバイスからでもアクセスできます。",
-    "myPageFeature": "マイページ",
-    "myPageFeatureDescription": "保存したルーレットを管理したり、履歴を確認したりできます。",
-    "templatesFeature": "テンプレート機能",
-    "templatesFeatureDescription": "様々なテンプレートから選んで、すぐにルーレットを作成できます。",
-    "service": "サービス",
-    "createRoulette": "ルーレット作成",
-    "createOriginalRoulette": "オリジナルのルーレットを作成する",
-    "contact": "お問い合わせ",
-    "contactTitle": "お問い合わせ",
-    "contactDescription": "ご意見、ご感想、バグ報告などはこちらからお気軽にお問い合わせください。",
-    "nameLabel": "お名前",
-    "emailLabel": "メールアドレス",
-    "subjectLabel": "件名",
-    "messageLabel": "お問い合わせ内容",
-    "inquiryTypeLabel": "お問い合わせの種類",
-    "inquiryTypePlaceholder": "選択してください",
-    "inquiryTypeGeneral": "一般的なお問い合わせ",
-    "inquiryTypeFeedback": "サイトへのご意見・ご感想",
-    "inquiryTypeCollaboration": "協業のご提案",
-    "inquiryTypeCorrection": "内容の修正依頼",
-    "inquiryTypeOther": "その他",
-    "agreeToTermsLabel": "プライバシーポリシーに同意します",
-    "agreeToTermsDescription": "送信された情報は、お問い合わせへの返信目的でのみ使用されます。",
-    "submitButton": "送信する",
-    "submitSuccessTitle": "お問い合わせありがとうございます",
-    "submitSuccessDescription": "メッセージを受け付けました。通常2営業日以内にご返信いたします。",
-    "newInquiry": "新たにお問い合わせする",
-    "submitError": "メール送信に失敗しました。もう一度お試しください。",
-    "submitErrorNetwork": "エラーが発生しました。ネットワーク接続を確認してください。",
-    "errorMessage": {
-        "nameLength": "お名前は2文字以上で入力してください。",
-        "emailInvalid": "有効なメールアドレスを入力してください。",
-        "subjectLength": "件名は5文字以上で入力してください。",
-        "messageLength": "メッセージは10文字以上で入力してください。",
-        "inquiryTypeRequired": "お問い合わせの種類を選択してください。",
-        "agreeToTermsRequired": "プライバシーポリシーに同意する必要があります。"
+    "loading": "Loading...",
+    "about": {
+        "title": "サイトについて",
+        "title2": "Webでルーレットについて",
+        "section1Title": "このサイトの目的",
+        "section1Content": "「Webでルーレット」は、誰もが簡単かつ直感的に使えるカスタムルーレット作成ツールを提供するために開発されました。日常の小さな決定からイベントの抽選まで、さまざまな場面で楽しみながら公平な選択ができる手助けをしたいと考えています。",
+        "section2Title": "対象ユーザー",
+        "section2Content": "友人同士でのランチの場所決め、ゲーム実況での罰ゲーム抽選、教育現場での生徒の指名、オンラインイベントでの当選者選びなど、個人利用からビジネス、教育目的まで幅広い方々にご利用いただけます。",
+        "section3Content": "皆様からのフィードバックを心よりお待ちしております。今後の開発の参考にさせていただきますので、お気軽にお問い合わせページからご連絡ください。"
     },
-    "contactHeroTitle": "ご意見をお聞かせください",
-    "contactHeroDescription": "当サイトをより良くするために、皆様からのご意見・ご感想を募集しています。機能の要望や改善点など、お気軽にお知らせください。",
-    "languageHeroTitle": "多言語に対応",
-    "languageHeroDescription": "当サイトは日本語、英語、スペイン語、フランス語に対応しています。メニュー内の言語切り替えボタンから、いつでも言語を変更できます。",
-    "loginHeroTitle": "ルーレットを保存・管理",
-    "loginHeroDescription": "ユーザー登録をすると、作成したオリジナルルーレットをマイページに保存できます。いつでも呼び出して使ったり、編集したりすることが可能です。",
-    "goToMyPage": "マイページへ",
-    "about": "サイトについて",
-    "aboutTitle": "Webでルーレットについて",
-    "aboutSection1Title": "このサイトの目的",
-    "aboutSection1Content": "「Webでルーレット」は、誰もが簡単かつ直感的に使えるカスタムルーレット作成ツールを提供するために開発されました。日常の小さな決定からイベントの抽選まで、さまざまな場面で楽しみながら公平な選択ができる手助けをしたいと考えています。",
-    "aboutSection2Title": "対象ユーザー",
-    "aboutSection2Content": "友人同士でのランチの場所決め、ゲーム実況での罰ゲーム抽選、教育現場での生徒の指名、オンラインイベントでの当選者選びなど、個人利用からビジネス、教育目的まで幅広い方々にご利用いただけます。",
-    "aboutSection3Content": "皆様からのフィードバックを心よりお待ちしております。今後の開発の参考にさせていただきますので、お気軽にお問い合わせページからご連絡ください。",
-    "myPage": "マイページ",
     "auth": {
         "signUp": "新規登録",
+        "login": "ログイン",
         "logout": "ログアウト",
         "username": "ユーザーネーム",
         "usernamePlaceholder": "表示される名前",
@@ -100,23 +23,120 @@
         "error": {
             "emailInvalid": "有効なメールアドレスを入力してください。",
             "passwordLength": "パスワードは6文字以上で入力してください。"
+        },
+        "loginRequired": "ログインが必要です",
+        "loginToSave": "ルーレットを保存するにはログインが必要です。"
+    },
+    "contact": {
+        "title": "お問い合わせ",
+        "excerpt": "ご意見・ご要望などがありましたら、以下のフォームからお気軽にお問い合わせください。",
+        "name": "お名前",
+        "email": "メールアドレス",
+        "subject": "件名",
+        "message": "お問い合わせ内容",
+        "inquiryType": {
+            "title": "お問い合わせの種類",
+            "placeholder": "お問い合わせの種類を選択してください",
+            "options": {
+                "general": "一般的なお問い合わせ",
+                "feedback": "サイトへのご意見・ご感想",
+                "bugReport": "バグ報告",
+                "collaboration": "協業の提案",
+                "correction": "内容の修正依頼",
+                "featureRequest": "機能リクエスト",
+                "other": "その他"
+            }
+        },
+        "agreeToTerms": "プライバシーポリシーに同意する",
+        "agreeToTermsExcerpt": "お問い合わせを送信するには、プライバシーポリシーに同意する必要があります。",
+        "submit": {
+            "button": "送信",
+            "submit": {
+                "successTitle": "お問い合わせありがとうございます",
+                "successExcerpt": "メッセージを受け付けました。通常2営業日以内にご返信いたします。",
+                "error": "お問い合わせの送信に失敗しました。後ほど再度お試しください。",
+                "errorServer": "サーバー側で予期せぬエラーが発生しました。",
+                "errorServerPrefix": "サーバーエラーが発生しました。しばらくしてから再度お試しください。",
+                "errorNetwork": "ネットワーク接続に問題があるようです。接続を確認後、再度お試しください。"
+            },
+            "error": {
+                "nameLength": "お名前は2文字以上で入力してください。",
+                "emailInvalid": "有効なメールアドレスを入力してください。",
+                "subjectLength": "件名は5文字以上で入力してください。",
+                "messageLength": "メッセージは10文字以上で入力してください。",
+                "inquiryTypeRequired": "お問い合わせの種類を選択してください。",
+                "agreeToTermsRequired": "プライバシーポリシーに同意する必要があります。"
+            },
+            "newInquiry": "新たにお問い合わせする"
+        },
+        "error": {
+            "nameRequired": "お名前は必須です。",
+            "emailRequired": "メールアドレスは必須です。",
+            "messageRequired": "メッセージは必須です。"
         }
     },
     "mypage": {
+        "title": "マイページ",
         "noRoulettes": "まだ作成されたルーレットがありません。",
         "createdAt": "作成日",
         "publicSettings": "公開設定",
         "edit": "編集",
         "editRoulette": "ルーレットを編集",
         "delete": "削除",
+        "deleteConfirmTitle": "ルーレットの削除",
         "deleteConfirm": "このルーレットを本当に削除しますか？",
-        "settingsDescription": "の公開設定",
+        "settingsExcerpt": "の公開設定",
         "publishAsTemplate": "テンプレートとして公開",
-        "publishAsTemplateDesc": "他のユーザーがこのルーレットを閲覧・利用できるようになります。",
+        "publishAsTemplateExcerpt": "他のユーザーがこのルーレットを閲覧・利用できるようになります。",
         "allowFork": "他のユーザーによる複製を許可",
-        "allowForkDesc": "他のユーザーがこのテンプレートを元に新しいルーレットを作成できます。"
+        "allowForkExcerpt": "他のユーザーがこのテンプレートを元に新しいルーレットを作成できます。"
+    },
+    "roulette": {
+        "title": "ルーレット作成",
+        "shareUrl": "URLで共有",
+        "shareImage": "画像で共有",
+        "settings": {
+            "title": "ルーレット設定",
+            "name": "タイトル",
+            "namePlaceholder": "ルーレットのタイトルを入力",
+            "excerpt": "説明",
+            "excerptPlaceholder": "ルーレットの説明を入力",
+            "optionDefault": "オプション",
+            "items": {
+                "addItem": "アイテムを追加",
+                "itemPlaceholder": "アイテム名"
+            },
+            "save": "保存",
+            "saveInProgress": "保存中...",
+            "share": "共有",
+            "saveChanges": "変更を保存"
+        },
+        "preview": {
+            "title": "私のルーレット",
+            "spin": "回す",
+            "spinning": "回転中..."
+        },
+        "result": {
+            "title": "結果発表！"
+        },
+        "copy": {
+            "success": "コピー成功！",
+            "successMessageRoulette": "ルーレットのURLをクリップボードにコピーしました。",
+            "successMessageResult": "結果のURLをクリップボードにコピーしました。",
+            "error": "URLのコピーに失敗しました。",
+            "copyLink": "ルーレットのリンクをコピー"
+        }
+    },
+    "privacyPolicy": {
+        "title": "プライバシーポリシー",
+        "lastUpdated": "最終更新日: 2025年7月24日"
+    },
+    "termsOfService": {
+        "title": "利用規約",
+        "lastUpdated": "最終更新日: 2025年7月24日"
     },
     "templates": {
+        "template": "テンプレート",
         "title": "テンプレートから探す",
         "subtitle": "他のユーザーが作成したユニークなルーレットを見つけて、すぐに使ってみましょう。",
         "searchPlaceholder": "キーワードで検索...",
@@ -125,13 +145,52 @@
             "popular": "人気順"
         },
         "noResults": "条件に合うテンプレートが見つかりませんでした。",
-        "template": "テンプレート",
-        "noDescription": "説明がありません。",
+        "noExcerpt": "説明がありません。",
         "anonymous": "匿名ユーザー",
-        "useTemplate": "このテンプレートを使う"
+        "useTemplate": "このテンプレートを使う",
+        "copySuffix": "をコピー",
+        "forkAndSave": "このテンプレートを複製して保存"
     },
-    "roulette": {
-        "shareImage": "画像で共有",
-        "shareUrl": "URLで共有"
+    "footer": {
+        "copyright": "Webでルーレット. All rights reserved.",
+        "services": "サービス",
+        "legal": "法務",
+        "social": "ソーシャル",
+        "tagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。"
+    },
+    "cookie": {
+        "bannerText": "当サイトではユーザ体験の向上とサイトの利用状況分析のためにCookieを使用しています。これには、Google Analyticsによるトラフィック分析が含まれます。Cookieの使用に同意いただくことで、より良いサービスの提供に役立てることができます。",
+        "seeDetails": "詳細を見る",
+        "accept": "同意する",
+        "decline": "拒否する",
+        "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。"
+    },
+    "heroSection": {
+        "templates": {
+            "title": "テンプレートから探す",
+            "excerpt": "他のユーザーが作成したユニークなルーレットを見つけて、すぐに使ってみましょう。"
+        },
+        "createRoulette": {
+            "title": "オリジナルのルーレットを作成",
+            "excerpt": "好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。"
+        },
+        "login": {
+            "title": "ログインしてルーレットを保存",
+            "excerpt": "作成したルーレットを保存し、どのデバイスからでもアクセスできます。",
+            "goToMypage": "マイページへ",
+            "goToLogin": "ログインへ"
+        },
+        "futureFeatures": {
+            "title": "今後の機能",
+            "excerpt": "ログイン機能、マイページ、テンプレート機能など、さらに便利な機能を追加予定です。"
+        },
+        "contact": {
+            "title": "お問い合わせ",
+            "excerpt": "ご意見、ご感想、バグ報告などはこちらからお気軽にお問い合わせください。"
+        },
+        "language": {
+            "title": "多言語に対応",
+            "excerpt": "当サイトは日本語、英語、スペイン語、フランス語に対応しています。メニュー内の言語切り替えボタンから、いつでも言語を変更できます。"
+        }
     }
 }

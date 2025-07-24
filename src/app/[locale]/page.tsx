@@ -20,7 +20,7 @@ const HomePage = () => {
                 className="max-w-3xl"
             >
                 <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-200 pb-4">
-                    {t('mainTitle')}
+                    {t('title')}
                 </h1>
                 <p className="mt-4 text-lg md:text-xl text-white/80">
                     {t('description')}
@@ -33,7 +33,7 @@ const HomePage = () => {
                         href={`/${locale}/original-roulette`}
                         className="mt-8 inline-block bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
                     >
-                        {t('createRouletteNow')}
+                        {t('heroSection.createRoulette.title')}
                     </Link>
                 </motion.div>
             </motion.div>
@@ -49,10 +49,10 @@ const HomePage = () => {
                     <div className="text-center md:text-left">
                         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
                             {user ? <User className="text-yellow-300" /> : <LogIn className="text-yellow-300" />}
-                            {t('loginHeroTitle')}
+                            {t('heroSection.login.title')}
                         </h2>
                         <p className="text-white/80 mb-6">
-                            {t('loginHeroDescription')}
+                            {t('heroSection.login.excerpt')}
                         </p>
                         <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -62,7 +62,7 @@ const HomePage = () => {
                                 href={user ? `/${locale}/mypage` : `/${locale}/auth`}
                                 className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                             >
-                                {user ? t('goToMyPage') : t('login')}
+                                {user ? t('heroSection.login.goToMypage') : t('heroSection.login.goToLogin')}
                             </Link>
                         </motion.div>
                     </div>
@@ -80,10 +80,10 @@ const HomePage = () => {
                     <div className="text-center md:text-left">
                         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
                             <Mail className="text-yellow-300" />
-                            {t('templatesHeroTitle')}
+                            {t('heroSection.templates.title')}
                         </h2>
                         <p className="text-white/80 mb-6">
-                            {t('templatesHeroDescription')}
+                            {t('heroSection.templates.excerpt')}
                         </p>
                         <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -93,7 +93,7 @@ const HomePage = () => {
                                 href={`/${locale}/templates`}
                                 className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                             >
-                                {t('template')}
+                                {t('templates.template')}
                             </Link>
                         </motion.div>
                     </div>
@@ -111,10 +111,10 @@ const HomePage = () => {
                     <div className="text-center md:text-left">
                         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
                             <Mail className="text-yellow-300" />
-                            {t('contactHeroTitle')}
+                            {t('heroSection.contact.title')}
                         </h2>
                         <p className="text-white/80 mb-6">
-                            {t('contactHeroDescription')}
+                            {t('heroSection.contact.excerpt')}
                         </p>
                         <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -124,7 +124,7 @@ const HomePage = () => {
                                 href={`/${locale}/contact`}
                                 className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                             >
-                                {t('contact')}
+                                {t('heroSection.contact.title')}
                             </Link>
                         </motion.div>
                     </div>
@@ -142,10 +142,10 @@ const HomePage = () => {
                     <div className="text-center md:text-left">
                         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
                             <Languages className="text-yellow-300" />
-                            {t('languageHeroTitle')}
+                            {t('heroSection.language.title')}
                         </h2>
                         <p className="text-white/80">
-                            {t('languageHeroDescription')}
+                            {t('heroSection.language.excerpt')}
                         </p>
                     </div>
                 </div>

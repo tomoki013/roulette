@@ -16,33 +16,33 @@ const AboutPage = () => {
         >
             <h1 className="text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
                 <Sparkles className="text-yellow-300" />
-                {t('aboutTitle')}
+                {t('about.title2')}
             </h1>
             
             <div className="space-y-8 text-white/90">
                 <section>
                     <h2 className="text-2xl font-semibold pt-4 pb-2 flex items-center gap-2">
                         <Target className="text-yellow-300" />
-                        {t('aboutSection1Title')}
+                        {t('about.section1Title')}
                     </h2>
                     <p>
-                        {t('aboutSection1Content')}
+                        {t('about.section1Content')}
                     </p>
                 </section>
 
                 <section>
                     <h2 className="text-2xl font-semibold pt-4 pb-2 flex items-center gap-2">
                         <Users className="text-yellow-300" />
-                        {t('aboutSection2Title')}
+                        {t('about.section2Title')}
                     </h2>
                     <p>
-                        {t('aboutSection2Content')}
+                        {t('about.section2Content')}
                     </p>
                 </section>
                 
                 <section>
                      <p>
-                        {t('aboutSection3Content')}
+                        {t('about.section3Content')}
                     </p>
                 </section>
             </div>

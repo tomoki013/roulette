@@ -7,7 +7,8 @@ import { motion } from 'framer-motion';
 import { Trash2, Settings, PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import { deleteRoulette, updateRoulette } from '@/lib/services/rouletteService';
-import PublicSettingsModal from './PublicSettingsModal'; // 作成したモーダルをインポート
+import PublicSettingsModal from './PublicSettingsModal';
+import { useModal } from '@/lib/hooks/useModal'; // useModalフックをインポート
 
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 
@@ -20,18 +21,31 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
     const [roulettes, setRoulettes] = useState(initialRoulettes);
     const [selectedRoulette, setSelectedRoulette] = useState<Roulette | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { showModal, closeModal } = useModal(); // モーダル用のフックを使用
 
-    const handleDelete = async (e: React.MouseEvent, id: string) => {
+    const handleDelete = async (e: React.MouseEvent, id: string, title: string) => {
         e.stopPropagation();
         e.preventDefault();
-        if (!window.confirm(t('mypage.deleteConfirm'))) return;
 
-        try {
-            await deleteRoulette(id);
-            setRoulettes(roulettes.filter(r => r.id !== id));
-        } catch (error) {
-            console.error("Failed to delete roulette:", error);
-        }
+        // window.confirmの代わりに共通モーダルを使用
+        showModal({
+            title: t('mypage.deleteConfirmTitle', { title }), // タイトルを追加
+            message: t('mypage.deleteConfirm'),
+            type: 'error', // 警告やエラーを示すアイコンを表示
+            confirmText: t('mypage.delete'),
+            cancelText: t('close'),
+            onConfirm: async () => {
+                try {
+                    await deleteRoulette(id);
+                    setRoulettes(roulettes.filter(r => r.id !== id));
+                } catch (error) {
+                    console.error("Failed to delete roulette:", error);
+                } finally {
+                    closeModal();
+                }
+            },
+            onCancel: closeModal,
+        });
     };
 
     const handleOpenSettings = (e: React.MouseEvent, roulette: Roulette) => {
@@ -53,7 +67,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                 <p className="mb-4">{t('mypage.noRoulettes')}</p>
                 <Link href={`/${i18n.language}/original-roulette`} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-colors font-semibold">
                     <PlusCircle size={20} />
-                    {t('createRoulette')}
+                    {t('heroSection.createRoulette.title')}
                 </Link>
             </div>
         );
@@ -61,7 +75,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
 
     return (
         <>
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4">
                 {roulettes.map((roulette, index) => (
                     <Link key={roulette.id} href={`/${i18n.language}/mypage/roulette/${roulette.id}`} passHref>
                         <motion.div
@@ -80,7 +94,8 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                                 <button onClick={(e) => handleOpenSettings(e, roulette)} className="p-2 hover:bg-white/20 rounded-lg transition-colors" title={t('mypage.publicSettings')}>
                                     <Settings size={20} className="text-white" />
                                 </button>
-                                <button onClick={(e) => handleDelete(e, roulette.id)} className="p-2 hover:bg-red-500/30 rounded-lg transition-colors" title={t('mypage.delete')}>
+                                {/* handleDeleteに関数を渡すように修正 */}
+                                <button onClick={(e) => handleDelete(e, roulette.id, roulette.title)} className="p-2 hover:bg-red-500/30 rounded-lg transition-colors" title={t('mypage.delete')}>
                                     <Trash2 size={20} className="text-red-300" />
                                 </button>
                             </div>

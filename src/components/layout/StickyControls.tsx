@@ -27,13 +27,13 @@ const StickyControls = () => {
                     {/* テンプレートページへのリンクを追加 */}
                         <Link href={`/${locale}/templates`} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors">
                             <Layers size={20} />
-                            <span className="hidden sm:inline">{t('template')}</span>
+                            <span className="hidden sm:inline">{t('templates.template')}</span>
                         </Link>
                         {user ? (
                             <>
                                 <Link href={`/${locale}/mypage`} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2">
                                     <User size={20} />
-                                    <span>{t('myPage')}</span>
+                                    <span>{t('mypage.title')}</span>
                                 </Link>
                                 <button onClick={handleSignOut} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2">
                                     <LogOut size={20} />
@@ -43,7 +43,7 @@ const StickyControls = () => {
                         ) : (
                             <Link href={`/${locale}/auth`} className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2">
                                 <LogIn size={20} />
-                                <span>{t('login')}</span>
+                                <span>{t('auth.login')}</span>
                             </Link>
                         )}
                         <LanguageSwitcher />
