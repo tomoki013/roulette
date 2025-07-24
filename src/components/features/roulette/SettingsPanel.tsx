@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Plus, X, Save, Loader2, Share2 } from 'lucide-react'; // Share2をインポート
 import { Item } from '@/types';
-import { useModal } from '@/lib/hooks/useModal';
-import { useRouter } from 'next/navigation';
 
 interface SettingsPanelProps {
     title: string;
@@ -31,37 +29,15 @@ const SettingsPanel = ({
     onItemAdd,
     onItemRemove,
     onItemUpdate,
-    onSave,
+    onSave: handleSave,
     isSaving,
-    isLoggedIn,
     saveButtonText,
     showSaveButton = true,
     onShareRoulette, // propを受け取る
     showShareButton = false, // propを受け取り、デフォルトはfalse
 }: SettingsPanelProps) => {
 
-    const { t, i18n } = useTranslation();
-    const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
-    const { showModal, closeModal } = useModal();
-    const router = useRouter();
-
-    const handleSave = () => {
-        if (!isLoggedIn) {
-            showModal({
-                title: t('auth.loginRequired', 'ログインが必要です'),
-                message: t('auth.loginToSave', '保存するにはログインしてください。'),
-                confirmText: t('heroSection.login.goToLogin', 'ログインページへ'),
-                cancelText: t('close'),
-                onConfirm: () => {
-                    router.push(`/${i18n.language}/auth`);
-                    closeModal();
-                },
-                onCancel: closeModal,
-            });
-            return;
-        }
-        onSave();
-    };
+    const { t } = useTranslation();
 
     return (
         <motion.div
@@ -118,9 +94,6 @@ const SettingsPanel = ({
                                     <option key={num} value={num} className="bg-gray-800">{num}</option>
                                 ))}
                             </select>
-                            <div className="text-white/80 text-sm w-20 text-center">
-                                {((item.ratio / totalRatio) * 100 || 0).toFixed(1)}%
-                            </div>
                             {items.length > 2 && (
                                 <button
                                     onClick={() => onItemRemove(index)}
