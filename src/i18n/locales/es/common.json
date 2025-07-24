@@ -1,118 +1,196 @@
 {
-    "mainTitle": "Ruleta en la Web",
-    "description": "Herramienta gratuita para crear ruletas personalizadas en la web. Puedes crear rápidamente tu propia ruleta de sorteo configurando tus elementos y proporciones favoritas. No requiere registro, compatible con PC y smartphone.",
-    "templates": "Plantillas",
-    "login": "Iniciar sesión",
-    "settingsTitle": "Configuración de la ruleta",
-    "rouletteTitleLabel": "Título",
-    "rouletteTitlePlaceholder": "Introduce el título de la ruleta",
-    "addItem": "Añadir elemento",
-    "settings": "Configuración",
-    "save": "Guardar",
-    "share": "Compartir",
-    "previewTitle": "Mi Ruleta",
-    "spin": "¡Girar!",
-    "spinning": "Procesando...",
-    "resultModalTitle": "¡El resultado es!",
+    "title": "Ruleta Web",
+    "description": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares.",
     "close": "Cerrar",
-    "optionDefault": "Opción",
-    "privacyPolicy": "Política de privacidad",
-    "termsOfService": "Términos de servicio",
-    "copyright": "Ruleta en la Web. Todos los derechos reservados.",
-    "privacyTitle": "Política de privacidad",
-    "termsTitle": "Términos de servicio",
-    "lastUpdated": "Última actualización: 19 de julio de 2024",
-    "mainTitleShort": "Ruleta Web",
-    "footerTagline": "Crea y comparte tus propias ruletas personalizadas al instante.",
-    "legal": "Legal",
-    "social": "Social",
-    "cookieBannerText": "Este sitio utiliza cookies para analizar el tráfico. Al aceptar el uso de cookies, nos ayuda a ofrecer un mejor servicio.",
-    "seeDetails": "Ver detalles",
-    "accept": "Aceptar",
-    "decline": "Rechazar",
-    "declineConfirmation": "Tu configuración ha sido guardada. No se recopilará información en este sitio.",
-    "createRouletteNow": "Crear ruleta ahora",
-    "futureFeaturesTitle": "Próximas funciones",
-    "templatesFeature": "Plantillas de ruleta",
-    "templatesFeatureDescription": "Elige entre una variedad de plantillas predefinidas para empezar rápidamente.",
-    "service": "Servicio",
-    "createRoulette": "Crear Ruleta",
-    "createOriginalRoulette": "Crear una ruleta original",
-    "contact": "Contacto",
-    "contactTitle": "Contacto",
-    "contactDescription": "No dude en ponerse en contacto con nosotros para darnos su opinión, impresiones o informar de errores. Tenga en cuenta que las consultas en idiomas distintos del japonés se revisarán con una herramienta de traducción y nuestra respuesta será en japonés.",
-    "nameLabel": "Nombre",
-    "emailLabel": "Dirección de correo electrónico",
-    "subjectLabel": "Asunto",
-    "messageLabel": "Mensaje",
-    "inquiryTypeLabel": "Tipo de consulta",
-    "inquiryTypePlaceholder": "Por favor seleccione",
-    "inquiryTypeGeneral": "Consulta general",
-    "inquiryTypeFeedback": "Opiniones/impresiones sobre el sitio",
-    "inquiryTypeCollaboration": "Propuesta de colaboración",
-    "inquiryTypeCorrection": "Solicitud de corrección de contenido",
-    "inquiryTypeOther": "Otro",
-    "agreeToTermsLabel": "Acepto la política de privacidad",
-    "agreeToTermsDescription": "La información proporcionada se utilizará únicamente para responder a su consulta.",
-    "submitButton": "Enviar",
-    "submitSuccessTitle": "Gracias por su consulta",
-    "submitSuccessDescription": "Hemos recibido su mensaje. Normalmente respondemos en un plazo de 2 días laborables.",
-    "newInquiry": "Nueva consulta",
-    "submitError": "Error al enviar el correo electrónico. Por favor, inténtelo de nuevo.",
-    "submitErrorNetwork": "Se ha producido un error. Compruebe su conexión de red.",
-    "submitErrorServerPrefix": "Error del servidor",
-    "submitErrorServerDefault": "Se ha producido un error inesperado en el servidor.",
-    "errorMessage": {
-        "nameLength": "El nombre debe tener al menos 2 caracteres.",
-        "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
-        "subjectLength": "El asunto debe tener al menos 5 caracteres.",
-        "messageLength": "El mensaje debe tener al menos 10 caracteres.",
-        "inquiryTypeRequired": "Seleccione un tipo de consulta.",
-        "agreeToTermsRequired": "Debe aceptar la política de privacidad."
+    "loading": "Cargando...",
+    "about": {
+        "title": "Acerca de",
+        "title2": "Acerca de Ruleta Web",
+        "section1Title": "Propósito de este sitio",
+        "section1Content": "'Ruleta Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Nuestro objetivo es ayudarte a tomar decisiones justas mientras te diviertes en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos.",
+        "section2Title": "Público objetivo",
+        "section2Content": "Está destinado a una amplia gama de usuarios, desde uso personal hasta fines comerciales y educativos, como decidir un lugar para almorzar con amigos, sortear castigos para streamers en vivo, seleccionar estudiantes en el aula o elegir ganadores para eventos en línea.",
+        "section3Content": "Agradecemos sinceramente tus comentarios. Los utilizaremos como referencia para futuros desarrollos, así que no dudes en contactarnos a través de la página de contacto."
     },
-    "contactHeroTitle": "Nos encantaría saber de usted",
-    "contactHeroDescription": "Para mejorar este sitio, buscamos sus opiniones y comentarios. No dude en informarnos sobre solicitudes de funciones, mejoras, etc.",
-    "languageHeroTitle": "Soporta múltiples idiomas",
-    "languageHeroDescription": "Este sitio es compatible con japonés, inglés, español y francés. Puede cambiar el idioma en cualquier momento desde el botón de cambio de idioma en la esquina inferior derecha de la pantalla.",
-    "loginHeroTitle": "Guarda y gestiona tus ruletas",
-    "loginHeroDescription": "Al registrarte, puedes guardar tus ruletas originales en Mi Página. Puedes acceder y editarlas en cualquier momento.",
-    "goToMyPage": "Ir a Mi Página",
-    "about": "Acerca de",
-    "aboutTitle": "Acerca de Ruleta en la Web",
-    "aboutSection1Title": "Propósito de este sitio",
-    "aboutSection1Content": "'Ruleta en la Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Queremos ayudar a las personas a tomar decisiones justas mientras se divierten en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos. Al registrar una cuenta, también puedes guardar, editar y reutilizar las ruletas que crees.",
-    "aboutSection2Title": "Público objetivo",
-    "aboutSection2Content": "Esta herramienta puede ser utilizada por una amplia gama de personas para fines personales, comerciales y educativos, como decidir dónde almorzar con amigos, elegir un castigo en una transmisión de juegos, seleccionar estudiantes en un entorno educativo o elegir ganadores en eventos en línea. También es perfecto para aquellos que quieren guardar y reutilizar sus ruletas.",
-    "aboutSection3Content": "Esperamos sinceramente sus comentarios. No dude en ponerse en contacto con nosotros a través de la página de consulta, ya que será una referencia para el desarrollo futuro.",
-    "myPage": "Mi Página",
-    "saveInProgress": "Guardando...",
     "auth": {
         "signUp": "Registrarse",
+        "login": "Iniciar sesión",
         "logout": "Cerrar sesión",
         "username": "Nombre de usuario",
-        "usernamePlaceholder": "Introduce tu nombre de usuario",
+        "usernamePlaceholder": "Nombre a mostrar",
         "email": "Dirección de correo electrónico",
         "password": "Contraseña",
-        "loginToSave": "¿Necesitas iniciar sesión para guardar. Ir a la página de inicio de sesión?",
         "error": {
             "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
             "passwordLength": "La contraseña debe tener al menos 6 caracteres."
+        },
+        "loginRequired": "Se requiere iniciar sesión",
+        "loginToSave": "Necesitas iniciar sesión para guardar tu ruleta."
+    },
+    "contact": {
+        "title": "Contacto",
+        "excerpt": "Si tienes alguna opinión o solicitud, no dudes en contactarnos utilizando el siguiente formulario.",
+        "name": "Nombre",
+        "email": "Dirección de correo electrónico",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "inquiryType": {
+            "title": "Tipo de consulta",
+            "placeholder": "Por favor, selecciona el tipo de consulta",
+            "options": {
+                "general": "Consulta general",
+                "feedback": "Comentarios/Impresiones sobre el sitio",
+                "bugReport": "Informe de error",
+                "collaboration": "Propuesta de colaboración",
+                "correction": "Solicitud de corrección de contenido",
+                "featureRequest": "Solicitud de función",
+                "other": "Otro"
+            }
+        },
+        "agreeToTerms": "Acepto la Política de Privacidad",
+        "agreeToTermsExcerpt": "Debes aceptar la Política de Privacidad para enviar tu consulta.",
+        "submit": {
+            "button": "Enviar",
+            "submit": {
+                "successTitle": "Gracias por tu consulta",
+                "successExcerpt": "Hemos recibido tu mensaje. Normalmente responderemos en un plazo de 2 días hábiles.",
+                "error": "Error al enviar la consulta. Por favor, inténtalo de nuevo más tarde.",
+                "errorServer": "Ocurrió un error inesperado en el servidor.",
+                "errorServerPrefix": "Ocurrió un error en el servidor. Por favor, inténtalo de nuevo en un momento.",
+                "errorNetwork": "Parece que hay un problema con tu conexión de red. Por favor, comprueba tu conexión e inténtalo de nuevo."
+            },
+            "error": {
+                "nameLength": "El nombre debe tener al menos 2 caracteres.",
+                "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
+                "subjectLength": "El asunto debe tener al menos 5 caracteres.",
+                "messageLength": "El mensaje debe tener al menos 10 caracteres.",
+                "inquiryTypeRequired": "Por favor, selecciona el tipo de consulta.",
+                "agreeToTermsRequired": "Debes aceptar la Política de Privacidad."
+            },
+            "newInquiry": "Hacer una nueva consulta"
+        },
+        "error": {
+            "nameRequired": "El nombre es obligatorio.",
+            "emailRequired": "La dirección de correo electrónico es obligatoria.",
+            "messageRequired": "El mensaje es obligatorio."
         }
     },
     "mypage": {
-        "savedRoulettes": "Roulettes guardadas",
+        "title": "Mi Página",
         "noRoulettes": "Aún no has creado ninguna ruleta.",
-        "createdAt": "Creado el",
+        "createdAt": "Fecha de creación",
         "publicSettings": "Configuración pública",
         "edit": "Editar",
+        "editRoulette": "Editar Ruleta",
         "delete": "Eliminar",
-        "deleteConfirm": "¿Estás seguro de que quieres eliminar esta ruleta?"
+        "deleteConfirmTitle": "Eliminar Ruleta",
+        "deleteConfirm": "¿Estás seguro de que quieres eliminar esta ruleta?",
+        "settingsExcerpt": " - Configuración pública",
+        "publishAsTemplate": "Publicar como plantilla",
+        "publishAsTemplateExcerpt": "Permitir que otros usuarios vean y usen esta ruleta.",
+        "allowFork": "Permitir que otros usuarios dupliquen",
+        "allowForkExcerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla."
     },
-    "copySuccessTitle": "¡Copiado!",
-    "copySuccessMessageResult": "¡Se ha copiado la URL del resultado en el portapapeles!",
-    "copySuccessMessageRoulette": "¡Se ha copiado la URL de la ruleta en el portapapeles!",
     "roulette": {
+        "title": "Crear Ruleta",
+        "shareUrl": "Compartir por URL",
         "shareImage": "Compartir como imagen",
-        "shareUrl": "Compartir como URL"
+        "settings": {
+            "title": "Configuración de la Ruleta",
+            "name": "Título",
+            "namePlaceholder": "Introduce el título de la ruleta",
+            "excerpt": "Descripción",
+            "excerptPlaceholder": "Introduce la descripción de la ruleta",
+            "optionDefault": "Opción",
+            "items": {
+                "addItem": "Añadir elemento",
+                "itemPlaceholder": "Nombre del elemento"
+            },
+            "save": "Guardar",
+            "saveInProgress": "Guardando...",
+            "share": "Compartir",
+            "saveChanges": "Guardar cambios"
+        },
+        "preview": {
+            "title": "Mi Ruleta",
+            "spin": "Girar",
+            "spinning": "Girando..."
+        },
+        "result": {
+            "title": "¡Y el resultado es...!"
+        },
+        "copy": {
+            "success": "¡Copiado con éxito!",
+            "successMessageRoulette": "La URL de la ruleta ha sido copiada a tu portapapeles.",
+            "successMessageResult": "La URL del resultado ha sido copiada a tu portapapeles.",
+            "error": "Error al copiar la URL.",
+            "copyLink": "Copiar enlace de la Ruleta"
+        }
+    },
+    "privacyPolicy": {
+        "title": "Política de Privacidad",
+        "lastUpdated": "Última actualización: 24 de julio de 2025"
+    },
+    "termsOfService": {
+        "title": "Términos de Servicio",
+        "lastUpdated": "Última actualización: 24 de julio de 2025"
+    },
+    "templates": {
+        "template": "Plantilla",
+        "title": "Buscar desde Plantillas",
+        "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
+        "searchPlaceholder": "Buscar por palabra clave...",
+        "sortBy": {
+            "newest": "Más nuevos",
+            "popular": "Populares"
+        },
+        "noResults": "No se encontraron plantillas que coincidan con tus criterios.",
+        "noExcerpt": "No hay descripción disponible.",
+        "anonymous": "Usuario Anónimo",
+        "useTemplate": "Usar esta Plantilla",
+        "copySuffix": " - copia",
+        "forkAndSave": "Duplicar y Guardar esta Plantilla"
+    },
+    "footer": {
+        "copyright": "Ruleta Web. Todos los derechos reservados.",
+        "services": "Servicios",
+        "legal": "Legal",
+        "social": "Social",
+        "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas."
+    },
+    "cookie": {
+        "bannerText": "Este sitio utiliza cookies para mejorar la experiencia del usuario y analizar el uso del sitio. Esto incluye el análisis de tráfico por parte de Google Analytics. Al aceptar el uso de cookies, nos ayudas a proporcionar un mejor servicio.",
+        "seeDetails": "Ver detalles",
+        "accept": "Aceptar",
+        "decline": "Rechazar",
+        "declineConfirmation": "Configuración guardada. No se recopilará información en este sitio."
+    },
+    "heroSection": {
+        "templates": {
+            "title": "Buscar desde Plantillas",
+            "excerpt": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato."
+        },
+        "createRoulette": {
+            "title": "Crea una Ruleta Original",
+            "excerpt": "Crea instantáneamente tu propia ruleta de sorteo con elementos y pesos personalizados. No se requiere registro. Compatible con PC y smartphone."
+        },
+        "login": {
+            "title": "Inicia sesión para Guardar tus Ruletas",
+            "excerpt": "Guarda las ruletas que has creado y accede a ellas desde cualquier dispositivo.",
+            "goToMypage": "Ir a Mi Página",
+            "goToLogin": "Ir a Iniciar Sesión"
+        },
+        "futureFeatures": {
+            "title": "Futuras Funciones",
+            "excerpt": "Planeamos añadir funciones más convenientes como una función de inicio de sesión, una página de usuario y una galería de plantillas."
+        },
+        "contact": {
+            "title": "Contacto",
+            "excerpt": "No dudes en enviarnos tus opiniones, comentarios o informes de errores."
+        },
+        "language": {
+            "title": "Soporte Multilingüe",
+            "excerpt": "Este sitio es compatible con japonés, inglés, español y francés. Puedes cambiar el idioma en cualquier momento desde el selector de idioma en el menú."
+        }
     }
 }

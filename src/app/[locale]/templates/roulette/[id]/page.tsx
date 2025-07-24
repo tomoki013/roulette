@@ -28,6 +28,7 @@ const TemplateRoulettePage = () => {
     const [rotation, setRotation] = useState(0);
     const [result, setResult] = useState<Item | null>(null);
     const [showResult, setShowResult] = useState(false);
+    const [colors] = useState(['#f6e05e', '#f97316', '#ec4899', '#d946ef', '#8b5cf6', '#6366f1']);
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
 
@@ -58,7 +59,6 @@ const TemplateRoulettePage = () => {
     }, [params.id, router, i18n.language]);
 
     const addItem = () => {
-        const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
         const newItemColor = colors[items.length % colors.length];
         setItems([...items, { name: `${t('roulette.settings.optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
     };
