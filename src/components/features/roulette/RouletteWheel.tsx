@@ -41,7 +41,7 @@ const RouletteWheel = ({
                     <path
                         d={pathData}
                         fill={item.color}
-                        stroke="#fff"
+                        stroke="rgba(255, 255, 255, 0.2)"
                         strokeWidth="3"
                         className="drop-shadow-lg"
                     />
@@ -76,13 +76,31 @@ const RouletteWheel = ({
             </motion.div>
             
             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full" />
-                </div>
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full border-2 border-white/20 shadow-lg" />
             </div>
             
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent border-t-yellow-400 drop-shadow-lg" />
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 drop-shadow-lg">
+                <div
+                    style={{
+                        width: 0,
+                        height: 0,
+                        borderLeft: '10px solid transparent',
+                        borderRight: '10px solid transparent',
+                        borderTop: '15px solid #fef08a', // Tailwind's yellow-200
+                    }}
+                />
+                 <div
+                    className="absolute -top-px"
+                    style={{
+                        left: '-5px',
+                        width: 0,
+                        height: 0,
+                        borderLeft: '11px solid transparent',
+                        borderRight: '11px solid transparent',
+                        borderTop: '17px solid white',
+                        zIndex: -1
+                    }}
+                />
             </div>
         </div>
     );

@@ -30,7 +30,7 @@ const CreateRoulettePage = () => {
     const [rotation, setRotation] = useState(0);
     const [result, setResult] = useState<Item | null>(null);
     const [showResultModal, setShowResultModal] = useState(false);
-    const [colors] = useState(['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']);
+    const [colors] = useState(['#f6e05e', '#f97316', '#ec4899', '#d946ef', '#8b5cf6', '#6366f1']);
     const [isSaving, setIsSaving] = useState(false);
 
     useEffect(() => {
