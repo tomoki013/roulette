@@ -124,7 +124,10 @@
             "successMessageRoulette": "ルーレットのURLをクリップボードにコピーしました。",
             "successMessageResult": "結果のURLをクリップボードにコピーしました。",
             "error": "URLのコピーに失敗しました。",
-            "copyLink": "ルーレットのリンクをコピー"
+            "copyLink": "ルーレットのリンクをコピー",
+            "confirmTitle": "共有の確認",
+            "confirmMessage": "結果は含まれません。現在のルーレット設定のみを共有します。よろしいですか？",
+            "confirmAction": "共有する"
         }
     },
     "privacyPolicy": {

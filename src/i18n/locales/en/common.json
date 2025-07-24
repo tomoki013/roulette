@@ -124,7 +124,10 @@
             "successMessageRoulette": "The roulette URL has been copied to your clipboard.",
             "successMessageResult": "The result URL has been copied to your clipboard.",
             "error": "Failed to copy the URL.",
-            "copyLink": "Copy Roulette Link"
+            "copyLink": "Copy Roulette Link",
+            "confirmTitle": "Confirm Share",
+            "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
+            "confirmAction": "Share"
         }
     },
     "privacyPolicy": {

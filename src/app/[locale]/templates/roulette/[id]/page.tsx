@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
 import RoulettePreview from '@/components/features/roulette/RoulettePreview';
 import ResultModal from '@/components/features/roulette/ResultModal';
@@ -12,11 +12,13 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import { getRouletteById, createRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
+import html2canvas from 'html2canvas';
 
 const TemplateRoulettePage = () => {
     const { t, i18n } = useTranslation();
     const router = useRouter();
     const params = useParams<{ id: string; locale: string }>();
+    const searchParams = useSearchParams();
     const { user, loading: authLoading } = useAuth();
     const [initialDataLoaded, setInitialDataLoaded] = useState(false);
     const { showModal, closeModal } = useModal();
@@ -34,29 +36,48 @@ const TemplateRoulettePage = () => {
 
     // テンプレートデータを取得
     useEffect(() => {
-        if (!params.id) return;
+        const configParam = searchParams.get('config');
+        const resultParam = searchParams.get('result');
 
-        const fetchTemplateData = async () => {
+        if (configParam) {
             try {
-                const template = await getRouletteById(params.id as string);
-                // テンプレートとして公開されているか確認
-                if (template && template.is_template) {
-                    setTitle(template.title);
-                    setItems(template.items as unknown as Item[]);
-                    setAllowFork(template.allow_fork);
-                } else {
-                    // 存在しないか、テンプレートでない場合は一覧へ
-                    router.replace(`/${i18n.language}/templates`);
+                const decodedConfig = JSON.parse(decodeURIComponent(atob(configParam)));
+                if (decodedConfig.title && Array.isArray(decodedConfig.items)) {
+                    setTitle(decodedConfig.title);
+                    setItems(decodedConfig.items);
+                    if (resultParam) {
+                        const foundResult = decodedConfig.items.find((item: Item) => item.name === resultParam);
+                        if (foundResult) {
+                            setResult(foundResult);
+                            setShowResult(true);
+                        }
+                    }
                 }
             } catch (error) {
-                console.error("Failed to fetch template data:", error);
-                router.replace(`/${i18n.language}/templates`);
-            } finally {
-                setInitialDataLoaded(true);
+                console.error("URLからの設定復元に失敗しました:", error);
             }
-        };
-        fetchTemplateData();
-    }, [params.id, router, i18n.language]);
+            setInitialDataLoaded(true);
+        } else if (params.id) {
+            const fetchTemplateData = async () => {
+                try {
+                    const template = await getRouletteById(params.id as string);
+                    if (template && template.is_template) {
+                        setTitle(template.title);
+                        setItems(template.items as unknown as Item[]);
+                        setAllowFork(template.allow_fork);
+                    } else {
+                        router.replace(`/${i18n.language}/templates`);
+                    }
+                } catch (error) {
+                    console.error("Failed to fetch template data:", error);
+                    router.replace(`/${i18n.language}/templates`);
+                } finally {
+                    setInitialDataLoaded(true);
+                }
+            };
+            fetchTemplateData();
+        }
+    }, [params.id, searchParams, router, i18n.language]);
 
     const addItem = () => {
         const newItemColor = colors[items.length % colors.length];
@@ -125,25 +146,47 @@ const TemplateRoulettePage = () => {
         }
     };
 
-    const handleShareUrl = () => {
-        const config = { title, items };
-        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-        const url = new URL(window.location.href);
-        url.search = '';
-        url.searchParams.set('config', encodedConfig);
-        if (result) {
-            url.searchParams.set('result', result.name);
-        }
-        navigator.clipboard.writeText(url.toString())
-            .then(() => {
-                showModal({
-                    title: t('roulette.copy.success'),
-                    message: t('roulette.copy.successMessageResult'),
-                    onConfirm: closeModal,
-                    confirmText: 'OK',
-                    type: 'success',
+    const handleShareUrl = (withResult = false) => {
+        const copyLink = () => {
+            const config = { title, items };
+            const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+            const url = new URL(window.location.href);
+            url.search = '';
+            url.searchParams.set('config', encodedConfig);
+            
+            if (withResult && result) {
+                url.searchParams.set('result', result.name);
+            }
+    
+            navigator.clipboard.writeText(url.toString())
+                .then(() => {
+                    showModal({
+                        title: t('roulette.copy.success'),
+                        message: withResult 
+                            ? t('roulette.copy.successMessageResult') 
+                            : t('roulette.copy.successMessageRoulette'),
+                        onConfirm: closeModal,
+                        confirmText: 'OK',
+                        type: 'success',
+                    });
                 });
+        };
+
+        if (withResult) {
+            copyLink();
+        } else {
+            showModal({
+                title: t('roulette.copy.confirmTitle'),
+                message: t('roulette.copy.confirmMessage'),
+                confirmText: t('roulette.copy.confirmAction'),
+                cancelText: t('close'),
+                onConfirm: () => {
+                    closeModal();
+                    copyLink();
+                },
+                onCancel: closeModal,
             });
+        }
     };
 
     // 「複製して保存」処理
@@ -195,6 +238,8 @@ const TemplateRoulettePage = () => {
                     isLoggedIn={!!user}
                     showSaveButton={allowFork}
                     saveButtonText={t('templates.forkAndSave')}
+                    showShareButton={true} // テンプレートページでも設定共有は可能にする
+                    onShareRoulette={() => handleShareUrl(false)}
                 />
                 <RoulettePreview
                     title={title}
@@ -204,7 +249,7 @@ const TemplateRoulettePage = () => {
                     onSpin={spinRoulette}
                     result={result}
                     onShareImage={handleShareImage}
-                    onShareUrl={handleShareUrl}
+                    onShareUrl={() => handleShareUrl(true)}
                 />
             </div>
             
@@ -213,7 +258,7 @@ const TemplateRoulettePage = () => {
                 result={result} 
                 onClose={() => setShowResult(false)} 
                 onShareImage={handleShareImage}
-                onShareUrl={handleShareUrl}
+                onShareUrl={() => handleShareUrl(true)}
             />
         </>
     );

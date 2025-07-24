@@ -159,6 +159,8 @@ const EditRoulettePage = () => {
                     onSave={handleUpdate}
                     isSaving={isSaving}
                     isLoggedIn={!!user}
+                    saveButtonText={t('roulette.settings.saveButton')}
+                    showShareButton={false}
                 />
                 <RoulettePreview
                     title={title}

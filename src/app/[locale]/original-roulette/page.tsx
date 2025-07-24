@@ -1,5 +1,3 @@
-// src/app/[locale]/original-roulette/page.tsx
-
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -41,16 +39,17 @@ const CreateRoulettePage = () => {
 
         if (configParam) {
             try {
-                // --- ここから修正 ---
                 const decodedConfig = JSON.parse(decodeURIComponent(atob(configParam)));
-                // --- ここまで修正 ---
                 if (decodedConfig.title && Array.isArray(decodedConfig.items)) {
                     setTitle(decodedConfig.title);
                     setItems(decodedConfig.items);
 
                     if (resultParam) {
                         const foundResult = decodedConfig.items.find((item: Item) => item.name === resultParam);
-                        if (foundResult) setResult(foundResult);
+                        if (foundResult) {
+                            setResult(foundResult);
+                            setShowResultModal(true);
+                        }
                     }
                     return;
                 }
@@ -140,45 +139,48 @@ const CreateRoulettePage = () => {
         }
     };
 
-    const handleShareUrl = () => {
-        const config = { title, items };
-        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-        const url = new URL(window.location.href);
-        url.search = '';
-        url.searchParams.set('config', encodedConfig);
-        if (result) {
-            url.searchParams.set('result', result.name);
-        }
-        navigator.clipboard.writeText(url.toString())
-            .then(() => {
-                showModal({
-                    title: t('roulette.copy.success'),
-                    message: t('roulette.copy.successMessageResult'),
-                    onConfirm: closeModal,
-                    confirmText: 'OK',
-                    type: 'success',
+    const handleShareUrl = (withResult = false) => {
+        const copyLink = () => {
+            const config = { title, items };
+            const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+            const url = new URL(window.location.href);
+            url.search = '';
+            url.searchParams.set('config', encodedConfig);
+            
+            if (withResult && result) {
+                url.searchParams.set('result', result.name);
+            }
+    
+            navigator.clipboard.writeText(url.toString())
+                .then(() => {
+                    showModal({
+                        title: t('roulette.copy.success'),
+                        message: withResult 
+                            ? t('roulette.copy.successMessageResult') 
+                            : t('roulette.copy.successMessageRoulette'),
+                        onConfirm: closeModal,
+                        confirmText: 'OK',
+                        type: 'success',
+                    });
                 });
+        };
+
+        if (withResult) {
+            copyLink();
+        } else {
+            showModal({
+                title: t('roulette.copy.confirmTitle'),
+                message: t('roulette.copy.confirmMessage'),
+                confirmText: t('roulette.copy.confirmAction'),
+                cancelText: t('close'),
+                onConfirm: () => {
+                    closeModal();
+                    copyLink();
+                },
+                onCancel: closeModal,
             });
+        }
     };
-
-    // const handleShareRoulette = () => {
-    //     const config = { title, items };
-    //     const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-    //     const url = new URL(window.location.href);
-    //     url.search = '';
-    //     url.searchParams.set('config', encodedConfig);
-
-    //     navigator.clipboard.writeText(url.toString())
-    //         .then(() => {
-    //             showModal({
-    //                 title: t('copySuccessTitle'),
-    //                 message: t('copySuccessMessageRoulette'),
-    //                 onConfirm: closeModal,
-    //                 confirmText: 'OK',
-    //                 type: 'success',
-    //             });
-    //         });
-    // };
     
     const handleSave = async () => {
         if (!user) {
@@ -232,7 +234,8 @@ const CreateRoulettePage = () => {
                     onSave={handleSave}
                     isSaving={isSaving}
                     isLoggedIn={!!user}
-                    // onShareRoulette={handleShareRoulette}
+                    onShareRoulette={() => handleShareUrl(false)}
+                    showShareButton={true}
                 />
                 <RoulettePreview
                     ref={roulettePreviewRef}
@@ -243,7 +246,7 @@ const CreateRoulettePage = () => {
                     onSpin={spinRoulette}
                     result={result}
                     onShareImage={handleShareImage}
-                    onShareUrl={handleShareUrl}
+                    onShareUrl={() => handleShareUrl(true)}
                 />
             </div>
             
@@ -252,7 +255,7 @@ const CreateRoulettePage = () => {
                 result={result} 
                 onClose={() => setShowResultModal(false)}
                 onShareImage={handleShareImage}
-                onShareUrl={handleShareUrl}
+                onShareUrl={() => handleShareUrl(true)}
             />
         </>
     );

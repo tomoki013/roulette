@@ -124,7 +124,10 @@
             "successMessageRoulette": "La URL de la ruleta ha sido copiada a tu portapapeles.",
             "successMessageResult": "La URL del resultado ha sido copiada a tu portapapeles.",
             "error": "Error al copiar la URL.",
-            "copyLink": "Copiar enlace de la Ruleta"
+            "copyLink": "Copiar enlace de la Ruleta",
+            "confirmTitle": "Confirmar compartir",
+            "confirmMessage": "El resultado no será incluido. Esto solo compartirá la configuración actual de la ruleta. ¿Está bien?",
+            "confirmAction": "Compartir"
         }
     },
     "privacyPolicy": {
