@@ -3,10 +3,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2 } from 'lucide-react';
+import { Plus, X, Save, Loader2, Share2 } from 'lucide-react'; // Share2をインポート
 import { Item } from '@/types';
-import { useModal } from '@/lib/hooks/useModal'; // useModalをインポート
-import { useRouter } from 'next/navigation'; // useRouterをインポート
+import { useModal } from '@/lib/hooks/useModal';
+import { useRouter } from 'next/navigation';
 
 interface SettingsPanelProps {
     title: string;
@@ -20,6 +20,8 @@ interface SettingsPanelProps {
     isLoggedIn: boolean;
     saveButtonText?: string;
     showSaveButton?: boolean;
+    onShareRoulette?: () => void; // onShareRoulette propを追加
+    showShareButton?: boolean; // showShareButton propを追加
 }
 
 const SettingsPanel = ({
@@ -34,16 +36,17 @@ const SettingsPanel = ({
     isLoggedIn,
     saveButtonText,
     showSaveButton = true,
+    onShareRoulette, // propを受け取る
+    showShareButton = false, // propを受け取り、デフォルトはfalse
 }: SettingsPanelProps) => {
 
     const { t, i18n } = useTranslation();
     const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
-    const { showModal, closeModal } = useModal(); // useModalフックを使用
-    const router = useRouter(); // useRouterフックを使用
+    const { showModal, closeModal } = useModal();
+    const router = useRouter();
 
     const handleSave = () => {
         if (!isLoggedIn) {
-            // 共通モーダルを使用してログインを促す
             showModal({
                 title: t('auth.loginRequired', 'ログインが必要です'),
                 message: t('auth.loginToSave', '保存するにはログインしてください。'),
@@ -136,8 +139,19 @@ const SettingsPanel = ({
                         {t('roulette.settings.items.addItem')}
                     </button>
                 </div>
-                {showSaveButton && (
-                    <div className="flex justify-end mt-6">
+                <div className="flex justify-end items-center mt-6 gap-3">
+                    {showShareButton && onShareRoulette && (
+                        <motion.button
+                            onClick={onShareRoulette}
+                            className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Share2 size={16} />
+                            {t('roulette.settings.share')}
+                        </motion.button>
+                    )}
+                    {showSaveButton && (
                         <motion.button
                             onClick={handleSave}
                             disabled={isSaving}
@@ -157,8 +171,8 @@ const SettingsPanel = ({
                                 </>
                             )}
                         </motion.button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </motion.div>
     );

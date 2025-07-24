@@ -124,7 +124,10 @@
             "successMessageRoulette": "L'URL de la roulette a été copiée dans votre presse-papiers.",
             "successMessageResult": "L'URL du résultat a été copiée dans votre presse-papiers.",
             "error": "La copie de l'URL a échoué.",
-            "copyLink": "Copier le lien de la Roulette"
+            "copyLink": "Copier le lien de la Roulette",
+            "confirmTitle": "Confirmer le partage",
+            "confirmMessage": "Le résultat ne sera pas inclus. Cela ne partagera que les paramètres actuels de la roulette. Est-ce correct ?",
+            "confirmAction": "Partager"
         }
     },
     "privacyPolicy": {
