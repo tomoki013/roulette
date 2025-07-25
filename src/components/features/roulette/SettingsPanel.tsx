@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2, Share2 } from 'lucide-react'; // Share2をインポート
+import { Plus, X, Save, Loader2, Share2 } from 'lucide-react';
 import { Item } from '@/types';
 
 interface SettingsPanelProps {
@@ -18,8 +17,8 @@ interface SettingsPanelProps {
     isLoggedIn: boolean;
     saveButtonText?: string;
     showSaveButton?: boolean;
-    onShareRoulette?: () => void; // onShareRoulette propを追加
-    showShareButton?: boolean; // showShareButton propを追加
+    onShareRoulette?: () => void;
+    showShareButton?: boolean;
 }
 
 const SettingsPanel = ({
@@ -33,10 +32,9 @@ const SettingsPanel = ({
     isSaving,
     saveButtonText,
     showSaveButton = true,
-    onShareRoulette, // propを受け取る
-    showShareButton = false, // propを受け取り、デフォルトはfalse
+    onShareRoulette,
+    showShareButton = false,
 }: SettingsPanelProps) => {
-
     const { t } = useTranslation();
 
     return (
@@ -63,6 +61,7 @@ const SettingsPanel = ({
                         placeholder={t('roulette.settings.namePlaceholder')}
                     />
                 </div>
+
                 <div className="space-y-3">
                     {items.map((item, index) => (
                         <motion.div
@@ -104,6 +103,7 @@ const SettingsPanel = ({
                             )}
                         </motion.div>
                     ))}
+                    
                     <button
                         onClick={onItemAdd}
                         className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
@@ -112,6 +112,7 @@ const SettingsPanel = ({
                         {t('roulette.settings.items.addItem')}
                     </button>
                 </div>
+
                 <div className="flex justify-end items-center mt-6 gap-3">
                     {showShareButton && onShareRoulette && (
                         <motion.button
@@ -124,6 +125,7 @@ const SettingsPanel = ({
                             {t('roulette.settings.share')}
                         </motion.button>
                     )}
+                    
                     {showSaveButton && (
                         <motion.button
                             onClick={handleSave}
