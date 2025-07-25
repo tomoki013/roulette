@@ -3,13 +3,24 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AuthForm from './AuthForm';
+import { useModal } from '@/lib/hooks/useModal';
 
 interface AuthModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
+const AuthModal = ({
+    isOpen,
+    onClose
+}: AuthModalProps
+) => {
+    const { closeModal } = useModal();
+
+    const handleSuccess = () => {
+        closeModal();
+        onClose?.();
+    };
     return (
         <AnimatePresence>
             {isOpen && (
@@ -28,8 +39,14 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                         transition={{ type: "spring", duration: 0.5 }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <AuthForm onSuccess={onClose} />
-                        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-100">
+                        <AuthForm
+                            onSuccess={handleSuccess}
+                            enablePageNavigation={false}
+                        />
+                        <button
+                            onClick={onClose}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-100 transition-colors"
+                        >
                             <X size={24} />
                         </button>
                     </motion.div>

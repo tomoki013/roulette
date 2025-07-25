@@ -6,7 +6,7 @@ import Modal from '@/components/elements/common/Modal';
 interface ModalContent {
     title: string;
     message: string;
-    onConfirm: () => void;
+    onConfirm?: () => void;
     onCancel?: () => void;
     confirmText?: string;
     cancelText?: string;

@@ -1,18 +1,25 @@
+// src/lib/services/rouletteService.ts (リファクタリング後)
 import { supabase } from '../supabaseClient';
-// Supabase CLIで生成した型定義をインポートします
 import { Database } from '@/types/database.types';
+import { PostgrestError } from '@supabase/supabase-js';
 
-// 型エイリアスを設定して使いやすくします
+// Type aliases for better readability
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 type RouletteInsert = Database['public']['Tables']['roulettes']['Insert'];
 type RouletteUpdate = Database['public']['Tables']['roulettes']['Update'];
 
+// Error handling utility
+const handleSupabaseError = (error: PostgrestError, context: string) => {
+    console.error(`Error in ${context}:`, error);
+    throw new Error(error.message);
+};
+
 /**
- * 公開されているテンプレートを取得します
- * @param query - 検索キーワード
- * @param sortBy - ソート順 ('created_at' or 'like_count')
- * @param language - 言語フィルター
- * @returns テンプレートの配列
+ * Fetches public templates with filtering and sorting
+ * @param query - Search keyword
+ * @param sortBy - Sort order ('created_at' or 'like_count')
+ * @param language - Language filter
+ * @returns Array of template roulettes
  */
 export const getPublicTemplates = async (
     query: string,
@@ -21,40 +28,35 @@ export const getPublicTemplates = async (
 ): Promise<Roulette[]> => {
     let supabaseQuery = supabase
         .from('roulettes')
-        .select('*, profiles(username)') // profilesテーブルからusernameも取得
+        .select('*, profiles(username)')
         .eq('is_template', true);
 
-    // キーワード検索 (タイトルと説明文を対象)
+    // Apply search filter
     if (query) {
-        // 注意: descriptionはjsonb型なので、textにキャストして検索します
         supabaseQuery = supabaseQuery.or(`title.ilike.%${query}%,description::text.ilike.%${query}%`);
     }
 
-    // 言語フィルター
+    // Apply language filter
     if (language) {
         supabaseQuery = supabaseQuery.contains('supported_languages', [language]);
     }
 
-    // ソート
+    // Apply sorting
     supabaseQuery = supabaseQuery.order(sortBy, { ascending: false });
 
     const { data, error } = await supabaseQuery;
 
     if (error) {
-        console.error('Error fetching public templates:', error);
-        throw new Error(error.message);
+        handleSupabaseError(error, 'getPublicTemplates');
     }
-    // dataがnullの場合も考慮して空配列を返す
+
     return data || [];
 };
 
-
-// --- 既存の関数 (変更なし) ---
-
 /**
- * IDで特定のルーレットを取得します
- * @param id - 取得するルーレットのID
- * @returns ルーレットのデータ、見つからなければnull
+ * Fetches a specific roulette by ID
+ * @param id - Roulette ID
+ * @returns Roulette data or null if not found
  */
 export const getRouletteById = async (id: string): Promise<Roulette | null> => {
     const { data, error } = await supabase
@@ -64,78 +66,80 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
         .single();
 
     if (error) {
-        console.error('Error fetching roulette by id:', error);
         if (error.code === 'PGRST116') {
-            return null;
+            return null; // Not found
         }
-        throw new Error(error.message);
+        handleSupabaseError(error, 'getRouletteById');
     }
+
     return data;
 };
 
-
 /**
- * 新しいルーレットを作成します
- * @param rouletteData - 挿入するルーレットのデータ
- * @returns 作成されたルーレットのデータ
+ * Creates a new roulette
+ * @param rouletteData - Roulette data to insert
+ * @returns Created roulette data
  */
 export const createRoulette = async (rouletteData: RouletteInsert): Promise<Roulette> => {
-  const { data, error } = await supabase
-    .from('roulettes')
-    .insert(rouletteData)
-    .select()
-    .single();
+    const { data, error } = await supabase
+        .from('roulettes')
+        .insert(rouletteData)
+        .select()
+        .single();
 
-  if (error) {
-    console.error('Error creating roulette:', error);
-    throw new Error(error.message);
-  }
-  return data;
+    if (error) {
+        handleSupabaseError(error, 'createRoulette');
+    }
+
+    return data;
 };
 
 /**
- * 特定のユーザーIDに紐づくルーレットの一覧を取得します
- * @param userId - ユーザーのID
- * @returns ルーレットの配列
+ * Fetches all roulettes for a specific user
+ * @param userId - User ID
+ * @returns Array of user's roulettes
  */
 export const getRoulettesByUserId = async (userId: string): Promise<Roulette[]> => {
-  const { data, error } = await supabase
-    .from('roulettes')
-    .select('*')
-    .eq('user_id', userId)
-    .order('created_at', { ascending: false });
+    const { data, error } = await supabase
+        .from('roulettes')
+        .select('*')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error('Error fetching roulettes:', error);
-    throw new Error(error.message);
-  }
-  return data;
+    if (error) {
+        handleSupabaseError(error, 'getRoulettesByUserId');
+    }
+
+    return data || [];
 };
 
 /**
- * 特定のルーレットを更新します
- * @param id - 更新するルーレットのID
- * @param updates - 更新内容
- * @returns 更新されたルーレットのデータ
+ * Updates a specific roulette
+ * @param id - Roulette ID
+ * @param updates - Update data
+ * @returns Updated roulette data
  */
 export const updateRoulette = async (id: string, updates: RouletteUpdate): Promise<Roulette> => {
     const { data, error } = await supabase
         .from('roulettes')
-        .update({ ...updates, updated_at: new Date().toISOString() })
+        .update({ 
+            ...updates, 
+            updated_at: new Date().toISOString() 
+        })
         .eq('id', id)
         .select()
         .single();
 
     if (error) {
-        console.error('Error updating roulette:', error);
-        throw new Error(error.message);
+        handleSupabaseError(error, 'updateRoulette');
     }
+
     return data;
-}
+};
 
 /**
- * 特定のルーレットを削除します
- * @param id - 削除するルーレットのID
+ * Deletes a specific roulette
+ * @param id - Roulette ID
  */
 export const deleteRoulette = async (id: string): Promise<void> => {
     const { error } = await supabase
@@ -144,7 +148,6 @@ export const deleteRoulette = async (id: string): Promise<void> => {
         .eq('id', id);
 
     if (error) {
-        console.error('Error deleting roulette:', error);
-        throw new Error(error.message);
+        handleSupabaseError(error, 'deleteRoulette');
     }
-}
+};

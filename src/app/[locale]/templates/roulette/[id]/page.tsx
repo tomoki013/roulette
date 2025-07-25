@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import SettingsPanel from '@/components/features/roulette/SettingsPanel';
@@ -12,7 +12,9 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import { getRouletteById, createRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
-import html2canvas from 'html2canvas';
+import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
+import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
+import { ROULETTE_COLORS } from '@/constants/roulette';
 
 const TemplateRoulettePage = () => {
     const { t, i18n } = useTranslation();
@@ -24,21 +26,40 @@ const TemplateRoulettePage = () => {
     const { showModal, closeModal } = useModal();
     const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
+    // State management
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
-    const [isSpinning, setIsSpinning] = useState(false);
-    const [rotation, setRotation] = useState(0);
-    const [result, setResult] = useState<Item | null>(null);
-    const [showResult, setShowResult] = useState(false);
-    const [colors] = useState(['#f6e05e', '#f97316', '#ec4899', '#d946ef', '#8b5cf6', '#6366f1']);
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
 
-    // テンプレートデータを取得
+    // Custom hooks
+    const {
+        rotation,
+        isSpinning,
+        result,
+        showResult,
+        spinRoulette,
+        closeResult,
+        setResult,
+        setShowResult
+    } = useRouletteWheel(items);
+
+    const { handleShareUrl, handleShareImage } = useRouletteShare({
+        title,
+        items,
+        result,
+        showModal,
+        closeModal,
+        previewRef: roulettePreviewRef,
+        t
+    });
+
+    // Load template data
     useEffect(() => {
         const configParam = searchParams.get('config');
         const resultParam = searchParams.get('result');
 
+        // Handle URL config parameter
         if (configParam) {
             try {
                 const decodedConfig = JSON.parse(decodeURIComponent(atob(configParam)));
@@ -57,7 +78,11 @@ const TemplateRoulettePage = () => {
                 console.error("URLからの設定復元に失敗しました:", error);
             }
             setInitialDataLoaded(true);
-        } else if (params.id) {
+            return;
+        }
+
+        // Fetch template from database
+        if (params.id) {
             const fetchTemplateData = async () => {
                 try {
                     const template = await getRouletteById(params.id as string);
@@ -77,136 +102,52 @@ const TemplateRoulettePage = () => {
             };
             fetchTemplateData();
         }
-    }, [params.id, searchParams, router, i18n.language]);
+    }, [params.id, searchParams, router, i18n.language, setResult, setShowResult]);
 
+    // Item management functions
     const addItem = () => {
-        const newItemColor = colors[items.length % colors.length];
-        setItems([...items, { name: `${t('roulette.settings.optionDefault')} ${items.length + 1}`, ratio: 1, color: newItemColor }]);
+        const newItemColor = ROULETTE_COLORS[items.length % ROULETTE_COLORS.length];
+        setItems(prev => [
+            ...prev, 
+            { 
+                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`, 
+                ratio: 1, 
+                color: newItemColor 
+            }
+        ]);
     };
 
     const removeItem = (index: number) => {
         if (items.length > 2) {
-            setItems(items.filter((_, i) => i !== index));
+            setItems(prev => prev.filter((_, i) => i !== index));
         }
     };
 
     const updateItem = (index: number, field: keyof Item, value: string | number) => {
-        const newItems = [...items];
-        const updatedValue = field === 'color' ? String(value) : value;
-        newItems[index] = { ...newItems[index], [field]: updatedValue };
-        setItems(newItems);
+        setItems(prev => {
+            const newItems = [...prev];
+            const updatedValue = field === 'color' ? String(value) : value;
+            newItems[index] = { ...newItems[index], [field]: updatedValue };
+            return newItems;
+        });
     };
 
-    const spinRoulette = () => {
-        if (isSpinning || items.length === 0) return;
-        setIsSpinning(true);
-        setShowResult(false);
-        const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
-        const random = Math.random() * totalRatio;
-        let currentWeight = 0;
-        let selectedIndex = 0;
-        for (let i = 0; i < items.length; i++) {
-            currentWeight += items[i].ratio;
-            if (random <= currentWeight) {
-                selectedIndex = i;
-                break;
-            }
-        }
-        const totalAngle = 360;
-        let angleAccumulator = 0;
-        let targetAngle = 0;
-        for (let i = 0; i < items.length; i++) {
-            const sectionAngle = (items[i].ratio / totalRatio) * totalAngle;
-            if (i === selectedIndex) {
-                targetAngle = angleAccumulator + sectionAngle / 2;
-                break;
-            }
-            angleAccumulator += sectionAngle;
-        }
-        const spins = 8;
-        const degreesPerSpin = 360;
-        const landingAngleCorrection = 270 - targetAngle;
-        const newRotation = rotation - (rotation % degreesPerSpin) + (spins * degreesPerSpin) + landingAngleCorrection;
-        setRotation(newRotation);
-        setResult(items[selectedIndex]);
-        setTimeout(() => {
-            setIsSpinning(false);
-            setShowResult(true);
-        }, 3000);
-    };
-
-    const handleShareImage = async () => {
-        if (roulettePreviewRef.current) {
-            const canvas = await html2canvas(roulettePreviewRef.current, { background: undefined });
-            const image = canvas.toDataURL('image/png');
-            const link = document.createElement('a');
-            link.href = image;
-            link.download = `roulette-result-${Date.now()}.png`;
-            link.click();
-        }
-    };
-
-    const handleShareUrl = (withResult = false) => {
-        const copyLink = () => {
-            const config = { title, items };
-            const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-            const url = new URL(window.location.href);
-            url.search = '';
-            url.searchParams.set('config', encodedConfig);
-            
-            if (withResult && result) {
-                url.searchParams.set('result', result.name);
-            }
-    
-            navigator.clipboard.writeText(url.toString())
-                .then(() => {
-                    showModal({
-                        title: t('roulette.copy.success'),
-                        message: withResult 
-                            ? t('roulette.copy.successMessageResult') 
-                            : t('roulette.copy.successMessageRoulette'),
-                        onConfirm: closeModal,
-                        confirmText: 'OK',
-                        type: 'success',
-                    });
-                });
-        };
-
-        if (withResult) {
-            copyLink();
-        } else {
-            showModal({
-                title: t('roulette.copy.confirmTitle'),
-                message: t('roulette.copy.confirmMessage'),
-                confirmText: t('roulette.copy.confirmAction'),
-                cancelText: t('close'),
-                onConfirm: () => {
-                    closeModal();
-                    copyLink();
-                },
-                onCancel: closeModal,
-            });
-        }
-    };
-
-    // 「複製して保存」処理
+    // Fork and save function
     const handleForkAndSave = async () => {
-        if (!allowFork) return; // 複製が許可されていなければ何もしない
+        if (!allowFork) return;
 
         if (!user) {
-            // ログインしていない場合はログインページへ誘導
             router.push(`/${i18n.language}/auth`);
             return;
         }
+        
         setIsSaving(true);
         try {
-            // 現在のルーレット設定を自分のルーレットとして新規作成
             await createRoulette({
                 user_id: user.id,
-                title: `${title} - ${t('templates.copySuffix')}`, // タイトルに「のコピー」を追加
+                title: `${title} - ${t('templates.copySuffix')}`,
                 items: items as unknown as Json,
                 supported_languages: [i18n.language],
-                // is_template と allow_fork はデフォルト(false)で作成
             });
             router.push(`/${i18n.language}/mypage`);
         } catch (error) {
@@ -225,6 +166,7 @@ const TemplateRoulettePage = () => {
             <h1 className="text-4xl font-bold text-white text-center mb-8">
                 {title}
             </h1>
+            
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel
                     title={title}
@@ -238,9 +180,10 @@ const TemplateRoulettePage = () => {
                     isLoggedIn={!!user}
                     showSaveButton={allowFork}
                     saveButtonText={t('templates.forkAndSave')}
-                    showShareButton={true} // テンプレートページでも設定共有は可能にする
+                    showShareButton={true}
                     onShareRoulette={() => handleShareUrl(false)}
                 />
+                
                 <RoulettePreview
                     title={title}
                     items={items}
@@ -256,7 +199,7 @@ const TemplateRoulettePage = () => {
             <ResultModal 
                 isOpen={showResult} 
                 result={result} 
-                onClose={() => setShowResult(false)} 
+                onClose={closeResult} 
                 onShareImage={handleShareImage}
                 onShareUrl={() => handleShareUrl(true)}
             />

@@ -9,11 +9,7 @@ interface RouletteWheelProps {
     isSpinning: boolean;
 }
 
-const RouletteWheel = ({
-    items,
-    rotation,
-    isSpinning,
-}: RouletteWheelProps) => {
+const RouletteWheel = ({ items, rotation, isSpinning }: RouletteWheelProps) => {
     const generateWheelSections = () => {
         const totalRatio = items.reduce((sum, item) => sum + item.ratio, 0);
         let currentAngle = 0;
@@ -29,7 +25,6 @@ const RouletteWheel = ({
             const y2 = Math.sin((currentAngle * Math.PI) / 180) * 150;
 
             const largeArcFlag = sectionAngle > 180 ? 1 : 0;
-
             const pathData = `M 0 0 L ${x1} ${y1} A 150 150 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
 
             const textAngle = startAngle + sectionAngle / 2;
@@ -60,6 +55,32 @@ const RouletteWheel = ({
         });
     };
 
+    const renderPointer = () => (
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 drop-shadow-lg">
+            <div
+                style={{
+                    width: 0,
+                    height: 0,
+                    borderLeft: '10px solid transparent',
+                    borderRight: '10px solid transparent',
+                    borderTop: '15px solid #fef08a',
+                }}
+            />
+            <div
+                className="absolute -top-px"
+                style={{
+                    left: '-5px',
+                    width: 0,
+                    height: 0,
+                    borderLeft: '11px solid transparent',
+                    borderRight: '11px solid transparent',
+                    borderTop: '17px solid white',
+                    zIndex: -1
+                }}
+            />
+        </div>
+    );
+
     return (
         <div className="relative">
             <motion.div
@@ -79,29 +100,7 @@ const RouletteWheel = ({
                 <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full border-2 border-white/20 shadow-lg" />
             </div>
             
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 drop-shadow-lg">
-                <div
-                    style={{
-                        width: 0,
-                        height: 0,
-                        borderLeft: '10px solid transparent',
-                        borderRight: '10px solid transparent',
-                        borderTop: '15px solid #fef08a', // Tailwind's yellow-200
-                    }}
-                />
-                 <div
-                    className="absolute -top-px"
-                    style={{
-                        left: '-5px',
-                        width: 0,
-                        height: 0,
-                        borderLeft: '11px solid transparent',
-                        borderRight: '11px solid transparent',
-                        borderTop: '17px solid white',
-                        zIndex: -1
-                    }}
-                />
-            </div>
+            {renderPointer()}
         </div>
     );
 };
