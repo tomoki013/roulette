@@ -1,10 +1,12 @@
 {
     "title": "Ruleta Web",
-    "description": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares.",
+    "description": "Ruleta Web es una herramienta gratuita en línea para crear ruletas personalizadas. Diseña y comparte fácilmente tus ruletas originales con elementos y probabilidades a tu gusto. Ideal para sorteos en eventos o decisiones diarias, y no requiere registro.",
+    "excerpt": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares.",
     "close": "Cerrar",
     "loading": "Cargando...",
     "about": {
         "title": "Acerca de",
+        "description": "Ruleta Web es una herramienta de creación de ruletas personalizadas diseñada para un uso intuitivo. Esta página presenta el propósito del desarrollo del sitio y sus posibles usos. Nuestro objetivo es apoyar la toma de decisiones justas y divertidas en cualquier ocasión.",
         "title2": "Acerca de Ruleta Web",
         "section1Title": "Propósito de este sitio",
         "section1Content": "'Ruleta Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Nuestro objetivo es ayudarte a tomar decisiones justas mientras te diviertes en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos.",
@@ -13,6 +15,8 @@
         "section3Content": "Agradecemos sinceramente tus comentarios. Los utilizaremos como referencia para futuros desarrollos, así que no dudes en contactarnos a través de la página de contacto."
     },
     "auth": {
+        "title": "Autenticación de Usuario",
+        "description": "Regístrate o inicia sesión para acceder a todas las funciones de Ruleta Web. Al crear una cuenta, puedes guardar tus ruletas para editarlas y reutilizarlas cuando quieras. Gestiona tu colección personal de ruletas en tu propia Mi Página.",
         "signUp": "Registrarse",
         "login": "Iniciar sesión",
         "logout": "Cerrar sesión",
@@ -29,6 +33,7 @@
     },
     "contact": {
         "title": "Contacto",
+        "description": "Si tienes comentarios, sugerencias o quieres informar de un error sobre Ruleta Web, no dudes en contactarnos a través de este formulario. Valoramos tus opiniones y las utilizaremos para mejorar nuestro servicio.",
         "excerpt": "Si tienes alguna opinión o solicitud, no dudes en contactarnos utilizando el siguiente formulario.",
         "name": "Nombre",
         "email": "Dirección de correo electrónico",
@@ -77,6 +82,7 @@
     },
     "mypage": {
         "title": "Mi Página",
+        "description": "En Mi Página, puedes gestionar todas las ruletas originales que has creado. Edita, elimina y cambia la configuración de privacidad de tus ruletas guardadas de forma sencilla. Accede y disfruta de tus ruletas favoritas en cualquier momento. Se requiere registro de usuario.",
         "noRoulettes": "Aún no has creado ninguna ruleta.",
         "createdAt": "Fecha de creación",
         "publicSettings": "Configuración pública",
@@ -93,6 +99,7 @@
     },
     "roulette": {
         "title": "Crear Ruleta",
+        "description": "¡Crea tu propia ruleta personalizada! Modifica libremente los nombres de los elementos, los colores y las probabilidades de ganar. Es la herramienta en línea gratuita perfecta para juegos, decidir dónde comer o sorteos en eventos. ¡Comparte tu ruleta con un simple URL!",
         "shareUrl": "Compartir por URL",
         "shareImage": "Compartir como imagen",
         "settings": {
@@ -132,15 +139,18 @@
     },
     "privacyPolicy": {
         "title": "Política de Privacidad",
+        "description": "Esta es la página de la Política de Privacidad de Ruleta Web. Aquí se detalla el tipo de información que recopilamos, cómo la usamos y nuestro uso de cookies y Google Analytics. Revisa nuestro compromiso para que uses el servicio con total confianza.",
         "lastUpdated": "Última actualización: 24 de julio de 2025"
     },
     "termsOfService": {
         "title": "Términos de Servicio",
+        "description": "Esta página contiene los Términos de Servicio de Ruleta Web. Define las reglas de uso, las acciones prohibidas y las cláusulas de exención de responsabilidad. También describe cómo se gestiona el contenido generado por los usuarios. Léelo antes de usar el servicio.",
         "lastUpdated": "Última actualización: 24 de julio de 2025"
     },
     "templates": {
         "template": "Plantilla",
         "title": "Buscar desde Plantillas",
+        "description": "¿Buscas ideas divertidas para una ruleta? En nuestra página de Plantillas, puedes explorar y utilizar ruletas únicas creadas por otros usuarios. También puedes personalizar fácilmente una plantilla para crear tu propia ruleta original.",
         "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
         "searchPlaceholder": "Buscar por palabra clave...",
         "sortBy": {

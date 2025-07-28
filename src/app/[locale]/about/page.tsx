@@ -1,53 +1,36 @@
-'use client';
+import { Metadata } from "next";
+import AboutPageClient from "./Client"
 
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Sparkles, Target, Users } from 'lucide-react';
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const params = await props.params;
+    const { locale } = await params;
+    const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
+
+    return {
+        title: t.about.title,
+        description: t.about.description,
+        openGraph: {
+            title: t.about.title,
+            description: t.about.description,
+            images: [
+                {
+                    url: 'favicon.ico',
+                    width: 1200,
+                    height: 630,
+                    alt: t.title,
+                },
+            ],
+        },
+        twitter: {
+            title: t.about.title,
+            description: t.about.description,
+            images: ['favicon.ico'],
+        },
+    }
+}
 
 const AboutPage = () => {
-    const { t } = useTranslation();
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white"
-        >
-            <h1 className="text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
-                <Sparkles className="text-yellow-300" />
-                {t('about.title2')}
-            </h1>
-            
-            <div className="space-y-8 text-white/90">
-                <section>
-                    <h2 className="text-2xl font-semibold pt-4 pb-2 flex items-center gap-2">
-                        <Target className="text-yellow-300" />
-                        {t('about.section1Title')}
-                    </h2>
-                    <p>
-                        {t('about.section1Content')}
-                    </p>
-                </section>
-
-                <section>
-                    <h2 className="text-2xl font-semibold pt-4 pb-2 flex items-center gap-2">
-                        <Users className="text-yellow-300" />
-                        {t('about.section2Title')}
-                    </h2>
-                    <p>
-                        {t('about.section2Content')}
-                    </p>
-                </section>
-                
-                <section>
-                     <p>
-                        {t('about.section3Content')}
-                    </p>
-                </section>
-            </div>
-        </motion.div>
-    );
-};
+    return <AboutPageClient />;
+}
 
 export default AboutPage;

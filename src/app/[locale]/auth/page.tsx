@@ -1,20 +1,36 @@
-'use client';
+import { Metadata } from "next";
+import AuthPageClient from "./Client"
 
-import { motion } from 'framer-motion';
-import AuthForm from '@/components/features/auth/AuthForm';
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const params = await props.params;
+    const { locale } = await params;
+    const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
+
+    return {
+        title: t.auth.title,
+        description: t.auth.description,
+        openGraph: {
+            title: t.auth.title,
+            description: t.auth.description,
+            images: [
+                {
+                    url: 'favicon.ico',
+                    width: 1200,
+                    height: 630,
+                    alt: t.title,
+                },
+            ],
+        },
+        twitter: {
+            title: t.auth.title,
+            description: t.auth.description,
+            images: ['favicon.ico'],
+        },
+    }
+}
 
 const AuthPage = () => {
-    return (
-        <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-md mx-auto"
-        >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                <AuthForm enablePageNavigation={true} />
-            </div>
-        </motion.div>
-    );
-};
+    return <AuthPageClient />;
+}
 
 export default AuthPage;

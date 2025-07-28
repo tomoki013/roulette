@@ -3,9 +3,12 @@ import { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
-  	title: 'Webでルーレット',
+  	title: {
+		default: 'Webでルーレット',
+		template: '%s | Webでルーレット',
+	},
   	description: 'Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。',
-  	authors: [{ name: 'ともきち' }],
+  	authors: [{ name: 'tomokichi' }],
   	openGraph: {
   	  	title: 'Webでルーレット',
   	  	description: 'Webで使える無料のカスタムルーレット作成ツール。好きな項目と比率を設定して、オリジナルの抽選ルーレットがすぐに作れます。登録は一切不要。PC・スマホ対応。',

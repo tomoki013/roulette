@@ -1,62 +1,36 @@
-'use client';
+import { Metadata } from "next";
+import MyPageClient from "./Client"
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/lib/hooks/useAuth';
-import { getRoulettesByUserId } from '@/lib/services/rouletteService';
-import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
-import MyRouletteList from '@/components/features/mypage/MyRouletteList';
-import { useTranslation } from 'react-i18next';
-import { Database } from '@/types/database.types';
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const params = await props.params;
+    const { locale } = await params;
+    const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
-type Roulette = Database['public']['Tables']['roulettes']['Row'];
+    return {
+        title: t.mypage.title,
+        description: t.mypage.description,
+        openGraph: {
+            title: t.mypage.title,
+            description: t.mypage.description,
+            images: [
+                {
+                    url: 'favicon.ico',
+                    width: 1200,
+                    height: 630,
+                    alt: t.title,
+                },
+            ],
+        },
+        twitter: {
+            title: t.mypage.title,
+            description: t.mypage.description,
+            images: ['favicon.ico'],
+        },
+    }
+}
 
 const MyPage = () => {
-    const { user, loading: authLoading } = useAuth();
-    const router = useRouter();
-    const { t, i18n } = useTranslation();
-    const [roulettes, setRoulettes] = useState<Roulette[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // 認証状態の読み込みが完了するまで待つ
-        if (authLoading) return;
-
-        // ログインしていない場合は認証ページにリダイレクト
-        if (!user) {
-            router.replace(`/${i18n.language}/auth`);
-            return;
-        }
-
-        // ログインユーザーのルーレットデータを取得
-        const fetchRoulettes = async () => {
-            try {
-                const data = await getRoulettesByUserId(user.id);
-                setRoulettes(data);
-            } catch (error) {
-                console.error("Failed to fetch roulettes:", error);
-                // TODO: エラー通知
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchRoulettes();
-    }, [user, authLoading, router, i18n.language]);
-
-    // 認証中またはデータ取得中はローディング画面を表示
-    if (authLoading || isLoading) {
-        return <LoadingScreen />;
-    }
-
-    return (
-        <div className="max-w-5xl mx-auto">
-            <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {t('mypage.title')}
-            </h1>
-            <MyRouletteList initialRoulettes={roulettes} />
-        </div>
-    );
-};
+    return <MyPageClient />;
+}
 
 export default MyPage;

@@ -24,15 +24,33 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
   
     return {
-        title: t.title,
+        title: {
+            default: t.title,
+            template: `%s | ${t.title}`,
+        },
         description: t.description,
+        authors: [{ name: 'tomokichi' }],
         openGraph: {
             title: t.title,
             description: t.description,
+            siteName: t.title,
+            url: 'https://webroulette.netlify.app',
+            type: 'website',
+            locale: locale,
+            images: [
+                {
+                    url: 'favicon.ico',
+                    width: 1200,
+                    height: 630,
+                    alt: t.title,
+                },
+            ]
         },
         twitter: {
             title: t.title,
             description: t.description,
+            images: ['favicon.ico'],
+            card: 'summary_large_image',
         }
     };
 }
