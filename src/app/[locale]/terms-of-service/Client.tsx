@@ -28,10 +28,10 @@ const TermsOfServicePageClient = () => {
                         </p>
                         
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第3条（Cookieの使用）</h2>
-                        <p>当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
+                        <p>当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>をご確認ください。</p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第4条（アクセス解析ツール）</h2>
-                        <p>当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>をご確認ください。</p>
+                        <p>当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は<Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>をご確認ください。</p>
                         
                         <h2 className="text-2xl font-semibold pt-4 pb-2">第5条（お問い合わせ）</h2>
                         <p>
@@ -82,10 +82,10 @@ const TermsOfServicePageClient = () => {
                         </p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Utilisation des cookies)</h2>
-                        <p>Ce site utilise des cookies pour améliorer la commodité et pour la diffusion de publicités. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>Ce site utilise des cookies pour améliorer la commodité et pour la diffusion de publicités. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Outil d&apos;analyse d&apos;audience)</h2>
-                        <p>Ce site utilise Google Analytics pour améliorer nos services. Cela collecte des données d&apos;utilisation d&apos;une manière qui n&apos;identifie pas personnellement les individus. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>Ce site utilise Google Analytics pour améliorer nos services. Cela collecte des données d&apos;utilisation d&apos;une manière qui n&apos;identifie pas personnellement les individus. Pour plus de détails, veuillez consulter notre <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
                         
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Demandes de renseignements)</h2>
                         <p>
@@ -136,10 +136,10 @@ const TermsOfServicePageClient = () => {
                         </p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 3 (Uso de cookies)</h2>
-                        <p>Este sitio utiliza cookies para mejorar la comodidad y para la entrega de anuncios. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>Este sitio utiliza cookies para mejorar la comodidad y para la entrega de anuncios. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 4 (Herramienta de análisis de acceso)</h2>
-                        <p>Este sitio utiliza Google Analytics para mejorar nuestros servicios. Esto recopila datos de uso de una manera que no identifica personalmente a las personas. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>Este sitio utiliza Google Analytics para mejorar nuestros servicios. Esto recopila datos de uso de una manera que no identifica personalmente a las personas. Para obtener más detalles, consulte nuestra <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Artículo 5 (Consultas)</h2>
                         <p>
@@ -190,10 +190,10 @@ const TermsOfServicePageClient = () => {
                         </p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 3 (Use of Cookies)</h2>
-                        <p>This site uses cookies to improve convenience and for ad delivery. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>This site uses cookies to improve convenience and for ad delivery. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
 
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 4 (Access Analysis Tool)</h2>
-                        <p>This site uses Google Analytics to improve our services. This collects usage data in a way that does not personally identify individuals. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy')}</Link>.</p>
+                        <p>This site uses Google Analytics to improve our services. This collects usage data in a way that does not personally identify individuals. For details, please check our <Link href={`/${locale}/privacy-policy`} className="underline hover:text-yellow-300">{t('privacyPolicy.title')}</Link>.</p>
                         
                         <h2 className="text-2xl font-semibold pt-4 pb-2">Article 5 (Inquiries)</h2>
                         <p>

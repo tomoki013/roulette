@@ -50,11 +50,9 @@ const StickyControls = () => {
                     </div>
                     
                     {/* Mobile Hamburger Icon: Refined circular button style */}
-                    <div className="md:hidden flex items-center justify-center w-12 h-12 bg-black/20 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
-                        <button onClick={() => setIsMenuOpen(true)} className="text-white">
-                            <Menu size={24} />
-                        </button>
-                    </div>
+                    <button onClick={() => setIsMenuOpen(true)} className="flex items-center justify-center w-12 h-12 bg-black/20 backdrop-blur-sm rounded-full shadow-lg border border-white/20 text-white">
+                        <Menu size={24} />
+                    </button>
                 </div>
             </div>
             
