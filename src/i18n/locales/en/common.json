@@ -1,10 +1,12 @@
 {
     "title": "Web Roulette",
-    "description": "Web Roulette is a tool that allows you to easily create and share custom roulettes. Create your own original roulette and have fun with friends and family.",
+    "description": "Web Roulette is a free online tool to create custom roulettes. Easily build and share your original roulette wheels with custom items and ratios. Perfect for event drawings or daily decisions, with no registration required to get started.",
+    "excerpt": "Web Roulette is a tool that allows you to easily create and share custom roulettes. Create your own original roulette and have fun with friends and family.",
     "close": "Close",
     "loading": "Loading...",
     "about": {
         "title": "About",
+        "description": "Web Roulette is a custom roulette creation tool designed for everyone to use intuitively. This page introduces the purpose behind the site's development and its intended uses. We aim to support fun and fair decision-making, from small daily choices to large events.",
         "title2": "About Web Roulette",
         "section1Title": "Purpose of This Site",
         "section1Content": "'Web Roulette' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We aim to help you make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
@@ -13,6 +15,8 @@
         "section3Content": "We sincerely welcome your feedback. We will use it as a reference for future development, so please feel free to contact us via the contact page."
     },
     "auth": {
+        "title": "User Authentication",
+        "description": "Sign up or log in to unlock the full potential of Web Roulette. By creating an account, you can save your roulettes to edit and reuse them anytime. Manage your personal collection of wheels on your own My Page.",
         "signUp": "Sign Up",
         "login": "Login",
         "logout": "Logout",
@@ -29,6 +33,7 @@
     },
     "contact": {
         "title": "Contact Us",
+        "description": "If you have any feedback, requests, or bug reports regarding Web Roulette, please feel free to contact us using this form. We value your input and will use it to improve our service.",
         "excerpt": "If you have any opinions or requests, please feel free to contact us using the form below.",
         "name": "Name",
         "email": "Email Address",
@@ -77,6 +82,7 @@
     },
     "mypage": {
         "title": "My Page",
+        "description": "On My Page, you can manage all the original roulettes you've created. It's easy to edit, delete, and change the public settings of your saved wheels. Access and enjoy your favorite roulettes anytime, anywhere. User registration is required.",
         "noRoulettes": "You haven't created any roulettes yet.",
         "createdAt": "Created At",
         "publicSettings": "Public Settings",
@@ -93,6 +99,7 @@
     },
     "roulette": {
         "title": "Create Roulette",
+        "description": "Create your own unique roulette wheel! Freely customize item names, colors, and win ratios. This free online tool is perfect for various uses like party games, deciding lunch spots, or event drawings. Share your creation easily with a URL.",
         "shareUrl": "Share via URL",
         "shareImage": "Share as Image",
         "settings": {
@@ -132,15 +139,18 @@
     },
     "privacyPolicy": {
         "title": "Privacy Policy",
+        "description": "This is the Privacy Policy for Web Roulette. It details the types of information we collect, its purpose of use, and our use of Cookies and Google Analytics. Please review our commitment to ensuring you can use our service with confidence.",
         "lastUpdated": "Last Updated: July 24, 2025"
     },
     "termsOfService": {
         "title": "Terms of Service",
+        "description": "This page outlines the Terms of Service for using Web Roulette. It defines the rules, prohibited actions, and disclaimers for our service. Please read this before use, as it also covers the handling of user-generated content.",
         "lastUpdated": "Last Updated: July 24, 2025"
     },
     "templates": {
         "template": "Template",
         "title": "Find from Templates",
+        "description": "Looking for fun roulette ideas? On our Templates page, you can browse and use unique roulettes created by other users. You can also easily customize a template to create your very own original roulette wheel.",
         "subtitle": "Discover unique roulettes created by other users and start using them right away.",
         "searchPlaceholder": "Search by keyword...",
         "sortBy": {

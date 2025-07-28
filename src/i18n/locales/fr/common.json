@@ -1,10 +1,12 @@
 {
     "title": "Roulette en Ligne",
-    "description": "Roulette en Ligne est un outil qui vous permet de créer et de partager facilement des roulettes personnalisées. Créez votre propre roulette originale et amusez-vous avec vos amis et votre famille.",
+    "description": "Roulette en Ligne est un outil gratuit pour créer des roulettes personnalisées. Concevez et partagez facilement vos roulettes originales avec des options et des probabilités sur mesure. Parfait pour les tirages au sort ou les décisions quotidiennes, sans inscription requise.",
+    "excerpt": "Roulette en Ligne est un outil qui vous permet de créer et de partager facilement des roulettes personnalisées. Créez votre propre roulette originale et amusez-vous avec vos amis et votre famille.",
     "close": "Fermer",
     "loading": "Chargement...",
     "about": {
         "title": "À propos",
+        "description": "Roulette en Ligne est un outil de création de roulettes personnalisées conçu pour être intuitif. Cette page présente l'objectif du site et ses cas d'usage. Nous visons à faciliter des prises de décision justes et amusantes, pour les petits choix du quotidien comme pour les grands événements.",
         "title2": "À propos de Roulette en Ligne",
         "section1Title": "Objectif de ce site",
         "section1Content": "'Roulette en Ligne' a été développé pour fournir un outil de création de roulettes personnalisées que tout le monde peut utiliser facilement et intuitivement. Notre but est de vous aider à faire des choix équitables tout en vous amusant dans diverses situations, des petites décisions quotidiennes aux tirages au sort d'événements.",
@@ -13,6 +15,8 @@
         "section3Content": "Nous apprécions sincèrement vos commentaires. Nous les utiliserons comme référence pour le développement futur, alors n'hésitez pas à nous contacter via la page de contact."
     },
     "auth": {
+        "title": "Authentification Utilisateur",
+        "description": "Inscrivez-vous ou connectez-vous pour profiter de toutes les fonctionnalités de Roulette en Ligne. En créant un compte, vous pouvez sauvegarder vos roulettes pour les modifier et les réutiliser à tout moment. Gérez votre collection personnelle depuis Ma Page.",
         "signUp": "S'inscrire",
         "login": "Connexion",
         "logout": "Déconnexion",
@@ -29,6 +33,7 @@
     },
     "contact": {
         "title": "Nous contacter",
+        "description": "Pour toute suggestion, commentaire ou rapport de bogue concernant Roulette en Ligne, n'hésitez pas à nous contacter via ce formulaire. Vos retours sont précieux et nous aideront à améliorer notre service.",
         "excerpt": "Si vous avez des opinions ou des demandes, n'hésitez pas à nous contacter en utilisant le formulaire ci-dessous.",
         "name": "Nom",
         "email": "Adresse e-mail",
@@ -77,6 +82,7 @@
     },
     "mypage": {
         "title": "Ma Page",
+        "description": "Sur Ma Page, gérez toutes les roulettes originales que vous avez créées. Modifiez, supprimez et ajustez les paramètres de confidentialité de vos roulettes sauvegardées. Accédez à vos roulettes préférées où que vous soyez. Inscription utilisateur requise.",
         "noRoulettes": "Vous n'avez encore créé aucune roulette.",
         "createdAt": "Créé le",
         "publicSettings": "Paramètres publics",
@@ -93,6 +99,7 @@
     },
     "roulette": {
         "title": "Créer une Roulette",
+        "description": "Créez votre propre roulette unique ! Personnalisez librement les noms des options, les couleurs et les ratios de gain. Cet outil en ligne gratuit est idéal pour divers usages comme les jeux, le choix d'un restaurant ou les tirages au sort. Partagez votre création facilement avec une URL.",
         "shareUrl": "Partager par URL",
         "shareImage": "Partager en tant qu'image",
         "settings": {
@@ -132,15 +139,18 @@
     },
     "privacyPolicy": {
         "title": "Politique de confidentialité",
+        "description": "Voici la Politique de Confidentialité de Roulette en Ligne. Elle détaille les informations que nous collectons, leur utilisation, ainsi que notre politique sur les cookies et Google Analytics. Découvrez nos engagements pour une utilisation du service en toute confiance.",
         "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
     },
     "termsOfService": {
         "title": "Conditions d'utilisation",
+        "description": "Cette page présente les Conditions d'Utilisation de Roulette en Ligne. Elle définit les règles d'usage, les actions interdites et les clauses de non-responsabilité. La gestion du contenu utilisateur y est aussi décrite. À lire avant toute utilisation.",
         "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
     },
     "templates": {
         "template": "Modèle",
         "title": "Rechercher parmi les modèles",
+        "description": "À la recherche d'idées de roulettes amusantes ? Sur notre page de Modèles, vous pouvez parcourir et utiliser des roulettes uniques créées par d'autres utilisateurs. Vous pouvez également personnaliser un modèle pour créer facilement votre propre roulette originale.",
         "subtitle": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement.",
         "searchPlaceholder": "Rechercher par mot-clé...",
         "sortBy": {

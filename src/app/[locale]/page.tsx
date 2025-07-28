@@ -23,7 +23,7 @@ const HomePage = () => {
                     {t('title')}
                 </h1>
                 <p className="mt-4 text-lg md:text-xl text-white/80">
-                    {t('description')}
+                    {t('excerpt')}
                 </p>
                 <motion.div
                     whileHover={{ scale: 1.05 }}
