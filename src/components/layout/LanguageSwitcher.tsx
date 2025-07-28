@@ -127,8 +127,11 @@ const LanguageSwitcher = ({
                             animate={{ rotate: isOpen ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <ChevronDown size={16} className='hidden md:block' />
-                            <ChevronUp size={16} className='md:hidden' />
+                            {direction === 'up' ? (
+                                <ChevronUp size={16} />
+                            ) : (
+                                <ChevronDown size={16} />
+                            )}
                         </motion.div>
                     </>
                 )}

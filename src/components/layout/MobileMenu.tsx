@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { X, LogIn, LogOut, User, PlusCircle, LayoutGrid } from 'lucide-react';
+import { X, LogIn, LogOut, User, PlusCircle, LayoutGrid, Contact } from 'lucide-react';
 import { useAuth } from '@/lib/hooks/useAuth';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -77,6 +77,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                             <span>{t('templates.template')}</span>
                                         </Link>
                                     </motion.li>
+                                    <motion.li variants={linkVariants}>
+                                        <Link href={`/${locale}/contact`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
+                                            <Contact size={20} />
+                                            <span>{t('contact.title')}</span>
+                                        </Link>
+                                    </motion.li>
                                 </motion.ul>
 
                                 <hr className="my-8 border-white/20" />
@@ -97,7 +103,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                                 </Link>
                                             </motion.li>
                                             <motion.li variants={linkVariants}>
-                                                <button onClick={handleSignOut} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
+                                                <button onClick={handleSignOut} className="flex items-center gap-3 text-lg text-white cursor-pointer hover:text-yellow-300 transition-colors">
                                                     <LogOut size={20} />
                                                     <span>{t('auth.logout')}</span>
                                                 </button>
@@ -114,8 +120,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                 </motion.ul>
                             </div>
                             
-                            <div className="mt-8 flex justify-center">
-                                <LanguageSwitcher direction="up" />
+                            <div className="mt-4 flex flex-col items-center gap-8">
+                                <div>
+                                    <LanguageSwitcher direction="up" />
+                                </div>
+                                <div className='flex items-center gap-4'>
+                                    <Link href={`/${locale}/privacy-policy`} onClick={onClose} className='text-sm text-white underline hover:text-yellow-300 transition-colors'>
+                                        {t('privacyPolicy.title')}
+                                    </Link>
+                                    <Link href={`/${locale}/terms-of-service`} onClick={onClose} className='text-sm text-white underline hover:text-yellow-300 transition-colors'>
+                                        <span>{t('termsOfService.title')}</span>
+                                    </Link>
+                                </div>
                             </div>
                         </nav>
                     </motion.div>
