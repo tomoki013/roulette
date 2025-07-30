@@ -83,6 +83,8 @@
     "mypage": {
         "title": "Ma Page",
         "description": "Sur Ma Page, gérez toutes les roulettes originales que vous avez créées. Modifiez, supprimez et ajustez les paramètres de confidentialité de vos roulettes sauvegardées. Accédez à vos roulettes préférées où que vous soyez. Inscription utilisateur requise.",
+        "profile": "Profil",
+        "savedRoulettes": "Roulettes enregistrées",
         "noRoulettes": "Vous n'avez encore créé aucune roulette.",
         "createdAt": "Créé le",
         "publicSettings": "Paramètres publics",
@@ -165,7 +167,8 @@
         "anonymous": "Utilisateur Anonyme",
         "useTemplate": "Utiliser ce modèle",
         "copySuffix": " - copie",
-        "forkAndSave": "Dupliquer et sauvegarder ce modèle"
+        "forkAndSave": "Dupliquer et sauvegarder ce modèle",
+        "creatorProfileTitle": "Profil du créateur"
     },
     "footer": {
         "copyright": "Roulette en Ligne. Tous droits réservés.",
