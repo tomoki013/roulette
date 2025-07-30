@@ -83,6 +83,8 @@
     "mypage": {
         "title": "マイページ",
         "description": "マイページでは、あなたが作成したオリジナルルーレットを一覧で管理できます。保存したルーレットの編集や削除、公開設定の変更も簡単。いつでもどこでも、お気に入りのルーレットにアクセスして楽しもう。※ご利用にはユーザー登録が必要です。",
+        "profile": "プロフィール",
+        "savedRoulettes": "保存したルーレット",
         "noRoulettes": "まだ作成されたルーレットがありません。",
         "createdAt": "作成日",
         "publicSettings": "公開設定",
@@ -162,7 +164,8 @@
         "anonymous": "匿名ユーザー",
         "useTemplate": "このテンプレートを使う",
         "copySuffix": "をコピー",
-        "forkAndSave": "このテンプレートを複製して保存"
+        "forkAndSave": "このテンプレートを複製して保存",
+        "creatorProfileTitle": "作成者のプロフィール"
     },
     "footer": {
         "copyright": "Webでルーレット. All rights reserved.",

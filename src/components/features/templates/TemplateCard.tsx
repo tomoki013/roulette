@@ -40,12 +40,12 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-between"
             whileHover={{ y: -5, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
         >
-            <Link
-                href={`/${locale}/templates/roulette/${template.id}`}
-                passHref
-                className='cursor-default'
-            >
-                <div>
+            <div>
+                <Link
+                    href={`/${locale}/templates/roulette/${template.id}`}
+                    passHref
+                    className="cursor-pointer"
+                >
                     <div className="flex items-center gap-2 text-yellow-300 mb-2">
                         <Layers size={16} />
                         <span className="text-sm font-semibold">{t('templates.title')}</span>
@@ -54,24 +54,27 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
                     <p className="text-sm text-white/70 h-10 overflow-hidden text-ellipsis">
                         {getDescription()}
                     </p>
-                </div>
-                <div className="mt-4">
-                    <div className="flex justify-between items-center text-sm text-white/60 mb-4">
-                        <div className="flex items-center gap-2">
-                            <User size={14} />
-                            <span>{template.profiles?.username || t('templates.anonymous')}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Heart size={14} />
-                            <span>{template.like_count}</span>
-                        </div>
+                </Link>
+            </div>
+            <div className="mt-4">
+                <div className="flex justify-between items-center text-sm text-white/60 mb-4">
+                    <Link href={`/${locale}/profiles/${template.user_id}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors">
+                        <User size={14} />
+                        <span>{template.profiles?.username || t('templates.anonymous')}</span>
+                    </Link>
+                    <div className="flex items-center gap-2">
+                        <Heart size={14} />
+                        <span>{template.like_count}</span>
                     </div>
-                    <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white font-semibold transition-colors">
-                        {t('templates.useTemplate')}
-                        <ChevronsRight size={18} />
-                    </button>
                 </div>
-            </Link>
+                <Link
+                    href={`/${locale}/templates/roulette/${template.id}`}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white font-semibold transition-colors"
+                >
+                    {t('templates.useTemplate')}
+                    <ChevronsRight size={18} />
+                </Link>
+            </div>
         </motion.div>
     );
 };

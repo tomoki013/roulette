@@ -54,6 +54,26 @@ export const getPublicTemplates = async (
 };
 
 /**
+ * Fetches public templates for a specific user
+ * @param userId - User ID
+ * @returns Array of user's public templates
+ */
+export const getPublicTemplatesByUserId = async (userId: string): Promise<Roulette[]> => {
+    const { data, error } = await supabase
+        .from('roulettes')
+        .select('*, profiles(username)')
+        .eq('user_id', userId)
+        .eq('is_template', true)
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        handleSupabaseError(error, 'getPublicTemplatesByUserId');
+    }
+
+    return data || [];
+};
+
+/**
  * Fetches a specific roulette by ID
  * @param id - Roulette ID
  * @returns Roulette data or null if not found
