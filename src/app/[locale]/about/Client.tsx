@@ -104,11 +104,11 @@ const AboutPageClient = () => {
                             whileTap={{ scale: 0.95 }}
                         >
                             <Link
-                                href={`/${locale}/original-roulette`}
+                                href={`/${locale}/contact`}
                                 className="inline-flex items-center gap-2 bg-white/20 hover:bg-white-30 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300"
                             >
                                 <Contact2 size={20} />
-                                {t('about.title')}
+                                {t('contact.title')}
                             </Link>
                         </motion.div>
                     </div>

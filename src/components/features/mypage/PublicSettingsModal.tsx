@@ -23,25 +23,33 @@ interface PublicSettingsModalProps {
 
 const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettingsModalProps) => {
     const { t } = useTranslation();
-    const [title, setTitle] = useState(''); // タイトル用のStateを追加
-    const [description, setDescription] = useState(''); // 説明文用のStateを追加
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
     const [isTemplate, setIsTemplate] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isProfilePublic, setIsProfilePublic] = useState(false);
 
+    const titleMaxLength = 30;
+    const descriptionMaxLength = 180;
+
+    const shakeVariants = {
+        shake: {
+            x: [0, -6, 6, -6, 6, 0],
+            transition: { duration: 0.4 }
+        },
+        initial: { x: 0 }
+    };
+
     useEffect(() => {
         if (roulette) {
             setTitle(roulette.title);
-            // descriptionはJSONオブジェクトの場合もあるため、適切に処理
             const currentDescription = roulette.description;
             if (typeof currentDescription === 'string') {
                 setDescription(currentDescription);
             } else if (currentDescription && typeof currentDescription === 'object' && !Array.isArray(currentDescription)) {
-                // 単純なオブジェクトの場合はJSON文字列として表示
                 setDescription(JSON.stringify(currentDescription));
-            }
-            else {
+            } else {
                 setDescription('');
             }
             setIsTemplate(roulette.is_template);
@@ -49,6 +57,14 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
             setIsProfilePublic(roulette.is_profile_public);
         }
     }, [roulette]);
+
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value.slice(0, titleMaxLength));
+    };
+
+    const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setDescription(e.target.value.slice(0, descriptionMaxLength));
+    };
 
     const handleSave = async () => {
         if (!roulette) return;
@@ -59,12 +75,11 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                 description,
                 is_template: isTemplate,
                 allow_fork: allowFork,
-                is_profile_public: isProfilePublic, // ★ 保存データに含める
+                is_profile_public: isProfilePublic,
             });
             onClose();
         } catch (error) {
             console.error("Failed to save settings:", error);
-            // TODO: エラー通知を実装
         } finally {
             setIsSaving(false);
         }
@@ -96,7 +111,6 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                             </button>
                         </div>
                         
-                        {/* タイトルと説明文の入力欄 */}
                         <div className="space-y-4 mb-6">
                             <div>
                                 <label htmlFor="rouletteTitle" className="block text-sm font-medium text-white/80 mb-1">{t('roulette.settings.name')}</label>
@@ -104,24 +118,39 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                                     id="rouletteTitle"
                                     type="text"
                                     value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
+                                    onChange={handleTitleChange}
+                                    maxLength={titleMaxLength}
                                     className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                 />
+                                <motion.div
+                                    className={`text-right text-xs mt-1 ${title.length >= titleMaxLength ? 'text-red-400' : 'text-white/60'}`}
+                                    variants={shakeVariants}
+                                    animate={title.length >= titleMaxLength ? "shake" : "initial"}
+                                >
+                                    {title.length} / {titleMaxLength}
+                                </motion.div>
                             </div>
                             <div>
                                 <label htmlFor="rouletteDescription" className="block text-sm font-medium text-white/80 mb-1">{t('roulette.settings.excerpt')}</label>
                                 <textarea
                                     id="rouletteDescription"
                                     value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
+                                    onChange={handleDescriptionChange}
                                     rows={3}
+                                    maxLength={descriptionMaxLength}
                                     className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                 />
+                                <motion.div
+                                    className={`text-right text-xs mt-1 ${description.length >= descriptionMaxLength ? 'text-red-400' : 'text-white/60'}`}
+                                    variants={shakeVariants}
+                                    animate={description.length >= descriptionMaxLength ? "shake" : "initial"}
+                                >
+                                    {description.length} / {descriptionMaxLength}
+                                </motion.div>
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            {/* テンプレートとして公開 */}
                             <div className="flex items-center justify-between bg-white/10 p-4 rounded-lg">
                                 <div className='flex-1'>
                                     <label htmlFor="isTemplate" className="font-semibold">{t('mypage.publishAsTemplate')}</label>
@@ -132,44 +161,42 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                                 </button>
                             </div>
 
-                            {/* 複製を許可 */}
                             <AnimatePresence>
-                            {isTemplate && (
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    exit={{ opacity: 0, height: 0 }}
-                                    className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
-                                >
-                                    <div className='flex-1'>
-                                        <label htmlFor="allowFork" className="font-semibold">{t('mypage.allowFork')}</label>
-                                        <p className="text-xs text-white/60">{t('mypage.allowForkExcerpt')}</p>
-                                    </div>
-                                    <button onClick={() => setAllowFork(!allowFork)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${allowFork ? 'bg-yellow-400' : 'bg-gray-600'}`}>
-                                        <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${allowFork ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
-                                    </button>
-                                </motion.div>
-                            )}
+                                {isTemplate && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
+                                    >
+                                        <div className='flex-1'>
+                                            <label htmlFor="allowFork" className="font-semibold">{t('mypage.allowFork')}</label>
+                                            <p className="text-xs text-white/60">{t('mypage.allowForkExcerpt')}</p>
+                                        </div>
+                                        <button onClick={() => setAllowFork(!allowFork)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${allowFork ? 'bg-yellow-400' : 'bg-gray-600'}`}>
+                                            <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${allowFork ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
+                                        </button>
+                                    </motion.div>
+                                )}
                             </AnimatePresence>
 
-                            {/* プロフィールを公開 */}
                             <AnimatePresence>
-                            {isTemplate && (
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    exit={{ opacity: 0, height: 0 }}
-                                    className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
-                                >
-                                    <div className='flex-1'>
-                                        <label htmlFor="isProfilePublic" className="font-semibold">{t('mypage.publishProfile')}</label>
-                                        <p className="text-xs text-white/60">{t('mypage.publishProfileExcerpt')}</p>
-                                    </div>
-                                    <button onClick={() => setIsProfilePublic(!isProfilePublic)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${isProfilePublic ? 'bg-yellow-400' : 'bg-gray-600'}`}>
-                                        <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${isProfilePublic ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
-                                    </button>
-                                </motion.div>
-                            )}
+                                {isTemplate && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
+                                    >
+                                        <div className='flex-1'>
+                                            <label htmlFor="isProfilePublic" className="font-semibold">{t('mypage.publishProfile')}</label>
+                                            <p className="text-xs text-white/60">{t('mypage.publishProfileExcerpt')}</p>
+                                        </div>
+                                        <button onClick={() => setIsProfilePublic(!isProfilePublic)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${isProfilePublic ? 'bg-yellow-400' : 'bg-gray-600'}`}>
+                                            <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${isProfilePublic ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
+                                        </button>
+                                    </motion.div>
+                                )}
                             </AnimatePresence>
                         </div>
 
