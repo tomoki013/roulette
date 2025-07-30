@@ -50,6 +50,11 @@ export const getPublicTemplates = async (
         handleSupabaseError(error, 'getPublicTemplates');
     }
 
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to update roulette, no data returned.');
+    }
+
     return data || [];
 };
 
@@ -68,6 +73,11 @@ export const getPublicTemplatesByUserId = async (userId: string): Promise<Roulet
 
     if (error) {
         handleSupabaseError(error, 'getPublicTemplatesByUserId');
+    }
+
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to update roulette, no data returned.');
     }
 
     return data || [];
@@ -91,7 +101,7 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
         }
         handleSupabaseError(error, 'getRouletteById');
     }
-    
+
     // dataがnullの場合にエラーを投げる処理を追加
     if (!data) {
         throw new Error('Failed to update profile, no data returned.');
@@ -138,6 +148,11 @@ export const getRoulettesByUserId = async (userId: string): Promise<Roulette[]> 
 
     if (error) {
         handleSupabaseError(error, 'getRoulettesByUserId');
+    }
+
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to update roulette, no data returned.');
     }
 
     return data || [];
