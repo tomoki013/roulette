@@ -152,6 +152,7 @@
         "title": "Rechercher parmi les modèles",
         "description": "À la recherche d'idées de roulettes amusantes ? Sur notre page de Modèles, vous pouvez parcourir et utiliser des roulettes uniques créées par d'autres utilisateurs. Vous pouvez également personnaliser un modèle pour créer facilement votre propre roulette originale.",
         "subtitle": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement.",
+        "like": "J'aime",
         "searchPlaceholder": "Rechercher par mot-clé...",
         "sortBy": {
             "newest": "Les plus récents",

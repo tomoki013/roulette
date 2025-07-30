@@ -31,6 +31,12 @@ export const getProfileByUserId = async (userId: string): Promise<Profile | null
         handleSupabaseError(error, 'getProfileByUserId');
     }
 
+    // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
+    if (!data) {
+        // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
+        throw new Error('Failed to update profile, no data returned from Supabase.');
+    }
+
     return data;
 };
 
@@ -53,6 +59,12 @@ export const updateProfile = async (userId: string, updates: ProfileUpdate): Pro
 
     if (error) {
         handleSupabaseError(error, 'updateProfile');
+    }
+
+    // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
+    if (!data) {
+        // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
+        throw new Error('Failed to update profile, no data returned from Supabase.');
     }
 
     return data;
