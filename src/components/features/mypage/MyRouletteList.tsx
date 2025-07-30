@@ -8,7 +8,7 @@ import { Trash2, Settings, PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import { deleteRoulette, updateRoulette } from '@/lib/services/rouletteService';
 import PublicSettingsModal from './PublicSettingsModal';
-import { useModal } from '@/lib/hooks/useModal'; // useModalフックをインポート
+import { useModal } from '@/lib/hooks/useModal';
 
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 
@@ -21,17 +21,16 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
     const [roulettes, setRoulettes] = useState(initialRoulettes);
     const [selectedRoulette, setSelectedRoulette] = useState<Roulette | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { showModal, closeModal } = useModal(); // モーダル用のフックを使用
+    const { showModal, closeModal } = useModal();
 
     const handleDelete = async (e: React.MouseEvent, id: string, title: string) => {
         e.stopPropagation();
         e.preventDefault();
 
-        // window.confirmの代わりに共通モーダルを使用
         showModal({
-            title: t('mypage.deleteConfirmTitle', { title }), // タイトルを追加
+            title: t('mypage.deleteConfirmTitle', { title }),
             message: t('mypage.deleteConfirm'),
-            type: 'error', // 警告やエラーを示すアイコンを表示
+            type: 'error',
             confirmText: t('mypage.delete'),
             cancelText: t('close'),
             onConfirm: async () => {
@@ -55,10 +54,14 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
         setIsModalOpen(true);
     };
 
-    const handleSaveSettings = async (id: string, updates: { is_template: boolean; allow_fork: boolean }) => {
-        await updateRoulette(id, updates);
+    const handleSaveSettings = async (id: string, updates: { title: string; description: string | null; is_template: boolean; allow_fork: boolean }) => {
+        // Supabaseクライアントが文字列をJSONに変換してくれるため、そのまま渡す
+        await updateRoulette(id, {
+            ...updates,
+            description: updates.description
+        });
         // UIの状態を更新
-        setRoulettes(roulettes.map(r => r.id === id ? { ...r, ...updates } : r));
+        setRoulettes(roulettes.map(r => r.id === id ? { ...r, ...updates, description: updates.description } : r));
     };
 
     if (roulettes.length === 0) {
@@ -75,6 +78,10 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
 
     return (
         <>
+            <h2 className="text-2xl font-bold text-white mb-6">
+                {t('mypage.savedRoulettes')}
+                <span className="text-sm text-white/70"> ({roulettes.length})</span>
+            </h2>
             <div className="flex flex-col gap-4">
                 {roulettes.map((roulette, index) => (
                     <Link key={roulette.id} href={`/${i18n.language}/mypage/roulette/${roulette.id}`} passHref>
@@ -94,7 +101,6 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                                 <button onClick={(e) => handleOpenSettings(e, roulette)} className="p-2 hover:bg-white/20 rounded-lg transition-colors" title={t('mypage.publicSettings')}>
                                     <Settings size={20} className="text-white" />
                                 </button>
-                                {/* handleDeleteに関数を渡すように修正 */}
                                 <button onClick={(e) => handleDelete(e, roulette.id, roulette.title)} className="p-2 hover:bg-red-500/30 rounded-lg transition-colors" title={t('mypage.delete')}>
                                     <Trash2 size={20} className="text-red-300" />
                                 </button>

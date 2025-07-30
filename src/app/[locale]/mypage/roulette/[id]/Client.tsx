@@ -23,6 +23,7 @@ const EditRoulettePageClient = () => {
     // State management
     const [initialDataLoaded, setInitialDataLoaded] = useState(false);
     const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
     const [items, setItems] = useState<Item[]>([]);
     const [isSaving, setIsSaving] = useState(false);
     
@@ -53,6 +54,16 @@ const EditRoulettePageClient = () => {
                 if (roulette && roulette.user_id === user.id) {
                     setTitle(roulette.title);
                     setItems(roulette.items as unknown as Item[]);
+
+                    // descriptionはJSONオブジェクトの場合もあるため、適切に処理
+                    const currentDescription = roulette.description;
+                    if (typeof currentDescription === 'string') {
+                        setDescription(currentDescription);
+                    } else if (currentDescription && typeof currentDescription === 'object' && !Array.isArray(currentDescription)) {
+                        // 単純なオブジェクトの場合はJSON文字列として表示
+                        setDescription(JSON.stringify(currentDescription));
+                    }
+
                 } else {
                     router.replace(`/${i18n.language}/mypage`);
                 }
@@ -122,9 +133,14 @@ const EditRoulettePageClient = () => {
 
     return (
         <>
-            <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {title || t('heroSection.createRoulette.title')}
-            </h1>
+            <div className='mb-8 flex flex-col justify-center gap-2'>
+                <h1 className="text-4xl font-bold text-white text-center">
+                    {title || t('heroSection.createRoulette.title')}
+                </h1>
+                <p className='text-center text-white'>
+                    {description}
+                </p>
+            </div>
             
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel

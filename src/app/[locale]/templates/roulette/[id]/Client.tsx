@@ -10,11 +10,17 @@ import { Item } from '@/types';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { getRouletteById, createRoulette } from '@/lib/services/rouletteService';
-import { Json } from '@/types/database.types';
+import { getProfileByUserId } from '@/lib/services/profileService';
+import { Database, Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
 import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
 import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
 import { ROULETTE_COLORS } from '@/constants/roulette';
+import { motion } from 'framer-motion';
+import { User } from 'lucide-react';
+import Link from 'next/link';
+
+type Profile = Database['public']['Tables']['profiles']['Row']; // Profile型を定義
 
 const TemplateRoulettePageClient = () => {
     const { t, i18n } = useTranslation();
@@ -29,8 +35,10 @@ const TemplateRoulettePageClient = () => {
     // State management
     const [items, setItems] = useState<Item[]>([]);
     const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
+    const [creatorProfile, setCreatorProfile] = useState<Profile | null>(null); // 作成者プロフィール用のState
 
     // Custom hooks
     const {
@@ -90,6 +98,22 @@ const TemplateRoulettePageClient = () => {
                         setTitle(template.title);
                         setItems(template.items as unknown as Item[]);
                         setAllowFork(template.allow_fork);
+
+                        // descriptionはJSONオブジェクトの場合もあるため、適切に処理
+                        const currentDescription = template.description;
+                        if (typeof currentDescription === 'string') {
+                            setDescription(currentDescription);
+                        } else if (currentDescription && typeof currentDescription === 'object' && !Array.isArray(currentDescription)) {
+                            // 単純なオブジェクトの場合はJSON文字列として表示
+                            setDescription(JSON.stringify(currentDescription));
+                        }
+
+                        // テンプレート取得後、作成者のプロフィールを取得
+                        if (template.user_id) {
+                            const profile = await getProfileByUserId(template.user_id);
+                            setCreatorProfile(profile);
+                        }
+
                     } else {
                         router.replace(`/${i18n.language}/templates`);
                     }
@@ -163,9 +187,14 @@ const TemplateRoulettePageClient = () => {
 
     return (
         <>
-            <h1 className="text-4xl font-bold text-white text-center mb-8">
-                {title}
-            </h1>
+            <div className='mb-8 flex flex-col justify-center gap-2'>
+                <h1 className="text-4xl font-bold text-white text-center">
+                    {title}
+                </h1>
+                <p className='text-center text-white'>
+                    {description}
+                </p>
+            </div>
             
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel
@@ -195,6 +224,30 @@ const TemplateRoulettePageClient = () => {
                     onShareUrl={() => handleShareUrl(true)}
                 />
             </div>
+
+            {/* 作成者プロフィールカード */}
+            {creatorProfile && (
+                <motion.div
+                    className="max-w-7xl mx-auto mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                    <h2 className="text-2xl font-bold text-white mb-4">
+                        {t('templates.creatorProfileTitle')}
+                        <span className="text-sm text-white/70"> ({creatorProfile.username})</span>
+                    </h2>
+                    <Link href={`/${i18n.language}/profiles/${creatorProfile.id}`} className="block bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors">
+                        <div className="flex items-center gap-3 mb-3">
+                            <User className="text-yellow-300" />
+                            <h2 className="text-xl font-bold text-white">{creatorProfile.username}</h2>
+                        </div>
+                        <p className="text-white/80 whitespace-pre-wrap">
+                            {creatorProfile.description || 'プロフィールが設定されていません。'}
+                        </p>
+                    </Link>
+                </motion.div>
+            )}
             
             <ResultModal 
                 isOpen={showResult} 
