@@ -16,8 +16,10 @@ export async function generateMetadata(props: { params: { userId: string, locale
     }
 }
 
-const ProfilePage = ({ params }: { params: { userId: string } }) => {
-    return <ProfilePageClient userId={params.userId} />;
+const ProfilePage = async (props: { params: Promise<{ userId: string }> }) => {
+    const params = await props.params;
+    const { userId } = params;
+    return <ProfilePageClient userId={userId} />;
 }
 
 export default ProfilePage;
