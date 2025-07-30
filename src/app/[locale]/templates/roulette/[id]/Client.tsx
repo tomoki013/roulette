@@ -43,6 +43,7 @@ const TemplateRoulettePageClient = () => {
     const [isLiked, setIsLiked] = useState(false);
     const [isLiking, setIsLiking] = useState(false); // いいね処理中の状態を追加
     const [templateId, setTemplateId] = useState<string | null>(null);
+    const [isProfilePublic, setIsProfilePublic] = useState(false);
 
 
     // Custom hooks
@@ -121,7 +122,7 @@ const TemplateRoulettePageClient = () => {
                         }
 
                         // テンプレート取得後、作成者のプロフィールを取得
-                        if (template.user_id) {
+                        if (template.user_id && template.is_profile_public) { // ★ is_profile_publicがtrueの場合のみ取得
                             const profile = await getProfileByUserId(template.user_id);
                             setCreatorProfile(profile);
                         }
@@ -280,7 +281,7 @@ const TemplateRoulettePageClient = () => {
             </div>
 
             {/* 作成者プロフィールカード */}
-            {creatorProfile && (
+            {creatorProfile && isProfilePublic && (
                 <motion.div
                     className="max-w-7xl mx-auto mt-8"
                     initial={{ opacity: 0, y: 20 }}

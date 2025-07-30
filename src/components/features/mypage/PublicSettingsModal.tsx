@@ -17,6 +17,7 @@ interface PublicSettingsModalProps {
         description: string | null;
         is_template: boolean;
         allow_fork: boolean;
+        is_profile_public: boolean;
     }) => Promise<void>;
 }
 
@@ -27,6 +28,7 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
     const [isTemplate, setIsTemplate] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
+    const [isProfilePublic, setIsProfilePublic] = useState(false);
 
     useEffect(() => {
         if (roulette) {
@@ -44,6 +46,7 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
             }
             setIsTemplate(roulette.is_template);
             setAllowFork(roulette.allow_fork);
+            setIsProfilePublic(roulette.is_profile_public);
         }
     }, [roulette]);
 
@@ -55,7 +58,8 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                 title,
                 description,
                 is_template: isTemplate,
-                allow_fork: allowFork
+                allow_fork: allowFork,
+                is_profile_public: isProfilePublic, // ★ 保存データに含める
             });
             onClose();
         } catch (error) {
@@ -143,6 +147,26 @@ const PublicSettingsModal = ({ isOpen, onClose, roulette, onSave }: PublicSettin
                                     </div>
                                     <button onClick={() => setAllowFork(!allowFork)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${allowFork ? 'bg-yellow-400' : 'bg-gray-600'}`}>
                                         <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${allowFork ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
+                                    </button>
+                                </motion.div>
+                            )}
+                            </AnimatePresence>
+
+                            {/* プロフィールを公開 */}
+                            <AnimatePresence>
+                            {isTemplate && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="flex items-center justify-between bg-white/10 p-4 rounded-lg"
+                                >
+                                    <div className='flex-1'>
+                                        <label htmlFor="isProfilePublic" className="font-semibold">{t('mypage.publishProfile')}</label>
+                                        <p className="text-xs text-white/60">{t('mypage.publishProfileExcerpt')}</p>
+                                    </div>
+                                    <button onClick={() => setIsProfilePublic(!isProfilePublic)} className={`w-[48px] h-[24px] rounded-full flex items-center transition-colors ${isProfilePublic ? 'bg-yellow-400' : 'bg-gray-600'}`}>
+                                        <motion.div layout className={`w-[20px] h-[20px] bg-white rounded-full shadow-md transform ${isProfilePublic ? 'translate-x-[24px]' : 'translate-x-[4px]'}`} />
                                     </button>
                                 </motion.div>
                             )}

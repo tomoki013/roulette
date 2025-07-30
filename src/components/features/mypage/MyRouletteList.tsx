@@ -54,14 +54,15 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
         setIsModalOpen(true);
     };
 
-    const handleSaveSettings = async (id: string, updates: { title: string; description: string | null; is_template: boolean; allow_fork: boolean }) => {
+    const handleSaveSettings = async (id: string, updates: { title: string; description: string | null; is_template: boolean; allow_fork: boolean; is_profile_public: boolean; }) => {
         // Supabaseクライアントが文字列をJSONに変換してくれるため、そのまま渡す
         await updateRoulette(id, {
             ...updates,
-            description: updates.description
+            description: updates.description,
+            is_profile_public: updates.is_profile_public, // ★ 更新データに含める
         });
         // UIの状態を更新
-        setRoulettes(roulettes.map(r => r.id === id ? { ...r, ...updates, description: updates.description } : r));
+        setRoulettes(roulettes.map(r => r.id === id ? { ...r, ...updates, description: updates.description, is_profile_public: updates.is_profile_public } : r));
     };
 
     if (roulettes.length === 0) {
