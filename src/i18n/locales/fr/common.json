@@ -95,7 +95,9 @@
         "publishAsTemplate": "Publier comme modèle",
         "publishAsTemplateExcerpt": "Permettre à d'autres utilisateurs de voir et d'utiliser cette roulette.",
         "allowFork": "Autoriser les autres utilisateurs à dupliquer",
-        "allowForkExcerpt": "Permettre à d'autres utilisateurs de créer une nouvelle roulette basée sur ce modèle."
+        "allowForkExcerpt": "Permettre à d'autres utilisateurs de créer une nouvelle roulette basée sur ce modèle.",
+        "publishProfile": "Publier le profil",
+        "publishProfileExcerpt": "Affichez votre profil en tant que créateur sur le modèle."
     },
     "roulette": {
         "title": "Créer une Roulette",

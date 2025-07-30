@@ -97,7 +97,9 @@
         "publishAsTemplate": "テンプレートとして公開",
         "publishAsTemplateExcerpt": "他のユーザーがこのルーレットを閲覧・利用できるようになります。",
         "allowFork": "他のユーザーによる複製を許可",
-        "allowForkExcerpt": "他のユーザーがこのテンプレートを元に新しいルーレットを作成できます。"
+        "allowForkExcerpt": "他のユーザーがこのテンプレートを元に新しいルーレットを作成できます。",
+        "publishProfile": "プロフィールを公開",
+        "publishProfileExcerpt": "テンプレートに作成者としてあなたのプロフィールを表示します。"
     },
     "roulette": {
         "title": "ルーレット作成",

@@ -95,7 +95,9 @@
         "publishAsTemplate": "Publicar como plantilla",
         "publishAsTemplateExcerpt": "Permitir que otros usuarios vean y usen esta ruleta.",
         "allowFork": "Permitir que otros usuarios dupliquen",
-        "allowForkExcerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla."
+        "allowForkExcerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla.",
+        "publishProfile": "Publicar perfil",
+        "publishProfileExcerpt": "Muestra tu perfil como el creador en la plantilla."
     },
     "roulette": {
         "title": "Crear Ruleta",

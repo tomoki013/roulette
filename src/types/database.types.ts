@@ -48,6 +48,7 @@ export type Database = {
           description: Json | null
           design_settings: Json | null
           id: string
+          is_profile_public: boolean
           is_template: boolean
           items: Json
           like_count: number
@@ -63,6 +64,7 @@ export type Database = {
           description?: Json | null
           design_settings?: Json | null
           id?: string
+          is_profile_public?: boolean
           is_template?: boolean
           items: Json
           like_count?: number
@@ -78,6 +80,7 @@ export type Database = {
           description?: Json | null
           design_settings?: Json | null
           id?: string
+          is_profile_public?: boolean
           is_template?: boolean
           items?: Json
           like_count?: number

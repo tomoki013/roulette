@@ -107,10 +107,12 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
             </div>
              <div className="mt-4">
                 <div className="flex justify-between items-center text-sm text-white/60 mb-4">
-                    <Link href={`/${locale}/profiles/${template.user_id}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors">
-                        <User size={14} />
-                        <span>{template.profiles?.username || t('templates.anonymous')}</span>
-                    </Link>
+                    {template.is_profile_public && (
+                        <Link href={`/${locale}/profiles/${template.user_id}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors">
+                            <User size={14} />
+                            <span>{template.profiles?.username || t('templates.anonymous')}</span>
+                        </Link>
+                    )}
                     {/* disabled属性にisLikingをセット */}
                     <button onClick={handleLike} disabled={isLiking} className="flex items-center gap-2 hover:text-yellow-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                         <Heart size={14} className={isLiked ? 'fill-red-500 text-red-500' : ''} />
