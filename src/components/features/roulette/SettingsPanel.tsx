@@ -36,6 +36,20 @@ const SettingsPanel = ({
     showShareButton = false,
 }: SettingsPanelProps) => {
     const { t } = useTranslation();
+    const titleMaxLength = 30;
+
+    const shakeVariants = {
+        shake: {
+            x: [0, -6, 6, -6, 6, 0],
+            transition: { duration: 0.4 }
+        },
+        initial: { x: 0 }
+    };
+
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onTitleChange(e.target.value.slice(0, titleMaxLength));
+    };
+
 
     return (
         <motion.div
@@ -56,10 +70,18 @@ const SettingsPanel = ({
                     <input
                         type="text"
                         value={title}
-                        onChange={(e) => onTitleChange(e.target.value)}
+                        onChange={handleTitleChange}
+                        maxLength={titleMaxLength}
                         className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
                         placeholder={t('roulette.settings.namePlaceholder')}
                     />
+                     <motion.div 
+                        className={`text-right text-xs mt-1 ${title.length >= titleMaxLength ? 'text-red-400' : 'text-white/60'}`}
+                        variants={shakeVariants}
+                        animate={title.length >= titleMaxLength ? "shake" : "initial"}
+                    >
+                        {title.length} / {titleMaxLength}
+                    </motion.div>
                 </div>
 
                 <div className="space-y-3">

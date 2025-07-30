@@ -125,6 +125,7 @@ const TemplateRoulettePageClient = () => {
                         if (template.user_id && template.is_profile_public) { // ★ is_profile_publicがtrueの場合のみ取得
                             const profile = await getProfileByUserId(template.user_id);
                             setCreatorProfile(profile);
+                            setIsProfilePublic(true);
                         }
 
                     } else {
