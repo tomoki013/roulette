@@ -8,11 +8,21 @@
         "title": "About",
         "description": "Web Roulette is a custom roulette creation tool designed for everyone to use intuitively. This page introduces the purpose behind the site's development and its intended uses. We aim to support fun and fair decision-making, from small daily choices to large events.",
         "title2": "About Web Roulette",
+        "subtitle": "An intuitive custom roulette creation tool for everyone",
         "section1Title": "Purpose of This Site",
         "section1Content": "'Web Roulette' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We aim to help you make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
         "section2Title": "Target Audience",
         "section2Content": "It is intended for a wide range of users, from personal use to business and educational purposes, such as deciding on a lunch spot with friends, drawing penalty games for live streamers, selecting students in the classroom, or choosing winners for online events.",
-        "section3Content": "We sincerely welcome your feedback. We will use it as a reference for future development, so please feel free to contact us via the contact page."
+        "section3Content": "We sincerely welcome your feedback. We will use it as a reference for future development, so please feel free to contact us via the contact page.",
+        "features": {
+            "title": "Main Features",
+            "customization": "Create custom roulettes with adjustable items, ratios, and colors",
+            "sharing": "Easily share roulettes via URL or image",
+            "authentication": "Save and manage your roulettes with user authentication",
+            "mypage": "A 'My Page' feature to view all your created roulettes",
+            "templates": "Use templates created by other users",
+            "multiLanguage": "Multi-language support (Japanese, English, Spanish, French)"
+        }
     },
     "auth": {
         "title": "User Authentication",

@@ -8,11 +8,21 @@
         "title": "À propos",
         "description": "Roulette en Ligne est un outil de création de roulettes personnalisées conçu pour être intuitif. Cette page présente l'objectif du site et ses cas d'usage. Nous visons à faciliter des prises de décision justes et amusantes, pour les petits choix du quotidien comme pour les grands événements.",
         "title2": "À propos de Roulette en Ligne",
+        "subtitle": "Un outil de création de roulette personnalisée intuitif pour tous",
         "section1Title": "Objectif de ce site",
         "section1Content": "'Roulette en Ligne' a été développé pour fournir un outil de création de roulettes personnalisées que tout le monde peut utiliser facilement et intuitivement. Notre but est de vous aider à faire des choix équitables tout en vous amusant dans diverses situations, des petites décisions quotidiennes aux tirages au sort d'événements.",
         "section2Title": "Public Cible",
         "section2Content": "Il est destiné à un large éventail d'utilisateurs, de l'usage personnel aux fins commerciales et éducatives, comme décider d'un lieu de déjeuner avec des amis, tirer au sort des gages pour les streamers en direct, sélectionner des élèves en classe ou choisir des gagnants pour des événements en ligne.",
-        "section3Content": "Nous apprécions sincèrement vos commentaires. Nous les utiliserons comme référence pour le développement futur, alors n'hésitez pas à nous contacter via la page de contact."
+        "section3Content": "Nous apprécions sincèrement vos commentaires. Nous les utiliserons comme référence pour le développement futur, alors n'hésitez pas à nous contacter via la page de contact.",
+        "features": {
+            "title": "Caractéristiques principales",
+            "customization": "Création de roulettes personnalisées avec des éléments, des ratios et des couleurs ajustables",
+            "sharing": "Partage facile des roulettes par URL ou image",
+            "authentication": "Sauvegarde et gestion de vos roulettes avec authentification utilisateur",
+            "mypage": "Une fonction 'Ma Page' pour voir toutes vos roulettes créées",
+            "templates": "Utilisation de modèles créés par d'autres utilisateurs",
+            "multiLanguage": "Support multilingue (japonais, anglais, espagnol, français)"
+        }
     },
     "auth": {
         "title": "Authentification Utilisateur",
