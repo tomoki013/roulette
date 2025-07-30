@@ -10,7 +10,7 @@ This is a [Next.js](https://nextjs.org/) project for a web-based roulette applic
 
 ### Live Demo
 
-You can experience the application here: **[Roulette on the Web](https://webroulette.netlify.app/)**
+You can experience the application here: **[Roulette on the Web](https://webroulette.netlify.app/en)**
 
 ### ✨ Features
 
@@ -182,7 +182,7 @@ This project is licensed under the MIT License.
 
 ### ライブデモ
 
-こちらでアプリケーションを体験できます：**[Webでルーレット](https://webroulette.netlify.app/)**
+こちらでアプリケーションを体験できます：**[Webでルーレット](https://webroulette.netlify.app/ja)**
 
 ### ✨ 機能
 
@@ -354,7 +354,7 @@ Este es un proyecto de [Next.js](https://nextjs.org/) para una aplicación de ru
 
 ### Demo en vivo
 
-Puedes probar la aplicación aquí: **[Ruleta en la Web](https://webroulette.netlify.app/)**
+Puedes probar la aplicación aquí: **[Ruleta en la Web](https://webroulette.netlify.app/es)**
 
 ### ✨ Características
 
@@ -526,7 +526,7 @@ Ceci est un projet [Next.js](https://nextjs.org/) pour une application de roulet
 
 ### Démo en direct
 
-Vous pouvez découvrir l'application ici : **[Roulette sur le Web](https://webroulette.netlify.app/)**
+Vous pouvez découvrir l'application ici : **[Roulette sur le Web](https://webroulette.netlify.app/fr)**
 
 ### ✨ Fonctionnalités
 
