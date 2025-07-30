@@ -8,7 +8,7 @@ export async function generateMetadata(props: { params: Promise<{ userId: string
     const profile = await getProfileByUserId(userId);
     const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
-    const title = profile?.username ? `${profile.username} | ${t('title')}` : t('mypage.anonymousProfile');
+    const title = profile?.username ? `${profile.username}` : t('mypage.anonymousProfile');
     const description = profile?.description || t('mypage.anonymousProfile');
 
     return {
