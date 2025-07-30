@@ -83,6 +83,8 @@
     "mypage": {
         "title": "My Page",
         "description": "On My Page, you can manage all the original roulettes you've created. It's easy to edit, delete, and change the public settings of your saved wheels. Access and enjoy your favorite roulettes anytime, anywhere. User registration is required.",
+        "profile": "Profile",
+        "savedRoulettes": "Saved Roulettes",
         "noRoulettes": "You haven't created any roulettes yet.",
         "createdAt": "Created At",
         "publicSettings": "Public Settings",
@@ -165,7 +167,8 @@
         "anonymous": "Anonymous User",
         "useTemplate": "Use this Template",
         "copySuffix": " copy",
-        "forkAndSave": "Fork and Save this Template"
+        "forkAndSave": "Fork and Save this Template",
+        "creatorProfileTitle": "Creator's Profile"
     },
     "footer": {
         "copyright": "Web Roulette. All rights reserved.",
