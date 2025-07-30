@@ -9,7 +9,7 @@ import ResultModal from '@/components/features/roulette/ResultModal';
 import { Item } from '@/types';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 import { useAuth } from '@/lib/hooks/useAuth';
-import { getRouletteById, createRoulette } from '@/lib/services/rouletteService';
+import { getRouletteById, createRoulette, incrementLikeCount, decrementLikeCount } from '@/lib/services/rouletteService';
 import { getProfileByUserId } from '@/lib/services/profileService';
 import { Database, Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
@@ -17,10 +17,10 @@ import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
 import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
 import { ROULETTE_COLORS } from '@/constants/roulette';
 import { motion } from 'framer-motion';
-import { User } from 'lucide-react';
+import { User, Heart } from 'lucide-react'; // Heartアイコンをインポート
 import Link from 'next/link';
 
-type Profile = Database['public']['Tables']['profiles']['Row']; // Profile型を定義
+type Profile = Database['public']['Tables']['profiles']['Row'];
 
 const TemplateRoulettePageClient = () => {
     const { t, i18n } = useTranslation();
@@ -38,7 +38,12 @@ const TemplateRoulettePageClient = () => {
     const [description, setDescription] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
-    const [creatorProfile, setCreatorProfile] = useState<Profile | null>(null); // 作成者プロフィール用のState
+    const [creatorProfile, setCreatorProfile] = useState<Profile | null>(null);
+    const [likeCount, setLikeCount] = useState(0);
+    const [isLiked, setIsLiked] = useState(false);
+    const [isLiking, setIsLiking] = useState(false); // いいね処理中の状態を追加
+    const [templateId, setTemplateId] = useState<string | null>(null);
+
 
     // Custom hooks
     const {
@@ -98,6 +103,13 @@ const TemplateRoulettePageClient = () => {
                         setTitle(template.title);
                         setItems(template.items as unknown as Item[]);
                         setAllowFork(template.allow_fork);
+                        setLikeCount(template.like_count);
+                        setTemplateId(template.id);
+
+                        const likedTemplates = JSON.parse(localStorage.getItem('likedTemplates') || '[]');
+                        if (likedTemplates.includes(template.id)) {
+                            setIsLiked(true);
+                        }
 
                         // descriptionはJSONオブジェクトの場合もあるため、適切に処理
                         const currentDescription = template.description;
@@ -132,11 +144,11 @@ const TemplateRoulettePageClient = () => {
     const addItem = () => {
         const newItemColor = ROULETTE_COLORS[items.length % ROULETTE_COLORS.length];
         setItems(prev => [
-            ...prev, 
-            { 
-                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`, 
-                ratio: 1, 
-                color: newItemColor 
+            ...prev,
+            {
+                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`,
+                ratio: 1,
+                color: newItemColor
             }
         ]);
     };
@@ -164,7 +176,7 @@ const TemplateRoulettePageClient = () => {
             router.push(`/${i18n.language}/auth`);
             return;
         }
-        
+
         setIsSaving(true);
         try {
             await createRoulette({
@@ -178,6 +190,39 @@ const TemplateRoulettePageClient = () => {
             console.error("Failed to fork roulette:", error);
         } finally {
             setIsSaving(false);
+        }
+    };
+
+    const handleLike = async () => {
+        if (!templateId || isLiking) return;
+        setIsLiking(true);
+
+        const likedTemplates = JSON.parse(localStorage.getItem('likedTemplates') || '[]');
+
+        try {
+            let updatedData;
+            if (isLiked) {
+                // いいね取り消し処理
+                updatedData = await decrementLikeCount(templateId);
+                const index = likedTemplates.indexOf(templateId);
+                if (index > -1) {
+                    likedTemplates.splice(index, 1);
+                }
+            } else {
+                // いいね処理
+                updatedData = await incrementLikeCount(templateId);
+                if (!likedTemplates.includes(templateId)) {
+                    likedTemplates.push(templateId);
+                }
+            }
+            // データベースからの戻り値でUIを更新
+            setLikeCount(updatedData.like_count);
+            setIsLiked(!isLiked);
+            localStorage.setItem('likedTemplates', JSON.stringify(likedTemplates));
+        } catch (error) {
+            console.error("Failed to update like status:", error);
+        } finally {
+            setIsLiking(false);
         }
     };
 
@@ -195,7 +240,7 @@ const TemplateRoulettePageClient = () => {
                     {description}
                 </p>
             </div>
-            
+
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <SettingsPanel
                     title={title}
@@ -212,17 +257,26 @@ const TemplateRoulettePageClient = () => {
                     showShareButton={true}
                     onShareRoulette={() => handleShareUrl(false)}
                 />
-                
-                <RoulettePreview
-                    title={title}
-                    items={items}
-                    rotation={rotation}
-                    isSpinning={isSpinning}
-                    onSpin={spinRoulette}
-                    result={result}
-                    onShareImage={handleShareImage}
-                    onShareUrl={() => handleShareUrl(true)}
-                />
+
+                <div>
+                    <RoulettePreview
+                        ref={roulettePreviewRef}
+                        title={title}
+                        items={items}
+                        rotation={rotation}
+                        isSpinning={isSpinning}
+                        onSpin={spinRoulette}
+                        result={result}
+                        onShareImage={handleShareImage}
+                        onShareUrl={() => handleShareUrl(true)}
+                    />
+                    <div className="mt-4 flex justify-center">
+                        <button onClick={handleLike} disabled={isLiking} className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <Heart size={18} className={isLiked ? 'fill-red-500 text-red-500' : ''} />
+                            <span>{t('templates.like', 'いいね')} ({likeCount})</span>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             {/* 作成者プロフィールカード */}
@@ -248,11 +302,11 @@ const TemplateRoulettePageClient = () => {
                     </Link>
                 </motion.div>
             )}
-            
-            <ResultModal 
-                isOpen={showResult} 
-                result={result} 
-                onClose={closeResult} 
+
+            <ResultModal
+                isOpen={showResult}
+                result={result}
+                onClose={closeResult}
                 onShareImage={handleShareImage}
                 onShareUrl={() => handleShareUrl(true)}
             />

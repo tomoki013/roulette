@@ -111,6 +111,11 @@ export const createRoulette = async (rouletteData: RouletteInsert): Promise<Roul
         handleSupabaseError(error, 'createRoulette');
     }
 
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to create roulette, no data returned.');
+    }
+
     return data;
 };
 
@@ -142,9 +147,9 @@ export const getRoulettesByUserId = async (userId: string): Promise<Roulette[]> 
 export const updateRoulette = async (id: string, updates: RouletteUpdate): Promise<Roulette> => {
     const { data, error } = await supabase
         .from('roulettes')
-        .update({ 
-            ...updates, 
-            updated_at: new Date().toISOString() 
+        .update({
+            ...updates,
+            updated_at: new Date().toISOString()
         })
         .eq('id', id)
         .select()
@@ -152,6 +157,11 @@ export const updateRoulette = async (id: string, updates: RouletteUpdate): Promi
 
     if (error) {
         handleSupabaseError(error, 'updateRoulette');
+    }
+
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to update roulette, no data returned.');
     }
 
     return data;
@@ -170,4 +180,56 @@ export const deleteRoulette = async (id: string): Promise<void> => {
     if (error) {
         handleSupabaseError(error, 'deleteRoulette');
     }
+};
+
+/**
+ * 特定のルーレットのいいね数をインクリメントします (RPCを使用)
+ * @param id - ルーレットID
+ * @returns 更新されたいいね数を持つオブジェクト
+ */
+export const incrementLikeCount = async (id: string): Promise<{ id: string; like_count: number }> => {
+    const { data, error } = await supabase
+        .rpc('increment_like_count', {
+            roulette_id: id
+        })
+        .single(); // rpcからの戻り値が単一であることを保証
+
+    // RPC呼び出しでエラーが発生した場合
+    if (error) {
+        handleSupabaseError(error, 'incrementLikeCount (rpc)');
+    }
+
+    // データが何らかの理由で返ってこなかった場合（例: 該当IDが存在しない）
+    if (!data) {
+        throw new Error('Failed to increment like count, roulette not found or no data returned.');
+    }
+    
+    // 型が期待通りであることを保証して返す
+    return {
+        id: data.id,
+        like_count: data.like_count
+    };
+};
+
+/**
+ * 特定のルーレットのいいね数をデクリメントします (RPCを使用)
+ * @param id - ルーレットID
+ * @returns 更新されたいいね数を持つオブジェクト
+ */
+export const decrementLikeCount = async (id: string): Promise<{ id: string; like_count: number }> => {
+    const { data, error } = await supabase
+        .rpc('decrement_like_count', {
+            roulette_id: id
+        })
+        .single();
+
+    if (error) {
+        handleSupabaseError(error, 'decrementLikeCount (rpc)');
+    }
+    
+    if (!data) {
+        throw new Error('Failed to decrement like count, roulette not found or no data returned.');
+    }
+    
+    return data;
 };

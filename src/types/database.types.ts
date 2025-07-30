@@ -102,7 +102,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      decrement_like_count: {
+        Args: { roulette_id: string }
+        Returns: {
+          id: string
+          like_count: number
+        }[]
+      }
+      increment_like_count: {
+        Args: { roulette_id: string }
+        Returns: {
+          id: string
+          like_count: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

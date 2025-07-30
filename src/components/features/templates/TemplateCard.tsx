@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Layers, User, Heart, ChevronsRight } from 'lucide-react';
 import { Database } from '@/types/database.types';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { incrementLikeCount, decrementLikeCount } from '@/lib/services/rouletteService';
 
 type Roulette = Database['public']['Tables']['roulettes']['Row'];
 type Profile = Database['public']['Tables']['profiles']['Row'];
@@ -20,6 +22,53 @@ interface TemplateCardProps {
 const TemplateCard = ({ template }: TemplateCardProps) => {
     const { t, i18n } = useTranslation();
     const locale = i18n.language;
+    const [likeCount, setLikeCount] = useState(template.like_count);
+    const [isLiked, setIsLiked] = useState(false);
+    const [isLiking, setIsLiking] = useState(false);
+
+    useEffect(() => {
+        const likedTemplates = JSON.parse(localStorage.getItem('likedTemplates') || '[]');
+        if (likedTemplates.includes(template.id)) {
+            setIsLiked(true);
+        }
+    }, [template.id]);
+
+        const handleLike = async (e: React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (isLiking) return; // 処理中の多重クリックを防止
+        setIsLiking(true);
+
+        const likedTemplates = JSON.parse(localStorage.getItem('likedTemplates') || '[]');
+
+        try {
+            let updatedData;
+            if (isLiked) {
+                // いいね取り消し処理
+                updatedData = await decrementLikeCount(template.id);
+                const index = likedTemplates.indexOf(template.id);
+                if (index > -1) {
+                    likedTemplates.splice(index, 1);
+                }
+            } else {
+                // いいね処理
+                updatedData = await incrementLikeCount(template.id);
+                if (!likedTemplates.includes(template.id)) {
+                    likedTemplates.push(template.id);
+                }
+            }
+            // データベースからの戻り値でUIを更新
+            setLikeCount(updatedData.like_count);
+            setIsLiked(!isLiked);
+            localStorage.setItem('likedTemplates', JSON.stringify(likedTemplates));
+        } catch (error) {
+            console.error("Failed to update like status:", error);
+            // エラーが発生した場合はUIの変更は行わない
+        } finally {
+            setIsLiking(false); // 処理完了
+        }
+    };
 
     const getDescription = () => {
         if (
@@ -56,16 +105,17 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
                     </p>
                 </Link>
             </div>
-            <div className="mt-4">
+             <div className="mt-4">
                 <div className="flex justify-between items-center text-sm text-white/60 mb-4">
                     <Link href={`/${locale}/profiles/${template.user_id}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors">
                         <User size={14} />
                         <span>{template.profiles?.username || t('templates.anonymous')}</span>
                     </Link>
-                    <div className="flex items-center gap-2">
-                        <Heart size={14} />
-                        <span>{template.like_count}</span>
-                    </div>
+                    {/* disabled属性にisLikingをセット */}
+                    <button onClick={handleLike} disabled={isLiking} className="flex items-center gap-2 hover:text-yellow-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                        <Heart size={14} className={isLiked ? 'fill-red-500 text-red-500' : ''} />
+                        <span>{likeCount}</span>
+                    </button>
                 </div>
                 <Link
                     href={`/${locale}/templates/roulette/${template.id}`}

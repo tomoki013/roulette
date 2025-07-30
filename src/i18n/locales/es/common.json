@@ -152,6 +152,7 @@
         "title": "Buscar desde Plantillas",
         "description": "¿Buscas ideas divertidas para una ruleta? En nuestra página de Plantillas, puedes explorar y utilizar ruletas únicas creadas por otros usuarios. También puedes personalizar fácilmente una plantilla para crear tu propia ruleta original.",
         "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
+        "like": "Me gusta",
         "searchPlaceholder": "Buscar por palabra clave...",
         "sortBy": {
             "newest": "Más nuevos",

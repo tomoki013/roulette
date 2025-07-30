@@ -152,6 +152,7 @@
         "title": "Find from Templates",
         "description": "Looking for fun roulette ideas? On our Templates page, you can browse and use unique roulettes created by other users. You can also easily customize a template to create your very own original roulette wheel.",
         "subtitle": "Discover unique roulettes created by other users and start using them right away.",
+        "like": "Like",
         "searchPlaceholder": "Search by keyword...",
         "sortBy": {
             "newest": "Newest",
