@@ -91,6 +91,11 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
         }
         handleSupabaseError(error, 'getRouletteById');
     }
+    
+    // dataがnullの場合にエラーを投げる処理を追加
+    if (!data) {
+        throw new Error('Failed to update profile, no data returned.');
+    }
 
     return data;
 };
