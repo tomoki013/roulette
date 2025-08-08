@@ -2,7 +2,6 @@
 
 import { useAuthForm } from '@/lib/hooks/useAuthForm';
 import { useAuth } from '@/lib/hooks/useAuth';
-import styles from '@/styles/AuthStyles.module.css';
 import { useEffect } from 'react';
 
 interface AuthFormProps {
@@ -48,22 +47,31 @@ const AuthForm = ({
         return null;
     }
 
+    const tabButtonBase = "py-2 px-4 text-lg font-semibold bg-transparent border-none cursor-pointer transition-all duration-200";
+    const tabButtonActive = "text-amber-400 border-b-2 border-amber-400";
+    const tabButtonInactive = "text-white/70";
+    const inputStyle = "bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white transition-all duration-200 w-full focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70";
+    const buttonPrimary = "py-3 px-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg transition-all duration-200 w-full border-none cursor-pointer hover:not(:disabled):scale-105 disabled:opacity-50 disabled:cursor-not-allowed";
+    const errorMessage = "bg-red-500/30 text-red-300 text-center p-3 rounded-lg mb-4";
+    const fieldError = "text-red-400 text-sm mt-1";
+    const label = "block text-sm font-medium text-white/90 mb-2";
+
     return (
         <div className="text-white">
             {/* タブ切り替え */}
             <div className="flex justify-center mb-6">
                 <button
                     onClick={() => setIsLoginView(true)}
-                    className={`${styles.tabButton} ${
-                        isLoginView ? styles.tabButtonActive : styles.tabButtonInactive
+                    className={`${tabButtonBase} ${
+                        isLoginView ? tabButtonActive : tabButtonInactive
                     }`}
                 >
                     {t('auth.login')}
                 </button>
                 <button
                     onClick={() => setIsLoginView(false)}
-                    className={`${styles.tabButton} ${
-                        !isLoginView ? styles.tabButtonActive : styles.tabButtonInactive
+                    className={`${tabButtonBase} ${
+                        !isLoginView ? tabButtonActive : tabButtonInactive
                     }`}
                 >
                     {t('auth.signUp')}
@@ -77,7 +85,7 @@ const AuthForm = ({
               
             {/* エラーメッセージ */}
             {authError && (
-                <p className={styles.errorMessage}>{authError}</p>
+                <p className={errorMessage}>{authError}</p>
             )}
 
             {/* フォーム */}
@@ -85,17 +93,17 @@ const AuthForm = ({
                 {/* ユーザー名（新規登録時のみ） */}
                 {!isLoginView && (
                     <div>
-                        <label className={styles.label}>
+                        <label className={label}>
                             {t('auth.username')}
                         </label>
                         <input
                             type="text"
                             {...form.register('username')}
-                            className={styles.inputStyle}
+                            className={inputStyle}
                             placeholder={t('auth.usernamePlaceholder')}
                         />
                         {form.formState.errors.username && (
-                            <p className={styles.fieldError}>
+                            <p className={fieldError}>
                                 {form.formState.errors.username.message}
                             </p>
                         )}
@@ -104,16 +112,16 @@ const AuthForm = ({
 
                 {/* メールアドレス */}
                 <div>
-                    <label className={styles.label}>
+                    <label className={label}>
                         {t('auth.email')}
                     </label>
                     <input
                         type="email"
                         {...form.register('email')}
-                        className={styles.inputStyle}
+                        className={inputStyle}
                     />
                     {form.formState.errors.email && (
-                        <p className={styles.fieldError}>
+                        <p className={fieldError}>
                             {form.formState.errors.email.message}
                         </p>
                     )}
@@ -121,16 +129,16 @@ const AuthForm = ({
                 
                 {/* パスワード */}
                 <div>
-                    <label className={styles.label}>
+                    <label className={label}>
                         {t('auth.password')}
                     </label>
                     <input
                         type="password"
                         {...form.register('password')}
-                        className={styles.inputStyle}
+                        className={inputStyle}
                     />
                     {form.formState.errors.password && (
-                        <p className={styles.fieldError}>
+                        <p className={fieldError}>
                             {form.formState.errors.password.message}
                         </p>
                     )}
@@ -140,7 +148,7 @@ const AuthForm = ({
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className={styles.buttonPrimary}
+                    className={buttonPrimary}
                 >
                     {isLoading
                         ? t('loading')
