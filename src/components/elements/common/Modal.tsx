@@ -33,7 +33,7 @@ const Modal = () => {
                     onClick={onCancel ? onCancel : closeModal}
                 >
                     <motion.div
-                        className="bg-white rounded-2xl p-8 max-w-md w-full text-center relative overflow-hidden"
+                        className="bg-white rounded-2xl p-8 max-w-md w-full text-center relative overflow-hidden max-h-[70vh]"
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.8, opacity: 0 }}
