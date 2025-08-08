@@ -16,8 +16,12 @@ export async function POST(req: Request) {
 
     if (!result.success) {
         const errorMessages = result.error.flatten().fieldErrors;
-        const firstErrors = Object.keys(errorMessages).reduce((acc, key) => {
-            acc[key] = errorMessages[key]![0];
+        const firstErrors = Object.keys(errorMessages).reduce((acc, k) => {
+            const key = k as keyof typeof errorMessages;
+            const errorList = errorMessages[key];
+            if (errorList && errorList.length > 0) {
+                acc[key] = errorList[0];
+            }
             return acc;
         }, {} as Record<string, string>);
 
