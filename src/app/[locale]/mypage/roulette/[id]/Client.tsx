@@ -12,6 +12,7 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import { getRouletteById, updateRoulette } from '@/lib/services/rouletteService';
 import { Json } from '@/types/database.types';
 import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
+import { useRouletteSettings } from '@/lib/hooks/useRouletteSettings';
 import { ROULETTE_COLORS } from '@/constants/roulette';
 
 const EditRoulettePageClient = () => {
@@ -22,11 +23,20 @@ const EditRoulettePageClient = () => {
     
     // State management
     const [initialDataLoaded, setInitialDataLoaded] = useState(false);
-    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [items, setItems] = useState<Item[]>([]);
     const [isSaving, setIsSaving] = useState(false);
     
+    // Custom hooks
+    const {
+        title,
+        setTitle,
+        items,
+        setItems,
+        addItem,
+        removeItem,
+        updateItem
+    } = useRouletteSettings();
+
     // Custom hook for roulette wheel logic
     const {
         rotation,
@@ -76,35 +86,7 @@ const EditRoulettePageClient = () => {
         };
         
         fetchRouletteData();
-    }, [params.id, user, authLoading, router, i18n.language]);
-
-    // Item management functions
-    const addItem = () => {
-        const newItemColor = ROULETTE_COLORS[items.length % ROULETTE_COLORS.length];
-        setItems(prev => [
-            ...prev, 
-            { 
-                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`, 
-                ratio: 1, 
-                color: newItemColor 
-            }
-        ]);
-    };
-
-    const removeItem = (index: number) => {
-        if (items.length > 2) {
-            setItems(prev => prev.filter((_, i) => i !== index));
-        }
-    };
-
-    const updateItem = (index: number, field: keyof Item, value: string | number) => {
-        setItems(prev => {
-            const newItems = [...prev];
-            const updatedValue = field === 'color' ? String(value) : value;
-            newItems[index] = { ...newItems[index], [field]: updatedValue };
-            return newItems;
-        });
-    };
+    }, [params.id, user, authLoading, router, i18n.language, setTitle, setItems]);
 
     // Save function
     const handleUpdate = async () => {
