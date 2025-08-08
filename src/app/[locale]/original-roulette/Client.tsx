@@ -15,6 +15,7 @@ import { Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
 import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
 import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
+import { useRouletteSettings } from '@/lib/hooks/useRouletteSettings';
 import { ROULETTE_COLORS } from '@/constants/roulette';
 
 const CreateRoulettePageClient = () => {
@@ -30,13 +31,21 @@ const CreateRoulettePageClient = () => {
     const resultParam = searchParams.get('result');
 
     // State management
-    const [items, setItems] = useState<Item[]>([]);
-    const [title, setTitle] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [saveActionPending, setSaveActionPending] = useState(false);
 
     // Custom hooks
+    const {
+        title,
+        setTitle,
+        items,
+        setItems,
+        addItem,
+        removeItem,
+        updateItem
+    } = useRouletteSettings();
+
     const {
         rotation,
         isSpinning,
@@ -92,35 +101,7 @@ const CreateRoulettePageClient = () => {
         setItems(initialItems);
         setTitle(t('roulette.preview.title'));
 
-    }, [i18n.isInitialized, t, configParam, resultParam, setResult, setShowResult]);
-
-    // Item management functions
-    const addItem = () => {
-        const newItemColor = ROULETTE_COLORS[items.length % ROULETTE_COLORS.length];
-        setItems(prev => [
-            ...prev, 
-            { 
-                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`, 
-                ratio: 1, 
-                color: newItemColor 
-            }
-        ]);
-    };
-
-    const removeItem = (index: number) => {
-        if (items.length > 2) {
-            setItems(prev => prev.filter((_, i) => i !== index));
-        }
-    };
-
-    const updateItem = (index: number, field: keyof Item, value: string | number) => {
-        setItems(prev => {
-            const newItems = [...prev];
-            const updatedValue = field === 'color' ? String(value) : value;
-            newItems[index] = { ...newItems[index], [field]: updatedValue };
-            return newItems;
-        });
-    };
+    }, [i18n.isInitialized, t, configParam, resultParam, setResult, setShowResult, setTitle, setItems]);
 
     // Save function
     const handleSave = useCallback(async () => {
