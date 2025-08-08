@@ -15,6 +15,7 @@ import { Database, Json } from '@/types/database.types';
 import { useModal } from '@/lib/hooks/useModal';
 import { useRouletteWheel } from '@/lib/hooks/useRouletteWheel';
 import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
+import { useRouletteSettings } from '@/lib/hooks/useRouletteSettings';
 import { ROULETTE_COLORS } from '@/constants/roulette';
 import { motion } from 'framer-motion';
 import { User, Heart } from 'lucide-react'; // Heartアイコンをインポート
@@ -33,8 +34,6 @@ const TemplateRoulettePageClient = () => {
     const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
     // State management
-    const [items, setItems] = useState<Item[]>([]);
-    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
@@ -47,6 +46,16 @@ const TemplateRoulettePageClient = () => {
 
 
     // Custom hooks
+    const {
+        title,
+        setTitle,
+        items,
+        setItems,
+        addItem,
+        removeItem,
+        updateItem
+    } = useRouletteSettings();
+
     const {
         rotation,
         isSpinning,
@@ -140,35 +149,7 @@ const TemplateRoulettePageClient = () => {
             };
             fetchTemplateData();
         }
-    }, [params.id, searchParams, router, i18n.language, setResult, setShowResult]);
-
-    // Item management functions
-    const addItem = () => {
-        const newItemColor = ROULETTE_COLORS[items.length % ROULETTE_COLORS.length];
-        setItems(prev => [
-            ...prev,
-            {
-                name: `${t('roulette.settings.optionDefault')} ${prev.length + 1}`,
-                ratio: 1,
-                color: newItemColor
-            }
-        ]);
-    };
-
-    const removeItem = (index: number) => {
-        if (items.length > 2) {
-            setItems(prev => prev.filter((_, i) => i !== index));
-        }
-    };
-
-    const updateItem = (index: number, field: keyof Item, value: string | number) => {
-        setItems(prev => {
-            const newItems = [...prev];
-            const updatedValue = field === 'color' ? String(value) : value;
-            newItems[index] = { ...newItems[index], [field]: updatedValue };
-            return newItems;
-        });
-    };
+    }, [params.id, searchParams, router, i18n.language, setResult, setShowResult, setTitle, setItems]);
 
     // Fork and save function
     const handleForkAndSave = async () => {

@@ -1,19 +1,41 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+
+const contactFormSchema = z.object({
+    name: z.string().min(1, { message: 'お名前は必須です。' }),
+    email: z.string().email({ message: '有効なメールアドレスを入力してください。' }),
+    subject: z.string().min(1, { message: '件名は必須です。' }),
+    message: z.string().min(1, { message: 'メッセージは必須です。' }),
+    inquiryType: z.string().min(1, { message: 'お問い合わせの種類は必須です。' }),
+});
 
 export async function POST(req: Request) {
     const body = await req.json();
-    const { name, email, subject, message, inquiryType } = body;
+    const result = contactFormSchema.safeParse(body);
+
+    if (!result.success) {
+        const errorMessages = result.error.flatten().fieldErrors;
+        const firstErrors = Object.keys(errorMessages).reduce((acc, key) => {
+            acc[key] = errorMessages[key]![0];
+            return acc;
+        }, {} as Record<string, string>);
+
+        return NextResponse.json(
+            {
+                message: '入力内容に誤りがあります。',
+                errors: firstErrors
+            },
+            { status: 400 }
+        );
+    }
+
+    const { name, email, subject, message, inquiryType } = result.data;
 
     // 環境変数が設定されているか確認
     if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
         console.error('Gmail credentials are not set in environment variables.');
         return NextResponse.json({ message: 'サーバー設定エラーです。' }, { status: 500 });
-    }
-
-    // 入力値のバリデーション
-    if (!name || !email || !subject || !message || !inquiryType) {
-        return NextResponse.json({ message: 'すべてのフィールドを入力してください。' }, { status: 400 });
     }
 
     try {
