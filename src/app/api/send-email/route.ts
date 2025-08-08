@@ -1,22 +1,35 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+
+const emailSchema = z.object({
+    name: z.string().min(1, 'お名前は必須です。'),
+    email: z.string().email('有効なメールアドレスを入力してください。'),
+    subject: z.string().min(1, '件名は必須です。'),
+    message: z.string().min(1, 'メッセージは必須です。'),
+    inquiryType: z.string().min(1, 'お問い合わせの種類は必須です。'),
+});
 
 export async function POST(req: Request) {
-    const body = await req.json();
-    const { name, email, subject, message, inquiryType } = body;
-
     // 環境変数が設定されているか確認
     if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
         console.error('Gmail credentials are not set in environment variables.');
         return NextResponse.json({ message: 'サーバー設定エラーです。' }, { status: 500 });
     }
 
-    // 入力値のバリデーション
-    if (!name || !email || !subject || !message || !inquiryType) {
-        return NextResponse.json({ message: 'すべてのフィールドを入力してください。' }, { status: 400 });
-    }
-
     try {
+        const body = await req.json();
+        const validation = emailSchema.safeParse(body);
+
+        if (!validation.success) {
+            return NextResponse.json({
+                message: '入力内容に誤りがあります。',
+                errors: validation.error.flatten().fieldErrors,
+            }, { status: 400 });
+        }
+
+        const { name, email, subject, message, inquiryType } = validation.data;
+
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
