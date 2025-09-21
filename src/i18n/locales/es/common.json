@@ -113,7 +113,14 @@
     "allowFork": "Permitir que otros usuarios dupliquen",
     "allowForkExcerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla.",
     "publishProfile": "Publicar perfil",
-    "publishProfileExcerpt": "Muestra tu perfil como el creador en la plantilla."
+    "publishProfileExcerpt": "Muestra tu perfil como el creador en la plantilla.",
+    "delete_account": {
+      "button": "Eliminar Cuenta",
+      "modal_title": "Confirmar Eliminación de Cuenta",
+      "modal_description": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.",
+      "confirm_button": "Eliminar",
+      "cancel_button": "Cancelar"
+    }
   },
   "roulette": {
     "title": "Crear Ruleta",

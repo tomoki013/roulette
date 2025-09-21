@@ -113,7 +113,14 @@
     "allowFork": "他のユーザーによる複製を許可",
     "allowForkExcerpt": "他のユーザーがこのテンプレートを元に新しいルーレットを作成できます。",
     "publishProfile": "プロフィールを公開",
-    "publishProfileExcerpt": "テンプレートに作成者としてあなたのプロフィールを表示します。"
+    "publishProfileExcerpt": "テンプレートに作成者としてあなたのプロフィールを表示します。",
+    "delete_account": {
+      "button": "アカウントを削除",
+      "modal_title": "アカウント削除の確認",
+      "modal_description": "本当にアカウントを削除しますか？この操作は元に戻すことができません。",
+      "confirm_button": "削除する",
+      "cancel_button": "キャンセル"
+    }
   },
   "roulette": {
     "title": "ルーレット作成",
