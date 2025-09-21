@@ -24,6 +24,10 @@
       "multiLanguage": "Support multilingue (japonais, anglais, espagnol, français)"
     }
   },
+  "articles": {
+    "title": "Cas d'utilisation",
+    "description": "Découvrez divers cas d'utilisation pour la 'Roulette en Ligne'. Des scénarios de classe à la planification d'événements et à la prise de décision quotidienne, trouvez des idées pour stimuler votre inspiration."
+  },
   "auth": {
     "title": "Authentification Utilisateur",
     "description": "Inscrivez-vous ou connectez-vous pour profiter de toutes les fonctionnalités de Roulette en Ligne. En créant un compte, vous pouvez sauvegarder vos roulettes pour les modifier et les réutiliser à tout moment. Gérez votre collection personnelle depuis Ma Page.",

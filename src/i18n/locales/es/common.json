@@ -24,6 +24,10 @@
       "multiLanguage": "Soporte multilingüe (japonés, inglés, español, francés)"
     }
   },
+  "articles": {
+    "title": "Casos de Uso",
+    "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración."
+  },
   "auth": {
     "title": "Autenticación de Usuario",
     "description": "Regístrate o inicia sesión para acceder a todas las funciones de Ruleta Web. Al crear una cuenta, puedes guardar tus ruletas para editarlas y reutilizarlas cuando quieras. Gestiona tu colección personal de ruletas en tu propia Mi Página.",
