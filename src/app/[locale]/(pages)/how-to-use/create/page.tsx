@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import TemplatesPageClient from "./Client";
+import HowToUseCreatePageClient from "./Client";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -8,15 +8,18 @@ export async function generateMetadata(props: {
   const { locale } = await params;
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
+  const title = t.howToUse.basic.create;
+  const description = t.howToUse.basic.create_description;
+
   return {
-    title: t.templates.title,
-    description: t.templates.description,
+    title: title,
+    description: description,
     openGraph: {
-      title: t.templates.title,
-      description: t.templates.description,
+      title: title,
+      description: description,
       images: [
         {
-          url: "favicon.ico",
+          url: "/favicon.ico",
           width: 1200,
           height: 630,
           alt: t.title,
@@ -24,15 +27,15 @@ export async function generateMetadata(props: {
       ],
     },
     twitter: {
-      title: t.templates.title,
-      description: t.templates.description,
-      images: ["favicon.ico"],
+      title: title,
+      description: description,
+      images: ["/favicon.ico"],
     },
   };
 }
 
-const TemplatesPage = () => {
-  return <TemplatesPageClient />;
+const HowToUseCreatePage = () => {
+  return <HowToUseCreatePageClient />;
 };
 
-export default TemplatesPage;
+export default HowToUseCreatePage;
