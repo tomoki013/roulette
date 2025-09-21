@@ -186,18 +186,32 @@
     "basic": {
       "title": "Uso Básico (para Invitados)",
       "create": "Cómo crear una ruleta (agregar/eliminar elementos, cambiar proporciones/colores)",
+      "create_description": "Aprende a crear tu propia ruleta original configurando libremente los elementos, los colores y las proporciones.",
+      "create_detail": "Crear una ruleta original es fácil. Primero, introduce un título y una descripción para tu ruleta. Luego, haz clic en el botón 'Añadir elemento' para agregar opciones a tu rueda. Puedes configurar libremente el texto, el color y el peso (proporción) para cada elemento. Cuanto mayor sea el número de la proporción, más probable será que se seleccione ese elemento. Una vez que hayas introducido todos tus elementos, ya está todo listo.",
       "spin": "Cómo girar la ruleta",
-      "share": "Cómo compartir resultados (URL/Imagen)"
+      "spin_description": "Explica el procedimiento para girar la ruleta creada y comprobar los resultados del sorteo.",
+      "spin_detail": "Una vez que tu ruleta esté configurada, simplemente haz clic en el botón 'Girar' en la pantalla de vista previa. La rueda girará y seleccionará un elemento al azar. El resultado se mostrará de forma destacada en la pantalla, celebrado con una animación de confeti. Si quieres volver a girar, solo tienes que hacer clic en el botón 'Girar' una vez más.",
+      "share": "Cómo compartir resultados (URL/Imagen)",
+      "share_description": "Aprende a compartir los resultados de tu ruleta con amigos o en redes sociales a través de una URL o como una imagen.",
+      "share_detail": "¿Quieres compartir los resultados de tu ruleta con amigos o compañeros? Utiliza los botones de compartir en la pantalla de resultados para copiar una URL de la página con el resultado, o para descargar la rueda de la ruleta como una imagen. Es genial para compartir en redes sociales o para informar de los resultados de un evento."
     },
     "account": {
       "title": "Funciones de la Cuenta",
       "merit": "Beneficios del registro de cuenta (guardado de datos, etc.)",
-      "auth": "Pasos para nuevo registro e inicio de sesión"
+      "merit_description": "Descubre las funciones convenientes que se habilitan al registrarte para obtener una cuenta gratuita.",
+      "merit_detail": "Al registrarte para obtener una cuenta gratuita, puedes guardar tus ruletas creadas y editarlas o reutilizarlas en cualquier momento. Puedes gestionar una lista de tus ruletas creadas desde tu 'Mi Página', ahorrándote la molestia de tener que recrearlas cada vez. También puedes publicar tus propias ruletas como plantillas para que otros las usen.",
+      "auth": "Pasos para nuevo registro e inicio de sesión",
+      "auth_description": "Explica cómo crear una nueva cuenta y los pasos para iniciar sesión después del registro.",
+      "auth_detail": "Puedes registrarte desde el enlace 'Registrarse' en el menú del encabezado. Simplemente introduce un nombre de usuario, una dirección de correo electrónico y una contraseña para crear una cuenta fácilmente. Después del registro, inicia sesión desde la página de 'Iniciar sesión' con tu correo electrónico y contraseña. También admitimos el inicio de sesión social con una cuenta de Google, lo que facilita aún más el comienzo."
     },
     "loggedIn": {
       "title": "Funciones Adicionales Después de Iniciar Sesión",
       "mypage": "Mi Página: Gestiona las ruletas creadas (editar/eliminar) y edita tu perfil.",
-      "templates": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas."
+      "mypage_description": "Explica cómo gestionar tus ruletas guardadas en la página dedicada 'Mi Página' para usuarios que han iniciado sesión.",
+      "mypage_detail": "Cuando has iniciado sesión, puedes acceder a tu 'Mi Página' desde el menú del encabezado para ver una lista de tus ruletas guardadas. Desde aquí, puedes editar, eliminar y cambiar la configuración de publicación de cada ruleta, incluida su publicación como plantillas. También puedes editar la información de tu perfil, que se mostrará como el creador cuando publiques una plantilla.",
+      "templates": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas.",
+      "templates_description": "Aprende a encontrar y utilizar plantillas creadas por otros usuarios, y a publicar tus propias ruletas como plantillas.",
+      "templates_detail": "En la página 'Buscar desde plantillas', puedes explorar diversas ruletas creadas y publicadas por otros usuarios. Si encuentras una plantilla que te guste, puedes usar el botón 'Usar esta plantilla' para crear una nueva ruleta con la misma configuración. Si quieres publicar tu propia ruleta, simplemente activa la configuración 'Publicar como plantilla' en tu 'Mi Página'."
     }
   },
   "footer": {

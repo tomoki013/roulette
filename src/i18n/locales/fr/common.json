@@ -186,18 +186,32 @@
     "basic": {
       "title": "Utilisation de Base (pour les Invités)",
       "create": "Comment créer une roulette (ajouter/supprimer des éléments, changer les ratios/couleurs)",
+      "create_description": "Apprenez à créer votre propre roulette originale en définissant librement les éléments, les couleurs et les ratios.",
+      "create_detail": "Créer une roulette originale est facile. D'abord, saisissez un titre et une description pour votre roulette. Ensuite, cliquez sur le bouton 'Ajouter un élément' pour ajouter des options à votre roue. Vous pouvez définir librement le texte, la couleur et le poids (ratio) pour chaque élément. Plus le nombre du ratio est élevé, plus cet élément a de chances d'être sélectionné. Une fois que vous avez saisi tous vos éléments, c'est prêt.",
       "spin": "Comment faire tourner la roulette",
-      "share": "Comment partager les résultats (URL/Image)"
+      "spin_description": "Explique la procédure pour faire tourner la roulette créée et vérifier les résultats du tirage.",
+      "spin_detail": "Une fois votre roulette configurée, il suffit de cliquer sur le bouton 'Lancer' sur l'écran d'aperçu. La roue tournera et sélectionnera un élément au hasard. Le résultat s'affichera en grand sur l'écran, célébré par une animation de confettis. Si vous voulez tourner à nouveau, cliquez simplement une fois de plus sur le bouton 'Lancer'.",
+      "share": "Comment partager les résultats (URL/Image)",
+      "share_description": "Apprenez à partager les résultats de votre roulette avec des amis ou sur les réseaux sociaux via une URL ou sous forme d'image.",
+      "share_detail": "Vous voulez partager les résultats de votre roulette avec des amis ou des collègues ? Utilisez les boutons de partage sur l'écran des résultats pour copier une URL de la page avec le résultat, ou pour télécharger la roue de la roulette sous forme d'image. C'est idéal pour partager sur les réseaux sociaux ou pour rapporter les résultats d'un événement."
     },
     "account": {
       "title": "Fonctionnalités du Compte",
       "merit": "Avantages de l'inscription (sauvegarde des données, etc.)",
-      "auth": "Étapes pour l'inscription et la connexion"
+      "merit_description": "Découvrez les fonctionnalités pratiques qui deviennent disponibles lorsque vous créez un compte gratuit.",
+      "merit_detail": "En créant un compte gratuit, vous pouvez sauvegarder vos roulettes créées et les modifier ou les réutiliser à tout moment. Vous pouvez gérer une liste de vos roulettes depuis votre 'Ma Page', ce qui vous évite de devoir les recréer à chaque fois. Vous pouvez également publier vos propres roulettes en tant que modèles pour que d'autres puissent les utiliser.",
+      "auth": "Étapes pour l'inscription et la connexion",
+      "auth_description": "Explique comment créer un nouveau compte et les étapes pour se connecter après l'inscription.",
+      "auth_detail": "Vous pouvez vous inscrire depuis le lien 'S'inscrire' dans le menu de l'en-tête. Il vous suffit d'entrer un nom d'utilisateur, une adresse e-mail et un mot de passe pour créer un compte facilement. Après l'inscription, connectez-vous depuis la page 'Se connecter' avec votre e-mail et votre mot de passe. Nous prenons également en charge la connexion sociale avec un compte Google, ce qui facilite encore plus le démarrage."
     },
     "loggedIn": {
       "title": "Fonctionnalités Supplémentaires Après Connexion",
       "mypage": "Ma Page : Gérez les roulettes créées (modifier/supprimer) et modifiez votre profil.",
-      "templates": "Fonctionnalité de Modèle : Comment utiliser les modèles et rendre publiques vos propres roulettes."
+      "mypage_description": "Explique comment gérer vos roulettes sauvegardées sur la page dédiée 'Ma Page' pour les utilisateurs connectés.",
+      "mypage_detail": "Lorsque vous êtes connecté, vous pouvez accéder à votre 'Ma Page' depuis le menu de l'en-tête pour voir une liste de vos roulettes sauvegardées. De là, vous pouvez modifier, supprimer et changer les paramètres de publication de chaque roulette, y compris leur publication en tant que modèles. Vous pouvez également modifier les informations de votre profil, qui seront affichées en tant que créateur lorsque vous publierez un modèle.",
+      "templates": "Fonctionnalité de Modèle : Comment utiliser les modèles et rendre publiques vos propres roulettes.",
+      "templates_description": "Apprenez à trouver et à utiliser des modèles créés par d'autres utilisateurs, et à publier vos propres roulettes en tant que modèles.",
+      "templates_detail": "Sur la page 'Trouver à partir de modèles', vous pouvez parcourir diverses roulettes créées et publiées par d'autres utilisateurs. Si vous trouvez un modèle qui vous plaît, vous pouvez utiliser le bouton 'Utiliser ce modèle' pour créer une nouvelle roulette avec les mêmes paramètres. Si vous souhaitez publier votre propre roulette, il vous suffit d'activer le paramètre 'Publier en tant que modèle' sur votre 'Ma Page'."
     }
   },
   "footer": {

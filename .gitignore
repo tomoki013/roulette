@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# SEO files
+/sitemap.xml
+/sitemap-*.xml
+/robots.txt
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
