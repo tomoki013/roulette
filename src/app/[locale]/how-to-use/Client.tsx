@@ -2,7 +2,8 @@
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { HelpCircle, BookOpen, UserPlus, LogIn } from 'lucide-react';
+import { HelpCircle, BookOpen, UserPlus, LogIn, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 const HowToUsePageClient = () => {
     const { t } = useTranslation();
@@ -11,6 +12,15 @@ const HowToUsePageClient = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
     };
+
+    const ListItemLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
+        <li className="border-b border-white/10 py-3 transition-all hover:pl-2">
+            <Link href={`/how-to-use/${href}`} className="flex items-center justify-between text-white/90 hover:text-yellow-300">
+                <span>{children}</span>
+                <ChevronRight size={20} />
+            </Link>
+        </li>
+    );
 
     return (
         <motion.div
@@ -42,10 +52,10 @@ const HowToUsePageClient = () => {
                         <BookOpen className="text-yellow-300" />
                         {t('howToUse.basic.title')}
                     </h2>
-                    <ul className="list-disc list-inside space-y-2 text-white/90">
-                        <li>{t('howToUse.basic.create')}</li>
-                        <li>{t('howToUse.basic.spin')}</li>
-                        <li>{t('howToUse.basic.share')}</li>
+                    <ul className="space-y-2">
+                        <ListItemLink href="create">{t('howToUse.basic.create')}</ListItemLink>
+                        <ListItemLink href="spin">{t('howToUse.basic.spin')}</ListItemLink>
+                        <ListItemLink href="share">{t('howToUse.basic.share')}</ListItemLink>
                     </ul>
                 </motion.section>
 
@@ -55,9 +65,9 @@ const HowToUsePageClient = () => {
                         <UserPlus className="text-yellow-300" />
                         {t('howToUse.account.title')}
                     </h2>
-                    <ul className="list-disc list-inside space-y-2 text-white/90">
-                        <li>{t('howToUse.account.merit')}</li>
-                        <li>{t('howToUse.account.auth')}</li>
+                    <ul className="space-y-2">
+                        <ListItemLink href="account-merit">{t('howToUse.account.merit')}</ListItemLink>
+                        <ListItemLink href="auth">{t('howToUse.account.auth')}</ListItemLink>
                     </ul>
                 </motion.section>
 
@@ -67,9 +77,9 @@ const HowToUsePageClient = () => {
                         <LogIn className="text-yellow-300" />
                         {t('howToUse.loggedIn.title')}
                     </h2>
-                    <ul className="list-disc list-inside space-y-2 text-white/90">
-                        <li>{t('howToUse.loggedIn.mypage')}</li>
-                        <li>{t('howToUse.loggedIn.templates')}</li>
+                    <ul className="space-y-2">
+                        <ListItemLink href="mypage">{t('howToUse.loggedIn.mypage')}</ListItemLink>
+                        <ListItemLink href="templates">{t('howToUse.loggedIn.templates')}</ListItemLink>
                     </ul>
                 </motion.section>
             </div>
