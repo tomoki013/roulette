@@ -180,9 +180,30 @@
         "forkAndSave": "Duplicar y Guardar esta Plantilla",
         "creatorProfileTitle": "Perfil del creador"
     },
+    "howToUse": {
+        "title": "Cómo usar",
+        "description": "Aprende todo, desde lo básico de 'Ruleta en la Web' hasta las funciones convenientes disponibles después de registrar una cuenta. Domina cómo crear y compartir ruletas, usar plantillas y aprovechar al máximo nuestro sitio.",
+        "basic": {
+            "title": "Uso Básico (para Invitados)",
+            "create": "Cómo crear una ruleta (agregar/eliminar elementos, cambiar proporciones/colores)",
+            "spin": "Cómo girar la ruleta",
+            "share": "Cómo compartir resultados (URL/Imagen)"
+        },
+        "account": {
+            "title": "Funciones de la Cuenta",
+            "merit": "Beneficios del registro de cuenta (guardado de datos, etc.)",
+            "auth": "Pasos para nuevo registro e inicio de sesión"
+        },
+        "loggedIn": {
+            "title": "Funciones Adicionales Después de Iniciar Sesión",
+            "mypage": "Mi Página: Gestiona las ruletas creadas (editar/eliminar) y edita tu perfil.",
+            "templates": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas."
+        }
+    },
     "footer": {
         "copyright": "Ruleta Web. Todos los derechos reservados.",
         "services": "Servicios",
+        "howToUse": "Cómo usar",
         "legal": "Legal",
         "social": "Social",
         "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas."

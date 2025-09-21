@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Languages, LogIn, User } from 'lucide-react'; // LogIn, User アイコンをインポート
+import { Mail, Languages, LogIn, User, HelpCircle } from 'lucide-react'; // LogIn, User アイコンをインポート
 import { useAuth } from '@/lib/hooks/useAuth'; // useAuthをインポート
 
 const HomePage = () => {
@@ -94,6 +94,37 @@ const HomePage = () => {
                                 className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                             >
                                 {t('templates.template')}
+                            </Link>
+                        </motion.div>
+                    </div>
+                </div>
+            </motion.div>
+
+            {/* How to use Hero Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mt-8 max-w-5xl w-full bg-white/10 backdrop-blur-sm p-8 rounded-2xl"
+            >
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="text-center md:text-left">
+                        <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
+                            <HelpCircle className="text-yellow-300" />
+                            {t('howToUse.title')}
+                        </h2>
+                        <p className="text-white/80 mb-6">
+                            {t('howToUse.description')}
+                        </p>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link
+                                href={`/${locale}/how-to-use`}
+                                className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                            >
+                                {t('howToUse.title')}
                             </Link>
                         </motion.div>
                     </div>

@@ -180,9 +180,30 @@
         "forkAndSave": "Fork and Save this Template",
         "creatorProfileTitle": "Creator's Profile"
     },
+    "howToUse": {
+        "title": "How to Use",
+        "description": "Learn everything from the basics of 'Roulette on the Web' to the convenient features available after registering an account. Master how to create and share roulettes, use templates, and make the most of our site.",
+        "basic": {
+            "title": "Basic Usage (for Guests)",
+            "create": "How to create a roulette (add/delete items, change ratios/colors)",
+            "spin": "How to spin the roulette",
+            "share": "How to share results (URL/Image)"
+        },
+        "account": {
+            "title": "Account Features",
+            "merit": "Benefits of account registration (data saving, etc.)",
+            "auth": "Steps for new registration and login"
+        },
+        "loggedIn": {
+            "title": "Additional Features After Login",
+            "mypage": "My Page: Manage created roulettes (edit/delete), and edit your profile.",
+            "templates": "Template Feature: How to use templates and set your own roulettes to public."
+        }
+    },
     "footer": {
         "copyright": "Web Roulette. All rights reserved.",
         "services": "Services",
+        "howToUse": "How to Use",
         "legal": "Legal",
         "social": "Social",
         "tagline": "Instantly create and share your own custom roulettes."
