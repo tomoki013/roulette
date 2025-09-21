@@ -1,246 +1,246 @@
 {
-    "title": "Web Roulette",
-    "description": "Web Roulette is a free online tool to create custom roulettes. Easily build and share your original roulette wheels with custom items and ratios. Perfect for event drawings or daily decisions, with no registration required to get started.",
-    "excerpt": "Web Roulette is a tool that allows you to easily create and share custom roulettes. Create your own original roulette and have fun with friends and family.",
-    "close": "Close",
-    "loading": "Loading...",
-    "about": {
-        "title": "About",
-        "description": "Web Roulette is a custom roulette creation tool designed for everyone to use intuitively. This page introduces the purpose behind the site's development and its intended uses. We aim to support fun and fair decision-making, from small daily choices to large events.",
-        "title2": "About Web Roulette",
-        "subtitle": "An intuitive custom roulette creation tool for everyone",
-        "section1Title": "Purpose of This Site",
-        "section1Content": "'Web Roulette' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We aim to help you make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
-        "section2Title": "Target Audience",
-        "section2Content": "It is intended for a wide range of users, from personal use to business and educational purposes, such as deciding on a lunch spot with friends, drawing penalty games for live streamers, selecting students in the classroom, or choosing winners for online events.",
-        "section3Content": "We sincerely welcome your feedback. We will use it as a reference for future development, so please feel free to contact us via the contact page.",
-        "features": {
-            "title": "Main Features",
-            "customization": "Create custom roulettes with adjustable items, ratios, and colors",
-            "sharing": "Easily share roulettes via URL or image",
-            "authentication": "Save and manage your roulettes with user authentication",
-            "mypage": "A 'My Page' feature to view all your created roulettes",
-            "templates": "Use templates created by other users",
-            "multiLanguage": "Multi-language support (Japanese, English, Spanish, French)"
-        }
+  "title": "Web Roulette",
+  "description": "Web Roulette is a free online tool to create custom roulettes. Easily build and share your original roulette wheels with custom items and ratios. Perfect for event drawings or daily decisions, with no registration required to get started.",
+  "excerpt": "Web Roulette is a tool that allows you to easily create and share custom roulettes. Create your own original roulette and have fun with friends and family.",
+  "close": "Close",
+  "loading": "Loading...",
+  "about": {
+    "title": "About",
+    "description": "Web Roulette is a custom roulette creation tool designed for everyone to use intuitively. This page introduces the purpose behind the site's development and its intended uses. We aim to support fun and fair decision-making, from small daily choices to large events.",
+    "title2": "About Web Roulette",
+    "subtitle": "An intuitive custom roulette creation tool for everyone",
+    "section1Title": "Purpose of This Site",
+    "section1Content": "'Web Roulette' was developed to provide a custom roulette creation tool that anyone can use easily and intuitively. We aim to help you make fair choices while having fun in various situations, from small daily decisions to event lotteries.",
+    "section2Title": "Target Audience",
+    "section2Content": "It is intended for a wide range of users, from personal use to business and educational purposes, such as deciding on a lunch spot with friends, drawing penalty games for live streamers, selecting students in the classroom, or choosing winners for online events.",
+    "section3Content": "We sincerely welcome your feedback. We will use it as a reference for future development, so please feel free to contact us via the contact page.",
+    "features": {
+      "title": "Main Features",
+      "customization": "Create custom roulettes with adjustable items, ratios, and colors",
+      "sharing": "Easily share roulettes via URL or image",
+      "authentication": "Save and manage your roulettes with user authentication",
+      "mypage": "A 'My Page' feature to view all your created roulettes",
+      "templates": "Use templates created by other users",
+      "multiLanguage": "Multi-language support (Japanese, English, Spanish, French)"
+    }
+  },
+  "auth": {
+    "title": "User Authentication",
+    "description": "Sign up or log in to unlock the full potential of Web Roulette. By creating an account, you can save your roulettes to edit and reuse them anytime. Manage your personal collection of wheels on your own My Page.",
+    "signUp": "Sign Up",
+    "login": "Login",
+    "logout": "Logout",
+    "username": "Username",
+    "usernamePlaceholder": "Display Name",
+    "email": "Email Address",
+    "password": "Password",
+    "error": {
+      "emailInvalid": "Please enter a valid email address.",
+      "passwordLength": "Password must be at least 6 characters long."
     },
-    "auth": {
-        "title": "User Authentication",
-        "description": "Sign up or log in to unlock the full potential of Web Roulette. By creating an account, you can save your roulettes to edit and reuse them anytime. Manage your personal collection of wheels on your own My Page.",
-        "signUp": "Sign Up",
-        "login": "Login",
-        "logout": "Logout",
-        "username": "Username",
-        "usernamePlaceholder": "Display Name",
-        "email": "Email Address",
-        "password": "Password",
-        "error": {
-            "emailInvalid": "Please enter a valid email address.",
-            "passwordLength": "Password must be at least 6 characters long."
-        },
-        "loginRequired": "Login Required",
-        "loginToSave": "You need to be logged in to save your roulette."
+    "loginRequired": "Login Required",
+    "loginToSave": "You need to be logged in to save your roulette."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "If you have any feedback, requests, or bug reports regarding Web Roulette, please feel free to contact us using this form. We value your input and will use it to improve our service.",
+    "excerpt": "If you have any opinions or requests, please feel free to contact us using the form below.",
+    "name": "Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "inquiryType": {
+      "title": "Type of Inquiry",
+      "placeholder": "Please select the type of inquiry",
+      "options": {
+        "general": "General Inquiry",
+        "feedback": "Feedback/Impressions about the site",
+        "bugReport": "Bug Report",
+        "collaboration": "Collaboration Proposal",
+        "correction": "Content Correction Request",
+        "featureRequest": "Feature Request",
+        "other": "Other"
+      }
+    },
+    "agreeToTerms": "I agree to the Privacy Policy",
+    "agreeToTermsExcerpt": "You must agree to the Privacy Policy to send your inquiry.",
+    "submit": {
+      "button": "Submit",
+      "submit": {
+        "successTitle": "Thank you for your inquiry",
+        "successExcerpt": "We have received your message. We will typically respond within 2 business days.",
+        "error": "Failed to send inquiry. Please try again later.",
+        "errorServer": "An unexpected server error occurred.",
+        "errorServerPrefix": "A server error occurred. Please try again in a moment.",
+        "errorNetwork": "There seems to be a problem with your network connection. Please check your connection and try again."
+      },
+      "error": {
+        "nameLength": "Name must be at least 2 characters long.",
+        "emailInvalid": "Please enter a valid email address.",
+        "subjectLength": "Subject must be at least 5 characters long.",
+        "messageLength": "Message must be at least 10 characters long.",
+        "inquiryTypeRequired": "Please select the type of inquiry.",
+        "agreeToTermsRequired": "You must agree to the Privacy Policy."
+      },
+      "newInquiry": "Make a New Inquiry"
+    },
+    "error": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "Email address is required.",
+      "messageRequired": "Message is required."
+    }
+  },
+  "mypage": {
+    "title": "My Page",
+    "description": "On My Page, you can manage all the original roulettes you've created. It's easy to edit, delete, and change the public settings of your saved wheels. Access and enjoy your favorite roulettes anytime, anywhere. User registration is required.",
+    "profile": "Profile",
+    "savedRoulettes": "Saved Roulettes",
+    "noRoulettes": "You haven't created any roulettes yet.",
+    "createdAt": "Created At",
+    "publicSettings": "Public Settings",
+    "edit": "Edit",
+    "editRoulette": "Edit Roulette",
+    "delete": "Delete",
+    "deleteConfirmTitle": "Delete Roulette",
+    "deleteConfirm": "Are you sure you want to delete this roulette?",
+    "settingsExcerpt": "'s Public Settings",
+    "publishAsTemplate": "Publish as Template",
+    "publishAsTemplateExcerpt": "Allow other users to view and use this roulette.",
+    "allowFork": "Allow other users to fork",
+    "allowForkExcerpt": "Allow other users to create a new roulette based on this template.",
+    "publishProfile": "Publish Profile",
+    "publishProfileExcerpt": "Display your profile as the creator on the template."
+  },
+  "roulette": {
+    "title": "Create Roulette",
+    "description": "Create your own unique roulette wheel! Freely customize item names, colors, and win ratios. This free online tool is perfect for various uses like party games, deciding lunch spots, or event drawings. Share your creation easily with a URL.",
+    "shareUrl": "Share via URL",
+    "shareImage": "Share as Image",
+    "settings": {
+      "title": "Roulette Settings",
+      "name": "Title",
+      "namePlaceholder": "Enter roulette title",
+      "excerpt": "Description",
+      "excerptPlaceholder": "Enter roulette description",
+      "optionDefault": "Option",
+      "items": {
+        "addItem": "Add Item",
+        "itemPlaceholder": "Item Name"
+      },
+      "save": "Save",
+      "saveInProgress": "Saving...",
+      "share": "Share",
+      "saveChanges": "Save Changes"
+    },
+    "preview": {
+      "title": "My Roulette",
+      "spin": "Spin",
+      "spinning": "Spinning..."
+    },
+    "result": {
+      "title": "And the result is...!"
+    },
+    "copy": {
+      "success": "Copied successfully!",
+      "successMessageRoulette": "The roulette URL has been copied to your clipboard.",
+      "successMessageResult": "The result URL has been copied to your clipboard.",
+      "error": "Failed to copy the URL.",
+      "copyLink": "Copy Roulette Link",
+      "confirmTitle": "Confirm Share",
+      "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
+      "confirmAction": "Share"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "description": "This is the Privacy Policy for Web Roulette. It details the types of information we collect, its purpose of use, and our use of Cookies and Google Analytics. Please review our commitment to ensuring you can use our service with confidence.",
+    "lastUpdated": "Last Updated: July 24, 2025"
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "description": "This page outlines the Terms of Service for using Web Roulette. It defines the rules, prohibited actions, and disclaimers for our service. Please read this before use, as it also covers the handling of user-generated content.",
+    "lastUpdated": "Last Updated: July 24, 2025"
+  },
+  "templates": {
+    "template": "Template",
+    "title": "Find from Templates",
+    "description": "Looking for fun roulette ideas? On our Templates page, you can browse and use unique roulettes created by other users. You can also easily customize a template to create your very own original roulette wheel.",
+    "subtitle": "Discover unique roulettes created by other users and start using them right away.",
+    "like": "Like",
+    "searchPlaceholder": "Search by keyword...",
+    "sortBy": {
+      "newest": "Newest",
+      "popular": "Popular"
+    },
+    "noResults": "No templates matching your criteria were found.",
+    "noExcerpt": "No description available.",
+    "anonymous": "Anonymous User",
+    "useTemplate": "Use this Template",
+    "copySuffix": " copy",
+    "forkAndSave": "Fork and Save this Template",
+    "creatorProfileTitle": "Creator's Profile"
+  },
+  "howToUse": {
+    "title": "How to Use",
+    "description": "Learn everything from the basics of 'Roulette on the Web' to the convenient features available after registering an account. Master how to create and share roulettes, use templates, and make the most of our site.",
+    "basic": {
+      "title": "Basic Usage (for Guests)",
+      "create": "How to create a roulette (add/delete items, change ratios/colors)",
+      "spin": "How to spin the roulette",
+      "share": "How to share results (URL/Image)"
+    },
+    "account": {
+      "title": "Account Features",
+      "merit": "Benefits of account registration (data saving, etc.)",
+      "auth": "Steps for new registration and login"
+    },
+    "loggedIn": {
+      "title": "Additional Features After Login",
+      "mypage": "My Page: Manage created roulettes (edit/delete), and edit your profile.",
+      "templates": "Template Feature: How to use templates and set your own roulettes to public."
+    }
+  },
+  "footer": {
+    "copyright": "Web Roulette. All rights reserved.",
+    "services": "Services",
+    "howToUse": "How to Use",
+    "legal": "Legal",
+    "social": "Social",
+    "tagline": "Instantly create and share your own custom roulettes."
+  },
+  "cookie": {
+    "bannerText": "This site uses cookies to improve user experience and analyze site usage. This includes traffic analysis by Google Analytics. By agreeing to the use of cookies, you help us provide a better service.",
+    "seeDetails": "See Details",
+    "accept": "Accept",
+    "decline": "Decline",
+    "declineConfirmation": "Settings saved. No information will be collected on this site."
+  },
+  "heroSection": {
+    "templates": {
+      "title": "Find from Templates",
+      "excerpt": "Discover unique roulettes created by other users and start using them right away."
+    },
+    "createRoulette": {
+      "title": "Create an Original Roulette",
+      "excerpt": "Instantly create your own lottery roulette with custom items and weights. No registration required. PC & smartphone compatible."
+    },
+    "login": {
+      "title": "Log in to Save Your Roulettes",
+      "excerpt": "Save your created roulettes and access them from any device.",
+      "goToMypage": "Go to My Page",
+      "goToLogin": "Go to Login"
+    },
+    "futureFeatures": {
+      "title": "Future Features",
+      "excerpt": "We plan to add more convenient features such as a login function, a user page, and a template gallery."
     },
     "contact": {
-        "title": "Contact Us",
-        "description": "If you have any feedback, requests, or bug reports regarding Web Roulette, please feel free to contact us using this form. We value your input and will use it to improve our service.",
-        "excerpt": "If you have any opinions or requests, please feel free to contact us using the form below.",
-        "name": "Name",
-        "email": "Email Address",
-        "subject": "Subject",
-        "message": "Message",
-        "inquiryType": {
-            "title": "Type of Inquiry",
-            "placeholder": "Please select the type of inquiry",
-            "options": {
-                "general": "General Inquiry",
-                "feedback": "Feedback/Impressions about the site",
-                "bugReport": "Bug Report",
-                "collaboration": "Collaboration Proposal",
-                "correction": "Content Correction Request",
-                "featureRequest": "Feature Request",
-                "other": "Other"
-            }
-        },
-        "agreeToTerms": "I agree to the Privacy Policy",
-        "agreeToTermsExcerpt": "You must agree to the Privacy Policy to send your inquiry.",
-        "submit": {
-            "button": "Submit",
-            "submit": {
-                "successTitle": "Thank you for your inquiry",
-                "successExcerpt": "We have received your message. We will typically respond within 2 business days.",
-                "error": "Failed to send inquiry. Please try again later.",
-                "errorServer": "An unexpected server error occurred.",
-                "errorServerPrefix": "A server error occurred. Please try again in a moment.",
-                "errorNetwork": "There seems to be a problem with your network connection. Please check your connection and try again."
-            },
-            "error": {
-                "nameLength": "Name must be at least 2 characters long.",
-                "emailInvalid": "Please enter a valid email address.",
-                "subjectLength": "Subject must be at least 5 characters long.",
-                "messageLength": "Message must be at least 10 characters long.",
-                "inquiryTypeRequired": "Please select the type of inquiry.",
-                "agreeToTermsRequired": "You must agree to the Privacy Policy."
-            },
-            "newInquiry": "Make a New Inquiry"
-        },
-        "error": {
-            "nameRequired": "Name is required.",
-            "emailRequired": "Email address is required.",
-            "messageRequired": "Message is required."
-        }
+      "title": "Contact Us",
+      "excerpt": "Please feel free to send us your opinions, feedback, or bug reports."
     },
-    "mypage": {
-        "title": "My Page",
-        "description": "On My Page, you can manage all the original roulettes you've created. It's easy to edit, delete, and change the public settings of your saved wheels. Access and enjoy your favorite roulettes anytime, anywhere. User registration is required.",
-        "profile": "Profile",
-        "savedRoulettes": "Saved Roulettes",
-        "noRoulettes": "You haven't created any roulettes yet.",
-        "createdAt": "Created At",
-        "publicSettings": "Public Settings",
-        "edit": "Edit",
-        "editRoulette": "Edit Roulette",
-        "delete": "Delete",
-        "deleteConfirmTitle": "Delete Roulette",
-        "deleteConfirm": "Are you sure you want to delete this roulette?",
-        "settingsExcerpt": "'s Public Settings",
-        "publishAsTemplate": "Publish as Template",
-        "publishAsTemplateExcerpt": "Allow other users to view and use this roulette.",
-        "allowFork": "Allow other users to fork",
-        "allowForkExcerpt": "Allow other users to create a new roulette based on this template.",
-        "publishProfile": "Publish Profile",
-        "publishProfileExcerpt": "Display your profile as the creator on the template."
-    },
-    "roulette": {
-        "title": "Create Roulette",
-        "description": "Create your own unique roulette wheel! Freely customize item names, colors, and win ratios. This free online tool is perfect for various uses like party games, deciding lunch spots, or event drawings. Share your creation easily with a URL.",
-        "shareUrl": "Share via URL",
-        "shareImage": "Share as Image",
-        "settings": {
-            "title": "Roulette Settings",
-            "name": "Title",
-            "namePlaceholder": "Enter roulette title",
-            "excerpt": "Description",
-            "excerptPlaceholder": "Enter roulette description",
-            "optionDefault": "Option",
-            "items": {
-                "addItem": "Add Item",
-                "itemPlaceholder": "Item Name"
-            },
-            "save": "Save",
-            "saveInProgress": "Saving...",
-            "share": "Share",
-            "saveChanges": "Save Changes"
-        },
-        "preview": {
-            "title": "My Roulette",
-            "spin": "Spin",
-            "spinning": "Spinning..."
-        },
-        "result": {
-            "title": "And the result is...!"
-        },
-        "copy": {
-            "success": "Copied successfully!",
-            "successMessageRoulette": "The roulette URL has been copied to your clipboard.",
-            "successMessageResult": "The result URL has been copied to your clipboard.",
-            "error": "Failed to copy the URL.",
-            "copyLink": "Copy Roulette Link",
-            "confirmTitle": "Confirm Share",
-            "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
-            "confirmAction": "Share"
-        }
-    },
-    "privacyPolicy": {
-        "title": "Privacy Policy",
-        "description": "This is the Privacy Policy for Web Roulette. It details the types of information we collect, its purpose of use, and our use of Cookies and Google Analytics. Please review our commitment to ensuring you can use our service with confidence.",
-        "lastUpdated": "Last Updated: July 24, 2025"
-    },
-    "termsOfService": {
-        "title": "Terms of Service",
-        "description": "This page outlines the Terms of Service for using Web Roulette. It defines the rules, prohibited actions, and disclaimers for our service. Please read this before use, as it also covers the handling of user-generated content.",
-        "lastUpdated": "Last Updated: July 24, 2025"
-    },
-    "templates": {
-        "template": "Template",
-        "title": "Find from Templates",
-        "description": "Looking for fun roulette ideas? On our Templates page, you can browse and use unique roulettes created by other users. You can also easily customize a template to create your very own original roulette wheel.",
-        "subtitle": "Discover unique roulettes created by other users and start using them right away.",
-        "like": "Like",
-        "searchPlaceholder": "Search by keyword...",
-        "sortBy": {
-            "newest": "Newest",
-            "popular": "Popular"
-        },
-        "noResults": "No templates matching your criteria were found.",
-        "noExcerpt": "No description available.",
-        "anonymous": "Anonymous User",
-        "useTemplate": "Use this Template",
-        "copySuffix": " copy",
-        "forkAndSave": "Fork and Save this Template",
-        "creatorProfileTitle": "Creator's Profile"
-    },
-    "howToUse": {
-        "title": "How to Use",
-        "description": "Learn everything from the basics of 'Roulette on the Web' to the convenient features available after registering an account. Master how to create and share roulettes, use templates, and make the most of our site.",
-        "basic": {
-            "title": "Basic Usage (for Guests)",
-            "create": "How to create a roulette (add/delete items, change ratios/colors)",
-            "spin": "How to spin the roulette",
-            "share": "How to share results (URL/Image)"
-        },
-        "account": {
-            "title": "Account Features",
-            "merit": "Benefits of account registration (data saving, etc.)",
-            "auth": "Steps for new registration and login"
-        },
-        "loggedIn": {
-            "title": "Additional Features After Login",
-            "mypage": "My Page: Manage created roulettes (edit/delete), and edit your profile.",
-            "templates": "Template Feature: How to use templates and set your own roulettes to public."
-        }
-    },
-    "footer": {
-        "copyright": "Web Roulette. All rights reserved.",
-        "services": "Services",
-        "howToUse": "How to Use",
-        "legal": "Legal",
-        "social": "Social",
-        "tagline": "Instantly create and share your own custom roulettes."
-    },
-    "cookie": {
-        "bannerText": "This site uses cookies to improve user experience and analyze site usage. This includes traffic analysis by Google Analytics. By agreeing to the use of cookies, you help us provide a better service.",
-        "seeDetails": "See Details",
-        "accept": "Accept",
-        "decline": "Decline",
-        "declineConfirmation": "Settings saved. No information will be collected on this site."
-    },
-    "heroSection": {
-        "templates": {
-            "title": "Find from Templates",
-            "excerpt": "Discover unique roulettes created by other users and start using them right away."
-        },
-        "createRoulette": {
-            "title": "Create an Original Roulette",
-            "excerpt": "Instantly create your own lottery roulette with custom items and weights. No registration required. PC & smartphone compatible."
-        },
-        "login": {
-            "title": "Log in to Save Your Roulettes",
-            "excerpt": "Save your created roulettes and access them from any device.",
-            "goToMypage": "Go to My Page",
-            "goToLogin": "Go to Login"
-        },
-        "futureFeatures": {
-            "title": "Future Features",
-            "excerpt": "We plan to add more convenient features such as a login function, a user page, and a template gallery."
-        },
-        "contact": {
-            "title": "Contact Us",
-            "excerpt": "Please feel free to send us your opinions, feedback, or bug reports."
-        },
-        "language": {
-            "title": "Multi-language Support",
-            "excerpt": "This site supports Japanese, English, Spanish, and French. You can change the language at any time from the language switcher in the menu."
-        }
+    "language": {
+      "title": "Multi-language Support",
+      "excerpt": "This site supports Japanese, English, Spanish, and French. You can change the language at any time from the language switcher in the menu."
     }
+  }
 }

@@ -1,246 +1,246 @@
 {
-    "title": "Roulette en Ligne",
-    "description": "Roulette en Ligne est un outil gratuit pour créer des roulettes personnalisées. Concevez et partagez facilement vos roulettes originales avec des options et des probabilités sur mesure. Parfait pour les tirages au sort ou les décisions quotidiennes, sans inscription requise.",
-    "excerpt": "Roulette en Ligne est un outil qui vous permet de créer et de partager facilement des roulettes personnalisées. Créez votre propre roulette originale et amusez-vous avec vos amis et votre famille.",
-    "close": "Fermer",
-    "loading": "Chargement...",
-    "about": {
-        "title": "À propos",
-        "description": "Roulette en Ligne est un outil de création de roulettes personnalisées conçu pour être intuitif. Cette page présente l'objectif du site et ses cas d'usage. Nous visons à faciliter des prises de décision justes et amusantes, pour les petits choix du quotidien comme pour les grands événements.",
-        "title2": "À propos de Roulette en Ligne",
-        "subtitle": "Un outil de création de roulette personnalisée intuitif pour tous",
-        "section1Title": "Objectif de ce site",
-        "section1Content": "'Roulette en Ligne' a été développé pour fournir un outil de création de roulettes personnalisées que tout le monde peut utiliser facilement et intuitivement. Notre but est de vous aider à faire des choix équitables tout en vous amusant dans diverses situations, des petites décisions quotidiennes aux tirages au sort d'événements.",
-        "section2Title": "Public Cible",
-        "section2Content": "Il est destiné à un large éventail d'utilisateurs, de l'usage personnel aux fins commerciales et éducatives, comme décider d'un lieu de déjeuner avec des amis, tirer au sort des gages pour les streamers en direct, sélectionner des élèves en classe ou choisir des gagnants pour des événements en ligne.",
-        "section3Content": "Nous apprécions sincèrement vos commentaires. Nous les utiliserons comme référence pour le développement futur, alors n'hésitez pas à nous contacter via la page de contact.",
-        "features": {
-            "title": "Caractéristiques principales",
-            "customization": "Création de roulettes personnalisées avec des éléments, des ratios et des couleurs ajustables",
-            "sharing": "Partage facile des roulettes par URL ou image",
-            "authentication": "Sauvegarde et gestion de vos roulettes avec authentification utilisateur",
-            "mypage": "Une fonction 'Ma Page' pour voir toutes vos roulettes créées",
-            "templates": "Utilisation de modèles créés par d'autres utilisateurs",
-            "multiLanguage": "Support multilingue (japonais, anglais, espagnol, français)"
-        }
+  "title": "Roulette en Ligne",
+  "description": "Roulette en Ligne est un outil gratuit pour créer des roulettes personnalisées. Concevez et partagez facilement vos roulettes originales avec des options et des probabilités sur mesure. Parfait pour les tirages au sort ou les décisions quotidiennes, sans inscription requise.",
+  "excerpt": "Roulette en Ligne est un outil qui vous permet de créer et de partager facilement des roulettes personnalisées. Créez votre propre roulette originale et amusez-vous avec vos amis et votre famille.",
+  "close": "Fermer",
+  "loading": "Chargement...",
+  "about": {
+    "title": "À propos",
+    "description": "Roulette en Ligne est un outil de création de roulettes personnalisées conçu pour être intuitif. Cette page présente l'objectif du site et ses cas d'usage. Nous visons à faciliter des prises de décision justes et amusantes, pour les petits choix du quotidien comme pour les grands événements.",
+    "title2": "À propos de Roulette en Ligne",
+    "subtitle": "Un outil de création de roulette personnalisée intuitif pour tous",
+    "section1Title": "Objectif de ce site",
+    "section1Content": "'Roulette en Ligne' a été développé pour fournir un outil de création de roulettes personnalisées que tout le monde peut utiliser facilement et intuitivement. Notre but est de vous aider à faire des choix équitables tout en vous amusant dans diverses situations, des petites décisions quotidiennes aux tirages au sort d'événements.",
+    "section2Title": "Public Cible",
+    "section2Content": "Il est destiné à un large éventail d'utilisateurs, de l'usage personnel aux fins commerciales et éducatives, comme décider d'un lieu de déjeuner avec des amis, tirer au sort des gages pour les streamers en direct, sélectionner des élèves en classe ou choisir des gagnants pour des événements en ligne.",
+    "section3Content": "Nous apprécions sincèrement vos commentaires. Nous les utiliserons comme référence pour le développement futur, alors n'hésitez pas à nous contacter via la page de contact.",
+    "features": {
+      "title": "Caractéristiques principales",
+      "customization": "Création de roulettes personnalisées avec des éléments, des ratios et des couleurs ajustables",
+      "sharing": "Partage facile des roulettes par URL ou image",
+      "authentication": "Sauvegarde et gestion de vos roulettes avec authentification utilisateur",
+      "mypage": "Une fonction 'Ma Page' pour voir toutes vos roulettes créées",
+      "templates": "Utilisation de modèles créés par d'autres utilisateurs",
+      "multiLanguage": "Support multilingue (japonais, anglais, espagnol, français)"
+    }
+  },
+  "auth": {
+    "title": "Authentification Utilisateur",
+    "description": "Inscrivez-vous ou connectez-vous pour profiter de toutes les fonctionnalités de Roulette en Ligne. En créant un compte, vous pouvez sauvegarder vos roulettes pour les modifier et les réutiliser à tout moment. Gérez votre collection personnelle depuis Ma Page.",
+    "signUp": "S'inscrire",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "username": "Nom d'utilisateur",
+    "usernamePlaceholder": "Nom d'affichage",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "error": {
+      "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+      "passwordLength": "Le mot de passe doit comporter au moins 6 caractères."
     },
-    "auth": {
-        "title": "Authentification Utilisateur",
-        "description": "Inscrivez-vous ou connectez-vous pour profiter de toutes les fonctionnalités de Roulette en Ligne. En créant un compte, vous pouvez sauvegarder vos roulettes pour les modifier et les réutiliser à tout moment. Gérez votre collection personnelle depuis Ma Page.",
-        "signUp": "S'inscrire",
-        "login": "Connexion",
-        "logout": "Déconnexion",
-        "username": "Nom d'utilisateur",
-        "usernamePlaceholder": "Nom d'affichage",
-        "email": "Adresse e-mail",
-        "password": "Mot de passe",
-        "error": {
-            "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
-            "passwordLength": "Le mot de passe doit comporter au moins 6 caractères."
-        },
-        "loginRequired": "Connexion requise",
-        "loginToSave": "Vous devez être connecté pour sauvegarder votre roulette."
+    "loginRequired": "Connexion requise",
+    "loginToSave": "Vous devez être connecté pour sauvegarder votre roulette."
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "description": "Pour toute suggestion, commentaire ou rapport de bogue concernant Roulette en Ligne, n'hésitez pas à nous contacter via ce formulaire. Vos retours sont précieux et nous aideront à améliorer notre service.",
+    "excerpt": "Si vous avez des opinions ou des demandes, n'hésitez pas à nous contacter en utilisant le formulaire ci-dessous.",
+    "name": "Nom",
+    "email": "Adresse e-mail",
+    "subject": "Sujet",
+    "message": "Message",
+    "inquiryType": {
+      "title": "Type de demande",
+      "placeholder": "Veuillez sélectionner le type de demande",
+      "options": {
+        "general": "Demande générale",
+        "feedback": "Commentaires/Impressions sur le site",
+        "bugReport": "Rapport de bogue",
+        "collaboration": "Proposition de collaboration",
+        "correction": "Demande de correction de contenu",
+        "featureRequest": "Demande de fonctionnalité",
+        "other": "Autre"
+      }
+    },
+    "agreeToTerms": "J'accepte la politique de confidentialité",
+    "agreeToTermsExcerpt": "Vous devez accepter la politique de confidentialité pour envoyer votre demande.",
+    "submit": {
+      "button": "Envoyer",
+      "submit": {
+        "successTitle": "Merci pour votre demande",
+        "successExcerpt": "Nous avons bien reçu votre message. Nous répondons généralement dans les 2 jours ouvrables.",
+        "error": "L'envoi de la demande a échoué. Veuillez réessayer plus tard.",
+        "errorServer": "Une erreur de serveur inattendue est survenue.",
+        "errorServerPrefix": "Une erreur de serveur est survenue. Veuillez réessayer dans un instant.",
+        "errorNetwork": "Il semble y avoir un problème avec votre connexion réseau. Veuillez vérifier votre connexion et réessayer."
+      },
+      "error": {
+        "nameLength": "Le nom doit comporter au moins 2 caractères.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "subjectLength": "Le sujet doit comporter au moins 5 caractères.",
+        "messageLength": "Le message doit comporter au moins 10 caractères.",
+        "inquiryTypeRequired": "Veuillez sélectionner le type de demande.",
+        "agreeToTermsRequired": "Vous devez accepter la politique de confidentialité."
+      },
+      "newInquiry": "Faire une nouvelle demande"
+    },
+    "error": {
+      "nameRequired": "Le nom est requis.",
+      "emailRequired": "L'adresse e-mail est requise.",
+      "messageRequired": "Le message est requis."
+    }
+  },
+  "mypage": {
+    "title": "Ma Page",
+    "description": "Sur Ma Page, gérez toutes les roulettes originales que vous avez créées. Modifiez, supprimez et ajustez les paramètres de confidentialité de vos roulettes sauvegardées. Accédez à vos roulettes préférées où que vous soyez. Inscription utilisateur requise.",
+    "profile": "Profil",
+    "savedRoulettes": "Roulettes enregistrées",
+    "noRoulettes": "Vous n'avez encore créé aucune roulette.",
+    "createdAt": "Créé le",
+    "publicSettings": "Paramètres publics",
+    "edit": "Modifier",
+    "editRoulette": "Modifier la Roulette",
+    "delete": "Supprimer",
+    "deleteConfirmTitle": "Supprimer la Roulette",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette roulette ?",
+    "settingsExcerpt": " - Paramètres publics",
+    "publishAsTemplate": "Publier comme modèle",
+    "publishAsTemplateExcerpt": "Permettre à d'autres utilisateurs de voir et d'utiliser cette roulette.",
+    "allowFork": "Autoriser les autres utilisateurs à dupliquer",
+    "allowForkExcerpt": "Permettre à d'autres utilisateurs de créer une nouvelle roulette basée sur ce modèle.",
+    "publishProfile": "Publier le profil",
+    "publishProfileExcerpt": "Affichez votre profil en tant que créateur sur le modèle."
+  },
+  "roulette": {
+    "title": "Créer une Roulette",
+    "description": "Créez votre propre roulette unique ! Personnalisez librement les noms des options, les couleurs et les ratios de gain. Cet outil en ligne gratuit est idéal pour divers usages comme les jeux, le choix d'un restaurant ou les tirages au sort. Partagez votre création facilement avec une URL.",
+    "shareUrl": "Partager par URL",
+    "shareImage": "Partager en tant qu'image",
+    "settings": {
+      "title": "Paramètres de la Roulette",
+      "name": "Titre",
+      "namePlaceholder": "Saisir le titre de la roulette",
+      "excerpt": "Description",
+      "excerptPlaceholder": "Saisir la description de la roulette",
+      "optionDefault": "Option",
+      "items": {
+        "addItem": "Ajouter un élément",
+        "itemPlaceholder": "Nom de l'élément"
+      },
+      "save": "Sauvegarder",
+      "saveInProgress": "Sauvegarde en cours...",
+      "share": "Partager",
+      "saveChanges": "Sauvegarder les modifications"
+    },
+    "preview": {
+      "title": "Ma Roulette",
+      "spin": "Lancer",
+      "spinning": "En cours..."
+    },
+    "result": {
+      "title": "Et le résultat est... !"
+    },
+    "copy": {
+      "success": "Copié avec succès !",
+      "successMessageRoulette": "L'URL de la roulette a été copiée dans votre presse-papiers.",
+      "successMessageResult": "L'URL du résultat a été copiée dans votre presse-papiers.",
+      "error": "La copie de l'URL a échoué.",
+      "copyLink": "Copier le lien de la Roulette",
+      "confirmTitle": "Confirmer le partage",
+      "confirmMessage": "Le résultat ne sera pas inclus. Cela ne partagera que les paramètres actuels de la roulette. Est-ce correct ?",
+      "confirmAction": "Partager"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Politique de confidentialité",
+    "description": "Voici la Politique de Confidentialité de Roulette en Ligne. Elle détaille les informations que nous collectons, leur utilisation, ainsi que notre politique sur les cookies et Google Analytics. Découvrez nos engagements pour une utilisation du service en toute confiance.",
+    "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
+  },
+  "termsOfService": {
+    "title": "Conditions d'utilisation",
+    "description": "Cette page présente les Conditions d'Utilisation de Roulette en Ligne. Elle définit les règles d'usage, les actions interdites et les clauses de non-responsabilité. La gestion du contenu utilisateur y est aussi décrite. À lire avant toute utilisation.",
+    "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
+  },
+  "templates": {
+    "template": "Modèle",
+    "title": "Rechercher parmi les modèles",
+    "description": "À la recherche d'idées de roulettes amusantes ? Sur notre page de Modèles, vous pouvez parcourir et utiliser des roulettes uniques créées par d'autres utilisateurs. Vous pouvez également personnaliser un modèle pour créer facilement votre propre roulette originale.",
+    "subtitle": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement.",
+    "like": "J'aime",
+    "searchPlaceholder": "Rechercher par mot-clé...",
+    "sortBy": {
+      "newest": "Les plus récents",
+      "popular": "Populaires"
+    },
+    "noResults": "Aucun modèle correspondant à vos critères n'a été trouvé.",
+    "noExcerpt": "Aucune description disponible.",
+    "anonymous": "Utilisateur Anonyme",
+    "useTemplate": "Utiliser ce modèle",
+    "copySuffix": " - copie",
+    "forkAndSave": "Dupliquer et sauvegarder ce modèle",
+    "creatorProfileTitle": "Profil du créateur"
+  },
+  "howToUse": {
+    "title": "Comment utiliser",
+    "description": "Apprenez tout, des bases de 'Roulette sur le Web' aux fonctionnalités pratiques disponibles après la création d'un compte. Maîtrisez la création et le partage de roulettes, l'utilisation de modèles et tirez le meilleur parti de notre site.",
+    "basic": {
+      "title": "Utilisation de Base (pour les Invités)",
+      "create": "Comment créer une roulette (ajouter/supprimer des éléments, changer les ratios/couleurs)",
+      "spin": "Comment faire tourner la roulette",
+      "share": "Comment partager les résultats (URL/Image)"
+    },
+    "account": {
+      "title": "Fonctionnalités du Compte",
+      "merit": "Avantages de l'inscription (sauvegarde des données, etc.)",
+      "auth": "Étapes pour l'inscription et la connexion"
+    },
+    "loggedIn": {
+      "title": "Fonctionnalités Supplémentaires Après Connexion",
+      "mypage": "Ma Page : Gérez les roulettes créées (modifier/supprimer) et modifiez votre profil.",
+      "templates": "Fonctionnalité de Modèle : Comment utiliser les modèles et rendre publiques vos propres roulettes."
+    }
+  },
+  "footer": {
+    "copyright": "Roulette en Ligne. Tous droits réservés.",
+    "services": "Services",
+    "howToUse": "Comment utiliser",
+    "legal": "Légal",
+    "social": "Social",
+    "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées."
+  },
+  "cookie": {
+    "bannerText": "Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser l'utilisation du site. Cela inclut l'analyse du trafic par Google Analytics. En acceptant l'utilisation de cookies, vous nous aidez à fournir un meilleur service.",
+    "seeDetails": "Voir les détails",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "declineConfirmation": "Paramètres enregistrés. Aucune information ne sera collectée sur ce site."
+  },
+  "heroSection": {
+    "templates": {
+      "title": "Rechercher parmi les modèles",
+      "excerpt": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement."
+    },
+    "createRoulette": {
+      "title": "Créer une Roulette Originale",
+      "excerpt": "Créez instantanément votre propre roulette de tirage au sort avec des éléments et des pondérations personnalisés. Aucune inscription requise. Compatible PC et smartphone."
+    },
+    "login": {
+      "title": "Connectez-vous pour Sauvegarder vos Roulettes",
+      "excerpt": "Sauvegardez vos roulettes créées et accédez-y depuis n'importe quel appareil.",
+      "goToMypage": "Aller à Ma Page",
+      "goToLogin": "Aller à la Connexion"
+    },
+    "futureFeatures": {
+      "title": "Fonctionnalités Futures",
+      "excerpt": "Nous prévoyons d'ajouter des fonctionnalités plus pratiques telles qu'une fonction de connexion, une page utilisateur et une galerie de modèles."
     },
     "contact": {
-        "title": "Nous contacter",
-        "description": "Pour toute suggestion, commentaire ou rapport de bogue concernant Roulette en Ligne, n'hésitez pas à nous contacter via ce formulaire. Vos retours sont précieux et nous aideront à améliorer notre service.",
-        "excerpt": "Si vous avez des opinions ou des demandes, n'hésitez pas à nous contacter en utilisant le formulaire ci-dessous.",
-        "name": "Nom",
-        "email": "Adresse e-mail",
-        "subject": "Sujet",
-        "message": "Message",
-        "inquiryType": {
-            "title": "Type de demande",
-            "placeholder": "Veuillez sélectionner le type de demande",
-            "options": {
-                "general": "Demande générale",
-                "feedback": "Commentaires/Impressions sur le site",
-                "bugReport": "Rapport de bogue",
-                "collaboration": "Proposition de collaboration",
-                "correction": "Demande de correction de contenu",
-                "featureRequest": "Demande de fonctionnalité",
-                "other": "Autre"
-            }
-        },
-        "agreeToTerms": "J'accepte la politique de confidentialité",
-        "agreeToTermsExcerpt": "Vous devez accepter la politique de confidentialité pour envoyer votre demande.",
-        "submit": {
-            "button": "Envoyer",
-            "submit": {
-                "successTitle": "Merci pour votre demande",
-                "successExcerpt": "Nous avons bien reçu votre message. Nous répondons généralement dans les 2 jours ouvrables.",
-                "error": "L'envoi de la demande a échoué. Veuillez réessayer plus tard.",
-                "errorServer": "Une erreur de serveur inattendue est survenue.",
-                "errorServerPrefix": "Une erreur de serveur est survenue. Veuillez réessayer dans un instant.",
-                "errorNetwork": "Il semble y avoir un problème avec votre connexion réseau. Veuillez vérifier votre connexion et réessayer."
-            },
-            "error": {
-                "nameLength": "Le nom doit comporter au moins 2 caractères.",
-                "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
-                "subjectLength": "Le sujet doit comporter au moins 5 caractères.",
-                "messageLength": "Le message doit comporter au moins 10 caractères.",
-                "inquiryTypeRequired": "Veuillez sélectionner le type de demande.",
-                "agreeToTermsRequired": "Vous devez accepter la politique de confidentialité."
-            },
-            "newInquiry": "Faire une nouvelle demande"
-        },
-        "error": {
-            "nameRequired": "Le nom est requis.",
-            "emailRequired": "L'adresse e-mail est requise.",
-            "messageRequired": "Le message est requis."
-        }
+      "title": "Nous contacter",
+      "excerpt": "N'hésitez pas à nous envoyer vos opinions, commentaires ou rapports de bogues."
     },
-    "mypage": {
-        "title": "Ma Page",
-        "description": "Sur Ma Page, gérez toutes les roulettes originales que vous avez créées. Modifiez, supprimez et ajustez les paramètres de confidentialité de vos roulettes sauvegardées. Accédez à vos roulettes préférées où que vous soyez. Inscription utilisateur requise.",
-        "profile": "Profil",
-        "savedRoulettes": "Roulettes enregistrées",
-        "noRoulettes": "Vous n'avez encore créé aucune roulette.",
-        "createdAt": "Créé le",
-        "publicSettings": "Paramètres publics",
-        "edit": "Modifier",
-        "editRoulette": "Modifier la Roulette",
-        "delete": "Supprimer",
-        "deleteConfirmTitle": "Supprimer la Roulette",
-        "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette roulette ?",
-        "settingsExcerpt": " - Paramètres publics",
-        "publishAsTemplate": "Publier comme modèle",
-        "publishAsTemplateExcerpt": "Permettre à d'autres utilisateurs de voir et d'utiliser cette roulette.",
-        "allowFork": "Autoriser les autres utilisateurs à dupliquer",
-        "allowForkExcerpt": "Permettre à d'autres utilisateurs de créer une nouvelle roulette basée sur ce modèle.",
-        "publishProfile": "Publier le profil",
-        "publishProfileExcerpt": "Affichez votre profil en tant que créateur sur le modèle."
-    },
-    "roulette": {
-        "title": "Créer une Roulette",
-        "description": "Créez votre propre roulette unique ! Personnalisez librement les noms des options, les couleurs et les ratios de gain. Cet outil en ligne gratuit est idéal pour divers usages comme les jeux, le choix d'un restaurant ou les tirages au sort. Partagez votre création facilement avec une URL.",
-        "shareUrl": "Partager par URL",
-        "shareImage": "Partager en tant qu'image",
-        "settings": {
-            "title": "Paramètres de la Roulette",
-            "name": "Titre",
-            "namePlaceholder": "Saisir le titre de la roulette",
-            "excerpt": "Description",
-            "excerptPlaceholder": "Saisir la description de la roulette",
-            "optionDefault": "Option",
-            "items": {
-                "addItem": "Ajouter un élément",
-                "itemPlaceholder": "Nom de l'élément"
-            },
-            "save": "Sauvegarder",
-            "saveInProgress": "Sauvegarde en cours...",
-            "share": "Partager",
-            "saveChanges": "Sauvegarder les modifications"
-        },
-        "preview": {
-            "title": "Ma Roulette",
-            "spin": "Lancer",
-            "spinning": "En cours..."
-        },
-        "result": {
-            "title": "Et le résultat est... !"
-        },
-        "copy": {
-            "success": "Copié avec succès !",
-            "successMessageRoulette": "L'URL de la roulette a été copiée dans votre presse-papiers.",
-            "successMessageResult": "L'URL du résultat a été copiée dans votre presse-papiers.",
-            "error": "La copie de l'URL a échoué.",
-            "copyLink": "Copier le lien de la Roulette",
-            "confirmTitle": "Confirmer le partage",
-            "confirmMessage": "Le résultat ne sera pas inclus. Cela ne partagera que les paramètres actuels de la roulette. Est-ce correct ?",
-            "confirmAction": "Partager"
-        }
-    },
-    "privacyPolicy": {
-        "title": "Politique de confidentialité",
-        "description": "Voici la Politique de Confidentialité de Roulette en Ligne. Elle détaille les informations que nous collectons, leur utilisation, ainsi que notre politique sur les cookies et Google Analytics. Découvrez nos engagements pour une utilisation du service en toute confiance.",
-        "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
-    },
-    "termsOfService": {
-        "title": "Conditions d'utilisation",
-        "description": "Cette page présente les Conditions d'Utilisation de Roulette en Ligne. Elle définit les règles d'usage, les actions interdites et les clauses de non-responsabilité. La gestion du contenu utilisateur y est aussi décrite. À lire avant toute utilisation.",
-        "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
-    },
-    "templates": {
-        "template": "Modèle",
-        "title": "Rechercher parmi les modèles",
-        "description": "À la recherche d'idées de roulettes amusantes ? Sur notre page de Modèles, vous pouvez parcourir et utiliser des roulettes uniques créées par d'autres utilisateurs. Vous pouvez également personnaliser un modèle pour créer facilement votre propre roulette originale.",
-        "subtitle": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement.",
-        "like": "J'aime",
-        "searchPlaceholder": "Rechercher par mot-clé...",
-        "sortBy": {
-            "newest": "Les plus récents",
-            "popular": "Populaires"
-        },
-        "noResults": "Aucun modèle correspondant à vos critères n'a été trouvé.",
-        "noExcerpt": "Aucune description disponible.",
-        "anonymous": "Utilisateur Anonyme",
-        "useTemplate": "Utiliser ce modèle",
-        "copySuffix": " - copie",
-        "forkAndSave": "Dupliquer et sauvegarder ce modèle",
-        "creatorProfileTitle": "Profil du créateur"
-    },
-    "howToUse": {
-        "title": "Comment utiliser",
-        "description": "Apprenez tout, des bases de 'Roulette sur le Web' aux fonctionnalités pratiques disponibles après la création d'un compte. Maîtrisez la création et le partage de roulettes, l'utilisation de modèles et tirez le meilleur parti de notre site.",
-        "basic": {
-            "title": "Utilisation de Base (pour les Invités)",
-            "create": "Comment créer une roulette (ajouter/supprimer des éléments, changer les ratios/couleurs)",
-            "spin": "Comment faire tourner la roulette",
-            "share": "Comment partager les résultats (URL/Image)"
-        },
-        "account": {
-            "title": "Fonctionnalités du Compte",
-            "merit": "Avantages de l'inscription (sauvegarde des données, etc.)",
-            "auth": "Étapes pour l'inscription et la connexion"
-        },
-        "loggedIn": {
-            "title": "Fonctionnalités Supplémentaires Après Connexion",
-            "mypage": "Ma Page : Gérez les roulettes créées (modifier/supprimer) et modifiez votre profil.",
-            "templates": "Fonctionnalité de Modèle : Comment utiliser les modèles et rendre publiques vos propres roulettes."
-        }
-    },
-    "footer": {
-        "copyright": "Roulette en Ligne. Tous droits réservés.",
-        "services": "Services",
-        "howToUse": "Comment utiliser",
-        "legal": "Légal",
-        "social": "Social",
-        "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées."
-    },
-    "cookie": {
-        "bannerText": "Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser l'utilisation du site. Cela inclut l'analyse du trafic par Google Analytics. En acceptant l'utilisation de cookies, vous nous aidez à fournir un meilleur service.",
-        "seeDetails": "Voir les détails",
-        "accept": "Accepter",
-        "decline": "Refuser",
-        "declineConfirmation": "Paramètres enregistrés. Aucune information ne sera collectée sur ce site."
-    },
-    "heroSection": {
-        "templates": {
-            "title": "Rechercher parmi les modèles",
-            "excerpt": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement."
-        },
-        "createRoulette": {
-            "title": "Créer une Roulette Originale",
-            "excerpt": "Créez instantanément votre propre roulette de tirage au sort avec des éléments et des pondérations personnalisés. Aucune inscription requise. Compatible PC et smartphone."
-        },
-        "login": {
-            "title": "Connectez-vous pour Sauvegarder vos Roulettes",
-            "excerpt": "Sauvegardez vos roulettes créées et accédez-y depuis n'importe quel appareil.",
-            "goToMypage": "Aller à Ma Page",
-            "goToLogin": "Aller à la Connexion"
-        },
-        "futureFeatures": {
-            "title": "Fonctionnalités Futures",
-            "excerpt": "Nous prévoyons d'ajouter des fonctionnalités plus pratiques telles qu'une fonction de connexion, une page utilisateur et une galerie de modèles."
-        },
-        "contact": {
-            "title": "Nous contacter",
-            "excerpt": "N'hésitez pas à nous envoyer vos opinions, commentaires ou rapports de bogues."
-        },
-        "language": {
-            "title": "Support Multilingue",
-            "excerpt": "Ce site prend en charge le japonais, l'anglais, l'espagnol et le français. Vous pouvez changer de langue à tout moment depuis le sélecteur de langue dans le menu."
-        }
+    "language": {
+      "title": "Support Multilingue",
+      "excerpt": "Ce site prend en charge le japonais, l'anglais, l'espagnol et le français. Vous pouvez changer de langue à tout moment depuis le sélecteur de langue dans le menu."
     }
+  }
 }
