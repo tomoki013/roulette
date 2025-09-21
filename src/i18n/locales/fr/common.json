@@ -180,9 +180,30 @@
         "forkAndSave": "Dupliquer et sauvegarder ce modèle",
         "creatorProfileTitle": "Profil du créateur"
     },
+    "howToUse": {
+        "title": "Comment utiliser",
+        "description": "Apprenez tout, des bases de 'Roulette sur le Web' aux fonctionnalités pratiques disponibles après la création d'un compte. Maîtrisez la création et le partage de roulettes, l'utilisation de modèles et tirez le meilleur parti de notre site.",
+        "basic": {
+            "title": "Utilisation de Base (pour les Invités)",
+            "create": "Comment créer une roulette (ajouter/supprimer des éléments, changer les ratios/couleurs)",
+            "spin": "Comment faire tourner la roulette",
+            "share": "Comment partager les résultats (URL/Image)"
+        },
+        "account": {
+            "title": "Fonctionnalités du Compte",
+            "merit": "Avantages de l'inscription (sauvegarde des données, etc.)",
+            "auth": "Étapes pour l'inscription et la connexion"
+        },
+        "loggedIn": {
+            "title": "Fonctionnalités Supplémentaires Après Connexion",
+            "mypage": "Ma Page : Gérez les roulettes créées (modifier/supprimer) et modifiez votre profil.",
+            "templates": "Fonctionnalité de Modèle : Comment utiliser les modèles et rendre publiques vos propres roulettes."
+        }
+    },
     "footer": {
         "copyright": "Roulette en Ligne. Tous droits réservés.",
         "services": "Services",
+        "howToUse": "Comment utiliser",
         "legal": "Légal",
         "social": "Social",
         "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées."

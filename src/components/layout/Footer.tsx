@@ -42,6 +42,9 @@ const Footer = () => {
                                  <Link href={`/${locale}/original-roulette`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                      {t('roulette.title')}
                                  </Link>
+                                 <Link href={`/${locale}/how-to-use`} className="text-sm hover:text-yellow-300 underline transition-colors">
+                                     {t('footer.howToUse')}
+                                 </Link>
                                  {/* テンプレートページへのリンクを追加 */}
                                  <Link href={`/${locale}/templates`} className="text-sm hover:text-yellow-300 underline transition-colors">
                                      {t('templates.template')}
