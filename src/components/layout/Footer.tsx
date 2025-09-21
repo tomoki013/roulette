@@ -55,6 +55,12 @@ const Footer = () => {
                 >
                   {t("templates.template")}
                 </Link>
+                <Link
+                  href={`/${locale}/articles`}
+                  className="text-sm hover:text-yellow-300 underline transition-colors"
+                >
+                  {t("articles.title")}
+                </Link>
                 {user && (
                   <Link
                     href={`/${locale}/mypage`}

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { X, LogIn, LogOut, User, PlusCircle, LayoutGrid, Contact } from 'lucide-react';
+import { X, LogIn, LogOut, User, PlusCircle, LayoutGrid, Contact, BookText } from 'lucide-react';
 import { useAuth } from '@/lib/hooks/useAuth';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -75,6 +75,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                         <Link href={`/${locale}/templates`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
                                             <LayoutGrid size={20} />
                                             <span>{t('templates.template')}</span>
+                                        </Link>
+                                    </motion.li>
+                                    <motion.li variants={linkVariants}>
+                                        <Link href={`/${locale}/articles`} onClick={onClose} className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors">
+                                            <BookText size={20} />
+                                            <span>{t('articles.title')}</span>
                                         </Link>
                                     </motion.li>
                                     <motion.li variants={linkVariants}>

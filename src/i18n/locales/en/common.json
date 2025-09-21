@@ -24,6 +24,10 @@
       "multiLanguage": "Multi-language support (Japanese, English, Spanish, French)"
     }
   },
+  "articles": {
+    "title": "Use Cases",
+    "description": "Discover various use cases for 'Web Roulette'. From classroom scenarios to event planning and daily decision-making, find ideas to spark your inspiration."
+  },
   "auth": {
     "title": "User Authentication",
     "description": "Sign up or log in to unlock the full potential of Web Roulette. By creating an account, you can save your roulettes to edit and reuse them anytime. Manage your personal collection of wheels on your own My Page.",
