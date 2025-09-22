@@ -2,8 +2,10 @@
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Plus, X, Save, Loader2, Share2 } from 'lucide-react';
+import { Plus, X, Save, Loader2, Share2, HelpCircle } from 'lucide-react';
 import { Item } from '@/types';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 interface SettingsPanelProps {
     title: string;
@@ -36,6 +38,8 @@ const SettingsPanel = ({
     showShareButton = false,
 }: SettingsPanelProps) => {
     const { t } = useTranslation();
+    const params = useParams();
+    const locale = params.locale;
     const titleMaxLength = 30;
 
     const shakeVariants = {
@@ -60,7 +64,12 @@ const SettingsPanel = ({
         >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-xl font-semibold text-white">{t('roulette.settings.title')}</h2>
+                    <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-semibold text-white">{t('roulette.settings.title')}</h2>
+                        <Link href={`/${locale}/how-to-use`} passHref>
+                            <HelpCircle size={18} className="text-white/60 hover:text-white transition-colors" />
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="mb-6">
