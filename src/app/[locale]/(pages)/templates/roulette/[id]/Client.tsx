@@ -18,10 +18,11 @@ import { useRouletteShare } from '@/lib/hooks/useRouletteShare';
 import { useRouletteSettings } from '@/lib/hooks/useRouletteSettings';
 import { ROULETTE_COLORS } from '@/constants/roulette';
 import { motion } from 'framer-motion';
-import { User, Heart } from 'lucide-react'; // Heartアイコンをインポート
+import { User, Heart, Star } from 'lucide-react'; // Starアイコンをインポート
 import Link from 'next/link';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
+type Roulette = Database['public']['Tables']['roulettes']['Row'];
 
 const TemplateRoulettePageClient = () => {
     const { t, i18n } = useTranslation();
@@ -34,6 +35,7 @@ const TemplateRoulettePageClient = () => {
     const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
     // State management
+    const [template, setTemplate] = useState<Roulette | null>(null);
     const [description, setDescription] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [allowFork, setAllowFork] = useState(false);
@@ -108,31 +110,36 @@ const TemplateRoulettePageClient = () => {
         if (params.id) {
             const fetchTemplateData = async () => {
                 try {
-                    const template = await getRouletteById(params.id as string);
-                    if (template && template.is_template) {
-                        setTitle(template.title);
-                        setItems(template.items as unknown as Item[]);
-                        setAllowFork(template.allow_fork);
-                        setLikeCount(template.like_count);
-                        setTemplateId(template.id);
+                    const templateData = await getRouletteById(params.id as string);
+                    if (templateData && templateData.is_template) {
+                        setTemplate(templateData);
+                        setTitle(templateData.title);
+                        setItems(templateData.items as unknown as Item[]);
+                        setAllowFork(templateData.allow_fork);
+                        setLikeCount(templateData.like_count);
+                        setTemplateId(templateData.id);
 
                         const likedTemplates = JSON.parse(localStorage.getItem('likedTemplates') || '[]');
-                        if (likedTemplates.includes(template.id)) {
+                        if (likedTemplates.includes(templateData.id)) {
                             setIsLiked(true);
                         }
 
                         // descriptionはJSONオブジェクトの場合もあるため、適切に処理
-                        const currentDescription = template.description;
+                        const currentDescription = templateData.description;
                         if (typeof currentDescription === 'string') {
                             setDescription(currentDescription);
                         } else if (currentDescription && typeof currentDescription === 'object' && !Array.isArray(currentDescription)) {
-                            // 単純なオブジェクトの場合はJSON文字列として表示
-                            setDescription(JSON.stringify(currentDescription));
+                            // i18n
+                            if (i18n.language in currentDescription) {
+                                setDescription(currentDescription[i18n.language] as string);
+                            } else {
+                                setDescription(Object.values(currentDescription)[0] as string || '');
+                            }
                         }
 
                         // テンプレート取得後、作成者のプロフィールを取得
-                        if (template.user_id && template.is_profile_public) { // ★ is_profile_publicがtrueの場合のみ取得
-                            const profile = await getProfileByUserId(template.user_id);
+                        if (templateData.user_id && templateData.is_profile_public) { // ★ is_profile_publicがtrueの場合のみ取得
+                            const profile = await getProfileByUserId(templateData.user_id);
                             setCreatorProfile(profile);
                             setIsProfilePublic(true);
                         }
@@ -222,6 +229,12 @@ const TemplateRoulettePageClient = () => {
                 <p className='text-center text-white'>
                     {description}
                 </p>
+                {template?.user_id === null && (
+                    <div className="flex items-center justify-center gap-2 text-yellow-400 mt-2">
+                        <Star className="fill-yellow-400" size={20} />
+                        <span className="font-semibold">{t('templates.official', 'Official Template')}</span>
+                    </div>
+                )}
             </div>
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">

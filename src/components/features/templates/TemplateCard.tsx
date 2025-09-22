@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Layers, User, Heart, ChevronsRight } from 'lucide-react';
+import { Layers, User, Heart, ChevronsRight, Star } from 'lucide-react';
 import { Database } from '@/types/database.types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -87,6 +87,26 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
     const truncatedTitle = template.title.length > 15 ? `${template.title.substring(0, 15)}...` : template.title;
     const truncatedDescription = getDescription().length > 70 ? `${getDescription().substring(0, 70)}...` : getDescription();
 
+    const getAuthorInfo = () => {
+        if (template.user_id === null) {
+            return {
+                text: t('templates.official', 'Official'), // 'Official' is a fallback
+                Icon: Star,
+                isOfficial: true,
+            };
+        }
+        if (template.is_profile_public) {
+            return {
+                text: template.profiles?.username || t('templates.anonymous'),
+                Icon: User,
+                isOfficial: false,
+            };
+        }
+        return null;
+    };
+
+    const authorInfo = getAuthorInfo();
+
     return (
         <motion.div
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-between"
@@ -111,11 +131,13 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
                 </div>
                 <div className="mt-4">
                     <div className="flex justify-between items-center text-sm text-white/60 mb-4">
-                        {template.is_profile_public && (
-                            <p className="flex items-center gap-2 hover:text-yellow-300 transition-colors">
-                                <User size={14} />
-                                <span>{template.profiles?.username || t('templates.anonymous')}</span>
+                        {authorInfo ? (
+                            <p className={`flex items-center gap-2 transition-colors ${authorInfo.isOfficial ? 'text-yellow-400' : 'hover:text-yellow-300'}`}>
+                                <authorInfo.Icon size={14} className={authorInfo.isOfficial ? 'fill-yellow-400' : ''} />
+                                <span>{authorInfo.text}</span>
                             </p>
+                        ) : (
+                            <div /> // Keep the space
                         )}
                         {/* disabled属性にisLikingをセット */}
                         <button onClick={handleLike} disabled={isLiking} className="flex items-center gap-2 hover:text-yellow-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
