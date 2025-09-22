@@ -253,3 +253,26 @@ export const decrementLikeCount = async (id: string): Promise<{ id: string; like
     
     return data;
 };
+
+/**
+ * Fetches official templates (user_id is null)
+ * @returns Array of official template roulettes
+ */
+export const getOfficialTemplates = async (): Promise<Roulette[]> => {
+    const { data, error } = await supabase
+        .from('roulettes')
+        .select('*') // No need to join profiles since user_id is null
+        .is('user_id', null)
+        .eq('is_template', true)
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        handleSupabaseError(error, 'getOfficialTemplates');
+    }
+
+    if (!data) {
+        throw new Error('Failed to fetch official templates, no data returned.');
+    }
+
+    return data || [];
+};

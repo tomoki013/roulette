@@ -20,17 +20,35 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
+
+    // NOTE: This auth logic runs after the i18n redirect logic,
+    // so we can expect a locale in the path for page routes.
+    const isAdminPage = i18n.locales.some(locale =>
+        pathname.startsWith(`/${locale}/admin`) && !pathname.startsWith(`/${locale}/admin/login`)
+    );
+
+    if (isAdminPage) {
+        const sessionCookie = request.cookies.get('admin-session');
+        if (!sessionCookie) {
+            // Redirect to the login page for the current locale.
+            const locale = pathname.split('/')[1];
+            return NextResponse.redirect(new URL(`/${locale}/admin/login`, request.url));
+        }
+    }
+
     const pathnameIsMissingLocale = i18n.locales.every(
         (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
 
-    // パスにロケールがない場合はリダイレクトします
+    // Redirect if there is no locale
     if (pathnameIsMissingLocale) {
         const locale = getLocale(request);
         return NextResponse.redirect(
             new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
         );
     }
+
+    return NextResponse.next();
 }
 
 export const config = {
