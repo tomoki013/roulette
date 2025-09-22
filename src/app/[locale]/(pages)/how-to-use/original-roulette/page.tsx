@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HowToUseCreatePageClient from "./Client";
+import HowToUseOriginalRoulettePageClient from "./Client";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -8,8 +8,8 @@ export async function generateMetadata(props: {
   const { locale } = await params;
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
-  const title = t.howToUse.basic.create;
-  const description = t.howToUse.basic.create_description;
+  const title = t.howToUse.advanced.original_roulette;
+  const description = t.howToUse.advanced.original_roulette_description;
 
   return {
     title: title,
@@ -34,14 +34,16 @@ export async function generateMetadata(props: {
   };
 }
 
-interface HowToUseCreatePageProps {
+interface HowToUseOriginalRoulettePageProps {
   params: {
     locale: string;
   };
 }
 
-const HowToUseCreatePage = ({ params: { locale } }: HowToUseCreatePageProps) => {
-  return <HowToUseCreatePageClient locale={locale} />;
+const HowToUseOriginalRoulettePage = ({
+  params: { locale },
+}: HowToUseOriginalRoulettePageProps) => {
+  return <HowToUseOriginalRoulettePageClient locale={locale} />;
 };
 
-export default HowToUseCreatePage;
+export default HowToUseOriginalRoulettePage;

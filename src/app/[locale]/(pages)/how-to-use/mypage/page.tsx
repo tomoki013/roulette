@@ -32,8 +32,16 @@ export async function generateMetadata(props: { params: Promise<{ locale:string 
     }
 }
 
-const HowToUseMyPagePage = () => {
-    return <HowToUseMyPagePageClient />;
+interface HowToUseMyPagePageProps {
+  params: {
+    locale: string;
+  };
 }
+
+const HowToUseMyPagePage = ({
+  params: { locale },
+}: HowToUseMyPagePageProps) => {
+  return <HowToUseMyPagePageClient locale={locale} />;
+};
 
 export default HowToUseMyPagePage;

@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { BookOpen, CheckCircle, ArrowLeft } from "lucide-react";
@@ -23,11 +21,13 @@ const Step = ({
   </div>
 );
 
-interface HowToUseAuthPageClientProps {
+interface HowToUseOriginalRoulettePageClientProps {
   locale: string;
 }
 
-const HowToUseAuthPageClient = ({ locale }: HowToUseAuthPageClientProps) => {
+const HowToUseOriginalRoulettePageClient = ({
+  locale,
+}: HowToUseOriginalRoulettePageClientProps) => {
   const { t } = useTranslation();
 
   return (
@@ -45,23 +45,43 @@ const HowToUseAuthPageClient = ({ locale }: HowToUseAuthPageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.account.auth")}
+          {t("howToUse.advanced.original_roulette")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.account.auth_description")}
+          {t("howToUse.advanced.original_roulette_description")}
         </p>
         <div className="space-y-6">
           <Step
-            title={t("howToUse.account.auth_detail_structured.step1_title")}
-            content={t("howToUse.account.auth_detail_structured.step1_content")}
+            title={t(
+              "howToUse.advanced.original_roulette_detail_structured.step1_title"
+            )}
+            content={t(
+              "howToUse.advanced.original_roulette_detail_structured.step1_content"
+            )}
           />
           <Step
-            title={t("howToUse.account.auth_detail_structured.step2_title")}
-            content={t("howToUse.account.auth_detail_structured.step2_content")}
+            title={t(
+              "howToUse.advanced.original_roulette_detail_structured.step2_title"
+            )}
+            content={t(
+              "howToUse.advanced.original_roulette_detail_structured.step2_content"
+            )}
           />
           <Step
-            title={t("howToUse.account.auth_detail_structured.step3_title")}
-            content={t("howToUse.account.auth_detail_structured.step3_content")}
+            title={t(
+              "howToUse.advanced.original_roulette_detail_structured.step3_title"
+            )}
+            content={t(
+              "howToUse.advanced.original_roulette_detail_structured.step3_content"
+            )}
+          />
+          <Step
+            title={t(
+              "howToUse.advanced.original_roulette_detail_structured.step4_title"
+            )}
+            content={t(
+              "howToUse.advanced.original_roulette_detail_structured.step4_content"
+            )}
           />
         </div>
       </motion.div>
@@ -78,4 +98,4 @@ const HowToUseAuthPageClient = ({ locale }: HowToUseAuthPageClientProps) => {
   );
 };
 
-export default HowToUseAuthPageClient;
+export default HowToUseOriginalRoulettePageClient;

@@ -32,8 +32,16 @@ export async function generateMetadata(props: { params: Promise<{ locale:string 
     }
 }
 
-const HowToUseTemplatesPage = () => {
-    return <HowToUseTemplatesPageClient />;
+interface HowToUseTemplatesPageProps {
+  params: {
+    locale: string;
+  };
 }
+
+const HowToUseTemplatesPage = ({
+  params: { locale },
+}: HowToUseTemplatesPageProps) => {
+  return <HowToUseTemplatesPageClient locale={locale} />;
+};
 
 export default HowToUseTemplatesPage;

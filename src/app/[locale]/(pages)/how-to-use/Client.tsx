@@ -8,6 +8,7 @@ import {
   UserPlus,
   LogIn,
   ChevronRight,
+  Star,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -123,6 +124,26 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
             </ListItemLink>
             <ListItemLink href="templates">
               {t("howToUse.loggedIn.templates")}
+            </ListItemLink>
+          </ul>
+        </motion.section>
+
+        {/* Advanced Features Section */}
+        <motion.section
+          variants={cardVariants}
+          initial="hidden"
+          animate="visible"
+          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+        >
+          <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
+            <Star className="text-yellow-300" />
+            {t("howToUse.advanced.title")}
+          </h2>
+          <ul className="space-y-2">
+            <ListItemLink href="original-roulette">
+              <div className="special-link-hover p-2 rounded-md">
+                {t("howToUse.advanced.original_roulette")}
+              </div>
             </ListItemLink>
           </ul>
         </motion.section>

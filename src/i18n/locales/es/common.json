@@ -198,32 +198,99 @@
       "title": "Uso Básico (para Invitados)",
       "create": "Cómo crear una ruleta (agregar/eliminar elementos, cambiar proporciones/colores)",
       "create_description": "Aprende a crear tu propia ruleta original configurando libremente los elementos, los colores y las proporciones.",
-      "create_detail": "Crear una ruleta original es fácil. Primero, introduce un título y una descripción para tu ruleta. Luego, haz clic en el botón 'Añadir elemento' para agregar opciones a tu rueda. Puedes configurar libremente el texto, el color y el peso (proporción) para cada elemento. Cuanto mayor sea el número de la proporción, más probable será que se seleccione ese elemento. Una vez que hayas introducido todos tus elementos, ya está todo listo.",
+      "create_detail_structured": {
+        "step1_title": "Step 1: Basic Roulette Settings",
+        "step1_content": "First, enter the 'Title' and 'Description' for your roulette. The title helps distinguish it from other roulettes, and the description is useful for explaining its purpose. Set them up to be clear for others.",
+        "step2_title": "Step 2: Adding and Customizing Items",
+        "step2_content": "Next, use the 'Add Item' button to add options to the roulette. For each item, you can freely set its display 'Name' and an identifying 'Color'. You can intuitively pick colors from the color picker.",
+        "step3_title": "Step 3: Setting the Winning Ratio",
+        "step3_content": "You can set a 'Ratio' for each item. This is a number that indicates how likely that item is to be selected. For example, if you set 'A: 2, B: 1', A will be twice as likely to be chosen as B. If you want all items to have the same probability, enter the same number for all.",
+        "step4_title": "Step 4: Finishing Setup",
+        "step4_content": "Once you've configured all the items, your original roulette is complete! Check it in the preview and you can start the draw anytime with the 'Spin' button."
+      },
       "spin": "Cómo girar la ruleta",
       "spin_description": "Explica el procedimiento para girar la ruleta creada y comprobar los resultados del sorteo.",
-      "spin_detail": "Una vez que tu ruleta esté configurada, simplemente haz clic en el botón 'Girar' en la pantalla de vista previa. La rueda girará y seleccionará un elemento al azar. El resultado se mostrará de forma destacada en la pantalla, celebrado con una animación de confeti. Si quieres volver a girar, solo tienes que hacer clic en el botón 'Girar' una vez más.",
+      "spin_detail_structured": {
+        "step1_title": "Step 1: Spin the Roulette",
+        "step1_content": "The roulette you created and configured is displayed in the preview area. When you click the 'Spin' button in the center, the roulette will start to spin vigorously.",
+        "step2_title": "Step 2: Check the Result",
+        "step2_content": "When the rotation stops, the selected item is highlighted, and the result is displayed prominently in the center of the screen. A fun confetti animation will liven up the moment of the draw!",
+        "step3_title": "Step 3: Try Again",
+        "step3_content": "If you want to spin the roulette again with the same settings, just click the 'Spin Again' button on the result screen. You can start the next draw right away."
+      },
       "share": "Cómo compartir resultados (URL/Imagen)",
       "share_description": "Aprende a compartir los resultados de tu ruleta con amigos o en redes sociales a través de una URL o como una imagen.",
-      "share_detail": "¿Quieres compartir los resultados de tu ruleta con amigos o compañeros? Utiliza los botones de compartir en la pantalla de resultados para copiar una URL de la página con el resultado, o para descargar la rueda de la ruleta como una imagen. Es genial para compartir en redes sociales o para informar de los resultados de un evento."
+      "share_detail_structured": {
+        "step1_title": "Step 1: Select a Sharing Option",
+        "step1_content": "After spinning the roulette, you can share it from the result screen or the 'Share' button on the settings screen. You can choose between two sharing options: 'Share via URL' and 'Share as Image'.",
+        "step2_title": "Step 2: Sharing via URL",
+        "step2_content": "When you select 'Share via URL', the URL of the page reflecting the current roulette settings (results not included) is copied to your clipboard. Paste this URL to friends or on social media, and anyone can experience the same roulette.",
+        "step3_title": "Step 3: Sharing as an Image",
+        "step3_content": "When you select 'Share as Image', the current look of the roulette is downloaded as an image file (PNG format). This is useful for announcing event results or for sharing visually."
+      }
     },
     "account": {
       "title": "Funciones de la Cuenta",
       "merit": "Beneficios del registro de cuenta (guardado de datos, etc.)",
       "merit_description": "Descubre las funciones convenientes que se habilitan al registrarte para obtener una cuenta gratuita.",
-      "merit_detail": "Al registrarte para obtener una cuenta gratuita, puedes guardar tus ruletas creadas y editarlas o reutilizarlas en cualquier momento. Puedes gestionar una lista de tus ruletas creadas desde tu 'Mi Página', ahorrándote la molestia de tener que recrearlas cada vez. También puedes publicar tus propias ruletas como plantillas para que otros las usen.",
+      "merit_detail_structured": {
+        "benefit1_title": "Benefit 1: Save and Reuse Roulettes",
+        "benefit1_content": "When you create an account, you can save your created roulettes to 'My Page'. This saves you the trouble of recreating the same roulette every time, allowing you to call up and use your favorite settings at any time.",
+        "benefit2_title": "Benefit 2: Sync Across Devices",
+        "benefit2_content": "By logging in, you can access your saved roulettes from any device. For example, you can use a roulette created on your PC at home from your smartphone on the go.",
+        "benefit3_title": "Benefit 3: Publish as a Template",
+        "benefit3_content": "You can publish your masterpiece roulettes as 'templates' that other users can also use. Your ideas might be helpful to someone around the world. You can change the publication settings at any time."
+      },
       "auth": "Pasos para nuevo registro e inicio de sesión",
       "auth_description": "Explica cómo crear una nueva cuenta y los pasos para iniciar sesión después del registro.",
-      "auth_detail": "Puedes registrarte desde el enlace 'Registrarse' en el menú del encabezado. Simplemente introduce un nombre de usuario, una dirección de correo electrónico y una contraseña para crear una cuenta fácilmente. Después del registro, inicia sesión desde la página de 'Iniciar sesión' con tu correo electrónico y contraseña. También admitimos el inicio de sesión social con una cuenta de Google, lo que facilita aún más el comienzo."
+      "auth_detail_structured": {
+        "step1_title": "Step 1: How to Sign Up",
+        "step1_content": "Proceed to the account creation page from the 'Sign Up' button in the header menu. The only required information is 'Username', 'Email Address', and 'Password'. After entering, click the button to complete the registration.",
+        "step2_title": "Step 2: How to Log In",
+        "step2_content": "Once you have created an account, log in from the 'Login' page by entering your registered email address and password. Your login state will be maintained, so there is no need to enter it every time.",
+        "step3_title": "Step 3: Social Login",
+        "step3_content": "As an easier login method, we also support social login using a Google account. Just click the 'Login with Google' button to start using the service immediately without any tedious input."
+      }
     },
     "loggedIn": {
       "title": "Funciones Adicionales Después de Iniciar Sesión",
       "mypage": "Mi Página: Gestiona las ruletas creadas (editar/eliminar) y edita tu perfil.",
       "mypage_description": "Explica cómo gestionar tus ruletas guardadas en la página dedicada 'Mi Página' para usuarios que han iniciado sesión.",
-      "mypage_detail": "Cuando has iniciado sesión, puedes acceder a tu 'Mi Página' desde el menú del encabezado para ver una lista de tus ruletas guardadas. Desde aquí, puedes editar, eliminar y cambiar la configuración de publicación de cada ruleta, incluida su publicación como plantillas. También puedes editar la información de tu perfil, que se mostrará como el creador cuando publiques una plantilla.",
+      "mypage_detail_structured": {
+        "step1_title": "Step 1: Accessing My Page",
+        "step1_content": "While logged in, click on your username in the header menu or the 'My Page' link to go to your dedicated page.",
+        "step2_title": "Step 2: Managing Roulettes",
+        "step2_content": "On My Page, all the roulettes you have saved are displayed in a list. From here, you can change the settings with the 'Edit' button for each roulette, or delete unnecessary ones with the 'Delete' button.",
+        "step3_title": "Step 3: Public Settings and Profile",
+        "step3_content": "By changing the 'Public Settings' for each roulette, you can publish it as a template that other users can use. You can also set up your public profile information from 'Edit Profile' to let other users know who created the template."
+      },
       "templates": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas.",
       "templates_description": "Aprende a encontrar y utilizar plantillas creadas por otros usuarios, y a publicar tus propias ruletas como plantillas.",
-      "templates_detail": "En la página 'Buscar desde plantillas', puedes explorar diversas ruletas creadas y publicadas por otros usuarios. Si encuentras una plantilla que te guste, puedes usar el botón 'Usar esta plantilla' para crear una nueva ruleta con la misma configuración. Si quieres publicar tu propia ruleta, simplemente activa la configuración 'Publicar como plantilla' en tu 'Mi Página'."
-    }
+      "templates_detail_structured": {
+        "step1_title": "Step 1: Find a Template",
+        "step1_content": "On the 'Find from Templates' page, various roulettes created by other users are published. Find interesting templates by searching with keywords or sorting by newest or most popular.",
+        "step2_title": "Step 2: Use a Template",
+        "step2_content": "When you find a template you like, click the 'Use this Template' button. This will open a new roulette creation screen with all the settings of that template (items, colors, ratios, etc.) inherited. All you have to do is customize it freely.",
+        "step3_title": "Step 3: Publish a Template",
+        "step3_content": "To publish your own roulette as a template, first go to My Page. In the 'Public Settings' of the roulette you want to publish, turn on 'Publish as Template', and other users will be able to use your roulette."
+      }
+    },
+    "advanced": {
+      "title": "Advanced Features",
+      "original_roulette": "How to use Original Roulette",
+      "original_roulette_description": "Learn the steps to create your very own completely original roulette. Shape your ideas from scratch, without being tied to other templates.",
+      "original_roulette_detail_structured": {
+        "step1_title": "Step 1: Starting from Scratch",
+        "step1_content": "The greatest feature of the original roulette function is the ability to create your own roulette from a completely blank state, without relying on existing templates. First, decide on a title and description for your roulette on the creation page and take the first step of your idea.",
+        "step2_title": "Step 2: Freely Configure Items",
+        "step2_content": "You can add as many options as you like with the 'Add Item' button. Give each item a unique name and set your favorite color with the color picker to aim for a visually fun roulette.",
+        "step3_title": "Step 3: Manipulate Probability with Ratios",
+        "step3_content": "By adjusting the 'Ratio' of each item, you can finely control the winning probability. Design the lottery logic as you wish, such as making a specific item more likely to win, or making all items equal.",
+        "step4_title": "Step 4: Save and Share",
+        "step4_content": "If you are logged into your account, you can record the completed roulette on My Page with the 'Save' button. You can also use the 'Share' function to broadcast your unique roulette to the world via URL or image."
+      }
+    },
+    "back_to_list": "Back to How to Use list"
   },
   "footer": {
     "copyright": "Ruleta Web. Todos los derechos reservados.",
