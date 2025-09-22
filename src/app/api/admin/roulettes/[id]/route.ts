@@ -2,21 +2,22 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getRouletteById, updateRoulette, deleteRoulette } from '@/lib/services/rouletteService';
 import { Database } from '@/types/database.types';
+import { OFFICIAL_USER_ID } from '@/constants/common';
 
 type RouletteUpdate = Database['public']['Tables']['roulettes']['Update'];
 
 // Helper function to check for admin authentication
 const isAuthenticated = async (): Promise<boolean> => {
-    const cookieStore = await cookies();
-    const session = cookieStore.get('admin-session');
-    return session?.value === 'true';
+ const cookieStore = await cookies();
+ const session = cookieStore.get('admin-session');
+ return session?.value === 'true';
 };
 
 // Helper to verify that the template being modified is indeed an official one
 const isOfficialTemplate = async (id: string): Promise<boolean> => {
     const roulette = await getRouletteById(id);
     // It's an official template if it exists and its user_id is null
-    return !!roulette && roulette.user_id === null;
+ return !!roulette && roulette.user_id === OFFICIAL_USER_ID;
 };
 
 /**

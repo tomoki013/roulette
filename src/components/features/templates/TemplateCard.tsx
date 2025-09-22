@@ -136,7 +136,11 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
                 <div className="mt-4">
                     <div className="flex justify-between items-center text-sm text-white/60 mb-4">
                         {authorInfo ? (
-                            <p className={`flex items-center gap-2 transition-colors ${authorInfo.isOfficial ? 'text-yellow-400' : 'hover:text-yellow-300'}`}>
+                            <p className={`flex items-center gap-2 transition-colors ${
+                                authorInfo.isOfficial
+                                ? 'text-yellow-400'
+                                : 'hover:text-yellow-300'
+                            }`}>
                                 <authorInfo.Icon size={14} className={authorInfo.isOfficial ? 'fill-yellow-400' : ''} />
                                 <span>{authorInfo.text}</span>
                             </p>
