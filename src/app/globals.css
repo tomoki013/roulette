@@ -1,14 +1,7 @@
 @import "tailwindcss";
 
-html {
-    word-break: auto-phrase;
-}
+@plugin "@tailwindcss/typography";
 
-body {
-    font-size: 16px;
-}
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+html {
+  word-break: auto-phrase;
 }
