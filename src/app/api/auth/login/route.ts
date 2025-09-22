@@ -8,7 +8,8 @@ export async function POST(req: NextRequest) {
         // Directly compare with the environment variable
         if (password === process.env.ADMIN_PASSWORD) {
             // Set a secure, httpOnly cookie upon successful authentication
-            cookies().set('admin-session', 'true', { // The value can be simple, the security is in httpOnly
+            const cookieStore = await cookies();
+            cookieStore.set('admin-session', 'true', { // The value can be simple, the security is in httpOnly
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
                 maxAge: 60 * 60 * 24 * 7, // 1 week

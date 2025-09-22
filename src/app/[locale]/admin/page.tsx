@@ -2,10 +2,13 @@ import { getOfficialTemplates } from '@/lib/services/rouletteService';
 import { AdminDashboardClient } from './components/AdminDashboardClient';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
-import { Locale } from '@/i18n-config';
+import { Locale } from '@/../i18n-config';
 import { createTranslation } from '@/i18n/server';
 
-export default async function AdminDashboardPage({ params: { locale } }: { params: { locale: Locale } }) {
+export const dynamic = 'force-dynamic';
+
+export default async function AdminDashboardPage(props: { params: Promise<{ locale: Locale }> }) {
+    const { locale } = await props.params;
     // Fetch initial data on the server
     const templates = await getOfficialTemplates();
     const { t } = await createTranslation(locale, 'admin');

@@ -1,8 +1,11 @@
 import { TemplateForm } from '../components/TemplateForm';
-import { Locale } from '@/i18n-config';
+import { Locale } from '@/../i18n-config';
 import { createTranslation } from '@/i18n/server';
 
-export default async function NewTemplatePage({ params: { locale } }: { params: { locale: Locale } }) {
+export const dynamic = 'force-dynamic';
+
+export default async function NewTemplatePage(props: { params: Promise<{ locale: Locale }> }) {
+    const { locale } = await props.params;
     const { t } = await createTranslation(locale, 'admin');
 
     return (

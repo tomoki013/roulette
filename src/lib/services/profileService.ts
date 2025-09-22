@@ -1,4 +1,4 @@
-import { supabase } from '../supabaseClient';
+import { getSupabase } from '../supabaseClient';
 import { Database } from '@/types/database.types';
 import { PostgrestError } from '@supabase/supabase-js';
 
@@ -18,6 +18,7 @@ const handleSupabaseError = (error: PostgrestError, context: string) => {
  * @returns プロフィールデータ、見つからない場合はnull
  */
 export const getProfileByUserId = async (userId: string): Promise<Profile | null> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('profiles')
         .select('*')
@@ -45,6 +46,7 @@ export const getProfileByUserId = async (userId: string): Promise<Profile | null
  * @returns Promise<void>
  */
 export const deleteUser = async (): Promise<void> => {
+    const supabase = getSupabase();
     const { error } = await supabase.rpc('delete_user');
 
     if (error) {
@@ -59,6 +61,7 @@ export const deleteUser = async (): Promise<void> => {
  * @returns 更新されたプロフィールデータ
  */
 export const updateProfile = async (userId: string, updates: ProfileUpdate): Promise<Profile> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('profiles')
         .update({

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabase } from '@/lib/supabaseClient';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 
@@ -42,6 +42,7 @@ export const useAuthForm = ({
     const handleSubmit = async (values: AuthFormValues) => {
         setIsLoading(true);
         setAuthError(null);
+        const supabase = getSupabase();
 
         try {
             if (isLoginView) {

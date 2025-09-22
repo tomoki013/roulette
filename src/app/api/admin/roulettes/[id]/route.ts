@@ -6,8 +6,9 @@ import { Database } from '@/types/database.types';
 type RouletteUpdate = Database['public']['Tables']['roulettes']['Update'];
 
 // Helper function to check for admin authentication
-const isAuthenticated = (): boolean => {
-    const session = cookies().get('admin-session');
+const isAuthenticated = async (): Promise<boolean> => {
+    const cookieStore = await cookies();
+    const session = cookieStore.get('admin-session');
     return session?.value === 'true';
 };
 
@@ -22,11 +23,12 @@ const isOfficialTemplate = async (id: string): Promise<boolean> => {
  * API route to update an official template.
  * PUT /api/admin/roulettes/[id]
  */
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-    if (!isAuthenticated()) {
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+    if (!await isAuthenticated()) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const params = await context.params;
     const { id } = params;
     if (!await isOfficialTemplate(id)) {
         return NextResponse.json({ error: 'Forbidden: Not an official template' }, { status: 403 });
@@ -50,11 +52,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
  * API route to delete an official template.
  * DELETE /api/admin/roulettes/[id]
  */
-export async function DELETE(req: NextRequest, { params }: { params: { id:string } }) {
-    if (!isAuthenticated()) {
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+    if (!await isAuthenticated()) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const params = await context.params;
     const { id } = params;
     if (!await isOfficialTemplate(id)) {
         return NextResponse.json({ error: 'Forbidden: Not an official template' }, { status: 403 });

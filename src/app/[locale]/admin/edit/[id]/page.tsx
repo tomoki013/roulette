@@ -1,16 +1,15 @@
 import { getRouletteById } from '@/lib/services/rouletteService';
 import { TemplateForm } from '../../components/TemplateForm';
 import { notFound } from 'next/navigation';
-import { Locale } from '@/i18n-config';
+import { Locale } from '@/../i18n-config';
 import { createTranslation } from '@/i18n/server';
 
+export const dynamic = 'force-dynamic';
 
-interface EditTemplatePageProps {
-    params: { id: string; locale: Locale };
-}
-
-export default async function EditTemplatePage({ params }: EditTemplatePageProps) {
+export default async function EditTemplatePage(props: { params: Promise<{ id: string; locale: Locale }> }) {
+    const params = await props.params;
     const { id, locale } = params;
+
     const template = await getRouletteById(id);
     const { t } = await createTranslation(locale, 'admin');
 

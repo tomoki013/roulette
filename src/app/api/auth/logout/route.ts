@@ -5,7 +5,8 @@ export async function POST() {
     try {
         // To log the user out, we delete the session cookie.
         // This is done by setting the cookie with a `maxAge` of 0.
-        cookies().set('admin-session', '', {
+        const cookieStore = await cookies();
+        cookieStore.set('admin-session', '', {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             maxAge: 0, // Immediately expire the cookie

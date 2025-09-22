@@ -39,7 +39,7 @@ export function TemplateForm({ initialData }: TemplateFormProps) {
             }
 
             if (Array.isArray(initialData.items)) {
-                setItems(initialData.items as Item[]);
+                setItems(initialData.items as unknown as Item[]);
             }
         }
     }, [initialData, locale]);

@@ -2,7 +2,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabase } from '@/lib/supabaseClient';
 import LoadingScreen from '@/components/elements/loadingAnimation/LoadingScreen';
 
 // Contextの型定義
@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const supabase = getSupabase();
         // Supabaseの認証状態の変化を監視
         const { data: authListener } = supabase.auth.onAuthStateChange(
             (_event, session) => {
@@ -40,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     // ログアウト処理
     const signOut = async () => {
+        const supabase = getSupabase();
         await supabase.auth.signOut();
     };
 

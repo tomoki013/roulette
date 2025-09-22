@@ -6,10 +6,9 @@ import { Database } from '@/types/database.types';
 type RouletteInsert = Database['public']['Tables']['roulettes']['Insert'];
 
 // Helper function to check for admin authentication
-const isAuthenticated = (): boolean => {
-    const session = cookies().get('admin-session');
-    // In a real-world scenario, you'd verify a token here.
-    // For this implementation, we just check if the cookie exists and has the expected value.
+const isAuthenticated = async (): Promise<boolean> => {
+    const cookieStore = await cookies();
+    const session = cookieStore.get('admin-session');
     return session?.value === 'true';
 };
 
@@ -18,7 +17,7 @@ const isAuthenticated = (): boolean => {
  * GET /api/admin/roulettes
  */
 export async function GET() {
-    if (!isAuthenticated()) {
+    if (!await isAuthenticated()) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -37,7 +36,7 @@ export async function GET() {
  * POST /api/admin/roulettes
  */
 export async function POST(req: NextRequest) {
-    if (!isAuthenticated()) {
+    if (!await isAuthenticated()) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
