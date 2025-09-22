@@ -35,14 +35,12 @@ export async function generateMetadata({
   };
 }
 
-interface HowToUseCreatePageProps {
-  params: {
-    locale: string;
-  };
-}
-
-const HowToUseCreatePage = ({ params: { locale } }: HowToUseCreatePageProps) => {
-  return <HowToUseCreatePageClient locale={locale} />;
+const HowToUseCreatePage = ({
+  params,
+}: {
+  params: { locale: string };
+}) => {
+  return <HowToUseCreatePageClient locale={params.locale} />;
 };
 
 export default HowToUseCreatePage;

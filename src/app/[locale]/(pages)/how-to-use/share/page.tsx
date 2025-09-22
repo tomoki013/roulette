@@ -35,14 +35,12 @@ export async function generateMetadata({
   };
 }
 
-interface HowToUseSharePageProps {
-  params: {
-    locale: string;
-  };
-}
-
-const HowToUseSharePage = ({ params: { locale } }: HowToUseSharePageProps) => {
-  return <HowToUseSharePageClient locale={locale} />;
+const HowToUseSharePage = ({
+  params,
+}: {
+  params: { locale: string };
+}) => {
+  return <HowToUseSharePageClient locale={params.locale} />;
 };
 
 export default HowToUseSharePage;

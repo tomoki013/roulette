@@ -35,16 +35,12 @@ export async function generateMetadata({
   };
 }
 
-interface HowToUseAccountMeritPageProps {
-  params: {
-    locale: string;
-  };
-}
-
 const HowToUseAccountMeritPage = ({
-  params: { locale },
-}: HowToUseAccountMeritPageProps) => {
-  return <HowToUseAccountMeritPageClient locale={locale} />;
+  params,
+}: {
+  params: { locale: string };
+}) => {
+  return <HowToUseAccountMeritPageClient locale={params.locale} />;
 };
 
 export default HowToUseAccountMeritPage;

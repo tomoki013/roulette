@@ -35,16 +35,12 @@ export async function generateMetadata({
   };
 }
 
-interface HowToUseTemplatesPageProps {
-  params: {
-    locale: string;
-  };
-}
-
 const HowToUseTemplatesPage = ({
-  params: { locale },
-}: HowToUseTemplatesPageProps) => {
-  return <HowToUseTemplatesPageClient locale={locale} />;
+  params,
+}: {
+  params: { locale: string };
+}) => {
+  return <HowToUseTemplatesPageClient locale={params.locale} />;
 };
 
 export default HowToUseTemplatesPage;
