@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import HowToUseCreatePageClient from "./Client";
 
-export async function generateMetadata(props: {
-  params: Promise<{ locale: string }>;
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
 }): Promise<Metadata> {
-  const params = await props.params;
-  const { locale } = await params;
+  const { locale } = params;
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
   const title = t.howToUse.basic.create;
