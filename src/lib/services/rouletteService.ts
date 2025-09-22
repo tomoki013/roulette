@@ -1,5 +1,5 @@
 // src/lib/services/rouletteService.ts (リファクタリング後)
-import { supabase } from '../supabaseClient';
+import { getSupabase } from '../supabaseClient';
 import { Database } from '@/types/database.types';
 import { PostgrestError } from '@supabase/supabase-js';
 
@@ -26,6 +26,7 @@ export const getPublicTemplates = async (
     sortBy: 'created_at' | 'like_count',
     language: string | null
 ): Promise<Roulette[]> => {
+    const supabase = getSupabase();
     let supabaseQuery = supabase
         .from('roulettes')
         .select('*, profiles(username)')
@@ -64,6 +65,7 @@ export const getPublicTemplates = async (
  * @returns Array of user's public templates
  */
 export const getPublicTemplatesByUserId = async (userId: string): Promise<Roulette[]> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
         .select('*, profiles(username)')
@@ -89,6 +91,7 @@ export const getPublicTemplatesByUserId = async (userId: string): Promise<Roulet
  * @returns Roulette data or null if not found
  */
 export const getRouletteById = async (id: string): Promise<Roulette | null> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
         .select('*')
@@ -116,6 +119,7 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
  * @returns Created roulette data
  */
 export const createRoulette = async (rouletteData: RouletteInsert): Promise<Roulette> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
         .insert(rouletteData)
@@ -140,6 +144,7 @@ export const createRoulette = async (rouletteData: RouletteInsert): Promise<Roul
  * @returns Array of user's roulettes
  */
 export const getRoulettesByUserId = async (userId: string): Promise<Roulette[]> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
         .select('*')
@@ -165,6 +170,7 @@ export const getRoulettesByUserId = async (userId: string): Promise<Roulette[]> 
  * @returns Updated roulette data
  */
 export const updateRoulette = async (id: string, updates: RouletteUpdate): Promise<Roulette> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
         .update({
@@ -192,6 +198,7 @@ export const updateRoulette = async (id: string, updates: RouletteUpdate): Promi
  * @param id - Roulette ID
  */
 export const deleteRoulette = async (id: string): Promise<void> => {
+    const supabase = getSupabase();
     const { error } = await supabase
         .from('roulettes')
         .delete()
@@ -208,6 +215,7 @@ export const deleteRoulette = async (id: string): Promise<void> => {
  * @returns 更新されたいいね数を持つオブジェクト
  */
 export const incrementLikeCount = async (id: string): Promise<{ id: string; like_count: number }> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .rpc('increment_like_count', {
             roulette_id: id
@@ -237,6 +245,7 @@ export const incrementLikeCount = async (id: string): Promise<{ id: string; like
  * @returns 更新されたいいね数を持つオブジェクト
  */
 export const decrementLikeCount = async (id: string): Promise<{ id: string; like_count: number }> => {
+    const supabase = getSupabase();
     const { data, error } = await supabase
         .rpc('decrement_like_count', {
             roulette_id: id
@@ -252,4 +261,28 @@ export const decrementLikeCount = async (id: string): Promise<{ id: string; like
     }
     
     return data;
+};
+
+/**
+ * Fetches official templates (user_id is null)
+ * @returns Array of official template roulettes
+ */
+export const getOfficialTemplates = async (): Promise<Roulette[]> => {
+    const supabase = getSupabase();
+    const { data, error } = await supabase
+        .from('roulettes')
+        .select('*') // No need to join profiles since user_id is null
+        .is('user_id', null)
+        .eq('is_template', true)
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        handleSupabaseError(error, 'getOfficialTemplates');
+    }
+
+    if (!data) {
+        throw new Error('Failed to fetch official templates, no data returned.');
+    }
+
+    return data || [];
 };
