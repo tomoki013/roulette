@@ -41,6 +41,18 @@ export const getProfileByUserId = async (userId: string): Promise<Profile | null
 };
 
 /**
+ * ユーザーを削除します
+ * @returns Promise<void>
+ */
+export const deleteUser = async (): Promise<void> => {
+    const { error } = await supabase.rpc('delete_user');
+
+    if (error) {
+        handleSupabaseError(error, 'deleteUser');
+    }
+};
+
+/**
  * プロフィールを更新します
  * @param userId - ユーザーID
  * @param updates - 更新するデータ

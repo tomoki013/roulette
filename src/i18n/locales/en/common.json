@@ -113,7 +113,14 @@
     "allowFork": "Allow other users to fork",
     "allowForkExcerpt": "Allow other users to create a new roulette based on this template.",
     "publishProfile": "Publish Profile",
-    "publishProfileExcerpt": "Display your profile as the creator on the template."
+    "publishProfileExcerpt": "Display your profile as the creator on the template.",
+    "delete_account": {
+      "button": "Delete Account",
+      "modal_title": "Confirm Account Deletion",
+      "modal_description": "Are you sure you want to delete your account? This action cannot be undone.",
+      "confirm_button": "Delete",
+      "cancel_button": "Cancel"
+    }
   },
   "roulette": {
     "title": "Create Roulette",

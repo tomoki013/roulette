@@ -113,7 +113,14 @@
     "allowFork": "Autoriser les autres utilisateurs à dupliquer",
     "allowForkExcerpt": "Permettre à d'autres utilisateurs de créer une nouvelle roulette basée sur ce modèle.",
     "publishProfile": "Publier le profil",
-    "publishProfileExcerpt": "Affichez votre profil en tant que créateur sur le modèle."
+    "publishProfileExcerpt": "Affichez votre profil en tant que créateur sur le modèle.",
+    "delete_account": {
+      "button": "Supprimer le Compte",
+      "modal_title": "Confirmer la Suppression du Compte",
+      "modal_description": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+      "confirm_button": "Supprimer",
+      "cancel_button": "Annuler"
+    }
   },
   "roulette": {
     "title": "Créer une Roulette",
