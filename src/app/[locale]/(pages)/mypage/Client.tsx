@@ -25,7 +25,7 @@ const MyPageClient = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [profileDescription, setProfileDescription] = useState('');
-    const { showModal, hideModal } = useModal();
+    const { showModal, closeModal } = useModal();
 
     useEffect(() => {
         if (authLoading) return;
@@ -71,32 +71,30 @@ const MyPageClient = () => {
         try {
             await deleteUser();
             await signOut();
-            hideModal();
+            closeModal();
             router.push('/');
         } catch (error) {
             console.error("Failed to delete account:", error);
-            // エラーモーダルなどを表示するとなお良い
+            showModal({
+                title: "Error",
+                message: "Failed to delete account. Please try again later.",
+                type: 'error',
+                onConfirm: closeModal,
+            });
         }
-    }, [signOut, hideModal, router]);
+    }, [signOut, closeModal, showModal, router]);
 
     const showDeleteConfirmModal = useCallback(() => {
         showModal({
             title: t('mypage.delete_account.modal_title'),
-            content: (
-                <div>
-                    <p>{t('mypage.delete_account.modal_description')}</p>
-                    <div className="flex justify-end gap-2 mt-4">
-                        <button onClick={hideModal} className="px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 rounded-lg transition-colors">
-                            {t('mypage.delete_account.cancel_button')}
-                        </button>
-                        <button onClick={handleDeleteAccount} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                            {t('mypage.delete_account.confirm_button')}
-                        </button>
-                    </div>
-                </div>
-            )
+            message: t('mypage.delete_account.modal_description'),
+            confirmText: t('mypage.delete_account.confirm_button'),
+            cancelText: t('mypage.delete_account.cancel_button'),
+            onConfirm: handleDeleteAccount,
+            onCancel: closeModal,
+            type: 'error'
         });
-    }, [t, hideModal, handleDeleteAccount]);
+    }, [t, closeModal, handleDeleteAccount, showModal]);
     
     if (authLoading || isLoading) {
         return <LoadingScreen />;
