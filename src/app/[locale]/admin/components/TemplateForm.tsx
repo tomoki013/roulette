@@ -102,22 +102,11 @@ export function TemplateForm({ initialData }: TemplateFormProps) {
         <div className="space-y-6">
             {error && <div className="p-4 bg-red-900/50 border border-red-500 text-red-300 rounded-lg">{error}</div>}
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                 <label htmlFor="template-description" className="block text-white/80 text-sm font-medium mb-2">
-                    {t('form.descriptionLabel')}
-                 </label>
-                 <textarea
-                    id="template-description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="w-full h-24 px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-                    placeholder={t('form.descriptionPlaceholder')}
-                 />
-            </div>
-
             <SettingsPanel
                 title={title}
                 onTitleChange={setTitle}
+                description={description}
+                onDescriptionChange={setDescription}
                 items={items}
                 onItemAdd={handleItemAdd}
                 onItemRemove={handleItemRemove}

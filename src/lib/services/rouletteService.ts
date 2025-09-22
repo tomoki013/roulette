@@ -263,16 +263,18 @@ export const decrementLikeCount = async (id: string): Promise<{ id: string; like
     return data;
 };
 
+import { OFFICIAL_USER_ID } from '@/constants/common';
+
 /**
- * Fetches official templates (user_id is null)
+ * Fetches official templates (user_id is the official user ID)
  * @returns Array of official template roulettes
  */
 export const getOfficialTemplates = async (): Promise<Roulette[]> => {
     const supabase = getSupabase();
     const { data, error } = await supabase
         .from('roulettes')
-        .select('*') // No need to join profiles since user_id is null
-        .is('user_id', null)
+        .select('*') // No need to join profiles for official templates
+        .eq('user_id', OFFICIAL_USER_ID)
         .eq('is_template', true)
         .order('created_at', { ascending: false });
 
