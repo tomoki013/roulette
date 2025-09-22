@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseSpinPage = ({
+const HowToUseSpinPage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseSpinPageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseSpinPageClient locale={locale} />;
 };
 
 export default HowToUseSpinPage;

@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseOriginalRoulettePage = ({
+const HowToUseOriginalRoulettePage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseOriginalRoulettePageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseOriginalRoulettePageClient locale={locale} />;
 };
 
 export default HowToUseOriginalRoulettePage;

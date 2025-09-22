@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseAccountMeritPage = ({
+const HowToUseAccountMeritPage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseAccountMeritPageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseAccountMeritPageClient locale={locale} />;
 };
 
 export default HowToUseAccountMeritPage;

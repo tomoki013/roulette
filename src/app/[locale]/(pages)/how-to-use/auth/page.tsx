@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseAuthPage = ({
+const HowToUseAuthPage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseAuthPageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseAuthPageClient locale={locale} />;
 };
 
 export default HowToUseAuthPage;

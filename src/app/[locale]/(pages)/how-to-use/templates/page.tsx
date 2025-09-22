@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseTemplatesPage = ({
+const HowToUseTemplatesPage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseTemplatesPageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseTemplatesPageClient locale={locale} />;
 };
 
 export default HowToUseTemplatesPage;

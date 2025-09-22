@@ -34,12 +34,13 @@ export async function generateMetadata(props: {
   };
 }
 
-const HowToUseSharePage = ({
+const HowToUseSharePage = async ({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
-  return <HowToUseSharePageClient locale={params.locale} />;
+  const { locale } = await params;
+  return <HowToUseSharePageClient locale={locale} />;
 };
 
 export default HowToUseSharePage;
