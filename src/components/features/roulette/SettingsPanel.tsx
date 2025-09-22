@@ -10,6 +10,8 @@ import { useParams } from 'next/navigation';
 interface SettingsPanelProps {
     title: string;
     onTitleChange: (newTitle: string) => void;
+    description: string;
+    onDescriptionChange: (newDescription: string) => void;
     items: Item[];
     onItemAdd: () => void;
     onItemRemove: (index: number) => void;
@@ -26,6 +28,8 @@ interface SettingsPanelProps {
 const SettingsPanel = ({
     title,
     onTitleChange,
+    description,
+    onDescriptionChange,
     items,
     onItemAdd,
     onItemRemove,
@@ -91,6 +95,18 @@ const SettingsPanel = ({
                     >
                         {title.length} / {titleMaxLength}
                     </motion.div>
+                </div>
+
+                <div className="mb-6">
+                    <label className="block text-white/80 text-sm font-medium mb-2">
+                        {t('roulette.settings.description')}
+                    </label>
+                    <textarea
+                        value={description}
+                        onChange={(e) => onDescriptionChange(e.target.value)}
+                        className="w-full h-24 px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                        placeholder={t('roulette.settings.descriptionPlaceholder')}
+                    />
                 </div>
 
                 <div className="space-y-3">

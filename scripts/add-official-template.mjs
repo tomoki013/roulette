@@ -61,7 +61,8 @@ async function addOfficialTemplate() {
     title: title,
     items: parsedItems,
     description: localizedDescription,
-    user_id: null,
+    // This ID should match the one in src/constants/common.ts
+    user_id: '00000000-0000-0000-0000-000000000000',
     is_template: true,
     is_profile_public: false,
     allow_fork: true,

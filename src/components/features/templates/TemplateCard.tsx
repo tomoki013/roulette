@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Layers, User, Heart, ChevronsRight, Star } from 'lucide-react';
 import { Database } from '@/types/database.types';
 import Link from 'next/link';
+import { OFFICIAL_USER_ID } from '@/constants/common';
 import { useEffect, useState } from 'react';
 import { incrementLikeCount, decrementLikeCount } from '@/lib/services/rouletteService';
 
@@ -88,12 +89,15 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
     const truncatedDescription = getDescription().length > 70 ? `${getDescription().substring(0, 70)}...` : getDescription();
 
     const getAuthorInfo = () => {
-        if (template.user_id === null) {
+        if (template.user_id === OFFICIAL_USER_ID) {
             return {
                 text: t('templates.official', 'Official'), // 'Official' is a fallback
                 Icon: Star,
                 isOfficial: true,
             };
+        }
+        if (template.user_id === null) {
+            return null;
         }
         if (template.is_profile_public) {
             return {
