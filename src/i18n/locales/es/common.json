@@ -26,7 +26,8 @@
   },
   "articles": {
     "title": "Casos de Uso",
-    "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración."
+    "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración.",
+    "back_to_list": "Volver a la lista de artículos"
   },
   "auth": {
     "title": "Autenticación de Usuario",

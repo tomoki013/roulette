@@ -8,11 +8,11 @@ import { BookText, Calendar, User } from "lucide-react";
 
 interface ArticlesPageClientProps {
   articles: Omit<ArticleData, "content">[];
+  locale: string;
 }
 
-const ArticlesPageClient = ({ articles }: ArticlesPageClientProps) => {
-  const { t, i18n } = useTranslation();
-  const locale = i18n.language;
+const ArticlesPageClient = ({ articles, locale }: ArticlesPageClientProps) => {
+  const { t } = useTranslation();
 
   const containerVariants = {
     hidden: { opacity: 0 },

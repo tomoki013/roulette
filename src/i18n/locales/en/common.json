@@ -26,7 +26,8 @@
   },
   "articles": {
     "title": "Use Cases",
-    "description": "Discover various use cases for 'Web Roulette'. From classroom scenarios to event planning and daily decision-making, find ideas to spark your inspiration."
+    "description": "Discover various use cases for 'Web Roulette'. From classroom scenarios to event planning and daily decision-making, find ideas to spark your inspiration.",
+    "back_to_list": "Back to Articles List"
   },
   "auth": {
     "title": "User Authentication",

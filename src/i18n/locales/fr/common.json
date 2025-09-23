@@ -26,7 +26,8 @@
   },
   "articles": {
     "title": "Cas d'utilisation",
-    "description": "Découvrez divers cas d'utilisation pour la 'Roulette en Ligne'. Des scénarios de classe à la planification d'événements et à la prise de décision quotidienne, trouvez des idées pour stimuler votre inspiration."
+    "description": "Découvrez divers cas d'utilisation pour la 'Roulette en Ligne'. Des scénarios de classe à la planification d'événements et à la prise de décision quotidienne, trouvez des idées pour stimuler votre inspiration.",
+    "back_to_list": "Retour à la liste des articles"
   },
   "auth": {
     "title": "Authentification Utilisateur",

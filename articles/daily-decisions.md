@@ -20,13 +20,13 @@ excerpt: "ランチの場所から今日の献立まで、日常生活にあふ�
 
 お店やメニューが決まらない...そんな時は、このルーレットにおまかせ！
 
-**[➡️ 「今日のランチ」テンプレートを使ってみる](/ja/templates/roulette/15f2f0fd-a491-4fc2-bcc8-fdaba89fdafa)**
+**[➡️ 「今日のランチ」テンプレートを使ってみる](/templates/roulette/15f2f0fd-a491-4fc2-bcc8-fdaba89fdafa)**
 
 ### 🍳 今日の献立どうする？
 
 毎日の献立作りで悩んだら、このルーレットがあなたの代わりに決めてくれます。
 
-**[➡️ 「今日の献立」テンプレートを使ってみる](/ja/templates/roulette/8ad0bc81-7af5-4bef-9ab9-ccbcebdc3e64)**
+**[➡️ 「今日の献立」テンプレートを使ってみる](/templates/roulette/8ad0bc81-7af5-4bef-9ab9-ccbcebdc3e64)**
 
 ## 具体的な活用シーン
 
