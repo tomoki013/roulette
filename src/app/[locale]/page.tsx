@@ -3,7 +3,7 @@ import HomePageClient from "./HomePageClient";
 
 // This is a server component
 const Page = async () => {
-  const articles = getAllArticles();
+  const articles = getAllArticles().slice(0, 3);
   return <HomePageClient articles={articles} />;
 };
 

@@ -7,13 +7,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Star, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-const Benefit = ({
-  title,
-  content,
-}: {
-  title: string;
-  content: string;
-}) => (
+const Benefit = ({ title, content }: { title: string; content: string }) => (
   <div className="flex items-start gap-4">
     <Star className="text-yellow-400 mt-1 flex-shrink-0" />
     <div>

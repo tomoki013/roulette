@@ -7,13 +7,7 @@ import { motion } from "framer-motion";
 import { BookOpen, CheckCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-const Step = ({
-  title,
-  content,
-}: {
-  title: string;
-  content: string;
-}) => (
+const Step = ({ title, content }: { title: string; content: string }) => (
   <div className="flex items-start gap-4">
     <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
     <div>
