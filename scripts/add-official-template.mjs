@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
-import minimist from 'minimist';
-import dotenv from 'dotenv';
+import { createClient } from "@supabase/supabase-js";
+import minimist from "minimist";
+import dotenv from "dotenv";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -10,7 +10,9 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
 if (!supabaseUrl || !supabaseServiceKey) {
-  console.error('Error: SUPABASE_URL and SUPABASE_SERVICE_KEY must be defined in your .env file');
+  console.error(
+    "Error: SUPABASE_URL and SUPABASE_SERVICE_KEY must be defined in your .env file"
+  );
   process.exit(1);
 }
 
@@ -34,45 +36,50 @@ let parsedItems;
 try {
   parsedItems = JSON.parse(items);
   if (!Array.isArray(parsedItems) || parsedItems.length === 0) {
-    throw new Error('Items must be a non-empty array.');
+    throw new Error("Items must be a non-empty array.");
   }
   // A simple check for the item structure
-  if (!parsedItems.every(item => typeof item === 'object' && item !== null && 'name' in item)) {
+  if (
+    !parsedItems.every(
+      (item) => typeof item === "object" && item !== null && "name" in item
+    )
+  ) {
     throw new Error('Each item must be an object with a "name" property.');
   }
 } catch (error) {
-  console.error('Error: --items argument must be a valid JSON string representing a non-empty array of objects with a "name" property.');
+  console.error(
+    'Error: --items argument must be a valid JSON string representing a non-empty array of objects with a "name" property.'
+  );
   console.error(error.message);
   process.exit(1);
 }
 
 // Create a localized description object
-const supportedLanguages = ['en', 'ja', 'fr', 'es'];
+const supportedLanguages = ["en", "ja", "fr", "es"];
 const localizedDescription = supportedLanguages.reduce((acc, lang) => {
-    acc[lang] = description;
-    return acc;
+  acc[lang] = description;
+  return acc;
 }, {});
 
-
 async function addOfficialTemplate() {
-  console.log('Adding new official template...');
+  console.log("Adding new official template...");
 
   const rouletteData = {
     title: title,
     items: parsedItems,
     description: localizedDescription,
     // This ID should match the one in src/constants/common.ts
-    user_id: '00000000-0000-0000-0000-000000000000',
+    user_id: "00000000-0000-0000-0000-000000000000",
     is_template: true,
     is_profile_public: false,
     allow_fork: true,
     supported_languages: supportedLanguages,
-    tags: ['official'], // Add an 'official' tag
+    tags: ["official"], // Add an 'official' tag
   };
 
   try {
     const { data, error } = await supabase
-      .from('roulettes')
+      .from("roulettes")
       .insert([rouletteData])
       .select()
       .single();
@@ -81,10 +88,10 @@ async function addOfficialTemplate() {
       throw error;
     }
 
-    console.log('Successfully added official template:');
+    console.log("Successfully added official template:");
     console.log(data);
   } catch (error) {
-    console.error('Error adding official template:', error.message);
+    console.error("Error adding official template:", error.message);
   }
 }
 

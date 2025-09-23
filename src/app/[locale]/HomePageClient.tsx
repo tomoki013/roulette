@@ -81,9 +81,7 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
             )}
             {t("heroSection.login.title")}
           </h2>
-          <p className="text-white/80 mb-6">
-            {t("heroSection.login.excerpt")}
-          </p>
+          <p className="text-white/80 mb-6">{t("heroSection.login.excerpt")}</p>
           <Link
             href={user ? `/${locale}/mypage` : `/${locale}/auth`}
             className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"

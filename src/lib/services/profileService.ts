@@ -1,15 +1,15 @@
-import { getSupabase } from '../supabaseClient';
-import { Database } from '@/types/database.types';
-import { PostgrestError } from '@supabase/supabase-js';
+import { getSupabase } from "../supabaseClient";
+import { Database } from "@/types/database.types";
+import { PostgrestError } from "@supabase/supabase-js";
 
 // 型エイリアス
-type Profile = Database['public']['Tables']['profiles']['Row'];
-type ProfileUpdate = Database['public']['Tables']['profiles']['Update'];
+type Profile = Database["public"]["Tables"]["profiles"]["Row"];
+type ProfileUpdate = Database["public"]["Tables"]["profiles"]["Update"];
 
 // エラーハンドリング
 const handleSupabaseError = (error: PostgrestError, context: string) => {
-    console.error(`Error in ${context}:`, error);
-    throw new Error(error.message);
+  console.error(`Error in ${context}:`, error);
+  throw new Error(error.message);
 };
 
 /**
@@ -17,28 +17,33 @@ const handleSupabaseError = (error: PostgrestError, context: string) => {
  * @param userId - ユーザーID
  * @returns プロフィールデータ、見つからない場合はnull
  */
-export const getProfileByUserId = async (userId: string): Promise<Profile | null> => {
-    const supabase = getSupabase();
-    const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
-        .single();
+export const getProfileByUserId = async (
+  userId: string
+): Promise<Profile | null> => {
+  const supabase = getSupabase();
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", userId)
+    .single();
 
-    if (error) {
-        if (error.code === 'PGRST116') { // データが存在しない場合のエラーコード
-            return null;
-        }
-        handleSupabaseError(error, 'getProfileByUserId');
+  if (error) {
+    if (error.code === "PGRST116") {
+      // データが存在しない場合のエラーコード
+      return null;
     }
+    handleSupabaseError(error, "getProfileByUserId");
+  }
 
-    // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
-    if (!data) {
-        // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
-        throw new Error('Failed to update profile, no data returned from Supabase.');
-    }
+  // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
+  if (!data) {
+    // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
+    throw new Error(
+      "Failed to update profile, no data returned from Supabase."
+    );
+  }
 
-    return data;
+  return data;
 };
 
 /**
@@ -46,12 +51,12 @@ export const getProfileByUserId = async (userId: string): Promise<Profile | null
  * @returns Promise<void>
  */
 export const deleteUser = async (): Promise<void> => {
-    const supabase = getSupabase();
-    const { error } = await supabase.rpc('delete_user');
+  const supabase = getSupabase();
+  const { error } = await supabase.rpc("delete_user");
 
-    if (error) {
-        handleSupabaseError(error, 'deleteUser');
-    }
+  if (error) {
+    handleSupabaseError(error, "deleteUser");
+  }
 };
 
 /**
@@ -60,27 +65,32 @@ export const deleteUser = async (): Promise<void> => {
  * @param updates - 更新するデータ
  * @returns 更新されたプロフィールデータ
  */
-export const updateProfile = async (userId: string, updates: ProfileUpdate): Promise<Profile> => {
-    const supabase = getSupabase();
-    const { data, error } = await supabase
-        .from('profiles')
-        .update({
-            ...updates,
-            updated_at: new Date().toISOString()
-        })
-        .eq('id', userId)
-        .select()
-        .single();
+export const updateProfile = async (
+  userId: string,
+  updates: ProfileUpdate
+): Promise<Profile> => {
+  const supabase = getSupabase();
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({
+      ...updates,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", userId)
+    .select()
+    .single();
 
-    if (error) {
-        handleSupabaseError(error, 'updateProfile');
-    }
+  if (error) {
+    handleSupabaseError(error, "updateProfile");
+  }
 
-    // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
-    if (!data) {
-        // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
-        throw new Error('Failed to update profile, no data returned from Supabase.');
-    }
+  // dataがnullの場合、更新対象が見つからなかった等のエラーなので例外を投げる
+  if (!data) {
+    // このエラーハンドリングを追加することで、戻り値がnullになる可能性を排除します
+    throw new Error(
+      "Failed to update profile, no data returned from Supabase."
+    );
+  }
 
-    return data;
+  return data;
 };

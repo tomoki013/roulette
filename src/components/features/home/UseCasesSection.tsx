@@ -28,13 +28,25 @@ const UseCasesSection = ({ articles, locale }: UseCasesSectionProps) => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {articles.map((article) => (
-            <Link key={article.slug} href={`/${locale}/articles/${article.slug}`} passHref>
+            <Link
+              key={article.slug}
+              href={`/${locale}/articles/${article.slug}`}
+              passHref
+            >
               <motion.div
-                whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)" }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -5,
+                  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+                }}
                 className="bg-white/10 hover:bg-white/20 p-6 rounded-lg h-full flex flex-col cursor-pointer transition-all duration-300"
               >
-                <h3 className="font-bold text-lg mb-2 text-yellow-300">{article.title}</h3>
-                <p className="text-white/70 text-sm flex-grow">{article.excerpt}</p>
+                <h3 className="font-bold text-lg mb-2 text-yellow-300">
+                  {article.title}
+                </h3>
+                <p className="text-white/70 text-sm flex-grow">
+                  {article.excerpt}
+                </p>
               </motion.div>
             </Link>
           ))}
