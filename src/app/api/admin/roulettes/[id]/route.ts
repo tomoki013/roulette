@@ -6,6 +6,7 @@ import {
   deleteRoulette,
 } from "@/lib/services/rouletteService";
 import { Database } from "@/types/database.types";
+import { OFFICIAL_USER_ID } from "@/constants/common";
 
 type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
@@ -20,7 +21,7 @@ const isAuthenticated = async (): Promise<boolean> => {
 const isOfficialTemplate = async (id: string): Promise<boolean> => {
   const roulette = await getRouletteById(id);
   // It's an official template if it exists and its user_id is null
-  return !!roulette && roulette.user_id === null;
+  return !!roulette && roulette.user_id === OFFICIAL_USER_ID;
 };
 
 /**
