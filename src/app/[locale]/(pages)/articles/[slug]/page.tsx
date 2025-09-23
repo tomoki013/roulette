@@ -43,7 +43,8 @@ const ArticlePage = async (props: {
 }) => {
   const params = await props.params;
   const article = getArticleBySlug(params.slug);
-  return <ArticleDetailClient article={article} />;
+  const locale = params.locale;
+  return <ArticleDetailClient article={article} locale={locale} />;
 };
 
 export default ArticlePage;

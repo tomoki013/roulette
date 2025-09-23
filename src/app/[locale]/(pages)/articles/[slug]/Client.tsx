@@ -1,17 +1,19 @@
 "use client";
 
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkToc from "remark-toc";
 import { ArticleData } from "@/lib/articles";
 import { motion } from "framer-motion";
-import { Calendar, User } from "lucide-react";
+import { ArrowLeft, Calendar, User } from "lucide-react";
+import Article from "@/components/features/article/Article";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 interface ArticleDetailClientProps {
   article: ArticleData;
+  locale: string;
 }
 
-const ArticleDetailClient = ({ article }: ArticleDetailClientProps) => {
+const ArticleDetailClient = ({ article, locale }: ArticleDetailClientProps) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,18 +36,15 @@ const ArticleDetailClient = ({ article }: ArticleDetailClientProps) => {
           </div>
         </div>
       </div>
-
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-        <article
-          className="prose prose-invert prose-lg max-w-none
-                            prose-headings:text-yellow-300 prose-a:text-yellow-400 prose-strong:text-white
-                            prose-blockquote:border-l-yellow-300 prose-blockquote:text-white/80
-                            prose-hr:border-white/20"
+      <Article article={article} locale={locale} />
+      <div className="mt-8 text-center">
+        <Link
+          href={`/${locale}/articles`}
+          className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm, remarkToc]}>
-            {article.content}
-          </ReactMarkdown>
-        </article>
+          <ArrowLeft size={20} />
+          <span>{t("articles.back_to_list")}</span>
+        </Link>
       </div>
     </motion.div>
   );

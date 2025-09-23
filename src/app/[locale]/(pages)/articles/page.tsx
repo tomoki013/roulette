@@ -32,9 +32,11 @@ export async function generateMetadata(props: {
   };
 }
 
-const ArticlesPage = () => {
+const ArticlesPage = async (props: { params: Promise<{ locale: string }> }) => {
+  const { params } = await props;
+  const { locale } = await params;
   const articles = getAllArticles();
-  return <ArticlesPageClient articles={articles} />;
+  return <ArticlesPageClient articles={articles} locale={locale} />;
 };
 
 export default ArticlesPage;
