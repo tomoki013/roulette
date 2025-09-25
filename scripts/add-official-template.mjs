@@ -69,7 +69,7 @@ async function addOfficialTemplate() {
     items: parsedItems,
     description: localizedDescription,
     // This ID should match the one in src/constants/common.ts
-    user_id: "00000000-0000-0000-0000-000000000000",
+    user_id: "8e258865-4c59-4bac-a98b-44de8a2ff5c7",
     is_template: true,
     is_profile_public: false,
     allow_fork: true,

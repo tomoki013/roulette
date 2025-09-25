@@ -5,6 +5,7 @@ import {
   createRoulette,
 } from "@/lib/services/rouletteService";
 import { Database } from "@/types/database.types";
+import { OFFICIAL_USER_ID } from "@/constants/common";
 
 type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
 
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
     // Ensure the correct properties are set for an official template
     const newTemplateData: RouletteInsert = {
       ...body,
-      user_id: null,
+      user_id: OFFICIAL_USER_ID,
       is_template: true,
       is_official: true, // Explicitly set as official
       like_count: 0, // Initialize like count
