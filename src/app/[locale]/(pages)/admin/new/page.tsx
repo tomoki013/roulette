@@ -1,4 +1,4 @@
-import { TemplateForm } from "../../(pages)/admin/components/TemplateForm";
+import { TemplateForm } from "../components/TemplateForm";
 import { Locale } from "@/../i18n-config";
 import { createTranslation } from "@/i18n/server";
 
