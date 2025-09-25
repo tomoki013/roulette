@@ -25,6 +25,7 @@ import { ROULETTE_COLORS } from "@/constants/roulette";
 import { motion } from "framer-motion";
 import { User, Heart, Star } from "lucide-react"; // Starアイコンをインポート
 import Link from "next/link";
+import { OFFICIAL_USER_ID } from "@/constants/common";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
@@ -243,7 +244,7 @@ const TemplateRoulettePageClient = () => {
       <div className="mb-8 flex flex-col justify-center gap-2">
         <h1 className="text-4xl font-bold text-white text-center">{title}</h1>
         <p className="text-center text-white">{description}</p>
-        {template?.user_id === null && (
+        {template?.user_id === OFFICIAL_USER_ID && (
           <div className="flex items-center justify-center gap-2 text-yellow-400 mt-2">
             <Star className="fill-yellow-400" size={20} />
             <span className="font-semibold">
