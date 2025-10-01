@@ -27,15 +27,15 @@ export async function generateMetadata(props: {
 
   return {
     title: {
-      default: t.title,
-      template: `%s | ${t.title}`,
+      default: t.common.appName,
+      template: `%s | ${t.common.appName}`,
     },
-    description: t.description,
+    description: t.seo.home.description,
     authors: [{ name: "tomokichi" }],
     openGraph: {
-      title: t.title,
-      description: t.description,
-      siteName: t.title,
+      title: t.common.appName,
+      description: t.seo.home.description,
+      siteName: t.common.appName,
       url: "https://webroulette.netlify.app",
       type: "website",
       locale: locale,
@@ -44,13 +44,13 @@ export async function generateMetadata(props: {
           url: "favicon.ico",
           width: 1200,
           height: 630,
-          alt: t.title,
+          alt: t.common.appName,
         },
       ],
     },
     twitter: {
-      title: t.title,
-      description: t.description,
+      title: t.common.appName,
+      description: t.seo.home.description,
       images: ["favicon.ico"],
       card: "summary_large_image",
     },

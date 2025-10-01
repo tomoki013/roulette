@@ -16,26 +16,26 @@ const ContactPageClient = () => {
 
   const formSchema = z.object({
     name: z.string().min(2, {
-      message: t("contact.error.nameRequired"),
+      message: t("pages.contact.validation.nameLength"),
     }),
     email: z.string().email({
-      message: t("contact.error.emailRequired"),
+      message: t("pages.contact.validation.emailInvalid"),
     }),
     subject: z.string().min(5, {
-      message: t("contact.submit.error.subjectLength"),
+      message: t("pages.contact.validation.subjectLength"),
     }),
     message: z.string().min(10, {
-      message: t("contact.submit.error.messageLength"),
+      message: t("pages.contact.validation.messageLength"),
     }),
     inquiryType: z
       .string({
-        required_error: t("contact.submit.error.inquiryTypeRequired"),
+        required_error: t("pages.contact.validation.inquiryTypeRequired"),
       })
       .refine((value) => value !== "", {
-        message: t("contact.submit.error.inquiryTypeRequired"),
+        message: t("pages.contact.validation.inquiryTypeRequired"),
       }),
     agreeToTerms: z.boolean().refine((val) => val === true, {
-      message: t("contact.submit.error.agreeToTermsRequired"),
+      message: t("pages.contact.validation.agreeToTermsRequired"),
     }),
   });
 
@@ -81,11 +81,11 @@ const ContactPageClient = () => {
         const serverMessage =
           errorData?.message ||
           t(
-            "contact.submit.errorServer",
+            "pages.contact.submit.errorServer",
             "サーバー側で予期せぬエラーが発生しました。"
           );
         setErrorMessage(
-          `${t("contact.submit.errorSeverPrefix", "サーバーエラー")}: ${serverMessage}`
+          `${t("pages.contact.submit.errorServerPrefix", "サーバーエラー")}: ${serverMessage}`
         );
         // エラー表示のためにトップへスクロール
         topRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -94,7 +94,7 @@ const ContactPageClient = () => {
       // ネットワークエラーなど、リクエスト自体が失敗した場合
       setErrorMessage(
         t(
-          "contact.submit.errorNetwork",
+          "pages.contact.submit.errorNetwork",
           "ネットワーク接続に問題があるようです。接続を確認後、再度お試しください。"
         )
       );
@@ -107,10 +107,10 @@ const ContactPageClient = () => {
     return (
       <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white text-center">
         <h1 className="text-3xl font-bold mb-4">
-          {t("contact.submit.successTitle")}
+          {t("pages.contact.submit.successTitle")}
         </h1>
         <p className="text-white/80 mb-8">
-          {t("contact.submit.successExcerpt")}
+          {t("pages.contact.submit.successExcerpt")}
         </p>
         <button
           onClick={() => {
@@ -119,7 +119,7 @@ const ContactPageClient = () => {
           }}
           className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-colors font-semibold"
         >
-          {t("contact.newInquiry")}
+          {t("pages.contact.newInquiry")}
         </button>
       </div>
     );
@@ -131,8 +131,8 @@ const ContactPageClient = () => {
       ref={topRef}
       className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white"
     >
-      <h1 className="text-3xl font-bold mb-4">{t("contact.title")}</h1>
-      <p className="text-white/80 mb-8">{t("contact.excerpt")}</p>
+      <h1 className="text-3xl font-bold mb-4">{t("seo.contact.title")}</h1>
+      <p className="text-white/80 mb-8">{t("pages.contact.excerpt")}</p>
 
       {/* エラーメッセージの表示をより分かりやすく改善 */}
       {errorMessage && (
@@ -156,7 +156,7 @@ const ContactPageClient = () => {
               />
             </svg>
             <h3 className="font-semibold text-red-300">
-              {t("contact.submit.error", "メッセージの送信に失敗しました")}
+              {t("pages.contact.submit.error", "メッセージの送信に失敗しました")}
             </h3>
           </div>
           <p className="mt-2 text-sm text-red-300/90 pl-9">{errorMessage}</p>
@@ -170,7 +170,7 @@ const ContactPageClient = () => {
               htmlFor="name"
               className="block text-sm font-medium text-white/90 mb-2"
             >
-              {t("contact.name")}
+              {t("pages.contact.name")}
             </label>
             <input
               type="text"
@@ -189,7 +189,7 @@ const ContactPageClient = () => {
               htmlFor="email"
               className="block text-sm font-medium text-white/90 mb-2"
             >
-              {t("contact.email")}
+              {t("common.email")}
             </label>
             <input
               type="email"
@@ -209,34 +209,36 @@ const ContactPageClient = () => {
             htmlFor="inquiryType"
             className="block text-sm font-medium text-white/90 mb-2"
           >
-            {t("contact.inquiryType.title")}
+            {t("pages.contact.inquiryType.title")}
           </label>
           <select
             {...form.register("inquiryType")}
             id="inquiryType"
             className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
           >
-            <option value="">{t("contact.inquiryType.placeholder")}</option>
+            <option value="">
+              {t("pages.contact.inquiryType.placeholder")}
+            </option>
             <option value="general" className="bg-gray-800">
-              {t("contact.inquiryType.options.general")}
+              {t("pages.contact.inquiryType.options.general")}
             </option>
             <option value="feedback" className="bg-gray-800">
-              {t("contact.inquiryType.options.feedback")}
+              {t("pages.contact.inquiryType.options.feedback")}
             </option>
             <option value="bugReport" className="bg-gray-800">
-              {t("contact.inquiryType.options.bugReport")}
+              {t("pages.contact.inquiryType.options.bugReport")}
             </option>
             <option value="collaboration" className="bg-gray-800">
-              {t("contact.inquiryType.options.collaboration")}
+              {t("pages.contact.inquiryType.options.collaboration")}
             </option>
             <option value="correction" className="bg-gray-800">
-              {t("contact.inquiryType.options.correction")}
+              {t("pages.contact.inquiryType.options.correction")}
             </option>
             <option value="featureRequest" className="bg-gray-800">
-              {t("contact.inquiryType.options.featureRequest")}
+              {t("pages.contact.inquiryType.options.featureRequest")}
             </option>
             <option value="other" className="bg-gray-800">
-              {t("contact.inquiryType.options.other")}
+              {t("pages.contact.inquiryType.options.other")}
             </option>
           </select>
           {form.formState.errors.inquiryType && (
@@ -250,7 +252,7 @@ const ContactPageClient = () => {
             htmlFor="subject"
             className="block text-sm font-medium text-white/90 mb-2"
           >
-            {t("contact.subject")}
+            {t("pages.contact.subject")}
           </label>
           <input
             type="text"
@@ -269,7 +271,7 @@ const ContactPageClient = () => {
             htmlFor="message"
             className="block text-sm font-medium text-white/90 mb-2"
           >
-            {t("contact.message")}
+            {t("pages.contact.message")}
           </label>
           <textarea
             {...form.register("message")}
@@ -292,9 +294,11 @@ const ContactPageClient = () => {
           />
           <div className="text-sm">
             <label htmlFor="agreeToTerms" className="font-medium text-white/90">
-              {t("contact.agreeToTerms")}
+              {t("pages.contact.agreeToTerms")}
             </label>
-            <p className="text-white/70">{t("contact.agreeToTermsExcerpt")}</p>
+            <p className="text-white/70">
+              {t("pages.contact.agreeToTermsExcerpt")}
+            </p>
             {form.formState.errors.agreeToTerms && (
               <p className="text-red-400 text-sm mt-1">
                 {form.formState.errors.agreeToTerms.message}
@@ -307,7 +311,7 @@ const ContactPageClient = () => {
             href={`/${locale}/privacy-policy`}
             className="hover:text-yellow-300 underline transition-colors"
           >
-            {t("privacyPolicy.title")}
+            {t("seo.privacyPolicy.title")}
           </Link>
         </div>
         <div>
@@ -317,8 +321,8 @@ const ContactPageClient = () => {
             disabled={form.formState.isSubmitting}
           >
             {form.formState.isSubmitting
-              ? t("loading")
-              : t("contact.submit.button")}
+              ? t("common.loading")
+              : t("common.submit")}
           </button>
         </div>
       </form>

@@ -43,7 +43,7 @@ const ArticleDetailClient = ({ article, locale }: ArticleDetailClientProps) => {
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("articles.back_to_list")}</span>
+          <span>{t("pages.articles.backToList")}</span>
         </Link>
       </div>
     </motion.div>

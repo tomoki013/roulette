@@ -15,7 +15,7 @@ export const useRouletteSettings = () => {
       return [
         ...prev,
         {
-          name: `${t("roulette.settings.optionDefault")} ${prev.length + 1}`,
+          name: `${t("components.roulette.settings.optionDefault")} ${prev.length + 1}`,
           ratio: 1,
           color: newItemColor,
         },
