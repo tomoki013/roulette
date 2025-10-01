@@ -23,19 +23,19 @@ const Footer = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
       >
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* ブランドセクション */}
-            <div className="col-span-1">
-              <Link
-                href={`/${locale}`}
-                className="flex items-center gap-2 mb-4"
-              >
-                <Sparkles className="text-yellow-300" size={28} />
-                <span className="text-2xl font-bold">{t("title")}</span>
-              </Link>
-              <p className="text-white/70">{t("footer.tagline")}</p>
-            </div>
+          {/* ブランドセクション */}
+          <div className="mb-8">
+            <Link
+              href={`/${locale}`}
+              className="flex items-center gap-2 mb-4 w-fit"
+            >
+              <Sparkles className="text-yellow-300" size={28} />
+              <span className="text-2xl font-bold">{t("title")}</span>
+            </Link>
+            <p className="text-white/70">{t("footer.tagline")}</p>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* 主な機能リンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
