@@ -21,10 +21,10 @@ const UseCasesSection = ({ articles, locale }: UseCasesSectionProps) => {
       <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
         <h2 className="text-3xl font-bold mb-6 flex items-center justify-center md:justify-start gap-3 text-center md:text-left">
           <BookOpen className="text-yellow-300" />
-          {t("heroSection.useCases.title")}
+          {t("components.heroSection.useCases.title")}
         </h2>
         <p className="text-white/80 mb-8 text-center md:text-left">
-          {t("heroSection.useCases.excerpt")}
+          {t("components.heroSection.useCases.excerpt")}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {articles.map((article) => (

@@ -69,7 +69,7 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
     <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 space-y-6">
       <div>
         <label htmlFor="title" className="block text-sm font-medium text-white/80 mb-1">
-          {t("form.titleLabel")}
+          {t("pages.admin.form.titleLabel")}
         </label>
         <input
           id="title"
@@ -83,23 +83,23 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
 
       <div>
         <label htmlFor="description" className="block text-sm font-medium text-white/80 mb-1">
-          {t("form.descriptionLabel")}
+          {t("pages.admin.form.descriptionLabel")}
         </label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="w-full h-24 p-2 bg-white/20 rounded-md text-white"
-          placeholder={t("form.descriptionPlaceholder")}
+          placeholder={t("pages.admin.form.descriptionPlaceholder")}
         />
       </div>
 
       <div>
-          <h3 className="text-lg font-medium text-white/80 mb-2">{t("form.itemsLabel")}</h3>
+          <h3 className="text-lg font-medium text-white/80 mb-2">{t("pages.admin.form.itemsLabel")}</h3>
           <div className="space-y-4">
               {items.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 p-2 rounded-md bg-white/10">
-                      <input type="text" placeholder={t("form.itemNamePlaceholder")} value={item.name} onChange={e => handleItemChange(index, "name", e.target.value)} className="w-1/2 p-2 bg-white/20 rounded-md text-white" />
+                      <input type="text" placeholder={t("pages.admin.form.itemNamePlaceholder")} value={item.name} onChange={e => handleItemChange(index, "name", e.target.value)} className="w-1/2 p-2 bg-white/20 rounded-md text-white" />
                       <input type="color" value={item.color} onChange={e => handleItemChange(index, "color", e.target.value)} className="p-1 bg-white/20 rounded-md" />
                       <input type="number" placeholder="Ratio" value={item.ratio} onChange={e => handleItemChange(index, "ratio", parseInt(e.target.value, 10))} className="w-1/4 p-2 bg-white/20 rounded-md text-white" />
                       <button type="button" onClick={() => removeItem(index)} className="p-2 text-red-400 hover:bg-red-500/20 rounded-md"><Trash2 size={16} /></button>
@@ -107,13 +107,13 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
               ))}
           </div>
           <button type="button" onClick={addItem} className="mt-2 flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-              <Plus size={16} /> {t("form.addItem")}
+              <Plus size={16} /> {t("pages.admin.form.addItem")}
           </button>
       </div>
 
       <div>
         <label htmlFor="tags" className="block text-sm font-medium text-white/80 mb-1">
-          {t("form.tagsLabel")}
+          {t("pages.admin.form.tagsLabel")}
         </label>
         <input
           id="tags"
@@ -121,13 +121,13 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           className="w-full p-2 bg-white/20 rounded-md text-white"
-          placeholder={t("form.tagsPlaceholder")}
+          placeholder={t("pages.admin.form.tagsPlaceholder")}
         />
       </div>
 
       <div>
         <label htmlFor="supportedLanguages" className="block text-sm font-medium text-white/80 mb-1">
-          {t("form.supportedLanguagesLabel")}
+          {t("pages.admin.form.supportedLanguagesLabel")}
         </label>
         <input
           id="supportedLanguages"
@@ -135,7 +135,7 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
           value={supportedLanguages}
           onChange={(e) => setSupportedLanguages(e.target.value)}
           className="w-full p-2 bg-white/20 rounded-md text-white"
-          placeholder={t("form.supportedLanguagesPlaceholder")}
+          placeholder={t("pages.admin.form.supportedLanguagesPlaceholder")}
         />
       </div>
 
@@ -145,14 +145,14 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
           onClick={() => router.back()}
           className="px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 rounded-lg transition-colors"
         >
-          {t("form.cancel")}
+          {t("common.cancel")}
         </button>
         <button
           type="submit"
           className="flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
         >
           <Save size={16} />
-          <span>{isEditing ? t("form.updateButton") : t("form.createButton")}</span>
+          <span>{isEditing ? t("pages.admin.form.updateButton") : t("pages.admin.form.createButton")}</span>
         </button>
       </div>
     </form>

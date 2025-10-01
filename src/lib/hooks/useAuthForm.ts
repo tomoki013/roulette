@@ -28,8 +28,10 @@ export const useAuthForm = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const formSchema = z.object({
-    email: z.string().email({ message: t("auth.error.emailInvalid") }),
-    password: z.string().min(6, { message: t("auth.error.passwordLength") }),
+    email: z.string().email({ message: t("components.auth.validation.emailInvalid") }),
+    password: z
+      .string()
+      .min(6, { message: t("components.auth.validation.passwordLength") }),
     username: z.string().optional(),
   });
 

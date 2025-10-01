@@ -63,9 +63,9 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <HelpCircle className="text-yellow-300" />
-          {t("howToUse.title")}
+          {t("pages.howToUse.title")}
         </h1>
-        <p className="text-lg text-white/80">{t("howToUse.description")}</p>
+        <p className="text-lg text-white/80">{t("pages.howToUse.description")}</p>
       </motion.div>
 
       <div className="space-y-8">
@@ -78,23 +78,23 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <BookOpen className="text-yellow-300" />
-            {t("howToUse.basic.title")}
+            {t("pages.howToUse.basic.title")}
           </h2>
           <ul className="space-y-1">
             <ListItemLink
               href="create"
-              title={t("howToUse.basic.create")}
-              description={t("howToUse.basic.create_description")}
+              title={t("pages.howToUse.basic.create.title")}
+              description={t("pages.howToUse.basic.create.description")}
             />
             <ListItemLink
               href="spin"
-              title={t("howToUse.basic.spin")}
-              description={t("howToUse.basic.spin_description")}
+              title={t("pages.howToUse.basic.spin.title")}
+              description={t("pages.howToUse.basic.spin.description")}
             />
             <ListItemLink
               href="share"
-              title={t("howToUse.basic.share")}
-              description={t("howToUse.basic.share_description")}
+              title={t("pages.howToUse.basic.share.title")}
+              description={t("pages.howToUse.basic.share.description")}
             />
           </ul>
         </motion.section>
@@ -108,18 +108,18 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <UserPlus className="text-yellow-300" />
-            {t("howToUse.account.title")}
+            {t("pages.howToUse.account.title")}
           </h2>
           <ul className="space-y-1">
             <ListItemLink
               href="account-merit"
-              title={t("howToUse.account.merit")}
-              description={t("howToUse.account.merit_description")}
+              title={t("pages.howToUse.account.merit.title")}
+              description={t("pages.howToUse.account.merit.description")}
             />
             <ListItemLink
               href="auth"
-              title={t("howToUse.account.auth")}
-              description={t("howToUse.account.auth_description")}
+              title={t("pages.howToUse.account.auth.title")}
+              description={t("pages.howToUse.account.auth.description")}
             />
           </ul>
         </motion.section>
@@ -133,18 +133,18 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <LogIn className="text-yellow-300" />
-            {t("howToUse.loggedIn.title")}
+            {t("pages.howToUse.loggedIn.title")}
           </h2>
           <ul className="space-y-1">
             <ListItemLink
               href="mypage"
-              title={t("howToUse.loggedIn.mypage")}
-              description={t("howToUse.loggedIn.mypage_description")}
+              title={t("pages.howToUse.loggedIn.mypage.title")}
+              description={t("pages.howToUse.loggedIn.mypage.description")}
             />
             <ListItemLink
               href="templates"
-              title={t("howToUse.loggedIn.templates")}
-              description={t("howToUse.loggedIn.templates_description")}
+              title={t("pages.howToUse.loggedIn.templates.title")}
+              description={t("pages.howToUse.loggedIn.templates.description")}
             />
           </ul>
         </motion.section>
@@ -158,13 +158,15 @@ const HowToUsePageClient = ({ locale }: HowToUsePageClientProps) => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <Star className="text-yellow-300" />
-            {t("howToUse.advanced.title")}
+            {t("pages.howToUse.advanced.title")}
           </h2>
           <ul className="space-y-1">
             <ListItemLink
               href="original-roulette"
-              title={t("howToUse.advanced.original_roulette")}
-              description={t("howToUse.advanced.original_roulette_description")}
+              title={t("pages.howToUse.advanced.originalRoulette.title")}
+              description={t(
+                "pages.howToUse.advanced.originalRoulette.description"
+              )}
             />
           </ul>
         </motion.section>
