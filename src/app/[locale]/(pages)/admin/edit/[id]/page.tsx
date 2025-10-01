@@ -1,34 +1,82 @@
-import { getRouletteById } from "@/lib/services/rouletteService";
-import { TemplateForm } from "../../components/TemplateForm";
-import { notFound } from "next/navigation";
-import { Locale } from "@/../i18n-config";
-import { createTranslation } from "@/i18n/server";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useState, useEffect } from "react";
+import { TemplateForm } from "@/components/features/admin/TemplateForm";
+import { useTranslation } from "react-i18next";
+import { useRouter, useParams } from "next/navigation";
+import { Database } from "@/types/database.types";
+import LoadingSpinner from "@/components/elements/loadingAnimation/LoadingSpinner";
 
-export default async function EditTemplatePage(props: {
-  params: Promise<{ id: string; locale: Locale }>;
-}) {
-  const params = await props.params;
-  const { id, locale } = params;
+type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
+type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
+type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
-  const template = await getRouletteById(id);
-  const { t } = await createTranslation(locale, "admin");
+export default function EditTemplatePage() {
+  const { t, i18n } = useTranslation("admin");
+  const router = useRouter();
+  const params = useParams();
+  const id = params.id as string;
+  const [template, setTemplate] = useState<Roulette | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // If the template doesn't exist or if it's not an official template (user_id is not null),
-  // then it's not accessible via the admin panel.
-  if (!template || template.user_id !== null) {
-    notFound();
+  useEffect(() => {
+    if (id) {
+      const fetchTemplate = async () => {
+        try {
+          setLoading(true);
+          const res = await fetch(`/api/admin/roulettes/${id}`);
+          if (!res.ok) {
+            throw new Error(t("form.fetchError"));
+          }
+          const data = await res.json();
+          setTemplate(data);
+        } catch (err) {
+          setError(err instanceof Error ? err.message : String(err));
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchTemplate();
+    }
+  }, [id, t]);
+
+  const handleSubmit = async (data: RouletteInsert | RouletteUpdate) => {
+    const res = await fetch(`/api/admin/roulettes/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      router.push(`/${i18n.language}/admin`);
+      router.refresh();
+    } else {
+      const errorData = await res.json();
+      alert(t("form.saveError") + `: ${errorData.error}`);
+    }
+  };
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-64"><LoadingSpinner /></div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500 text-center">{error}</div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6 lg:p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-6">
-          {t("form.editTitle")}
-        </h1>
-        <TemplateForm initialData={template} />
-      </div>
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-4xl font-bold text-white text-center mb-8">
+        {t("form.editTitle")}
+      </h1>
+      {template && (
+        <TemplateForm
+          template={template}
+          onSubmit={handleSubmit}
+          isEditing={true}
+        />
+      )}
     </div>
   );
 }

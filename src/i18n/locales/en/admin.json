@@ -25,10 +25,20 @@
   "form": {
     "createTitle": "Create New Official Template",
     "editTitle": "Edit Official Template",
+    "titleLabel": "Title",
     "descriptionLabel": "Description (EN)",
     "descriptionPlaceholder": "Enter template description in English. This will be the default.",
+    "itemsLabel": "Items",
+    "itemNamePlaceholder": "Item Name",
+    "addItem": "Add Item",
+    "tagsLabel": "Tags (comma-separated)",
+    "tagsPlaceholder": "e.g. fun, game, decision",
+    "supportedLanguagesLabel": "Supported Languages (comma-separated)",
+    "supportedLanguagesPlaceholder": "e.g. en, ja, es",
     "saveError": "Failed to save the template.",
+    "fetchError": "Failed to fetch template data.",
     "createButton": "Create Template",
-    "updateButton": "Update Template"
+    "updateButton": "Update Template",
+    "cancel": "Cancel"
   }
 }

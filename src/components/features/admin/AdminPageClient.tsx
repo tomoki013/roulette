@@ -4,21 +4,20 @@ import { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { Database } from "@/types/database.types";
-import { Trash, Edit, LogOut } from "lucide-react";
+import { Trash, Edit } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
 
-interface AdminDashboardClientProps {
+interface AdminPageClientProps {
   initialTemplates: Roulette[];
 }
 
-export function AdminDashboardClient({
+export function AdminPageClient({
   initialTemplates,
-}: AdminDashboardClientProps) {
+}: AdminPageClientProps) {
   const [templates, setTemplates] = useState(initialTemplates);
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
   const { t } = useTranslation("admin");
   const params = useParams();
   const locale = params.locale as string;
@@ -43,26 +42,11 @@ export function AdminDashboardClient({
     }
   };
 
-  const handleLogout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push(`/${locale}/admin/login`);
-    router.refresh();
-  };
-
   return (
-    <div className="bg-gray-800 rounded-lg shadow-lg">
-      <div className="flex justify-between items-center p-4 border-b border-gray-700">
-        <h2 className="text-xl font-semibold">
-          {t("dashboard.templatesTitle")}
-        </h2>
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors text-sm font-semibold"
-        >
-          <LogOut size={16} />
-          {t("dashboard.logout")}
-        </button>
-      </div>
+    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+       <h2 className="text-2xl font-bold text-white mb-4">
+        {t("dashboard.templatesTitle")}
+      </h2>
       {error && (
         <p className="m-4 text-center text-red-400 bg-red-900/50 p-3 rounded-md">
           {error}
@@ -70,15 +54,15 @@ export function AdminDashboardClient({
       )}
       <div className="overflow-x-auto">
         <table className="w-full text-left">
-          <thead className="bg-gray-700/50">
+          <thead className="border-b border-white/20">
             <tr>
-              <th className="p-4 font-semibold">
+              <th className="p-4 font-semibold text-white">
                 {t("dashboard.table.title")}
               </th>
-              <th className="p-4 font-semibold hidden md:table-cell">
+              <th className="p-4 font-semibold text-white hidden md:table-cell">
                 {t("dashboard.table.createdAt")}
               </th>
-              <th className="p-4 font-semibold">
+              <th className="p-4 font-semibold text-white">
                 {t("dashboard.table.actions")}
               </th>
             </tr>
@@ -87,10 +71,10 @@ export function AdminDashboardClient({
             {templates.map((template) => (
               <tr
                 key={template.id}
-                className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors"
+                className="border-b border-white/20 hover:bg-white/10 transition-colors"
               >
-                <td className="p-4 font-medium">{template.title}</td>
-                <td className="p-4 hidden md:table-cell text-gray-400">
+                <td className="p-4 font-medium text-white">{template.title}</td>
+                <td className="p-4 hidden md:table-cell text-gray-300">
                   {new Date(template.created_at).toLocaleDateString(locale)}
                 </td>
                 <td className="p-4 flex items-center gap-2">
