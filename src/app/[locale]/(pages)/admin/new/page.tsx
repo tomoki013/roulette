@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation";
 import { Database } from "@/types/database.types";
 
 type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
+type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
 export default function NewTemplatePage() {
   const { t, i18n } = useTranslation("admin");
   const router = useRouter();
 
-  const handleSubmit = async (data: RouletteInsert) => {
+  const handleSubmit = async (data: RouletteInsert | RouletteUpdate) => {
     const res = await fetch("/api/admin/roulettes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

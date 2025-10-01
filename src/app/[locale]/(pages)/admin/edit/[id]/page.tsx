@@ -8,6 +8,7 @@ import { Database } from "@/types/database.types";
 import LoadingSpinner from "@/components/elements/loadingAnimation/LoadingSpinner";
 
 type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
+type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
 type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
 export default function EditTemplatePage() {
@@ -40,7 +41,7 @@ export default function EditTemplatePage() {
     }
   }, [id, t]);
 
-  const handleSubmit = async (data: RouletteUpdate) => {
+  const handleSubmit = async (data: RouletteInsert | RouletteUpdate) => {
     const res = await fetch(`/api/admin/roulettes/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
