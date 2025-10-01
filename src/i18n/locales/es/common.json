@@ -3,6 +3,7 @@
   "description": "Ruleta Web es una herramienta gratuita en línea para crear ruletas personalizadas. Diseña y comparte fácilmente tus ruletas originales con elementos y probabilidades a tu gusto. Ideal para sorteos en eventos o decisiones diarias, y no requiere registro.",
   "excerpt": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares.",
   "close": "Cerrar",
+  "other": "Otro",
   "loading": "Cargando...",
   "about": {
     "title": "Acerca de",
@@ -161,7 +162,11 @@
       "confirmTitle": "Confirmar compartir",
       "confirmMessage": "El resultado no será incluido. Esto solo compartirá la configuración actual de la ruleta. ¿Está bien?",
       "confirmAction": "Compartir"
-    }
+    },
+    "copyUrl": "Copiar URL",
+    "urlCopied": "¡URL Copiada!",
+    "shareOnX": "Compartir en X",
+    "shareOnFacebook": "Compartir en Facebook"
   },
   "privacyPolicy": {
     "title": "Política de Privacidad",
@@ -292,7 +297,31 @@
         "step4_content": "If you are logged into your account, you can record the completed roulette on My Page with the 'Save' button. You can also use the 'Share' function to broadcast your unique roulette to the world via URL or image."
       }
     },
-    "back_to_list": "Back to How to Use list"
+    "back_to_list": "Volver a la lista de Cómo usar",
+    "create_interactive_description": "Aprendamos a crear una ruleta operando directamente el panel de abajo. Puedes cambiar libremente los nombres de los elementos, colores, proporciones y más.",
+    "demo": {
+      "notice": "Esta es una demostración interactiva. Los cambios que hagas aquí no se guardarán, así que siéntete libre de experimentar.",
+      "defaultTitle": "¿Qué almorzamos hoy?",
+      "item1": "Ramen",
+      "item2": "Curry",
+      "item3": "Pasta",
+      "item4": "Pizza",
+      "item5": "Sushi",
+      "available_templates": "Plantillas Disponibles",
+      "load_template": "Cargar esta Plantilla",
+      "template1_title": "Tareas Diarias",
+      "template1_item1": "Limpiar la habitación",
+      "template1_item2": "Hacer la compra",
+      "template1_item3": "Hacer ejercicio",
+      "template2_title": "Noche de Película",
+      "template2_item1": "Acción",
+      "template2_item2": "Comedia",
+      "template2_item3": "Drama",
+      "template2_item4": "Ciencia Ficción",
+      "template3_title": "Sí o No",
+      "template3_item1": "Sí",
+      "template3_item2": "No"
+    }
   },
   "footer": {
     "copyright": "Ruleta Web. Todos los derechos reservados.",

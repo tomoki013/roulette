@@ -3,6 +3,7 @@
   "description": "Roulette en Ligne est un outil gratuit pour créer des roulettes personnalisées. Concevez et partagez facilement vos roulettes originales avec des options et des probabilités sur mesure. Parfait pour les tirages au sort ou les décisions quotidiennes, sans inscription requise.",
   "excerpt": "Roulette en Ligne est un outil qui vous permet de créer et de partager facilement des roulettes personnalisées. Créez votre propre roulette originale et amusez-vous avec vos amis et votre famille.",
   "close": "Fermer",
+  "other": "Autre",
   "loading": "Chargement...",
   "about": {
     "title": "À propos",
@@ -161,7 +162,11 @@
       "confirmTitle": "Confirmer le partage",
       "confirmMessage": "Le résultat ne sera pas inclus. Cela ne partagera que les paramètres actuels de la roulette. Est-ce correct ?",
       "confirmAction": "Partager"
-    }
+    },
+    "copyUrl": "Copier l'URL",
+    "urlCopied": "URL copiée !",
+    "shareOnX": "Partager sur X",
+    "shareOnFacebook": "Partager sur Facebook"
   },
   "privacyPolicy": {
     "title": "Politique de confidentialité",
@@ -292,7 +297,31 @@
         "step4_content": "If you are logged into your account, you can record the completed roulette on My Page with the 'Save' button. You can also use the 'Share' function to broadcast your unique roulette to the world via URL or image."
       }
     },
-    "back_to_list": "Back to How to Use list"
+    "back_to_list": "Retour à la liste Comment utiliser",
+    "create_interactive_description": "Apprenons à créer une roulette en manipulant directement le panneau ci-dessous. Vous pouvez librement modifier les noms des éléments, les couleurs, les ratios, et plus encore.",
+    "demo": {
+      "notice": "Ceci est une démo interactive. Vos modifications ici ne seront pas sauvegardées, alors n'hésitez pas à expérimenter.",
+      "defaultTitle": "Qu'est-ce qu'on mange à midi ?",
+      "item1": "Ramen",
+      "item2": "Curry",
+      "item3": "Pâtes",
+      "item4": "Pizza",
+      "item5": "Sushi",
+      "available_templates": "Modèles Disponibles",
+      "load_template": "Charger ce Modèle",
+      "template1_title": "Tâches Quotidiennes",
+      "template1_item1": "Nettoyer la chambre",
+      "template1_item2": "Faire les courses",
+      "template1_item3": "Faire du sport",
+      "template2_title": "Soirée Cinéma",
+      "template2_item1": "Action",
+      "template2_item2": "Comédie",
+      "template2_item3": "Drame",
+      "template2_item4": "Science-Fiction",
+      "template3_title": "Oui ou Non",
+      "template3_item1": "Oui",
+      "template3_item2": "Non"
+    }
   },
   "footer": {
     "copyright": "Roulette en Ligne. Tous droits réservés.",
