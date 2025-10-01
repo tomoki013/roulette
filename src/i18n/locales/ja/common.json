@@ -40,9 +40,10 @@
     "newest": "新着順",
     "popular": "人気順",
     "like": "いいね",
-    "services": "サービス",
-    "legal": "法務",
-    "social": "ソーシャル"
+    "social": "ソーシャル",
+    "mainFeatures": "主な機能",
+    "support": "サポート",
+    "siteInfo": "サイト情報"
   },
   "seo": {
     "home": {
