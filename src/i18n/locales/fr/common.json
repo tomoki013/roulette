@@ -325,9 +325,9 @@
   },
   "footer": {
     "copyright": "Roulette en Ligne. Tous droits réservés.",
-    "services": "Services",
-    "howToUse": "Comment utiliser",
-    "legal": "Légal",
+    "mainFeatures": "Fonctionnalités principales",
+    "support": "Support",
+    "siteInfo": "Informations sur le site",
     "social": "Social",
     "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées."
   },

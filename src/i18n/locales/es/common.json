@@ -325,9 +325,9 @@
   },
   "footer": {
     "copyright": "Ruleta Web. Todos los derechos reservados.",
-    "services": "Servicios",
-    "howToUse": "Cómo usar",
-    "legal": "Legal",
+    "mainFeatures": "Funciones principales",
+    "support": "Soporte",
+    "siteInfo": "Información del sitio",
     "social": "Social",
     "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas."
   },

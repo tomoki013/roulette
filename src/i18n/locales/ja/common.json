@@ -347,8 +347,9 @@
   },
   "footer": {
     "copyright": "Webでルーレット. All rights reserved.",
-    "services": "サービス",
-    "legal": "法務",
+    "mainFeatures": "主な機能",
+    "support": "サポート",
+    "siteInfo": "サイト情報",
     "social": "ソーシャル",
     "tagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。"
   },
