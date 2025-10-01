@@ -95,6 +95,28 @@
       "messageRequired": "Message is required."
     }
   },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about Web Roulette. If you can't find the answer you're looking for, feel free to contact us.",
+    "questions": [
+      {
+        "q": "Is Web Roulette free to use?",
+        "a": "Yes, all basic features of Web Roulette are completely free to use. You can create, spin, and share roulettes without any charge. Advanced features like saving roulettes require a free user account."
+      },
+      {
+        "q": "Do I need to register to create a roulette?",
+        "a": "No, you can create and use a roulette without registering an account. However, if you want to save your created roulettes for later use, you will need to sign up for a free account."
+      },
+      {
+        "q": "How can I share my roulette?",
+        "a": "You can easily share your roulette by generating a unique URL or by downloading it as an image. Look for the 'Share' button on the roulette creation page."
+      },
+      {
+        "q": "Can I customize the probabilities of the items?",
+        "a": "Yes, you can set a 'ratio' for each item in the roulette settings. A higher ratio increases the probability of that item being selected."
+      }
+    ]
+  },
   "mypage": {
     "title": "My Page",
     "description": "On My Page, you can manage all the original roulettes you've created. It's easy to edit, delete, and change the public settings of your saved wheels. Access and enjoy your favorite roulettes anytime, anywhere. User registration is required.",
