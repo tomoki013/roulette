@@ -8,7 +8,7 @@ type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
 type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
 export default function NewTemplatePage() {
-  const { t, i18n } = useTranslation("admin");
+  const { t, i18n } = useTranslation();
   const router = useRouter();
 
   const handleSubmit = async (data: RouletteInsert | RouletteUpdate) => {

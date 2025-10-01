@@ -37,9 +37,9 @@ yarn-error.log*
 .vercel
 
 # SEO files
-/sitemap.xml
-/sitemap-*.xml
-/robots.txt
+public/sitemap.xml
+public/sitemap-*.xml
+public/robots.txt
 
 # typescript
 *.tsbuildinfo
