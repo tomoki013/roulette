@@ -347,9 +347,9 @@
   },
   "footer": {
     "copyright": "Web Roulette. All rights reserved.",
-    "services": "Services",
-    "howToUse": "How to Use",
-    "legal": "Legal",
+    "mainFeatures": "Main Features",
+    "support": "Support",
+    "siteInfo": "Site Info",
     "social": "Social",
     "tagline": "Instantly create and share your own custom roulettes."
   },
