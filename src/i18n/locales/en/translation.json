@@ -336,5 +336,47 @@
       "title": "Multi-language Support",
       "excerpt": "This site supports Japanese, English, Spanish, and French. You can change the language at any time from the language switcher in the menu."
     }
+  },
+  "login": {
+    "title": "Admin Login",
+    "passwordLabel": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "invalidPassword": "The password you entered is incorrect."
+  },
+  "dashboard": {
+    "title": "Admin Dashboard",
+    "newTemplate": "New Template",
+    "templatesTitle": "Official Templates",
+    "logout": "Logout",
+    "deleteConfirm": "Are you sure you want to delete this template? This action cannot be undone.",
+    "deleteError": "Failed to delete the template.",
+    "noTemplates": "No official templates found.",
+    "editTooltip": "Edit Template",
+    "deleteTooltip": "Delete Template",
+    "table": {
+      "title": "Title",
+      "createdAt": "Created At",
+      "actions": "Actions"
+    }
+  },
+  "form": {
+    "createTitle": "Create New Official Template",
+    "editTitle": "Edit Official Template",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description (EN)",
+    "descriptionPlaceholder": "Enter template description in English. This will be the default.",
+    "itemsLabel": "Items",
+    "itemNamePlaceholder": "Item Name",
+    "addItem": "Add Item",
+    "tagsLabel": "Tags (comma-separated)",
+    "tagsPlaceholder": "e.g. fun, game, decision",
+    "supportedLanguagesLabel": "Supported Languages (comma-separated)",
+    "supportedLanguagesPlaceholder": "e.g. en, ja, es",
+    "saveError": "Failed to save the template.",
+    "fetchError": "Failed to fetch template data.",
+    "createButton": "Create Template",
+    "updateButton": "Update Template",
+    "cancel": "Cancel"
   }
 }

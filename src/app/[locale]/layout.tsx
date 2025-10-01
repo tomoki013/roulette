@@ -23,7 +23,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const params = await props.params;
   const { locale } = await params;
-  const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
+  const t = (await import(`@/i18n/locales/${locale}/translation.json`)).default;
 
   return {
     title: {

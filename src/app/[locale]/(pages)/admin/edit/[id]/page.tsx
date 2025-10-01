@@ -12,7 +12,7 @@ type RouletteInsert = Database["public"]["Tables"]["roulettes"]["Insert"];
 type RouletteUpdate = Database["public"]["Tables"]["roulettes"]["Update"];
 
 export default function EditTemplatePage() {
-  const { t, i18n } = useTranslation("admin");
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const id = params.id as string;

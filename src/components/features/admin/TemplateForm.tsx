@@ -31,8 +31,7 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
   useEffect(() => {
     if (template) {
       setTitle(template.title);
-      const desc = template.description as { en?: string } | null;
-      setDescription(desc?.en || "");
+      setDescription(String(template.description) || "");
       setItems(template.items as { name: string; color: string; ratio: number }[]);
       setTags(template.tags?.join(", ") || "");
       setSupportedLanguages(template.supported_languages.join(", "));
@@ -58,7 +57,7 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
     e.preventDefault();
     const formData = {
       title,
-      description: { en: description },
+      description: description,
       items,
       tags: tags.split(",").map((tag) => tag.trim()).filter(Boolean),
       supported_languages: supportedLanguages.split(",").map((lang) => lang.trim()).filter(Boolean),

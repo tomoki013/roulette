@@ -18,7 +18,7 @@ export function AdminPageClient({
 }: AdminPageClientProps) {
   const [templates, setTemplates] = useState(initialTemplates);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useTranslation("admin");
+  const { t } = useTranslation();
   const params = useParams();
   const locale = params.locale as string;
 
