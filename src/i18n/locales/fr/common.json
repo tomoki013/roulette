@@ -460,11 +460,29 @@
       }
     }
   },
-  "components": {
-    "footer": {
-      "copyright": "Roulette en Ligne. Tous droits réservés.",
-      "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées.",
-      "howToUse": "Comment utiliser"
+  "footer": {
+    "copyright": "Roulette en Ligne. Tous droits réservés.",
+    "mainFeatures": "Fonctionnalités principales",
+    "support": "Support",
+    "siteInfo": "Informations sur le site",
+    "social": "Social",
+    "tagline": "Créez et partagez instantanément vos propres roulettes personnalisées."
+  },
+  "cookie": {
+    "bannerText": "Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser l'utilisation du site. Cela inclut l'analyse du trafic par Google Analytics. En acceptant l'utilisation de cookies, vous nous aidez à fournir un meilleur service.",
+    "seeDetails": "Voir les détails",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "declineConfirmation": "Paramètres enregistrés. Aucune information ne sera collectée sur ce site."
+  },
+  "heroSection": {
+    "templates": {
+      "title": "Rechercher parmi les modèles",
+      "excerpt": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement."
+    },
+    "createRoulette": {
+      "title": "Créer une Roulette Originale",
+      "excerpt": "Créez instantanément votre propre roulette de tirage au sort avec des éléments et des pondérations personnalisés. Aucune inscription requise. Compatible PC et smartphone."
     },
     "cookieBanner": {
       "text": "Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser l'utilisation du site. Cela inclut l'analyse du trafic par Google Analytics. En acceptant l'utilisation de cookies, vous nous aidez à fournir un meilleur service.",

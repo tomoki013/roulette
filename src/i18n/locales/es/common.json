@@ -460,11 +460,29 @@
       }
     }
   },
-  "components": {
-    "footer": {
-      "copyright": "Ruleta Web. Todos los derechos reservados.",
-      "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas.",
-      "howToUse": "Cómo usar"
+  "footer": {
+    "copyright": "Ruleta Web. Todos los derechos reservados.",
+    "mainFeatures": "Funciones principales",
+    "support": "Soporte",
+    "siteInfo": "Información del sitio",
+    "social": "Social",
+    "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas."
+  },
+  "cookie": {
+    "bannerText": "Este sitio utiliza cookies para mejorar la experiencia del usuario y analizar el uso del sitio. Esto incluye el análisis de tráfico por parte de Google Analytics. Al aceptar el uso de cookies, nos ayudas a proporcionar un mejor servicio.",
+    "seeDetails": "Ver detalles",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "declineConfirmation": "Configuración guardada. No se recopilará información en este sitio."
+  },
+  "heroSection": {
+    "templates": {
+      "title": "Buscar desde Plantillas",
+      "excerpt": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato."
+    },
+    "createRoulette": {
+      "title": "Crea una Ruleta Original",
+      "excerpt": "Crea instantáneamente tu propia ruleta de sorteo con elementos y pesos personalizados. No se requiere registro. Compatible con PC y smartphone."
     },
     "cookieBanner": {
       "text": "Este sitio utiliza cookies para mejorar la experiencia del usuario y analizar el uso del sitio. Esto incluye el análisis de tráfico por parte de Google Analytics. Al aceptar el uso de cookies, nos ayudas a proporcionar un mejor servicio.",

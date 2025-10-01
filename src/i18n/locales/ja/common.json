@@ -460,11 +460,29 @@
       }
     }
   },
-  "components": {
-    "footer": {
-      "copyright": "Webでルーレット. All rights reserved.",
-      "tagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。",
-      "howToUse": "使い方"
+  "footer": {
+    "copyright": "Webでルーレット. All rights reserved.",
+    "mainFeatures": "主な機能",
+    "support": "サポート",
+    "siteInfo": "サイト情報",
+    "social": "ソーシャル",
+    "tagline": "オリジナルのカスタムルーレットをすぐに作成・共有できます。"
+  },
+  "cookie": {
+    "bannerText": "当サイトではユーザ体験の向上とサイトの利用状況分析のためにCookieを使用しています。これには、Google Analyticsによるトラフィック分析が含まれます。Cookieの使用に同意いただくことで、より良いサービスの提供に役立てることができます。",
+    "seeDetails": "詳細を見る",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "declineConfirmation": "設定を保存しました。このサイトで情報が収集されることはありません。"
+  },
+  "heroSection": {
+    "useCases": {
+      "title": "活用事例を見る",
+      "excerpt": "日常のささいな決断からイベントまで、ルーレットの様々な使い方を紹介します。"
+    },
+    "templates": {
+      "title": "テンプレートから探す",
+      "excerpt": "他のユーザーが作成したユニークなルーレットを見つけて、すぐに使ってみましょう。"
     },
     "cookieBanner": {
       "text": "当サイトではユーザ体験の向上とサイトの利用状況分析のためにCookieを使用しています。これには、Google Analyticsによるトラフィック分析が含まれます。Cookieの使用に同意いただくことで、より良いサービスの提供に役立てることができます。",

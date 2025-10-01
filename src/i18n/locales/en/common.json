@@ -460,11 +460,25 @@
       }
     }
   },
-  "components": {
-    "footer": {
-      "copyright": "Web Roulette. All rights reserved.",
-      "tagline": "Instantly create and share your own custom roulettes.",
-      "howToUse": "How to Use"
+  "footer": {
+    "copyright": "Web Roulette. All rights reserved.",
+    "mainFeatures": "Main Features",
+    "support": "Support",
+    "siteInfo": "Site Info",
+    "social": "Social",
+    "tagline": "Instantly create and share your own custom roulettes."
+  },
+  "cookie": {
+    "bannerText": "This site uses cookies to improve user experience and analyze site usage. This includes traffic analysis by Google Analytics. By agreeing to the use of cookies, you help us provide a better service.",
+    "seeDetails": "See Details",
+    "accept": "Accept",
+    "decline": "Decline",
+    "declineConfirmation": "Settings saved. No information will be collected on this site."
+  },
+  "heroSection": {
+    "templates": {
+      "title": "Find from Templates",
+      "excerpt": "Discover unique roulettes created by other users and start using them right away."
     },
     "cookieBanner": {
       "text": "This site uses cookies to improve user experience and analyze site usage. This includes traffic analysis by Google Analytics. By agreeing to the use of cookies, you help us provide a better service.",
