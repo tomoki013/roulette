@@ -17,7 +17,7 @@ interface TemplateFormProps {
 }
 
 export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProps) {
-  const { t } = useTranslation("admin");
+  const { t } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const locale = params.locale as string;

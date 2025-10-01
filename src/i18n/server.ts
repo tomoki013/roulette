@@ -14,9 +14,10 @@ export async function createTranslation(
   await i18nInstance
     .use(initReactI18next)
     .use(
-      resourcesToBackend((language: string, namespace: string) => {
-        return import(`./locales/${language}/translation.json`);
-      })
+      resourcesToBackend(
+        (language: string, namespace: string) =>
+          import(`./locales/${language}/${namespace}.json`)
+      )
     )
     .init(getOptions(locale, ns));
 

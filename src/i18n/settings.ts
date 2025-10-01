@@ -2,7 +2,7 @@ import { i18n } from "../../i18n-config";
 
 export function getOptions(
   locale: string = "ja",
-  ns: string | string[] = "translation"
+  ns: string | string[] = "common"
 ) {
   return {
     // debug: true,
