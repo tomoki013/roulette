@@ -21,7 +21,7 @@ const Header = () => {
         className="text-3xl font-bold text-white flex items-center gap-2"
       >
         <Sparkles className="text-yellow-300" />
-        {t("title")}
+        {t("common.appName")}
       </Link>
     </motion.header>
   );

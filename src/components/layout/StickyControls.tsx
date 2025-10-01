@@ -31,7 +31,7 @@ const StickyControls = () => {
             >
               <Layers size={20} />
               <span className="hidden sm:inline">
-                {t("templates.template")}
+                {t("common.template")}
               </span>
             </Link>
             {user ? (
@@ -41,14 +41,14 @@ const StickyControls = () => {
                   className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2"
                 >
                   <User size={20} />
-                  <span>{t("mypage.title")}</span>
+                  <span>{t("seo.mypage.title")}</span>
                 </Link>
                 <button
                   onClick={handleSignOut}
                   className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2"
                 >
                   <LogOut size={20} />
-                  <span>{t("auth.logout")}</span>
+                  <span>{t("common.logout")}</span>
                 </button>
               </>
             ) : (
@@ -57,7 +57,7 @@ const StickyControls = () => {
                 className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors px-2"
               >
                 <LogIn size={20} />
-                <span>{t("auth.login")}</span>
+                <span>{t("common.login")}</span>
               </Link>
             )}
             <LanguageSwitcher />

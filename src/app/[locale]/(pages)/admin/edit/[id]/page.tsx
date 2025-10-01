@@ -27,7 +27,7 @@ export default function EditTemplatePage() {
           setLoading(true);
           const res = await fetch(`/api/admin/roulettes/${id}`);
           if (!res.ok) {
-            throw new Error(t("form.fetchError"));
+            throw new Error(t("pages.admin.form.fetchError"));
           }
           const data = await res.json();
           setTemplate(data);
@@ -53,7 +53,7 @@ export default function EditTemplatePage() {
       router.refresh();
     } else {
       const errorData = await res.json();
-      alert(t("form.saveError") + `: ${errorData.error}`);
+      alert(t("pages.admin.form.saveError") + `: ${errorData.error}`);
     }
   };
 
@@ -68,7 +68,7 @@ export default function EditTemplatePage() {
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold text-white text-center mb-8">
-        {t("form.editTitle")}
+        {t("pages.admin.form.editTitle")}
       </h1>
       {template && (
         <TemplateForm

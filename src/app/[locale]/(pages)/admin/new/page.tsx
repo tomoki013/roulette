@@ -23,14 +23,14 @@ export default function NewTemplatePage() {
       router.refresh();
     } else {
       const errorData = await res.json();
-      alert(t("form.saveError") + `: ${errorData.error}`);
+      alert(t("pages.admin.form.saveError") + `: ${errorData.error}`);
     }
   };
 
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold text-white text-center mb-8">
-        {t("form.createTitle")}
+        {t("pages.admin.form.createTitle")}
       </h1>
       <TemplateForm onSubmit={handleSubmit} isEditing={false} />
     </div>

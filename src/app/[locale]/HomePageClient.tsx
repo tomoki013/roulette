@@ -44,15 +44,17 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
         className="max-w-4xl"
       >
         <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-white to-orange-300 pb-4">
-          {t("title")}
+          {t("seo.home.title")}
         </h1>
-        <p className="mt-4 text-lg md:text-xl text-white/80">{t("excerpt")}</p>
+        <p className="mt-4 text-lg md:text-xl text-white/80">
+          {t("seo.home.excerpt")}
+        </p>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link
             href={`/${locale}/original-roulette`}
             className="mt-10 inline-block bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            {t("heroSection.createRoulette.title")}
+            {t("components.heroSection.createRoulette.title")}
           </Link>
         </motion.div>
       </motion.div>
@@ -79,16 +81,18 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
             ) : (
               <LogIn className="text-yellow-300" />
             )}
-            {t("heroSection.login.title")}
+            {t("components.heroSection.login.title")}
           </h2>
-          <p className="text-white/80 mb-6">{t("heroSection.login.excerpt")}</p>
+          <p className="text-white/80 mb-6">
+            {t("components.heroSection.login.excerpt")}
+          </p>
           <Link
             href={user ? `/${locale}/mypage` : `/${locale}/auth`}
             className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             {user
-              ? t("heroSection.login.goToMypage")
-              : t("heroSection.login.goToLogin")}
+              ? t("components.heroSection.login.goToMypage")
+              : t("components.heroSection.login.goToLogin")}
           </Link>
         </motion.div>
 
@@ -103,16 +107,16 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
         >
           <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
             <LayoutGrid className="text-yellow-300" />
-            {t("heroSection.templates.title")}
+            {t("components.heroSection.templates.title")}
           </h2>
           <p className="text-white/80 mb-6">
-            {t("heroSection.templates.excerpt")}
+            {t("components.heroSection.templates.excerpt")}
           </p>
           <Link
             href={`/${locale}/templates`}
             className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
-            {t("templates.template")}
+            {t("common.template")}
           </Link>
         </motion.div>
 
@@ -127,14 +131,14 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
         >
           <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
             <HelpCircle className="text-yellow-300" />
-            {t("howToUse.title")}
+            {t("seo.howToUse.title")}
           </h2>
-          <p className="text-white/80 mb-6">{t("howToUse.description")}</p>
+          <p className="text-white/80 mb-6">{t("seo.howToUse.description")}</p>
           <Link
             href={`/${locale}/how-to-use`}
             className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
-            {t("howToUse.title")}
+            {t("seo.howToUse.title")}
           </Link>
         </motion.div>
 
@@ -149,16 +153,16 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
         >
           <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
             <Mail className="text-yellow-300" />
-            {t("heroSection.contact.title")}
+            {t("components.heroSection.contact.title")}
           </h2>
           <p className="text-white/80 mb-6">
-            {t("heroSection.contact.excerpt")}
+            {t("components.heroSection.contact.excerpt")}
           </p>
           <Link
             href={`/${locale}/contact`}
             className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
-            {t("heroSection.contact.title")}
+            {t("components.heroSection.contact.title")}
           </Link>
         </motion.div>
 
@@ -173,9 +177,11 @@ const HomePageClient = ({ articles }: HomePageClientProps) => {
         >
           <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
             <Languages className="text-yellow-300" />
-            {t("heroSection.language.title")}
+            {t("components.heroSection.language.title")}
           </h2>
-          <p className="text-white/80">{t("heroSection.language.excerpt")}</p>
+          <p className="text-white/80">
+            {t("components.heroSection.language.excerpt")}
+          </p>
         </motion.div>
       </div>
     </div>

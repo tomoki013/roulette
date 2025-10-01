@@ -23,7 +23,7 @@ export function AdminPageClient({
   const locale = params.locale as string;
 
   const handleDelete = async (id: string) => {
-    if (window.confirm(t("dashboard.deleteConfirm"))) {
+    if (window.confirm(t("pages.admin.dashboard.deleteConfirm"))) {
       setError(null);
       const res = await fetch(`/api/admin/roulettes/${id}`, {
         method: "DELETE",
@@ -34,9 +34,9 @@ export function AdminPageClient({
       } else {
         try {
           const data = await res.json();
-          setError(data.error || t("dashboard.deleteError"));
+          setError(data.error || t("pages.admin.dashboard.deleteError"));
         } catch {
-          setError(t("dashboard.deleteError"));
+          setError(t("pages.admin.dashboard.deleteError"));
         }
       }
     }
@@ -44,8 +44,8 @@ export function AdminPageClient({
 
   return (
     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-       <h2 className="text-2xl font-bold text-white mb-4">
-        {t("dashboard.templatesTitle")}
+      <h2 className="text-2xl font-bold text-white mb-4">
+        {t("pages.admin.dashboard.templatesTitle")}
       </h2>
       {error && (
         <p className="m-4 text-center text-red-400 bg-red-900/50 p-3 rounded-md">
@@ -57,13 +57,13 @@ export function AdminPageClient({
           <thead className="border-b border-white/20">
             <tr>
               <th className="p-4 font-semibold text-white">
-                {t("dashboard.table.title")}
+                {t("pages.admin.dashboard.table.title")}
               </th>
               <th className="p-4 font-semibold text-white hidden md:table-cell">
-                {t("dashboard.table.createdAt")}
+                {t("common.createdAt")}
               </th>
               <th className="p-4 font-semibold text-white">
-                {t("dashboard.table.actions")}
+                {t("common.actions")}
               </th>
             </tr>
           </thead>
@@ -81,14 +81,14 @@ export function AdminPageClient({
                   <Link
                     href={`/${locale}/admin/edit/${template.id}`}
                     className="p-2 text-blue-400 hover:text-blue-300 hover:bg-blue-500/20 rounded-md transition-colors"
-                    title={t("dashboard.editTooltip")}
+                    title={t("pages.admin.dashboard.editTooltip")}
                   >
                     <Edit size={16} />
                   </Link>
                   <button
                     onClick={() => handleDelete(template.id)}
                     className="p-2 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded-md transition-colors"
-                    title={t("dashboard.deleteTooltip")}
+                    title={t("pages.admin.dashboard.deleteTooltip")}
                   >
                     <Trash size={16} />
                   </button>
@@ -99,7 +99,7 @@ export function AdminPageClient({
         </table>
         {templates.length === 0 && (
           <p className="p-6 text-center text-gray-400">
-            {t("dashboard.noTemplates")}
+            {t("pages.admin.dashboard.noTemplates")}
           </p>
         )}
       </div>

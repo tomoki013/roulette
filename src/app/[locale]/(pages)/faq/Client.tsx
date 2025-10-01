@@ -15,7 +15,9 @@ const FaqPageClient = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   // Type assertion to ensure the return value of t function is an array of FaqItem
-  const faqItems = t("faq.questions", { returnObjects: true }) as FaqItem[];
+  const faqItems = t("pages.faq.questions", {
+    returnObjects: true,
+  }) as FaqItem[];
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -36,9 +38,9 @@ const FaqPageClient = () => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <HelpCircle className="text-yellow-300" />
-          {t("faq.title")}
+          {t("pages.faq.title")}
         </h1>
-        <p className="text-lg text-white/80">{t("faq.description")}</p>
+        <p className="text-lg text-white/80">{t("pages.faq.description")}</p>
       </motion.div>
 
       <div className="space-y-4">

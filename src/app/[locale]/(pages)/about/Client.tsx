@@ -37,9 +37,9 @@ const AboutPageClient = () => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <Sparkles className="text-yellow-300" />
-          {t("about.title2")}
+          {t("pages.about.title")}
         </h1>
-        <p className="text-lg text-white/80">{t("about.subtitle")}</p>
+        <p className="text-lg text-white/80">{t("pages.about.subtitle")}</p>
       </motion.div>
 
       <div className="space-y-8">
@@ -52,9 +52,9 @@ const AboutPageClient = () => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <Target className="text-yellow-300" />
-            {t("about.section1Title")}
+            {t("pages.about.section1.title")}
           </h2>
-          <p className="text-white/90">{t("about.section1Content")}</p>
+          <p className="text-white/90">{t("pages.about.section1.content")}</p>
         </motion.section>
 
         {/* Target Audience Section */}
@@ -66,9 +66,9 @@ const AboutPageClient = () => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <Users className="text-yellow-300" />
-            {t("about.section2Title")}
+            {t("pages.about.section2.title")}
           </h2>
-          <p className="text-white/90">{t("about.section2Content")}</p>
+          <p className="text-white/90">{t("pages.about.section2.content")}</p>
         </motion.section>
 
         {/* Features Section */}
@@ -80,15 +80,15 @@ const AboutPageClient = () => {
         >
           <h2 className="text-2xl font-semibold pb-2 flex items-center gap-2 mb-4 border-b border-white/20">
             <CheckSquare className="text-yellow-300" />
-            {t("about.features.title")}
+            {t("pages.about.features.title")}
           </h2>
           <ul className="list-disc list-inside space-y-2 text-white/90">
-            <li>{t("about.features.customization")}</li>
-            <li>{t("about.features.sharing")}</li>
-            <li>{t("about.features.authentication")}</li>
-            <li>{t("about.features.mypage")}</li>
-            <li>{t("about.features.templates")}</li>
-            <li>{t("about.features.multiLanguage")}</li>
+            <li>{t("pages.about.features.customization")}</li>
+            <li>{t("pages.about.features.sharing")}</li>
+            <li>{t("pages.about.features.authentication")}</li>
+            <li>{t("pages.about.features.mypage")}</li>
+            <li>{t("pages.about.features.templates")}</li>
+            <li>{t("pages.about.features.multiLanguage")}</li>
           </ul>
         </motion.section>
 
@@ -99,14 +99,14 @@ const AboutPageClient = () => {
           animate="visible"
           className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8"
         >
-          <p className="text-white/90 mb-6">{t("about.section3Content")}</p>
+          <p className="text-white/90 mb-6">{t("pages.about.section3.content")}</p>
           <div className="flex flex-col justify-center gap-4 md:flex-row md:items-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={`/${locale}/original-roulette`}
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300"
               >
-                {t("heroSection.createRoulette.title")}
+                {t("components.heroSection.createRoulette.title")}
                 <ArrowRight size={20} />
               </Link>
             </motion.div>
@@ -116,7 +116,7 @@ const AboutPageClient = () => {
                 className="inline-flex items-center gap-2 bg-white/20 hover:bg-white-30 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300"
               >
                 <Contact2 size={20} />
-                {t("contact.title")}
+                {t("seo.contact.title")}
               </Link>
             </motion.div>
           </div>

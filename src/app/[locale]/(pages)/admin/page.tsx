@@ -13,20 +13,20 @@ export default async function AdminDashboardPage(props: {
   const { locale } = await props.params;
   // Fetch initial data on the server
   const templates = await getOfficialTemplates();
-  const { t } = await createTranslation(locale, "admin");
+  const { t } = await createTranslation(locale, "common");
 
   return (
     <div className="max-w-5xl mx-auto">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-white">
-          {t("dashboard.title")}
+          {t("pages.admin.dashboard.title")}
         </h1>
         <Link
           href={`/${locale}/admin/new`}
           className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors"
         >
           <Plus size={20} />
-          {t("dashboard.newTemplate")}
+          {t("pages.admin.dashboard.newTemplate")}
         </Link>
       </div>
       <AdminPageClient initialTemplates={templates} />

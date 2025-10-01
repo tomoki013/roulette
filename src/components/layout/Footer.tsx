@@ -31,48 +31,48 @@ const Footer = () => {
                 className="flex items-center gap-2 mb-4"
               >
                 <Sparkles className="text-yellow-300" size={28} />
-                <span className="text-2xl font-bold">{t("title")}</span>
+                <span className="text-2xl font-bold">{t("common.appName")}</span>
               </Link>
-              <p className="text-white/70">{t("footer.tagline")}</p>
+              <p className="text-white/70">{t("components.footer.tagline")}</p>
             </div>
 
             {/* サービスリンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("footer.services")}
+                {t("common.services")}
               </h3>
               <nav className="flex flex-col space-y-3">
                 <Link
                   href={`/${locale}/original-roulette`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("roulette.title")}
+                  {t("seo.roulette.title")}
                 </Link>
                 {/* テンプレートページへのリンクを追加 */}
                 <Link
                   href={`/${locale}/templates`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("templates.template")}
+                  {t("common.template")}
                 </Link>
                 <Link
                   href={`/${locale}/articles`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("articles.title")}
+                  {t("seo.articles.title")}
                 </Link>
                 <Link
                   href={`/${locale}/how-to-use`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("howToUse.title")}
+                  {t("components.footer.howToUse")}
                 </Link>
                 {user && (
                   <Link
                     href={`/${locale}/mypage`}
                     className="text-sm hover:text-yellow-300 underline transition-colors"
                   >
-                    {t("mypage.title")}
+                    {t("seo.mypage.title")}
                   </Link>
                 )}
               </nav>
@@ -81,38 +81,38 @@ const Footer = () => {
             {/* 法務リンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("footer.legal")}
+                {t("common.legal")}
               </h3>
               <nav className="flex flex-col space-y-3">
                 <Link
                   href={`/${locale}/about`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("about.title")}
+                  {t("seo.about.title")}
                 </Link>
                 <Link
                   href={`/${locale}/contact`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("contact.title")}
+                  {t("seo.contact.title")}
                 </Link>
                 <Link
                   href={`/${locale}/faq`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("faq.title")}
+                  {t("seo.faq.title")}
                 </Link>
                 <Link
                   href={`/${locale}/privacy-policy`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("privacyPolicy.title")}
+                  {t("seo.privacyPolicy.title")}
                 </Link>
                 <Link
                   href={`/${locale}/terms-of-service`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("termsOfService.title")}
+                  {t("seo.termsOfService.title")}
                 </Link>
               </nav>
             </div>
@@ -120,7 +120,7 @@ const Footer = () => {
             {/* ソーシャルリンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("footer.social")}
+                {t("common.social")}
               </h3>
               <div className="flex space-x-4">
                 <GitHubIcon />
@@ -133,21 +133,21 @@ const Footer = () => {
             <p>
               &copy; 2025
               {currentYear > 2025 ? `-${currentYear} ` : " "}
-              {t("footer.copyright")}
+              {t("components.footer.copyright")}
             </p>
             <div className="hidden md:block">
               <Link
                 href={`/terms-of-service`}
                 className="text-sm hover:text-yellow-300 underline transition-colors"
               >
-                {t("termsOfService.title")}
+                {t("seo.termsOfService.title")}
               </Link>{" "}
               &nbsp;|&nbsp;{" "}
               <Link
                 href={`privacy-policy`}
                 className="text-sm hover:text-yellow-300 underline transition-colors"
               >
-                {t("privacyPolicy.title")}
+                {t("seo.privacyPolicy.title")}
               </Link>
             </div>
           </div>
