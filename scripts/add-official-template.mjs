@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import minimist from "minimist";
 import dotenv from "dotenv";
+import { ROULETTE_COLORS } from "../src/constants/roulette.ts";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -64,9 +65,36 @@ const localizedDescription = supportedLanguages.reduce((acc, lang) => {
 async function addOfficialTemplate() {
   console.log("Adding new official template...");
 
+  // Add color and ratio to each item if they are not provided
+  const itemsWithDefaults = parsedItems.map((item, index) => {
+    const newItem = { ...item };
+    if (!newItem.color) {
+      newItem.color = ROULETTE_COLORS[index % ROULETTE_COLORS.length];
+    }
+    if (newItem.ratio === undefined || newItem.ratio === null) {
+      newItem.ratio = 1;
+    }
+    return newItem;
+  });
+
+  // Final validation to ensure all items have the required properties
+  if (
+    !itemsWithDefaults.every(
+      (item) =>
+        "name" in item &&
+        "color" in item &&
+        "ratio" in item &&
+        typeof item.ratio === "number"
+    )
+  ) {
+    throw new Error(
+      "All items must have a name, color, and a numeric ratio after processing."
+    );
+  }
+
   const rouletteData = {
     title: title,
-    items: parsedItems,
+    items: itemsWithDefaults,
     description: localizedDescription,
     // This ID should match the one in src/constants/common.ts
     user_id: "8e258865-4c59-4bac-a98b-44de8a2ff5c7",
