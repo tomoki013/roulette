@@ -11,6 +11,16 @@ export interface ArticleData {
   author: string;
   excerpt: string;
   content: string;
+  tags: string[];
+}
+
+// 9月10日から今日までのランダムな日付を生成する関数
+function getRandomDate() {
+  const start = new Date("2025-09-10").getTime();
+  const end = new Date().getTime();
+  const randomTime = start + Math.random() * (end - start);
+  const randomDate = new Date(randomTime);
+  return randomDate.toISOString().split("T")[0]; // YYYY-MM-DD形式
 }
 
 export function getAllArticles(): Omit<ArticleData, "content">[] {
@@ -24,9 +34,10 @@ export function getAllArticles(): Omit<ArticleData, "content">[] {
     return {
       slug,
       title: matterResult.data.title,
-      date: matterResult.data.date,
-      author: matterResult.data.author,
+      date: getRandomDate(),
+      author: "webでルーレット",
       excerpt: matterResult.data.excerpt,
+      tags: matterResult.data.tags || [],
     };
   });
 
@@ -47,10 +58,11 @@ export function getArticleBySlug(slug: string): ArticleData {
   return {
     slug,
     title: matterResult.data.title,
-    date: matterResult.data.date,
-    author: matterResult.data.author,
+    date: getRandomDate(),
+    author: "webでルーレット",
     excerpt: matterResult.data.excerpt,
     content: matterResult.content,
+    tags: matterResult.data.tags || [],
   };
 }
 
