@@ -36,10 +36,10 @@ const Footer = () => {
               <p className="text-white/70">{t("components.footer.tagline")}</p>
             </div>
 
-            {/* サービスリンク */}
+            {/* 主な機能 */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("common.services")}
+                {t("common.mainFeatures")}
               </h3>
               <nav className="flex flex-col space-y-3">
                 <Link
@@ -48,24 +48,11 @@ const Footer = () => {
                 >
                   {t("seo.roulette.title")}
                 </Link>
-                {/* テンプレートページへのリンクを追加 */}
                 <Link
                   href={`/${locale}/templates`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("common.template")}
-                </Link>
-                <Link
-                  href={`/${locale}/articles`}
-                  className="text-sm hover:text-yellow-300 underline transition-colors"
-                >
-                  {t("seo.articles.title")}
-                </Link>
-                <Link
-                  href={`/${locale}/how-to-use`}
-                  className="text-sm hover:text-yellow-300 underline transition-colors"
-                >
-                  {t("components.footer.howToUse")}
+                  {t("seo.templates.title")}
                 </Link>
                 {user && (
                   <Link
@@ -78,17 +65,29 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* 法務リンク */}
+            {/* サポート */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("common.legal")}
+                {t("common.support")}
               </h3>
               <nav className="flex flex-col space-y-3">
                 <Link
-                  href={`/${locale}/about`}
+                  href={`/${locale}/how-to-use`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("seo.about.title")}
+                  {t("seo.howToUse.title")}
+                </Link>
+                <Link
+                  href={`/${locale}/articles`}
+                  className="text-sm hover:text-yellow-300 underline transition-colors"
+                >
+                  {t("seo.articles.title")}
+                </Link>
+                <Link
+                  href={`/${locale}/faq`}
+                  className="text-sm hover:text-yellow-300 underline transition-colors"
+                >
+                  {t("seo.faq.title")}
                 </Link>
                 <Link
                   href={`/${locale}/contact`}
@@ -96,11 +95,20 @@ const Footer = () => {
                 >
                   {t("seo.contact.title")}
                 </Link>
+              </nav>
+            </div>
+
+            {/* サイト情報 */}
+            <div>
+              <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
+                {t("common.siteInfo")}
+              </h3>
+              <nav className="flex flex-col space-y-3">
                 <Link
-                  href={`/${locale}/faq`}
+                  href={`/${locale}/about`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
-                  {t("seo.faq.title")}
+                  {t("seo.about.title")}
                 </Link>
                 <Link
                   href={`/${locale}/privacy-policy`}

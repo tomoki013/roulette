@@ -40,9 +40,10 @@
     "newest": "Les plus récents",
     "popular": "Populaires",
     "like": "J'aime",
-    "services": "Services",
-    "legal": "Légal",
-    "social": "Social"
+    "social": "Social",
+    "mainFeatures": "Fonctionnalités Principales",
+    "support": "Soutien",
+    "siteInfo": "Infos sur le site"
   },
   "seo": {
     "home": {
