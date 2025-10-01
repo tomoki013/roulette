@@ -9,23 +9,23 @@ export async function generateMetadata(props: {
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
   return {
-    title: t.faq.title,
-    description: t.faq.description,
+    title: t.seo.faq.title,
+    description: t.seo.faq.description,
     openGraph: {
-      title: t.faq.title,
-      description: t.faq.description,
+      title: t.seo.faq.title,
+      description: t.seo.faq.description,
       images: [
         {
           url: "favicon.ico",
           width: 1200,
           height: 630,
-          alt: t.title,
+          alt: t.common.appName,
         },
       ],
     },
     twitter: {
-      title: t.faq.title,
-      description: t.faq.description,
+      title: t.seo.faq.title,
+      description: t.seo.faq.description,
       images: ["favicon.ico"],
     },
   };

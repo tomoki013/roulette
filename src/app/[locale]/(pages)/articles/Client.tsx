@@ -45,9 +45,9 @@ const ArticlesPageClient = ({ articles, locale }: ArticlesPageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookText className="text-yellow-300" />
-          {t("articles.title")}
+          {t("pages.articles.title")}
         </h1>
-        <p className="text-lg text-white/80">{t("articles.description")}</p>
+        <p className="text-lg text-white/80">{t("pages.articles.description")}</p>
       </motion.div>
 
       <motion.div

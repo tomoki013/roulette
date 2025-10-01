@@ -59,10 +59,10 @@ export const useRouletteShare = ({
 
         navigator.clipboard.writeText(url.toString()).then(() => {
           showModal({
-            title: t("roulette.copy.success"),
+            title: t("components.roulette.share.copySuccess"),
             message: withResult
-              ? t("roulette.copy.successMessageResult")
-              : t("roulette.copy.successMessageRoulette"),
+              ? t("components.roulette.share.copySuccessMessageResult")
+              : t("components.roulette.share.copySuccessMessageRoulette"),
             onConfirm: closeModal,
             confirmText: "OK",
             type: "success",
@@ -74,10 +74,10 @@ export const useRouletteShare = ({
         copyLink();
       } else {
         showModal({
-          title: t("roulette.copy.confirmTitle"),
-          message: t("roulette.copy.confirmMessage"),
-          confirmText: t("roulette.copy.confirmAction"),
-          cancelText: t("close"),
+          title: t("components.roulette.share.confirmTitle"),
+          message: t("components.roulette.share.confirmMessage"),
+          confirmText: t("components.roulette.share.confirmAction"),
+          cancelText: t("common.close"),
           onConfirm: () => {
             closeModal();
             copyLink();

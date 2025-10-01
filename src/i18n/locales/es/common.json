@@ -1,77 +1,157 @@
 {
-  "title": "Ruleta Web",
-  "description": "Ruleta Web es una herramienta gratuita en línea para crear ruletas personalizadas. Diseña y comparte fácilmente tus ruletas originales con elementos y probabilidades a tu gusto. Ideal para sorteos en eventos o decisiones diarias, y no requiere registro.",
-  "excerpt": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares.",
-  "close": "Cerrar",
-  "other": "Otro",
-  "loading": "Cargando...",
-  "about": {
-    "title": "Acerca de",
-    "description": "Ruleta Web es una herramienta de creación de ruletas personalizadas diseñada para un uso intuitivo. Esta página presenta el propósito del desarrollo del sitio y sus posibles usos. Nuestro objetivo es apoyar la toma de decisiones justas y divertidas en cualquier ocasión.",
-    "title2": "Acerca de Ruleta Web",
-    "subtitle": "Una herramienta intuitiva de creación de ruletas personalizadas para todos",
-    "section1Title": "Propósito de este sitio",
-    "section1Content": "'Ruleta Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Nuestro objetivo es ayudarte a tomar decisiones justas mientras te diviertes en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos.",
-    "section2Title": "Público objetivo",
-    "section2Content": "Está destinado a una amplia gama de usuarios, desde uso personal hasta fines comerciales y educativos, como decidir un lugar para almorzar con amigos, sortear castigos para streamers en vivo, seleccionar estudiantes en el aula o elegir ganadores para eventos en línea.",
-    "section3Content": "Agradecemos sinceramente tus comentarios. Los utilizaremos como referencia para futuros desarrollos, así que no dudes en contactarnos a través de la página de contacto.",
-    "features": {
-      "title": "Principales características",
-      "customization": "Creación de ruletas personalizadas con elementos, proporciones y colores configurables",
-      "sharing": "Compartir fácilmente ruletas por URL o imagen",
-      "authentication": "Guardar y gestionar tus ruletas con autenticación de usuario",
-      "mypage": "Una función de 'Mi Página' para ver todas tus ruletas creadas",
-      "templates": "Uso de plantillas creadas por otros usuarios",
-      "multiLanguage": "Soporte multilingüe (japonés, inglés, español, francés)"
-    }
-  },
-  "articles": {
-    "title": "Casos de Uso",
-    "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración.",
-    "back_to_list": "Volver a la lista de artículos"
-  },
-  "auth": {
-    "title": "Autenticación de Usuario",
-    "description": "Regístrate o inicia sesión para acceder a todas las funciones de Ruleta Web. Al crear una cuenta, puedes guardar tus ruletas para editarlas y reutilizarlas cuando quieras. Gestiona tu colección personal de ruletas en tu propia Mi Página.",
-    "signUp": "Registrarse",
-    "login": "Iniciar sesión",
-    "logout": "Cerrar sesión",
+  "common": {
+    "appName": "Ruleta Web",
+    "close": "Cerrar",
+    "other": "Otro",
+    "loading": "Cargando...",
+    "or": "o",
     "username": "Nombre de usuario",
-    "usernamePlaceholder": "Nombre a mostrar",
     "email": "Dirección de correo electrónico",
     "password": "Contraseña",
-    "error": {
-      "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
-      "passwordLength": "La contraseña debe tener al menos 6 caracteres."
-    },
-    "loginRequired": "Se requiere iniciar sesión",
-    "loginToSave": "Necesitas iniciar sesión para guardar tu ruleta."
+    "confirm": "Confirmar",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "back": "Volver",
+    "next": "Siguiente",
+    "home": "Inicio",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar por palabra clave...",
+    "noResults": "No se encontraron plantillas que coincidan con tus criterios.",
+    "anonymous": "Usuario Anónimo",
+    "createdAt": "Fecha de creación",
+    "actions": "Acciones",
+    "yes": "Sí",
+    "no": "No",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "share": "Compartir",
+    "template": "Plantilla",
+    "official": "Plantilla oficial",
+    "newest": "Más nuevos",
+    "popular": "Populares",
+    "like": "Me gusta",
+    "services": "Servicios",
+    "legal": "Legal",
+    "social": "Social"
   },
-  "contact": {
-    "title": "Contacto",
-    "description": "Si tienes comentarios, sugerencias o quieres informar de un error sobre Ruleta Web, no dudes en contactarnos a través de este formulario. Valoramos tus opiniones y las utilizaremos para mejorar nuestro servicio.",
-    "excerpt": "Si tienes alguna opinión o solicitud, no dudes en contactarnos utilizando el siguiente formulario.",
-    "name": "Nombre",
-    "email": "Dirección de correo electrónico",
-    "subject": "Asunto",
-    "message": "Mensaje",
-    "inquiryType": {
-      "title": "Tipo de consulta",
-      "placeholder": "Por favor, selecciona el tipo de consulta",
-      "options": {
-        "general": "Consulta general",
-        "feedback": "Comentarios/Impresiones sobre el sitio",
-        "bugReport": "Informe de error",
-        "collaboration": "Propuesta de colaboración",
-        "correction": "Solicitud de corrección de contenido",
-        "featureRequest": "Solicitud de función",
-        "other": "Otro"
+  "seo": {
+    "home": {
+      "title": "Ruleta Web",
+      "description": "Ruleta Web es una herramienta gratuita en línea para crear ruletas personalizadas. Diseña y comparte fácilmente tus ruletas originales con elementos y probabilidades a tu gusto. Ideal para sorteos en eventos o decisiones diarias, y no requiere registro.",
+      "excerpt": "Ruleta Web es una herramienta que te permite crear y compartir fácilmente ruletas personalizadas. Crea tu propia ruleta original y diviértete con amigos y familiares."
+    },
+    "about": {
+      "title": "Acerca de",
+      "description": "Ruleta Web es una herramienta de creación de ruletas personalizadas diseñada para un uso intuitivo. Esta página presenta el propósito del desarrollo del sitio y sus posibles usos. Nuestro objetivo es apoyar la toma de decisiones justas y divertidas en cualquier ocasión."
+    },
+    "articles": {
+      "title": "Casos de Uso",
+      "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración."
+    },
+    "auth": {
+      "title": "Autenticación de Usuario",
+      "description": "Regístrate o inicia sesión para acceder a todas las funciones de Ruleta Web. Al crear una cuenta, puedes guardar tus ruletas para editarlas y reutilizarlas cuando quieras. Gestiona tu colección personal de ruletas en tu propia Mi Página."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Si tienes comentarios, sugerencias o quieres informar de un error sobre Ruleta Web, no dudes en contactarnos a través de este formulario. Valoramos tus opiniones y las utilizaremos para mejorar nuestro servicio."
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "description": "Encuentra respuestas a preguntas comunes sobre Ruleta Web. Si no encuentras la respuesta que buscas, no dudes en contactarnos."
+    },
+    "mypage": {
+      "title": "Mi Página",
+      "description": "En Mi Página, puedes gestionar todas las ruletas originales que has creado. Edita, elimina y cambia la configuración de privacidad de tus ruletas guardadas de forma sencilla. Accede y disfruta de tus ruletas favoritas en cualquier momento. Se requiere registro de usuario."
+    },
+    "roulette": {
+      "title": "Crear Ruleta",
+      "description": "¡Crea tu propia ruleta personalizada! Modifica libremente los nombres de los elementos, los colores y las probabilidades de ganar. Es la herramienta en línea gratuita perfecta para juegos, decidir dónde comer o sorteos en eventos. ¡Comparte tu ruleta con un simple URL!"
+    },
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "description": "Esta es la página de la Política de Privacidad de Ruleta Web. Aquí se detalla el tipo de información que recopilamos, cómo la usamos y nuestro uso de cookies y Google Analytics. Revisa nuestro compromiso para que uses el servicio con total confianza."
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "description": "Esta página contiene los Términos de Servicio de Ruleta Web. Define las reglas de uso, las acciones prohibidas y las cláusulas de exención de responsabilidad. También describe cómo se gestiona el contenido generado por los usuarios. Léelo antes de usar el servicio."
+    },
+    "templates": {
+      "title": "Buscar desde Plantillas",
+      "description": "¿Buscas ideas divertidas para una ruleta? En nuestra página de Plantillas, puedes explorar y utilizar ruletas únicas creadas por otros usuarios. También puedes personalizar fácilmente una plantilla para crear tu propia ruleta original."
+    },
+    "howToUse": {
+      "title": "Cómo usar",
+      "description": "Aprende todo, desde lo básico de 'Ruleta en la Web' hasta las funciones convenientes disponibles después de registrar una cuenta. Domina cómo crear y compartir ruletas, usar plantillas y aprovechar al máximo nuestro sitio."
+    },
+    "login": {
+      "title": "Inicio de Sesión de Administrador"
+    },
+    "dashboard": {
+      "title": "Panel de Administrador"
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Acerca de Ruleta Web",
+      "subtitle": "Una herramienta intuitiva de creación de ruletas personalizadas para todos",
+      "section1": {
+        "title": "Propósito de este sitio",
+        "content": "'Ruleta Web' fue desarrollado para proporcionar una herramienta de creación de ruletas personalizadas que cualquiera puede usar de manera fácil e intuitiva. Nuestro objetivo es ayudarte a tomar decisiones justas mientras te diviertes en diversas situaciones, desde pequeñas decisiones diarias hasta sorteos de eventos."
+      },
+      "section2": {
+        "title": "Público objetivo",
+        "content": "Está destinado a una amplia gama de usuarios, desde uso personal hasta fines comerciales y educativos, como decidir un lugar para almorzar con amigos, sortear castigos para streamers en vivo, seleccionar estudiantes en el aula o elegir ganadores para eventos en línea."
+      },
+      "section3": {
+        "content": "Agradecemos sinceramente tus comentarios. Los utilizaremos como referencia para futuros desarrollos, así que no dudes en contactarnos a través de la página de contacto."
+      },
+      "features": {
+        "title": "Principales características",
+        "customization": "Creación de ruletas personalizadas con elementos, proporciones y colores configurables",
+        "sharing": "Compartir fácilmente ruletas por URL o imagen",
+        "authentication": "Guardar y gestionar tus ruletas con autenticación de usuario",
+        "mypage": "Una función de 'Mi Página' para ver todas tus ruletas creadas",
+        "templates": "Uso de plantillas creadas por otros usuarios",
+        "multiLanguage": "Soporte multilingüe (japonés, inglés, español, francés)"
       }
     },
-    "agreeToTerms": "Acepto la Política de Privacidad",
-    "agreeToTermsExcerpt": "Debes aceptar la Política de Privacidad para enviar tu consulta.",
-    "submit": {
-      "button": "Enviar",
+    "articles": {
+      "title": "Casos de Uso",
+      "description": "Descubre varios casos de uso para la 'Ruleta Web'. Desde escenarios en el aula hasta la planificación de eventos y la toma de decisiones diarias, encuentra ideas para despertar tu inspiración.",
+      "backToList": "Volver a la lista de artículos"
+    },
+    "contact": {
+      "excerpt": "Si tienes alguna opinión o solicitud, no dudes en contactarnos utilizando el siguiente formulario.",
+      "name": "Nombre",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "inquiryType": {
+        "title": "Tipo de consulta",
+        "placeholder": "Por favor, selecciona el tipo de consulta",
+        "options": {
+          "general": "Consulta general",
+          "feedback": "Comentarios/Impresiones sobre el sitio",
+          "bugReport": "Informe de error",
+          "collaboration": "Propuesta de colaboración",
+          "correction": "Solicitud de corrección de contenido",
+          "featureRequest": "Solicitud de función",
+          "other": "Otro"
+        }
+      },
+      "agreeToTerms": "Acepto la Política de Privacidad",
+      "agreeToTermsExcerpt": "Debes aceptar la Política de Privacidad para enviar tu consulta.",
+      "newInquiry": "Hacer una nueva consulta",
       "submit": {
         "successTitle": "Gracias por tu consulta",
         "successExcerpt": "Hemos recibido tu mensaje. Normalmente responderemos en un plazo de 2 días hábiles.",
@@ -80,290 +160,399 @@
         "errorServerPrefix": "Ocurrió un error en el servidor. Por favor, inténtalo de nuevo en un momento.",
         "errorNetwork": "Parece que hay un problema con tu conexión de red. Por favor, comprueba tu conexión e inténtalo de nuevo."
       },
-      "error": {
+      "validation": {
+        "nameRequired": "El nombre es obligatorio.",
         "nameLength": "El nombre debe tener al menos 2 caracteres.",
+        "emailRequired": "La dirección de correo electrónico es obligatoria.",
         "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
+        "subjectRequired": "El asunto es obligatorio.",
         "subjectLength": "El asunto debe tener al menos 5 caracteres.",
+        "messageRequired": "El mensaje es obligatorio.",
         "messageLength": "El mensaje debe tener al menos 10 caracteres.",
         "inquiryTypeRequired": "Por favor, selecciona el tipo de consulta.",
         "agreeToTermsRequired": "Debes aceptar la Política de Privacidad."
-      },
-      "newInquiry": "Hacer una nueva consulta"
-    },
-    "error": {
-      "nameRequired": "El nombre es obligatorio.",
-      "emailRequired": "La dirección de correo electrónico es obligatoria.",
-      "messageRequired": "El mensaje es obligatorio."
-    }
-  },
-  "mypage": {
-    "title": "Mi Página",
-    "description": "En Mi Página, puedes gestionar todas las ruletas originales que has creado. Edita, elimina y cambia la configuración de privacidad de tus ruletas guardadas de forma sencilla. Accede y disfruta de tus ruletas favoritas en cualquier momento. Se requiere registro de usuario.",
-    "profile": "Perfil",
-    "savedRoulettes": "Ruletas guardadas",
-    "noRoulettes": "Aún no has creado ninguna ruleta.",
-    "createdAt": "Fecha de creación",
-    "publicSettings": "Configuración pública",
-    "edit": "Editar",
-    "editRoulette": "Editar Ruleta",
-    "delete": "Eliminar",
-    "deleteConfirmTitle": "Eliminar Ruleta",
-    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta ruleta?",
-    "settingsExcerpt": " - Configuración pública",
-    "publishAsTemplate": "Publicar como plantilla",
-    "publishAsTemplateExcerpt": "Permitir que otros usuarios vean y usen esta ruleta.",
-    "allowFork": "Permitir que otros usuarios dupliquen",
-    "allowForkExcerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla.",
-    "publishProfile": "Publicar perfil",
-    "publishProfileExcerpt": "Muestra tu perfil como el creador en la plantilla.",
-    "delete_account": {
-      "button": "Eliminar Cuenta",
-      "modal_title": "Confirmar Eliminación de Cuenta",
-      "modal_description": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.",
-      "confirm_button": "Eliminar",
-      "cancel_button": "Cancelar"
-    }
-  },
-  "roulette": {
-    "title": "Crear Ruleta",
-    "description": "¡Crea tu propia ruleta personalizada! Modifica libremente los nombres de los elementos, los colores y las probabilidades de ganar. Es la herramienta en línea gratuita perfecta para juegos, decidir dónde comer o sorteos en eventos. ¡Comparte tu ruleta con un simple URL!",
-    "shareUrl": "Compartir por URL",
-    "shareImage": "Compartir como imagen",
-    "settings": {
-      "title": "Configuración de la Ruleta",
-      "name": "Título",
-      "namePlaceholder": "Introduce el título de la ruleta",
-      "excerpt": "Descripción",
-      "excerptPlaceholder": "Introduce la descripción de la ruleta",
-      "optionDefault": "Opción",
-      "items": {
-        "addItem": "Añadir elemento",
-        "itemPlaceholder": "Nombre del elemento"
-      },
-      "save": "Guardar",
-      "saveInProgress": "Guardando...",
-      "share": "Compartir",
-      "saveChanges": "Guardar cambios"
-    },
-    "preview": {
-      "title": "Mi Ruleta",
-      "spin": "Girar",
-      "spinning": "Girando..."
-    },
-    "result": {
-      "title": "¡Y el resultado es...!"
-    },
-    "copy": {
-      "success": "¡Copiado con éxito!",
-      "successMessageRoulette": "La URL de la ruleta ha sido copiada a tu portapapeles.",
-      "successMessageResult": "La URL del resultado ha sido copiada a tu portapapeles.",
-      "error": "Error al copiar la URL.",
-      "copyLink": "Copiar enlace de la Ruleta",
-      "confirmTitle": "Confirmar compartir",
-      "confirmMessage": "El resultado no será incluido. Esto solo compartirá la configuración actual de la ruleta. ¿Está bien?",
-      "confirmAction": "Compartir"
-    },
-    "copyUrl": "Copiar URL",
-    "urlCopied": "¡URL Copiada!",
-    "shareOnX": "Compartir en X",
-    "shareOnFacebook": "Compartir en Facebook"
-  },
-  "privacyPolicy": {
-    "title": "Política de Privacidad",
-    "description": "Esta es la página de la Política de Privacidad de Ruleta Web. Aquí se detalla el tipo de información que recopilamos, cómo la usamos y nuestro uso de cookies y Google Analytics. Revisa nuestro compromiso para que uses el servicio con total confianza.",
-    "lastUpdated": "Última actualización: 24 de julio de 2025"
-  },
-  "termsOfService": {
-    "title": "Términos de Servicio",
-    "description": "Esta página contiene los Términos de Servicio de Ruleta Web. Define las reglas de uso, las acciones prohibidas y las cláusulas de exención de responsabilidad. También describe cómo se gestiona el contenido generado por los usuarios. Léelo antes de usar el servicio.",
-    "lastUpdated": "Última actualización: 24 de julio de 2025"
-  },
-  "templates": {
-    "template": "Plantilla",
-    "title": "Buscar desde Plantillas",
-    "description": "¿Buscas ideas divertidas para una ruleta? En nuestra página de Plantillas, puedes explorar y utilizar ruletas únicas creadas por otros usuarios. También puedes personalizar fácilmente una plantilla para crear tu propia ruleta original.",
-    "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
-    "like": "Me gusta",
-    "searchPlaceholder": "Buscar por palabra clave...",
-    "sortBy": {
-      "newest": "Más nuevos",
-      "popular": "Populares"
-    },
-    "noResults": "No se encontraron plantillas que coincidan con tus criterios.",
-    "noExcerpt": "No hay descripción disponible.",
-    "anonymous": "Usuario Anónimo",
-    "useTemplate": "Usar esta Plantilla",
-    "official": "Plantilla oficial",
-    "copySuffix": " - copia",
-    "forkAndSave": "Duplicar y Guardar esta Plantilla",
-    "creatorProfileTitle": "Perfil del creador"
-  },
-  "howToUse": {
-    "title": "Cómo usar",
-    "description": "Aprende todo, desde lo básico de 'Ruleta en la Web' hasta las funciones convenientes disponibles después de registrar una cuenta. Domina cómo crear y compartir ruletas, usar plantillas y aprovechar al máximo nuestro sitio.",
-    "basic": {
-      "title": "Uso Básico (para Invitados)",
-      "create": "Cómo crear una ruleta (agregar/eliminar elementos, cambiar proporciones/colores)",
-      "create_description": "Aprende a crear tu propia ruleta original configurando libremente los elementos, los colores y las proporciones.",
-      "create_detail_structured": {
-        "step1_title": "Step 1: Basic Roulette Settings",
-        "step1_content": "First, enter the 'Title' and 'Description' for your roulette. The title helps distinguish it from other roulettes, and the description is useful for explaining its purpose. Set them up to be clear for others.",
-        "step2_title": "Step 2: Adding and Customizing Items",
-        "step2_content": "Next, use the 'Add Item' button to add options to the roulette. For each item, you can freely set its display 'Name' and an identifying 'Color'. You can intuitively pick colors from the color picker.",
-        "step3_title": "Step 3: Setting the Winning Ratio",
-        "step3_content": "You can set a 'Ratio' for each item. This is a number that indicates how likely that item is to be selected. For example, if you set 'A: 2, B: 1', A will be twice as likely to be chosen as B. If you want all items to have the same probability, enter the same number for all.",
-        "step4_title": "Step 4: Finishing Setup",
-        "step4_content": "Once you've configured all the items, your original roulette is complete! Check it in the preview and you can start the draw anytime with the 'Spin' button."
-      },
-      "spin": "Cómo girar la ruleta",
-      "spin_description": "Explica el procedimiento para girar la ruleta creada y comprobar los resultados del sorteo.",
-      "spin_detail_structured": {
-        "step1_title": "Step 1: Spin the Roulette",
-        "step1_content": "The roulette you created and configured is displayed in the preview area. When you click the 'Spin' button in the center, the roulette will start to spin vigorously.",
-        "step2_title": "Step 2: Check the Result",
-        "step2_content": "When the rotation stops, the selected item is highlighted, and the result is displayed prominently in the center of the screen. A fun confetti animation will liven up the moment of the draw!",
-        "step3_title": "Step 3: Try Again",
-        "step3_content": "If you want to spin the roulette again with the same settings, just click the 'Spin Again' button on the result screen. You can start the next draw right away."
-      },
-      "share": "Cómo compartir resultados (URL/Imagen)",
-      "share_description": "Aprende a compartir los resultados de tu ruleta con amigos o en redes sociales a través de una URL o como una imagen.",
-      "share_detail_structured": {
-        "step1_title": "Step 1: Select a Sharing Option",
-        "step1_content": "After spinning the roulette, you can share it from the result screen or the 'Share' button on the settings screen. You can choose between two sharing options: 'Share via URL' and 'Share as Image'.",
-        "step2_title": "Step 2: Sharing via URL",
-        "step2_content": "When you select 'Share via URL', the URL of the page reflecting the current roulette settings (results not included) is copied to your clipboard. Paste this URL to friends or on social media, and anyone can experience the same roulette.",
-        "step3_title": "Step 3: Sharing as an Image",
-        "step3_content": "When you select 'Share as Image', the current look of the roulette is downloaded as an image file (PNG format). This is useful for announcing event results or for sharing visually."
       }
     },
-    "account": {
-      "title": "Funciones de la Cuenta",
-      "merit": "Beneficios del registro de cuenta (guardado de datos, etc.)",
-      "merit_description": "Descubre las funciones convenientes que se habilitan al registrarte para obtener una cuenta gratuita.",
-      "merit_detail_structured": {
-        "benefit1_title": "Benefit 1: Save and Reuse Roulettes",
-        "benefit1_content": "When you create an account, you can save your created roulettes to 'My Page'. This saves you the trouble of recreating the same roulette every time, allowing you to call up and use your favorite settings at any time.",
-        "benefit2_title": "Benefit 2: Sync Across Devices",
-        "benefit2_content": "By logging in, you can access your saved roulettes from any device. For example, you can use a roulette created on your PC at home from your smartphone on the go.",
-        "benefit3_title": "Benefit 3: Publish as a Template",
-        "benefit3_content": "You can publish your masterpiece roulettes as 'templates' that other users can also use. Your ideas might be helpful to someone around the world. You can change the publication settings at any time."
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "description": "Encuentra respuestas a preguntas comunes sobre Ruleta Web. Si no encuentras la respuesta que buscas, no dudes en contactarnos.",
+      "questions": [
+        {
+          "q": "¿Es gratis usar Ruleta Web?",
+          "a": "Sí, todas las características básicas de Ruleta Web son completamente gratuitas. Puedes crear, girar y compartir ruletas sin ningún costo. Las funciones avanzadas como guardar ruletas requieren una cuenta de usuario gratuita."
+        },
+        {
+          "q": "¿Necesito registrarme para crear una ruleta?",
+          "a": "No, puedes crear y usar una ruleta sin registrar una cuenta. Sin embargo, si quieres guardar tus ruletas creadas para usarlas más tarde, necesitarás registrarte para obtener una cuenta gratuita."
+        },
+        {
+          "q": "¿Cómo puedo compartir mi ruleta?",
+          "a": "Puedes compartir fácilmente tu ruleta generando una URL única o descargándola como una imagen. Busca el botón 'Compartir' en la página de creación de la ruleta."
+        },
+        {
+          "q": "¿Puedo personalizar las probabilidades de los elementos?",
+          "a": "Sí, puedes establecer una 'proporción' para cada elemento en la configuración de la ruleta. Una proporción más alta aumenta la probabilidad de que se seleccione ese elemento."
+        }
+      ]
+    },
+    "mypage": {
+      "profile": "Perfil",
+      "savedRoulettes": "Ruletas guardadas",
+      "noRoulettes": "Aún no has creado ninguna ruleta.",
+      "publicSettings": "Configuración pública",
+      "editRoulette": "Editar Ruleta",
+      "deleteConfirmTitle": "Eliminar Ruleta",
+      "deleteConfirm": "¿Estás seguro de que quieres eliminar esta ruleta?",
+      "settingsExcerpt": "de Configuración pública",
+      "publishAsTemplate": {
+        "title": "Publicar como plantilla",
+        "excerpt": "Permitir que otros usuarios vean y usen esta ruleta."
       },
-      "auth": "Pasos para nuevo registro e inicio de sesión",
-      "auth_description": "Explica cómo crear una nueva cuenta y los pasos para iniciar sesión después del registro.",
-      "auth_detail_structured": {
-        "step1_title": "Step 1: How to Sign Up",
-        "step1_content": "Proceed to the account creation page from the 'Sign Up' button in the header menu. The only required information is 'Username', 'Email Address', and 'Password'. After entering, click the button to complete the registration.",
-        "step2_title": "Step 2: How to Log In",
-        "step2_content": "Once you have created an account, log in from the 'Login' page by entering your registered email address and password. Your login state will be maintained, so there is no need to enter it every time.",
-        "step3_title": "Step 3: Social Login",
-        "step3_content": "As an easier login method, we also support social login using a Google account. Just click the 'Login with Google' button to start using the service immediately without any tedious input."
-      }
-    },
-    "loggedIn": {
-      "title": "Funciones Adicionales Después de Iniciar Sesión",
-      "mypage": "Mi Página: Gestiona las ruletas creadas (editar/eliminar) y edita tu perfil.",
-      "mypage_description": "Explica cómo gestionar tus ruletas guardadas en la página dedicada 'Mi Página' para usuarios que han iniciado sesión.",
-      "mypage_detail_structured": {
-        "step1_title": "Step 1: Accessing My Page",
-        "step1_content": "While logged in, click on your username in the header menu or the 'My Page' link to go to your dedicated page.",
-        "step2_title": "Step 2: Managing Roulettes",
-        "step2_content": "On My Page, all the roulettes you have saved are displayed in a list. From here, you can change the settings with the 'Edit' button for each roulette, or delete unnecessary ones with the 'Delete' button.",
-        "step3_title": "Step 3: Public Settings and Profile",
-        "step3_content": "By changing the 'Public Settings' for each roulette, you can publish it as a template that other users can use. You can also set up your public profile information from 'Edit Profile' to let other users know who created the template."
+      "allowFork": {
+        "title": "Permitir que otros usuarios dupliquen",
+        "excerpt": "Permitir que otros usuarios creen una nueva ruleta basada en esta plantilla."
       },
-      "templates": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas.",
-      "templates_description": "Aprende a encontrar y utilizar plantillas creadas por otros usuarios, y a publicar tus propias ruletas como plantillas.",
-      "templates_detail_structured": {
-        "step1_title": "Step 1: Find a Template",
-        "step1_content": "On the 'Find from Templates' page, various roulettes created by other users are published. Find interesting templates by searching with keywords or sorting by newest or most popular.",
-        "step2_title": "Step 2: Use a Template",
-        "step2_content": "When you find a template you like, click the 'Use this Template' button. This will open a new roulette creation screen with all the settings of that template (items, colors, ratios, etc.) inherited. All you have to do is customize it freely.",
-        "step3_title": "Step 3: Publish a Template",
-        "step3_content": "To publish your own roulette as a template, first go to My Page. In the 'Public Settings' of the roulette you want to publish, turn on 'Publish as Template', and other users will be able to use your roulette."
+      "publishProfile": {
+        "title": "Publicar perfil",
+        "excerpt": "Muestra tu perfil como el creador en la plantilla."
+      },
+      "deleteAccount": {
+        "button": "Eliminar Cuenta",
+        "modalTitle": "Confirmar Eliminación de Cuenta",
+        "modalDescription": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.",
+        "confirmButton": "Eliminar"
       }
     },
-    "advanced": {
-      "title": "Advanced Features",
-      "original_roulette": "How to use Original Roulette",
-      "original_roulette_description": "Learn the steps to create your very own completely original roulette. Shape your ideas from scratch, without being tied to other templates.",
-      "original_roulette_detail_structured": {
-        "step1_title": "Step 1: Starting from Scratch",
-        "step1_content": "The greatest feature of the original roulette function is the ability to create your own roulette from a completely blank state, without relying on existing templates. First, decide on a title and description for your roulette on the creation page and take the first step of your idea.",
-        "step2_title": "Step 2: Freely Configure Items",
-        "step2_content": "You can add as many options as you like with the 'Add Item' button. Give each item a unique name and set your favorite color with the color picker to aim for a visually fun roulette.",
-        "step3_title": "Step 3: Manipulate Probability with Ratios",
-        "step3_content": "By adjusting the 'Ratio' of each item, you can finely control the winning probability. Design the lottery logic as you wish, such as making a specific item more likely to win, or making all items equal.",
-        "step4_title": "Step 4: Save and Share",
-        "step4_content": "If you are logged into your account, you can record the completed roulette on My Page with the 'Save' button. You can also use the 'Share' function to broadcast your unique roulette to the world via URL or image."
-      }
+    "privacyPolicy": {
+      "lastUpdated": "Última actualización: 24 de julio de 2025"
     },
-    "back_to_list": "Volver a la lista de Cómo usar",
-    "create_interactive_description": "Aprendamos a crear una ruleta operando directamente el panel de abajo. Puedes cambiar libremente los nombres de los elementos, colores, proporciones y más.",
-    "demo": {
-      "notice": "Esta es una demostración interactiva. Los cambios que hagas aquí no se guardarán, así que siéntete libre de experimentar.",
-      "defaultTitle": "¿Qué almorzamos hoy?",
-      "item1": "Ramen",
-      "item2": "Curry",
-      "item3": "Pasta",
-      "item4": "Pizza",
-      "item5": "Sushi",
-      "available_templates": "Plantillas Disponibles",
-      "load_template": "Cargar esta Plantilla",
-      "template1_title": "Tareas Diarias",
-      "template1_item1": "Limpiar la habitación",
-      "template1_item2": "Hacer la compra",
-      "template1_item3": "Hacer ejercicio",
-      "template2_title": "Noche de Película",
-      "template2_item1": "Acción",
-      "template2_item2": "Comedia",
-      "template2_item3": "Drama",
-      "template2_item4": "Ciencia Ficción",
-      "template3_title": "Sí o No",
-      "template3_item1": "Sí",
-      "template3_item2": "No"
-    }
-  },
-  "footer": {
-    "copyright": "Ruleta Web. Todos los derechos reservados.",
-    "mainFeatures": "Funciones principales",
-    "support": "Soporte",
-    "siteInfo": "Información del sitio",
-    "social": "Social",
-    "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas."
-  },
-  "cookie": {
-    "bannerText": "Este sitio utiliza cookies para mejorar la experiencia del usuario y analizar el uso del sitio. Esto incluye el análisis de tráfico por parte de Google Analytics. Al aceptar el uso de cookies, nos ayudas a proporcionar un mejor servicio.",
-    "seeDetails": "Ver detalles",
-    "accept": "Aceptar",
-    "decline": "Rechazar",
-    "declineConfirmation": "Configuración guardada. No se recopilará información en este sitio."
-  },
-  "heroSection": {
+    "termsOfService": {
+      "lastUpdated": "Última actualización: 24 de julio de 2025"
+    },
     "templates": {
-      "title": "Buscar desde Plantillas",
-      "excerpt": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato."
+      "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
+      "noExcerpt": "No hay descripción disponible.",
+      "useTemplate": "Usar esta Plantilla",
+      "copySuffix": " - copia",
+      "forkAndSave": "Duplicar y Guardar esta Plantilla",
+      "creatorProfileTitle": "Perfil del creador"
     },
-    "createRoulette": {
-      "title": "Crea una Ruleta Original",
-      "excerpt": "Crea instantáneamente tu propia ruleta de sorteo con elementos y pesos personalizados. No se requiere registro. Compatible con PC y smartphone."
+    "howToUse": {
+      "title": "Cómo usar",
+      "description": "Aprende todo, desde lo básico de 'Ruleta en la Web' hasta las funciones convenientes disponibles después de registrar una cuenta. Domina cómo crear y compartir ruletas, usar plantillas y aprovechar al máximo nuestro sitio.",
+      "backToList": "Volver a la lista de Cómo usar",
+      "basic": {
+        "title": "Uso Básico (para Invitados)",
+        "create": {
+          "title": "Cómo crear una ruleta (agregar/eliminar elementos, cambiar proporciones/colores)",
+          "description": "Aprende a crear tu propia ruleta original configurando libremente los elementos, los colores y las proporciones.",
+          "interactiveDescription": "Aprendamos a crear una ruleta operando directamente el panel de abajo. Puedes cambiar libremente los nombres de los elementos, colores, proporciones y más.",
+          "step1": {
+            "title": "Paso 1: Configuración básica de la ruleta",
+            "content": "Primero, introduce el 'Título' y la 'Descripción' de tu ruleta. El título ayuda a distinguirla de otras ruletas, y la descripción es útil para explicar su propósito. Configúralos para que sean claros para los demás."
+          },
+          "step2": {
+            "title": "Paso 2: Añadir y personalizar elementos",
+            "content": "A continuación, utiliza el botón 'Añadir elemento' para añadir opciones a la ruleta. Para cada elemento, puedes establecer libremente su 'Nombre' para mostrar y un 'Color' de identificación. Puedes elegir los colores de forma intuitiva desde el selector de colores."
+          },
+          "step3": {
+            "title": "Paso 3: Establecer la proporción de ganancia",
+            "content": "Puedes establecer una 'Proporción' para cada elemento. Este es un número que indica la probabilidad de que ese elemento sea seleccionado. Por ejemplo, si estableces 'A: 2, B: 1', A tendrá el doble de probabilidades de ser elegido que B. Si quieres que todos los elementos tengan la misma probabilidad, introduce el mismo número para todos."
+          },
+          "step4": {
+            "title": "Paso 4: Finalizar la configuración",
+            "content": "Una vez que hayas configurado todos los elementos, ¡tu ruleta original estará completa! Compruébala en la vista previa y podrás iniciar el sorteo en cualquier momento con el botón 'Girar'."
+          }
+        },
+        "spin": {
+          "title": "Cómo girar la ruleta",
+          "description": "Explica el procedimiento para girar la ruleta creada y comprobar los resultados del sorteo.",
+          "step1": {
+            "title": "Paso 1: Gira la ruleta",
+            "content": "La ruleta que creaste y configuraste se muestra en el área de vista previa. Cuando haces clic en el botón 'Girar' en el centro, la ruleta comenzará a girar vigorosamente."
+          },
+          "step2": {
+            "title": "Paso 2: Comprueba el resultado",
+            "content": "Cuando la rotación se detiene, el elemento seleccionado se resalta y el resultado se muestra de forma destacada en el centro de la pantalla. ¡Una divertida animación de confeti animará el momento del sorteo!"
+          },
+          "step3": {
+            "title": "Paso 3: Inténtalo de nuevo",
+            "content": "Si quieres volver a girar la ruleta con la misma configuración, solo tienes que hacer clic en el botón 'Girar de nuevo' en la pantalla de resultados. Puedes empezar el siguiente sorteo de inmediato."
+          }
+        },
+        "share": {
+          "title": "Cómo compartir resultados (URL/Imagen)",
+          "description": "Aprende a compartir los resultados de tu ruleta con amigos o en redes sociales a través de una URL o como una imagen.",
+          "step1": {
+            "title": "Paso 1: Selecciona una opción para compartir",
+            "content": "Después de girar la ruleta, puedes compartirla desde la pantalla de resultados o desde el botón 'Compartir' en la pantalla de configuración. Puedes elegir entre dos opciones para compartir: 'Compartir por URL' y 'Compartir como imagen'."
+          },
+          "step2": {
+            "title": "Paso 2: Compartir por URL",
+            "content": "Cuando seleccionas 'Compartir por URL', la URL de la página que refleja la configuración actual de la ruleta (resultados no incluidos) se copia en tu portapapeles. Pega esta URL a tus amigos o en las redes sociales, y cualquiera podrá experimentar la misma ruleta."
+          },
+          "step3": {
+            "title": "Paso 3: Compartir como imagen",
+            "content": "Cuando seleccionas 'Compartir como imagen', el aspecto actual de la ruleta se descarga como un archivo de imagen (formato PNG). Esto es útil para anunciar los resultados de un evento o para compartir visualmente."
+          }
+        }
+      },
+      "account": {
+        "title": "Funciones de la Cuenta",
+        "merit": {
+          "title": "Beneficios del registro de cuenta (guardado de datos, etc.)",
+          "description": "Descubre las funciones convenientes que se habilitan al registrarte para obtener una cuenta gratuita.",
+          "benefit1": {
+            "title": "Beneficio 1: Guarda y reutiliza ruletas",
+            "content": "Cuando creas una cuenta, puedes guardar las ruletas que has creado en 'Mi Página'. Esto te ahorra la molestia de tener que recrear la misma ruleta cada vez, permitiéndote recuperar y usar tus configuraciones favoritas en cualquier momento."
+          },
+          "benefit2": {
+            "title": "Beneficio 2: Sincronización entre dispositivos",
+            "content": "Al iniciar sesión, puedes acceder a tus ruletas guardadas desde cualquier dispositivo. Por ejemplo, puedes usar una ruleta creada en tu PC en casa desde tu smartphone mientras estás fuera."
+          },
+          "benefit3": {
+            "title": "Beneficio 3: Publica como plantilla",
+            "content": "Puedes publicar tus obras maestras de ruletas como 'plantillas' que otros usuarios también pueden usar. Tus ideas podrían ser útiles para alguien en todo el mundo. Puedes cambiar la configuración de publicación en cualquier momento."
+          }
+        },
+        "auth": {
+          "title": "Pasos para nuevo registro e inicio de sesión",
+          "description": "Explica cómo crear una nueva cuenta y los pasos para iniciar sesión después del registro.",
+          "step1": {
+            "title": "Paso 1: Cómo registrarse",
+            "content": "Accede a la página de creación de cuenta desde el botón 'Registrarse' en el menú del encabezado. La única información requerida es 'Nombre de usuario', 'Dirección de correo electrónico' y 'Contraseña'. Después de introducirlos, haz clic en el botón para completar el registro."
+          },
+          "step2": {
+            "title": "Paso 2: Cómo iniciar sesión",
+            "content": "Una vez que hayas creado una cuenta, inicia sesión desde la página de 'Inicio de sesión' introduciendo tu dirección de correo electrónico y contraseña registradas. Tu estado de inicio de sesión se mantendrá, por lo que no es necesario introducirlo cada vez."
+          },
+          "step3": {
+            "title": "Paso 3: Inicio de sesión social",
+            "content": "Como método de inicio de sesión más fácil, también admitimos el inicio de sesión social utilizando una cuenta de Google. Simplemente haz clic en el botón 'Iniciar sesión con Google' para empezar a usar el servicio inmediatamente sin ninguna entrada tediosa."
+          }
+        }
+      },
+      "loggedIn": {
+        "title": "Funciones Adicionales Después de Iniciar Sesión",
+        "mypage": {
+          "title": "Mi Página: Gestiona las ruletas creadas (editar/eliminar) y edita tu perfil.",
+          "description": "Explica cómo gestionar tus ruletas guardadas en la página dedicada 'Mi Página' para usuarios que han iniciado sesión.",
+          "step1": {
+            "title": "Paso 1: Acceder a Mi Página",
+            "content": "Mientras has iniciado sesión, haz clic en tu nombre de usuario en el menú del encabezado o en el enlace 'Mi Página' para ir a tu página dedicada."
+          },
+          "step2": {
+            "title": "Paso 2: Gestionar ruletas",
+            "content": "En Mi Página, todas las ruletas que has guardado se muestran en una lista. Desde aquí, puedes cambiar la configuración con el botón 'Editar' para cada ruleta, o eliminar las innecesarias con el botón 'Eliminar'."
+          },
+          "step3": {
+            "title": "Paso 3: Configuración pública y perfil",
+            "content": "Al cambiar la 'Configuración pública' para cada ruleta, puedes publicarla como una plantilla que otros usuarios pueden usar. También puedes configurar la información de tu perfil público desde 'Editar perfil' para que otros usuarios sepan quién creó la plantilla."
+          }
+        },
+        "templates": {
+          "title": "Función de Plantilla: Cómo usar plantillas y hacer públicas tus propias ruletas.",
+          "description": "Aprende a encontrar y utilizar plantillas creadas por otros usuarios, y a publicar tus propias ruletas como plantillas.",
+          "step1": {
+            "title": "Paso 1: Encuentra una plantilla",
+            "content": "En la página 'Buscar desde Plantillas', se publican varias ruletas creadas por otros usuarios. Encuentra plantillas interesantes buscando con palabras clave o ordenando por las más nuevas o las más populares."
+          },
+          "step2": {
+            "title": "Paso 2: Usa una plantilla",
+            "content": "Cuando encuentres una plantilla que te guste, haz clic en el botón 'Usar esta Plantilla'. Esto abrirá una nueva pantalla de creación de ruleta con toda la configuración de esa plantilla (elementos, colores, proporciones, etc.) heredada. Todo lo que tienes que hacer es personalizarla libremente."
+          },
+          "step3": {
+            "title": "Paso 3: Publica una plantilla",
+            "content": "Para publicar tu propia ruleta como plantilla, primero ve a Mi Página. En la 'Configuración pública' de la ruleta que quieres publicar, activa 'Publicar como Plantilla', y otros usuarios podrán usar tu ruleta."
+          }
+        }
+      },
+      "advanced": {
+        "title": "Funciones Avanzadas",
+        "originalRoulette": {
+          "title": "Cómo usar la Ruleta Original",
+          "description": "Aprende los pasos para crear tu propia ruleta completamente original. Da forma a tus ideas desde cero, sin estar atado a otras plantillas.",
+          "step1": {
+            "title": "Paso 1: Empezar desde cero",
+            "content": "La mayor característica de la función de ruleta original es la capacidad de crear tu propia ruleta desde un estado completamente en blanco, sin depender de plantillas existentes. Primero, decide un título y una descripción para tu ruleta en la página de creación y da el primer paso de tu idea."
+          },
+          "step2": {
+            "title": "Paso 2: Configura los elementos libremente",
+            "content": "Puedes añadir tantas opciones como quieras con el botón 'Añadir elemento'. Dale a cada elemento un nombre único y establece tu color favorito con el selector de colores para aspirar a una ruleta visualmente divertida."
+          },
+          "step3": {
+            "title": "Paso 3: Manipula la probabilidad con las proporciones",
+            "content": "Ajustando la 'Proporción' de cada elemento, puedes controlar finamente la probabilidad de ganar. Diseña la lógica del sorteo como desees, como hacer que un elemento específico sea más propenso a ganar, o hacer que todos los elementos sean iguales."
+          },
+          "step4": {
+            "title": "Paso 4: Guarda y comparte",
+            "content": "Si has iniciado sesión en tu cuenta, puedes registrar la ruleta completada en Mi Página con el botón 'Guardar'. También puedes usar la función 'Compartir' para difundir tu ruleta única al mundo a través de una URL o una imagen."
+          }
+        }
+      },
+      "demo": {
+        "notice": "Esta es una demostración interactiva. Los cambios que hagas aquí no se guardarán, así que siéntete libre de experimentar.",
+        "defaultTitle": "¿Qué almorzamos hoy?",
+        "item1": "Ramen",
+        "item2": "Curry",
+        "item3": "Pasta",
+        "item4": "Pizza",
+        "item5": "Sushi",
+        "availableTemplates": "Plantillas Disponibles",
+        "loadTemplate": "Cargar esta Plantilla",
+        "template1": {
+          "title": "Tareas Diarias",
+          "item1": "Limpiar la habitación",
+          "item2": "Hacer la compra",
+          "item3": "Hacer ejercicio"
+        },
+        "template2": {
+          "title": "Noche de Película",
+          "item1": "Acción",
+          "item2": "Comedia",
+          "item3": "Drama",
+          "item4": "Ciencia Ficción"
+        },
+        "template3": {
+          "title": "Sí o No",
+          "item1": "Sí",
+          "item2": "No"
+        }
+      }
     },
-    "login": {
-      "title": "Inicia sesión para Guardar tus Ruletas",
-      "excerpt": "Guarda las ruletas que has creado y accede a ellas desde cualquier dispositivo.",
-      "goToMypage": "Ir a Mi Página",
-      "goToLogin": "Ir a Iniciar Sesión"
+    "admin": {
+      "login": {
+        "passwordLabel": "Contraseña",
+        "loginButton": "Iniciar sesión",
+        "loggingIn": "Iniciando sesión...",
+        "invalidPassword": "La contraseña que introdujiste es incorrecta."
+      },
+      "dashboard": {
+        "title": "Panel de Administrador",
+        "newTemplate": "Nueva Plantilla",
+        "templatesTitle": "Plantillas Oficiales",
+        "deleteConfirm": "¿Estás seguro de que quieres eliminar esta plantilla? Esta acción no se puede deshacer.",
+        "deleteError": "Error al eliminar la plantilla.",
+        "noTemplates": "No se encontraron plantillas oficiales.",
+        "editTooltip": "Editar Plantilla",
+        "deleteTooltip": "Eliminar Plantilla",
+        "table": {
+          "title": "Título"
+        }
+      },
+      "form": {
+        "createTitle": "Crear Nueva Plantilla Oficial",
+        "editTitle": "Editar Plantilla Oficial",
+        "titleLabel": "Título",
+        "descriptionLabel": "Descripción (ES)",
+        "descriptionPlaceholder": "Introduce la descripción de la plantilla en español. Este será el predeterminado.",
+        "itemsLabel": "Elementos",
+        "itemNamePlaceholder": "Nombre del elemento",
+        "addItem": "Añadir elemento",
+        "tagsLabel": "Etiquetas (separadas por comas)",
+        "tagsPlaceholder": "p. ej. divertido, juego, decisión",
+        "supportedLanguagesLabel": "Idiomas admitidos (separados por comas)",
+        "supportedLanguagesPlaceholder": "p. ej. en, ja, es",
+        "saveError": "Error al guardar la plantilla.",
+        "fetchError": "Error al obtener los datos de la plantilla.",
+        "createButton": "Crear Plantilla",
+        "updateButton": "Actualizar Plantilla"
+      }
+    }
+  },
+  "components": {
+    "footer": {
+      "copyright": "Ruleta Web. Todos los derechos reservados.",
+      "tagline": "Crea y comparte instantáneamente tus propias ruletas personalizadas.",
+      "howToUse": "Cómo usar"
     },
-    "futureFeatures": {
-      "title": "Futuras Funciones",
-      "excerpt": "Planeamos añadir funciones más convenientes como una función de inicio de sesión, una página de usuario y una galería de plantillas."
+    "cookieBanner": {
+      "text": "Este sitio utiliza cookies para mejorar la experiencia del usuario y analizar el uso del sitio. Esto incluye el análisis de tráfico por parte de Google Analytics. Al aceptar el uso de cookies, nos ayudas a proporcionar un mejor servicio.",
+      "seeDetails": "Ver detalles",
+      "accept": "Aceptar",
+      "decline": "Rechazar",
+      "declineConfirmation": "Configuración guardada. No se recopilará información en este sitio."
     },
-    "contact": {
-      "title": "Contacto",
-      "excerpt": "No dudes en enviarnos tus opiniones, comentarios o informes de errores."
+    "heroSection": {
+      "useCases": {
+        "title": "Ver Casos de Uso",
+        "excerpt": "Descubre varios casos de uso para la 'Ruleta Web', desde decisiones diarias hasta la planificación de eventos."
+      },
+      "templates": {
+        "title": "Buscar desde Plantillas",
+        "excerpt": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato."
+      },
+      "createRoulette": {
+        "title": "Crea una Ruleta Original",
+        "excerpt": "Crea instantáneamente tu propia ruleta de sorteo con elementos y pesos personalizados. No se requiere registro. Compatible con PC y smartphone."
+      },
+      "login": {
+        "title": "Inicia sesión para Guardar tus Ruletas",
+        "excerpt": "Guarda las ruletas que has creado y accede a ellas desde cualquier dispositivo.",
+        "goToMypage": "Ir a Mi Página",
+        "goToLogin": "Ir a Iniciar Sesión"
+      },
+      "futureFeatures": {
+        "title": "Futuras Funciones",
+        "excerpt": "Planeamos añadir funciones más convenientes como una función de inicio de sesión, una página de usuario y una galería de plantillas."
+      },
+      "contact": {
+        "title": "Contacto",
+        "excerpt": "No dudes en enviarnos tus opiniones, comentarios o informes de errores."
+      },
+      "language": {
+        "title": "Soporte Multilingüe",
+        "excerpt": "Este sitio es compatible con japonés, inglés, español y francés. Puedes cambiar el idioma en cualquier momento desde el selector de idioma en el menú."
+      }
     },
-    "language": {
-      "title": "Soporte Multilingüe",
-      "excerpt": "Este sitio es compatible con japonés, inglés, español y francés. Puedes cambiar el idioma en cualquier momento desde el selector de idioma en el menú."
+    "roulette": {
+      "settings": {
+        "title": "Configuración de la Ruleta",
+        "name": "Título",
+        "namePlaceholder": "Introduce el título de la ruleta",
+        "excerpt": "Descripción",
+        "excerptPlaceholder": "Introduce la descripción de la ruleta",
+        "optionDefault": "Opción",
+        "items": {
+          "addItem": "Añadir elemento",
+          "itemPlaceholder": "Nombre del elemento"
+        },
+        "saveInProgress": "Guardando...",
+        "saveChanges": "Guardar cambios"
+      },
+      "preview": {
+        "title": "Mi Ruleta",
+        "spin": "Girar",
+        "spinning": "Girando..."
+      },
+      "result": {
+        "title": "¡Y el resultado es...!"
+      },
+      "share": {
+        "url": "Compartir por URL",
+        "image": "Compartir como imagen",
+        "copyLink": "Copiar enlace de la Ruleta",
+        "copyUrl": "Copiar URL",
+        "urlCopied": "¡URL Copiada!",
+        "onX": "Compartir en X",
+        "onFacebook": "Compartir en Facebook",
+        "copySuccess": "¡Copiado con éxito!",
+        "copySuccessMessageRoulette": "La URL de la ruleta ha sido copiada a tu portapapeles.",
+        "copySuccessMessageResult": "La URL del resultado ha sido copiada a tu portapapeles.",
+        "copyError": "Error al copiar la URL.",
+        "confirmTitle": "Confirmar compartir",
+        "confirmMessage": "El resultado no será incluido. Esto solo compartirá la configuración actual de la ruleta. ¿Está bien?",
+        "confirmAction": "Compartir"
+      }
+    },
+    "auth": {
+      "usernamePlaceholder": "Nombre a mostrar",
+      "validation": {
+        "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
+        "passwordLength": "La contraseña debe tener al menos 6 caracteres."
+      },
+      "loginRequired": "Se requiere iniciar sesión",
+      "loginToSave": "Necesitas iniciar sesión para guardar tu ruleta."
     }
   }
 }

@@ -92,10 +92,10 @@ const MyPageClient = () => {
 
   const showDeleteConfirmModal = useCallback(() => {
     showModal({
-      title: t("mypage.delete_account.modal_title"),
-      message: t("mypage.delete_account.modal_description"),
-      confirmText: t("mypage.delete_account.confirm_button"),
-      cancelText: t("mypage.delete_account.cancel_button"),
+      title: t("pages.mypage.deleteAccount.modalTitle"),
+      message: t("pages.mypage.deleteAccount.modalDescription"),
+      confirmText: t("pages.mypage.deleteAccount.confirmButton"),
+      cancelText: t("common.cancel"),
       onConfirm: handleDeleteAccount,
       onCancel: closeModal,
       type: "error",
@@ -110,13 +110,13 @@ const MyPageClient = () => {
     <>
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
-          {t("mypage.title")}
+          {t("seo.mypage.title")}
         </h1>
 
         {/* プロフィールセクション */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8">
           <h1 className="text-center text-3xl font-bold text-white mb-4">
-            {t("mypage.profile")}
+            {t("pages.mypage.profile")}
           </h1>
           <hr className="text-white" />
           <div className="flex justify-between items-center my-4">
@@ -129,7 +129,7 @@ const MyPageClient = () => {
                 className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
               >
                 <Edit3 size={16} />
-                <span>{t("mypage.edit")}</span>
+                <span>{t("common.edit")}</span>
               </button>
             )}
           </div>
@@ -146,14 +146,14 @@ const MyPageClient = () => {
                   onClick={() => setIsEditingProfile(false)}
                   className="px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  {t("close")}
+                  {t("common.close")}
                 </button>
                 <button
                   onClick={handleProfileSave}
                   className="flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
                 >
                   <Save size={16} />
-                  <span>{t("roulette.settings.save")}</span>
+                  <span>{t("common.save")}</span>
                 </button>
               </div>
             </div>
@@ -169,7 +169,7 @@ const MyPageClient = () => {
               className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-red-600/80 text-white rounded-lg hover:bg-red-700/80 transition-colors"
             >
               <Trash2 size={16} />
-              <span>{t("mypage.delete_account.button")}</span>
+              <span>{t("pages.mypage.deleteAccount.button")}</span>
             </button>
           </div>
         </div>

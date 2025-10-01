@@ -36,7 +36,7 @@ const AuthForm = ({
     return (
       <div className="text-white text-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto"></div>
-        <p className="mt-2">{t("loading")}</p>
+        <p className="mt-2">{t("common.loading")}</p>
       </div>
     );
   }
@@ -69,7 +69,7 @@ const AuthForm = ({
             isLoginView ? tabButtonActive : tabButtonInactive
           }`}
         >
-          {t("auth.login")}
+          {t("common.login")}
         </button>
         <button
           onClick={() => setIsLoginView(false)}
@@ -77,13 +77,13 @@ const AuthForm = ({
             !isLoginView ? tabButtonActive : tabButtonInactive
           }`}
         >
-          {t("auth.signUp")}
+          {t("common.signUp")}
         </button>
       </div>
 
       {/* タイトル */}
       <h1 className="text-3xl font-bold text-center mb-6">
-        {isLoginView ? t("auth.login") : t("auth.signUp")}
+        {isLoginView ? t("common.login") : t("common.signUp")}
       </h1>
 
       {/* エラーメッセージ */}
@@ -94,12 +94,12 @@ const AuthForm = ({
         {/* ユーザー名（新規登録時のみ） */}
         {!isLoginView && (
           <div>
-            <label className={label}>{t("auth.username")}</label>
+            <label className={label}>{t("common.username")}</label>
             <input
               type="text"
               {...form.register("username")}
               className={inputStyle}
-              placeholder={t("auth.usernamePlaceholder")}
+              placeholder={t("components.auth.usernamePlaceholder")}
             />
             {form.formState.errors.username && (
               <p className={fieldError}>
@@ -111,7 +111,7 @@ const AuthForm = ({
 
         {/* メールアドレス */}
         <div>
-          <label className={label}>{t("auth.email")}</label>
+          <label className={label}>{t("common.email")}</label>
           <input
             type="email"
             {...form.register("email")}
@@ -124,7 +124,7 @@ const AuthForm = ({
 
         {/* パスワード */}
         <div>
-          <label className={label}>{t("auth.password")}</label>
+          <label className={label}>{t("common.password")}</label>
           <input
             type="password"
             {...form.register("password")}
@@ -140,10 +140,10 @@ const AuthForm = ({
         {/* 送信ボタン */}
         <button type="submit" disabled={isLoading} className={buttonPrimary}>
           {isLoading
-            ? t("loading")
+            ? t("common.loading")
             : isLoginView
-              ? t("auth.login")
-              : t("auth.signUp")}
+              ? t("common.login")
+              : t("common.signUp")}
         </button>
       </form>
     </div>
