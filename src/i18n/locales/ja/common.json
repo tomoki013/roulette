@@ -3,7 +3,8 @@
   "description": "無料で使えるオンラインルーレット作成ツール「Webでルーレット」。好きな項目や比率を自由に設定して、オリジナルのカスタムルーレットを簡単に作成・共有できます。イベントの抽選や毎日の意思決定に、登録不要ですぐにお使いいただけます。",
   "excerpt": "Webでルーレットは、カスタムルーレットを簡単に作成・共有できるツールです。オリジナルのルーレットを作成して、友人や家族と楽しみましょう。",
   "close": "閉じる",
-  "loading": "Loading...",
+  "other": "その他",
+  "loading": "読み込み中...",
   "about": {
     "title": "サイトについて",
     "description": "「Webでルーレット」は、誰もが直感的に使えるカスタムルーレット作成ツールです。このページでは、サイトの開発目的や想定される利用シーンについてご紹介しています。日常の小さな選択からイベントまで、楽しく公平な意思決定をサポートします。",
@@ -183,7 +184,11 @@
       "confirmTitle": "共有の確認",
       "confirmMessage": "結果は含まれません。現在のルーレット設定のみを共有します。よろしいですか？",
       "confirmAction": "共有する"
-    }
+    },
+    "copyUrl": "URLをコピー",
+    "urlCopied": "URLをコピーしました！",
+    "shareOnX": "Xで共有",
+    "shareOnFacebook": "Facebookで共有"
   },
   "privacyPolicy": {
     "title": "プライバシーポリシー",
@@ -321,7 +326,23 @@
       "defaultTitle": "今日のランチは？",
       "item1": "ラーメン",
       "item2": "カレー",
-      "item3": "パスタ"
+      "item3": "パスタ",
+      "item4": "ピザ",
+      "item5": "寿司",
+      "available_templates": "利用可能なテンプレート",
+      "load_template": "このテンプレートを読み込む",
+      "template1_title": "今日のタスク",
+      "template1_item1": "部屋の掃除",
+      "template1_item2": "買い物に行く",
+      "template1_item3": "筋トレ",
+      "template2_title": "映画ナイト",
+      "template2_item1": "アクション",
+      "template2_item2": "コメディ",
+      "template2_item3": "ドラマ",
+      "template2_item4": "SF",
+      "template3_title": "はい/いいえ",
+      "template3_item1": "はい",
+      "template3_item2": "いいえ"
     }
   },
   "footer": {

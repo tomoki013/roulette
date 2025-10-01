@@ -3,6 +3,7 @@
   "description": "Web Roulette is a free online tool to create custom roulettes. Easily build and share your original roulette wheels with custom items and ratios. Perfect for event drawings or daily decisions, with no registration required to get started.",
   "excerpt": "Web Roulette is a tool that allows you to easily create and share custom roulettes. Create your own original roulette and have fun with friends and family.",
   "close": "Close",
+  "other": "Other",
   "loading": "Loading...",
   "about": {
     "title": "About",
@@ -183,7 +184,11 @@
       "confirmTitle": "Confirm Share",
       "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
       "confirmAction": "Share"
-    }
+    },
+    "copyUrl": "Copy URL",
+    "urlCopied": "URL Copied!",
+    "shareOnX": "Share on X",
+    "shareOnFacebook": "Share on Facebook"
   },
   "privacyPolicy": {
     "title": "Privacy Policy",
@@ -321,7 +326,23 @@
       "defaultTitle": "What's for lunch today?",
       "item1": "Ramen",
       "item2": "Curry",
-      "item3": "Pasta"
+      "item3": "Pasta",
+      "item4": "Pizza",
+      "item5": "Sushi",
+      "available_templates": "Available Templates",
+      "load_template": "Load this Template",
+      "template1_title": "Daily Tasks",
+      "template1_item1": "Clean room",
+      "template1_item2": "Go grocery shopping",
+      "template1_item3": "Workout",
+      "template2_title": "Movie Night",
+      "template2_item1": "Action",
+      "template2_item2": "Comedy",
+      "template2_item3": "Drama",
+      "template2_item4": "Sci-Fi",
+      "template3_title": "Yes or No",
+      "template3_item1": "Yes",
+      "template3_item2": "No"
     }
   },
   "footer": {
