@@ -222,6 +222,7 @@
       "title": "Basic Usage (for Guests)",
       "create": "How to create a roulette (add/delete items, change ratios/colors)",
       "create_description": "Learn how to create your own original roulette by freely setting items, colors, and ratios.",
+      "create_interactive_description": "Let's learn how to create a roulette by actually operating the panel below. You can freely change item names, colors, ratios, and more.",
       "create_detail_structured": {
         "step1_title": "Step 1: Basic Roulette Settings",
         "step1_content": "First, enter the 'Title' and 'Description' for your roulette. The title helps distinguish it from other roulettes, and the description is useful for explaining its purpose. Set them up to be clear for others.",
@@ -314,7 +315,14 @@
         "step4_content": "If you are logged into your account, you can record the completed roulette on My Page with the 'Save' button. You can also use the 'Share' function to broadcast your unique roulette to the world via URL or image."
       }
     },
-    "back_to_list": "Back to How to Use list"
+    "back_to_list": "Back to How to Use list",
+    "demo": {
+      "notice": "This is an interactive demo. Your changes here will not be saved, so feel free to experiment.",
+      "defaultTitle": "What's for lunch today?",
+      "item1": "Ramen",
+      "item2": "Curry",
+      "item3": "Pasta"
+    }
   },
   "footer": {
     "copyright": "Web Roulette. All rights reserved.",
