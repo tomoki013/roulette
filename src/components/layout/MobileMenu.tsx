@@ -12,6 +12,7 @@ import {
   LayoutGrid,
   Contact,
   BookText,
+  HelpCircle,
 } from "lucide-react";
 import { useAuth } from "@/lib/hooks/useAuth";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -117,6 +118,16 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     >
                       <Contact size={20} />
                       <span>{t("contact.title")}</span>
+                    </Link>
+                  </motion.li>
+                  <motion.li variants={linkVariants}>
+                    <Link
+                      href={`/${locale}/faq`}
+                      onClick={onClose}
+                      className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
+                    >
+                      <HelpCircle size={20} />
+                      <span>{t("faq.title")}</span>
                     </Link>
                   </motion.li>
                 </motion.ul>

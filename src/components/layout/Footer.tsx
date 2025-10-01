@@ -97,6 +97,12 @@ const Footer = () => {
                   {t("contact.title")}
                 </Link>
                 <Link
+                  href={`/${locale}/faq`}
+                  className="text-sm hover:text-yellow-300 underline transition-colors"
+                >
+                  {t("faq.title")}
+                </Link>
+                <Link
                   href={`/${locale}/privacy-policy`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
