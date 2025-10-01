@@ -36,8 +36,7 @@ const Footer = () => {
               <p className="text-white/70">{t("components.footer.tagline")}</p>
             </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* 主な機能リンク */}
+            {/* サービスリンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
                 {t("common.services")}
@@ -49,6 +48,7 @@ const Footer = () => {
                 >
                   {t("seo.roulette.title")}
                 </Link>
+                {/* テンプレートページへのリンクを追加 */}
                 <Link
                   href={`/${locale}/templates`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
@@ -78,20 +78,20 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* サポートリンク */}
+            {/* 法務リンク */}
             <div>
               <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
                 {t("common.legal")}
               </h3>
               <nav className="flex flex-col space-y-3">
                 <Link
-                  href={`/${locale}/how-to-use`}
+                  href={`/${locale}/about`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
                   {t("seo.about.title")}
                 </Link>
                 <Link
-                  href={`/${locale}/articles`}
+                  href={`/${locale}/contact`}
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
                   {t("seo.contact.title")}
@@ -101,27 +101,6 @@ const Footer = () => {
                   className="text-sm hover:text-yellow-300 underline transition-colors"
                 >
                   {t("seo.faq.title")}
-                </Link>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="text-sm hover:text-yellow-300 underline transition-colors"
-                >
-                  {t("contact.title")}
-                </Link>
-              </nav>
-            </div>
-
-            {/* サイト情報リンク */}
-            <div>
-              <h3 className="font-semibold mb-4 tracking-widest uppercase text-yellow-300">
-                {t("footer.siteInfo")}
-              </h3>
-              <nav className="flex flex-col space-y-3">
-                <Link
-                  href={`/${locale}/about`}
-                  className="text-sm hover:text-yellow-300 underline transition-colors"
-                >
-                  {t("about.title")}
                 </Link>
                 <Link
                   href={`/${locale}/privacy-policy`}
@@ -158,14 +137,14 @@ const Footer = () => {
             </p>
             <div className="hidden md:block">
               <Link
-                href={`/terms-of-service`}
+                href={`/${locale}/terms-of-service`}
                 className="text-sm hover:text-yellow-300 underline transition-colors"
               >
                 {t("seo.termsOfService.title")}
-              </Link>{" "}
-              &nbsp;|&nbsp;{" "}
+              </Link>
+              <span className="mx-2">|</span>
               <Link
-                href={`privacy-policy`}
+                href={`/${locale}/privacy-policy`}
                 className="text-sm hover:text-yellow-300 underline transition-colors"
               >
                 {t("seo.privacyPolicy.title")}
