@@ -31,7 +31,12 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
   useEffect(() => {
     if (template) {
       setTitle(template.title);
-      setDescription(String(template.description) || "");
+      // The description from the DB is a JSON object. We'll edit the 'en' value.
+      if (template.description && typeof template.description === "object") {
+        setDescription((template.description as any)["en"] || "");
+      } else {
+        setDescription(String(template.description || ""));
+      }
       setItems(template.items as { name: string; color: string; ratio: number }[]);
       setTags(template.tags?.join(", ") || "");
       setSupportedLanguages(template.supported_languages.join(", "));
@@ -55,12 +60,28 @@ export function TemplateForm({ template, onSubmit, isEditing }: TemplateFormProp
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const languages = supportedLanguages
+      .split(",")
+      .map((lang) => lang.trim())
+      .filter(Boolean);
+    if (languages.length === 0) {
+      languages.push("en"); // Default to English if none are provided
+    }
+
+    const localizedDescription = languages.reduce(
+      (acc, lang) => {
+        acc[lang] = description;
+        return acc;
+      },
+      {} as Record<string, string>
+    );
+
     const formData = {
       title,
-      description: description,
+      description: localizedDescription,
       items,
       tags: tags.split(",").map((tag) => tag.trim()).filter(Boolean),
-      supported_languages: supportedLanguages.split(",").map((lang) => lang.trim()).filter(Boolean),
+      supported_languages: languages,
     };
     await onSubmit(formData);
   };
