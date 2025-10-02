@@ -104,7 +104,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
   const getAuthorInfo = () => {
     if (template.user_id === OFFICIAL_USER_ID) {
       return {
-        text: t("templates.official", "Official"), // 'Official' is a fallback
+        text: t("common.official", "Official"), // 'Official' is a fallback
         Icon: Star,
         isOfficial: true,
       };
@@ -138,7 +138,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
           <div className="flex items-center gap-2 text-yellow-300 mb-2">
             <Layers size={16} />
             <span className="text-sm font-semibold">
-              {t("templates.title")}
+              {t("common.template")}
             </span>
           </div>
           <h3 className="text-xl font-bold text-white mb-2">
@@ -175,7 +175,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
             </button>
           </div>
           <p className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white font-semibold transition-colors">
-            {t("templates.useTemplate")}
+            {t("pages.templates.useTemplate")}
             <ChevronsRight size={18} />
           </p>
         </div>

@@ -120,7 +120,7 @@ const PublicSettingsModal = ({
           >
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">
-                {t("mypage.publicSettings")}
+                {t("pages.mypage.publicSettings")}
               </h2>
               <button
                 onClick={onClose}
@@ -136,7 +136,7 @@ const PublicSettingsModal = ({
                   htmlFor="rouletteTitle"
                   className="block text-sm font-medium text-white/80 mb-1"
                 >
-                  {t("roulette.settings.name")}
+                  {t("components.roulette.settings.name")}
                 </label>
                 <input
                   id="rouletteTitle"
@@ -159,7 +159,7 @@ const PublicSettingsModal = ({
                   htmlFor="rouletteDescription"
                   className="block text-sm font-medium text-white/80 mb-1"
                 >
-                  {t("roulette.settings.excerpt")}
+                  {t("components.roulette.settings.excerpt")}
                 </label>
                 <textarea
                   id="rouletteDescription"
@@ -187,10 +187,10 @@ const PublicSettingsModal = ({
               <div className="flex items-center justify-between bg-white/10 p-4 rounded-lg">
                 <div className="flex-1">
                   <label htmlFor="isTemplate" className="font-semibold">
-                    {t("mypage.publishAsTemplate")}
+                    {t("pages.mypage.publishAsTemplate.title")}
                   </label>
                   <p className="text-xs text-white/60">
-                    {t("mypage.publishAsTemplateExcerpt")}
+                    {t("pages.mypage.publishAsTemplate.excerpt")}
                   </p>
                 </div>
                 <button
@@ -214,10 +214,10 @@ const PublicSettingsModal = ({
                   >
                     <div className="flex-1">
                       <label htmlFor="allowFork" className="font-semibold">
-                        {t("mypage.allowFork")}
+                        {t("pages.mypage.allowFork.title")}
                       </label>
                       <p className="text-xs text-white/60">
-                        {t("mypage.allowForkExcerpt")}
+                        {t("pages.mypage.allowFork.excerpt")}
                       </p>
                     </div>
                     <button
@@ -246,10 +246,10 @@ const PublicSettingsModal = ({
                         htmlFor="isProfilePublic"
                         className="font-semibold"
                       >
-                        {t("mypage.publishProfile")}
+                        {t("pages.mypage.publishProfile.title")}
                       </label>
                       <p className="text-xs text-white/60">
-                        {t("mypage.publishProfileExcerpt")}
+                        {t("pages.mypage.publishProfile.excerpt")}
                       </p>
                     </div>
                     <button
@@ -271,7 +271,7 @@ const PublicSettingsModal = ({
                 onClick={onClose}
                 className="px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 rounded-lg transition-colors"
               >
-                {t("close")}
+                {t("common.cancel")}
               </button>
               <button
                 onClick={handleSave}
@@ -283,7 +283,7 @@ const PublicSettingsModal = ({
                 ) : (
                   <Check size={16} />
                 )}
-                {t("roulette.settings.save")}
+                {t("common.save")}
               </button>
             </div>
           </motion.div>

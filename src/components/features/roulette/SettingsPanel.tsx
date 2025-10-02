@@ -73,7 +73,7 @@ const SettingsPanel = ({
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-semibold text-white">
-              {t("roulette.settings.title")}
+              {t("components.roulette.settings.title")}
             </h2>
             <Link href={`/${locale}/how-to-use`} passHref>
               <HelpCircle
@@ -86,7 +86,7 @@ const SettingsPanel = ({
 
         <div className="mb-6">
           <label className="block text-white/80 text-sm font-medium mb-2">
-            {t("roulette.settings.name")}
+            {t("components.roulette.settings.name")}
           </label>
           <input
             type="text"
@@ -108,13 +108,15 @@ const SettingsPanel = ({
         {onDescriptionChange && (
           <div className="mb-6">
             <label className="block text-white/80 text-sm font-medium mb-2">
-              {t("roulette.settings.description")}
+              {t("components.roulette.settings.description")}
             </label>
             <textarea
               value={description || ""}
               onChange={(e) => onDescriptionChange(e.target.value)}
               className="w-full h-24 px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-              placeholder={t("roulette.settings.descriptionPlaceholder")}
+              placeholder={t(
+                "components.roulette.settings.descriptionPlaceholder"
+              )}
             />
           </div>
         )}
@@ -177,7 +179,7 @@ const SettingsPanel = ({
             className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
           >
             <Plus size={20} />
-            {t("roulette.settings.items.addItem")}
+            {t("components.roulette.settings.items.addItem")}
           </button>
         </div>
 
@@ -190,7 +192,7 @@ const SettingsPanel = ({
               whileTap={{ scale: 0.95 }}
             >
               <Share2 size={16} />
-              {t("roulette.settings.share")}
+              {t("components.roulette.share.url")}
             </motion.button>
           )}
 
@@ -205,12 +207,12 @@ const SettingsPanel = ({
               {isSaving ? (
                 <>
                   <Loader2 size={16} className="animate-spin" />
-                  {t("roulette.settings.saveInProgress")}
+                  {t("components.roulette.settings.saveInProgress")}
                 </>
               ) : (
                 <>
                   <Save size={16} />
-                  {saveButtonText || t("roulette.settings.save")}
+                  {saveButtonText || t("common.save")}
                 </>
               )}
             </motion.button>

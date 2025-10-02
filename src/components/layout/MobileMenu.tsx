@@ -87,7 +87,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                     >
                       <PlusCircle size={20} />
-                      <span>{t("roulette.title")}</span>
+                      <span>{t("seo.roulette.title")}</span>
                     </Link>
                   </motion.li>
                   <motion.li variants={linkVariants}>
@@ -97,7 +97,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                     >
                       <LayoutGrid size={20} />
-                      <span>{t("templates.template")}</span>
+                      <span>{t("seo.templates.title")}</span>
                     </Link>
                   </motion.li>
                   <motion.li variants={linkVariants}>
@@ -107,7 +107,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                     >
                       <BookText size={20} />
-                      <span>{t("articles.title")}</span>
+                      <span>{t("seo.articles.title")}</span>
                     </Link>
                   </motion.li>
                   <motion.li variants={linkVariants}>
@@ -117,7 +117,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                     >
                       <Contact size={20} />
-                      <span>{t("contact.title")}</span>
+                      <span>{t("seo.contact.title")}</span>
                     </Link>
                   </motion.li>
                   <motion.li variants={linkVariants}>
@@ -127,7 +127,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                     >
                       <HelpCircle size={20} />
-                      <span>{t("faq.title")}</span>
+                      <span>{t("seo.faq.title")}</span>
                     </Link>
                   </motion.li>
                 </motion.ul>
@@ -154,7 +154,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                         >
                           <User size={20} />
-                          <span>{t("mypage.title")}</span>
+                          <span>{t("seo.mypage.title")}</span>
                         </Link>
                       </motion.li>
                       <motion.li variants={linkVariants}>
@@ -163,7 +163,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           className="flex items-center gap-3 text-lg text-white cursor-pointer hover:text-yellow-300 transition-colors"
                         >
                           <LogOut size={20} />
-                          <span>{t("auth.logout")}</span>
+                          <span>{t("common.logout")}</span>
                         </button>
                       </motion.li>
                     </>
@@ -175,7 +175,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         className="flex items-center gap-3 text-lg text-white hover:text-yellow-300 transition-colors"
                       >
                         <LogIn size={20} />
-                        <span>{t("auth.login")}</span>
+                        <span>{t("common.login")}</span>
                       </Link>
                     </motion.li>
                   )}
@@ -192,14 +192,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     onClick={onClose}
                     className="text-sm text-white underline hover:text-yellow-300 transition-colors"
                   >
-                    {t("privacyPolicy.title")}
+                    {t("seo.privacyPolicy.title")}
                   </Link>
                   <Link
                     href={`/${locale}/terms-of-service`}
                     onClick={onClose}
                     className="text-sm text-white underline hover:text-yellow-300 transition-colors"
                   >
-                    <span>{t("termsOfService.title")}</span>
+                    <span>{t("seo.termsOfService.title")}</span>
                   </Link>
                 </div>
               </div>
