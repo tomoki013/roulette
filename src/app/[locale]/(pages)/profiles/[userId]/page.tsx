@@ -12,8 +12,8 @@ export async function generateMetadata(props: {
 
   const title = profile?.username
     ? `${profile.username}`
-    : t("mypage.anonymousProfile");
-  const description = profile?.description || t("mypage.anonymousProfile");
+    : t("common.anonymous");
+  const description = profile?.description || t("common.anonymous");
 
   return {
     title: title,

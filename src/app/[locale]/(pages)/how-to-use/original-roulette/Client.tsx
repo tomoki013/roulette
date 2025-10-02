@@ -27,11 +27,11 @@ const HowToUseOriginalRoulettePageClient = ({
   locale,
 }: HowToUseOriginalRoulettePageClientProps) => {
   const { t } = useTranslation();
-  const [title, setTitle] = useState(t("howToUse.demo.defaultTitle"));
+  const [title, setTitle] = useState(t("pages.howToUse.demo.defaultTitle"));
   const [items, setItems] = useState<Item[]>([
-    { name: t("howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
-    { name: t("howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
-    { name: t("howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
+    { name: t("pages.howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
+    { name: t("pages.howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
+    { name: t("pages.howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
   ]);
 
   const handleItemAdd = () => {
@@ -74,15 +74,15 @@ const HowToUseOriginalRoulettePageClient = ({
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.advanced.original_roulette")}
+          {t("pages.howToUse.advanced.originalRoulette.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.advanced.original_roulette_description")}
+          {t("pages.howToUse.advanced.originalRoulette.description")}
         </p>
 
         <div className="p-4 border border-yellow-300/30 rounded-lg bg-yellow-500/10 mb-8">
           <p className="text-center text-yellow-200">
-            {t("howToUse.demo.notice")}
+            {t("pages.howToUse.demo.notice")}
           </p>
         </div>
 
@@ -101,35 +101,27 @@ const HowToUseOriginalRoulettePageClient = ({
 
         <div className="space-y-6 mt-12">
           <Step
-            title={t(
-              "howToUse.advanced.original_roulette_detail_structured.step1_title"
-            )}
+            title={t("pages.howToUse.advanced.originalRoulette.step1.title")}
             content={t(
-              "howToUse.advanced.original_roulette_detail_structured.step1_content"
+              "pages.howToUse.advanced.originalRoulette.step1.content"
             )}
           />
           <Step
-            title={t(
-              "howToUse.advanced.original_roulette_detail_structured.step2_title"
-            )}
+            title={t("pages.howToUse.advanced.originalRoulette.step2.title")}
             content={t(
-              "howToUse.advanced.original_roulette_detail_structured.step2_content"
+              "pages.howToUse.advanced.originalRoulette.step2.content"
             )}
           />
           <Step
-            title={t(
-              "howToUse.advanced.original_roulette_detail_structured.step3_title"
-            )}
+            title={t("pages.howToUse.advanced.originalRoulette.step3.title")}
             content={t(
-              "howToUse.advanced.original_roulette_detail_structured.step3_content"
+              "pages.howToUse.advanced.originalRoulette.step3.content"
             )}
           />
           <Step
-            title={t(
-              "howToUse.advanced.original_roulette_detail_structured.step4_title"
-            )}
+            title={t("pages.howToUse.advanced.originalRoulette.step4.title")}
             content={t(
-              "howToUse.advanced.original_roulette_detail_structured.step4_content"
+              "pages.howToUse.advanced.originalRoulette.step4.content"
             )}
           />
         </div>
@@ -140,7 +132,7 @@ const HowToUseOriginalRoulettePageClient = ({
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

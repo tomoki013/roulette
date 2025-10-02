@@ -221,14 +221,297 @@
         "button": "Delete Account",
         "modalTitle": "Confirm Account Deletion",
         "modalDescription": "Are you sure you want to delete your account? This action cannot be undone.",
-        "confirmButton": "Delete"
-      }
+        "confirmButton": "Delete",
+        "error": "Failed to delete account. Please try again later."
+      },
+      "profilePlaceholder": "Enter your bio...",
+      "noProfileDescription": "No bio has been set."
+    },
+    "profiles": {
+      "userNotFound": "User not found.",
+      "noProfileDescription": "No bio has been set.",
+      "publicTemplates": "Public Templates",
+      "noPublicTemplates": "No public templates available."
     },
     "privacyPolicy": {
-      "lastUpdated": "Last Updated: July 24, 2025"
+      "lastUpdated": "Last Updated: July 24, 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "\"Roulette on the Web\" (hereinafter referred to as \"this site\") respects your privacy and pays the utmost attention to the protection of personal information. This privacy policy explains what information this site collects, how it is used, and how it is protected."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "1. About Cookies"
+        },
+        {
+          "type": "paragraph",
+          "text": "A cookie is a mechanism that temporarily stores data on a user's computer through the browser when the user browses a website. This site uses cookies to improve our services and enhance the user experience. This allows us to remember user settings and display more relevant advertisements."
+        },
+        {
+          "type": "paragraph",
+          "text": "Users can disable the use of cookies by changing their browser settings. If you select \"Decline\" on our cookie consent banner, no information will be collected on this site. However, please note that in such cases, some functions may not be available on some websites, not limited to this site. For information on how to change cookie settings in major browsers, please refer to the links below."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Chrome",
+              "href": "https://support.google.com/chrome/answer/95647"
+            },
+            {
+              "text": "Mozilla Firefox",
+              "href": "https://support.mozilla.org/en-US/kb/block-websites-storing-cookies-site-data-firefox"
+            },
+            {
+              "text": "Apple Safari",
+              "href": "https://support.apple.com/en-us/105082"
+            },
+            {
+              "text": "Microsoft Edge",
+              "href": "https://support.microsoft.com/en-us/windows/microsoft-edge-Browse-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2. About Advertising"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "This site uses the third-party advertising service \"Google AdSense\". Advertising distributors may use \"Cookies\" (which do not include your name, address, e-mail address, or telephone number) to display advertisements for products and services that match your interests. For more information about Google AdSense and how to disable cookies, please see \"",
+          "linkText": "Advertising – Policies & Terms – Google",
+          "href": "https://policies.google.com/technologies/ads",
+          "afterText": "\"."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3. About Access Analysis Tools"
+        },
+        {
+          "type": "paragraph",
+          "text": "This site uses \"Google Analytics\", an access analysis tool provided by Google. Google Analytics uses cookies to understand how users interact with the site. This traffic data is collected anonymously and does not personally identify you. The collected data is used to improve the site and analyze usage patterns."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Opting Out of Data Collection"
+        },
+        {
+          "type": "paragraph",
+          "text": "You can refuse to have this data collected by disabling cookies in your browser settings. You can also disable data collection by Google Analytics by installing the \"Google Analytics Opt-out Add-on\" below."
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "",
+          "linkText": "Google Analytics Opt-out Add-on",
+          "href": "https://tools.google.com/dlpage/gaoptout",
+          "afterText": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "For more information on the Google Analytics terms of service and privacy policy, please see the links below."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Analytics Terms of Service",
+              "href": "https://marketingplatform.google.com/about/analytics/terms/us/"
+            },
+            {
+              "text": "Google's Privacy Policy",
+              "href": "https://policies.google.com/privacy"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4. About User Registration"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "This site collects email addresses to provide a user registration feature. This information is used solely for account authentication, management, and communication, such as for password resets. Data such as roulette titles and items created by the user are stored in our site's database in association with the user's account. This site's authentication features and database are powered by Supabase, and user information is securely managed in accordance with ",
+          "linkText": "Supabase's privacy policy",
+          "href": "https://supabase.com/privacy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5. About the Template Feature"
+        },
+        {
+          "type": "paragraph",
+          "text": "This site provides a feature to publish the roulettes you have created as \"templates\" for other users to use. If you publish a roulette as a template, the following information will be visible to other users:"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Username" },
+            { "text": "Roulette title" },
+            { "text": "Roulette items and settings" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Please be careful not to include personal information you do not want to disclose or information that infringes on the rights of third parties in your username or roulette content. You can change the publication settings of your templates at any time from your My Page."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6. About Personal Information Collected Through the Contact Form"
+        },
+        {
+          "type": "paragraph",
+          "text": "Our contact form requires you to enter your name (a nickname is acceptable) and email address. This personal information will be used solely for the purpose of responding to your inquiry and will not be disclosed to third parties without your permission."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "7. Disclaimer"
+        },
+        {
+          "type": "paragraph",
+          "text": "Please note that we are not responsible for any damage or loss caused by the content of this site."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8. Changes to This Privacy Policy"
+        },
+        {
+          "type": "paragraph",
+          "text": "This site will comply with Japanese laws and regulations applicable to personal information and will review and improve this policy from time to time. The latest revised privacy policy will always be disclosed on this page."
+        }
+      ]
     },
     "termsOfService": {
-      "lastUpdated": "Last Updated: July 24, 2025"
+      "lastUpdated": "Last Updated: July 24, 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These Terms of Service (hereinafter referred to as the \"Terms\") set forth the terms and conditions for use of the \"Roulette on the Web\" (hereinafter referred to as the \"Site\"). Users (hereinafter referred to as \"Users\") shall use the Service in accordance with these Terms."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 1 (Application)"
+        },
+        {
+          "type": "paragraph",
+          "text": "These Terms shall apply to all relationships between the User and the Site concerning the use of the Service."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 2 (User Registration)"
+        },
+        {
+          "type": "paragraph",
+          "text": "User registration may be required to use some features of this site. Users are responsible for appropriately managing their email addresses and passwords. If a login is made with a combination of email address and password that matches the registered information, this site will deem it as use by the person who registered that user ID. Roulette data created by the user will be saved in association with that user's account."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 3 (Use of Cookies)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "This site uses cookies to improve convenience and for ad delivery. For details, please check our ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 4 (Access Analysis Tool)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "This site uses Google Analytics to improve our services. This collects usage data in a way that does not personally identify individuals. For details, please check our ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 5 (Inquiries)"
+        },
+        {
+          "type": "paragraph",
+          "text": "By using the contact form on this site, you are deemed to have agreed to our Privacy Policy. Please review the Privacy Policy for details."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 6 (Prohibited Matters)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Users shall not engage in the following acts when using the Service."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Acts that violate laws and regulations or public order and morals." },
+            { "text": "Acts related to criminal acts." },
+            { "text": "Acts that destroy or interfere with the functions of the Site's servers or network." },
+            { "text": "Any other acts that the Site deems inappropriate." }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 7 (User Content)"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Users can publish roulettes they have created (hereinafter referred to as \"User Content\") using the template feature of this site.",
+            "The user warrants that the User Content does not infringe on the copyrights, trademark rights, privacy rights, or other rights of third parties.",
+            "If the Site determines that the User Content is inappropriate, it may delete the User Content without notifying the user.",
+            "The user grants the Site a free license to use the User Content they have created (including reproduction, public transmission, adaptation, etc.) to the extent necessary to provide the service. This license grant shall remain in effect even after the user deletes their account."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 8 (Disclaimer)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Site shall not be liable for any damages incurred by the User arising from the Service."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 9 (Changes to Service Content, etc.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Site may change the content of the Service or discontinue providing the Service without notice to the User."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 10 (Governing Law and Jurisdiction)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The laws of Japan shall be the governing law for the interpretation of these Terms."
+        },
+        {
+          "type": "paragraph",
+          "text": "End"
+        }
+      ]
     },
     "templates": {
       "subtitle": "Discover unique roulettes created by other users and start using them right away.",
@@ -236,11 +519,67 @@
       "useTemplate": "Use this Template",
       "copySuffix": " copy",
       "forkAndSave": "Fork and Save this Template",
-      "creatorProfileTitle": "Creator's Profile"
+      "creatorProfileTitle": "Creator's Profile",
+      "errors": {
+        "configRestoreFailed": "Failed to restore settings from URL",
+        "fetchFailed": "Failed to fetch template data",
+        "forkFailed": "Failed to fork roulette",
+        "likeFailed": "Failed to update like status"
+      }
+    },
+    "originalRoulette": {
+      "errors": {
+        "configRestoreFailed": "Failed to restore settings from URL",
+        "saveFailed": "Failed to save roulette"
+      },
+      "modals": {
+        "saveError": {
+          "title": "Save Error",
+          "message": "An error occurred while saving the roulette."
+        },
+        "loginSuccess": {
+          "title": "Logged In",
+          "message": "Saving the roulette and redirecting to My Page."
+        }
+      }
     },
     "howToUse": {
       "title": "How to Use",
       "description": "Learn everything from the basics of 'Roulette on the Web' to the convenient features available after registering an account. Master how to create and share roulettes, use templates, and make the most of our site.",
+      "meta": {
+        "account-merit": {
+          "title": "Benefits of Account Registration",
+          "description": "Discover the convenient features that become available when you register for a free account (e.g., data saving)."
+        },
+        "auth": {
+          "title": "New Registration and Login Procedures",
+          "description": "Explains how to create a new account and the steps for logging in after registration."
+        },
+        "create": {
+          "title": "How to Create a Roulette",
+          "description": "Learn how to create your own original roulette by freely setting items, colors, and ratios."
+        },
+        "mypage": {
+          "title": "How to Manage on My Page",
+          "description": "Explains how to manage your saved roulettes on the dedicated My Page for logged-in users."
+        },
+        "original-roulette": {
+          "title": "How to Use Original Roulette",
+          "description": "Learn the steps to create your very own completely original roulette."
+        },
+        "share": {
+          "title": "How to Share Results",
+          "description": "Learn how to share your roulette results with friends or on social media via URL or as an image."
+        },
+        "spin": {
+          "title": "How to Spin the Roulette",
+          "description": "Explains the procedure for spinning the created roulette and checking the lottery results."
+        },
+        "templates": {
+          "title": "How to Use the Template Feature",
+          "description": "Learn how to find and use templates created by other users, and how to publish your own roulettes as templates."
+        }
+      },
       "backToList": "Back to How to Use list",
       "basic": {
         "title": "Basic Usage (for Guests)",

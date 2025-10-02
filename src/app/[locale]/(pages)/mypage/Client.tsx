@@ -82,13 +82,13 @@ const MyPageClient = () => {
     } catch (error) {
       console.error("Failed to delete account:", error);
       showModal({
-        title: "Error",
-        message: "Failed to delete account. Please try again later.",
+        title: t("common.error"),
+        message: t("pages.mypage.deleteAccount.error"),
         type: "error",
         onConfirm: closeModal,
       });
     }
-  }, [signOut, closeModal, showModal, router]);
+  }, [signOut, closeModal, showModal, router, t]);
 
   const showDeleteConfirmModal = useCallback(() => {
     showModal({
@@ -139,7 +139,7 @@ const MyPageClient = () => {
                 value={profileDescription}
                 onChange={(e) => setProfileDescription(e.target.value)}
                 className="w-full h-24 p-2 bg-white/20 rounded-md text-white"
-                placeholder="プロフィールを入力してください..."
+                placeholder={t("pages.mypage.profilePlaceholder")}
               />
               <div className="flex justify-end gap-2 mt-2">
                 <button
@@ -159,7 +159,7 @@ const MyPageClient = () => {
             </div>
           ) : (
             <p className="text-white/90 whitespace-pre-wrap">
-              {profileDescription || "プロフィールが設定されていません。"}
+              {profileDescription || t("pages.mypage.noProfileDescription")}
             </p>
           )}
 

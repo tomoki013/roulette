@@ -34,11 +34,11 @@ interface HowToUseSharePageClientProps {
 const HowToUseSharePageClient = ({ locale }: HowToUseSharePageClientProps) => {
   const { t } = useTranslation();
   const [items, setItems] = useState<Item[]>([
-    { name: t("howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
-    { name: t("howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
-    { name: t("howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
-    { name: t("howToUse.demo.item4"), color: ROULETTE_COLORS[3], ratio: 1 },
-    { name: t("howToUse.demo.item5"), color: ROULETTE_COLORS[4], ratio: 1 },
+    { name: t("pages.howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
+    { name: t("pages.howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
+    { name: t("pages.howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
+    { name: t("pages.howToUse.demo.item4"), color: ROULETTE_COLORS[3], ratio: 1 },
+    { name: t("pages.howToUse.demo.item5"), color: ROULETTE_COLORS[4], ratio: 1 },
   ]);
   const [showCopyMessage, setShowCopyMessage] = useState(false);
 
@@ -62,15 +62,15 @@ const HowToUseSharePageClient = ({ locale }: HowToUseSharePageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.basic.share")}
+          {t("pages.howToUse.basic.share.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.basic.share_description")}
+          {t("pages.howToUse.basic.share.description")}
         </p>
 
         <div className="p-4 border border-yellow-300/30 rounded-lg bg-yellow-500/10 mb-8">
           <p className="text-center text-yellow-200">
-            {t("howToUse.demo.notice")}
+            {t("pages.howToUse.demo.notice")}
           </p>
         </div>
 
@@ -82,38 +82,40 @@ const HowToUseSharePageClient = ({ locale }: HowToUseSharePageClientProps) => {
               className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white"
             >
               <LinkIcon size={16} />
-              {t("roulette.copyUrl")}
+              {t("components.roulette.share.copyUrl")}
             </button>
             <button className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
               <Twitter size={16} />
-              {t("roulette.shareOnX")}
+              {t("components.roulette.share.onX")}
             </button>
             <button className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
               <Facebook size={16} />
-              {t("roulette.shareOnFacebook")}
+              {t("components.roulette.share.onFacebook")}
             </button>
             <button className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white">
               <Share2 size={16} />
-              {t("other")}
+              {t("common.other")}
             </button>
           </div>
           {showCopyMessage && (
-            <p className="text-green-400 mt-2">{t("roulette.urlCopied")}</p>
+            <p className="text-green-400 mt-2">
+              {t("components.roulette.share.urlCopied")}
+            </p>
           )}
         </div>
 
         <div className="space-y-6 mt-12">
           <Step
-            title={t("howToUse.basic.share_detail_structured.step1_title")}
-            content={t("howToUse.basic.share_detail_structured.step1_content")}
+            title={t("pages.howToUse.basic.share.step1.title")}
+            content={t("pages.howToUse.basic.share.step1.content")}
           />
           <Step
-            title={t("howToUse.basic.share_detail_structured.step2_title")}
-            content={t("howToUse.basic.share_detail_structured.step2_content")}
+            title={t("pages.howToUse.basic.share.step2.title")}
+            content={t("pages.howToUse.basic.share.step2.content")}
           />
           <Step
-            title={t("howToUse.basic.share_detail_structured.step3_title")}
-            content={t("howToUse.basic.share_detail_structured.step3_content")}
+            title={t("pages.howToUse.basic.share.step3.title")}
+            content={t("pages.howToUse.basic.share.step3.content")}
           />
         </div>
       </motion.div>
@@ -123,7 +125,7 @@ const HowToUseSharePageClient = ({ locale }: HowToUseSharePageClientProps) => {
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

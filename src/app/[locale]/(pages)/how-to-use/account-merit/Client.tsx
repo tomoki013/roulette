@@ -41,29 +41,23 @@ const HowToUseAccountMeritPageClient = ({
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.account.merit")}
+          {t("pages.howToUse.account.merit.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.account.merit_description")}
+          {t("pages.howToUse.account.merit.description")}
         </p>
         <div className="space-y-6">
           <Benefit
-            title={t("howToUse.account.merit_detail_structured.benefit1_title")}
-            content={t(
-              "howToUse.account.merit_detail_structured.benefit1_content"
-            )}
+            title={t("pages.howToUse.account.merit.benefit1.title")}
+            content={t("pages.howToUse.account.merit.benefit1.content")}
           />
           <Benefit
-            title={t("howToUse.account.merit_detail_structured.benefit2_title")}
-            content={t(
-              "howToUse.account.merit_detail_structured.benefit2_content"
-            )}
+            title={t("pages.howToUse.account.merit.benefit2.title")}
+            content={t("pages.howToUse.account.merit.benefit2.content")}
           />
           <Benefit
-            title={t("howToUse.account.merit_detail_structured.benefit3_title")}
-            content={t(
-              "howToUse.account.merit_detail_structured.benefit3_content"
-            )}
+            title={t("pages.howToUse.account.merit.benefit3.title")}
+            content={t("pages.howToUse.account.merit.benefit3.content")}
           />
         </div>
       </motion.div>
@@ -73,7 +67,7 @@ const HowToUseAccountMeritPageClient = ({
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

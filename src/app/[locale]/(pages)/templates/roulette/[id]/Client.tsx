@@ -100,7 +100,7 @@ const TemplateRoulettePageClient = () => {
           }
         }
       } catch (error) {
-        console.error("URLからの設定復元に失敗しました:", error);
+        console.error(t("pages.templates.errors.configRestoreFailed"), error);
       }
       setInitialDataLoaded(true);
       return;
@@ -156,7 +156,7 @@ const TemplateRoulettePageClient = () => {
             router.replace(`/${i18n.language}/templates`);
           }
         } catch (error) {
-          console.error("Failed to fetch template data:", error);
+          console.error(t("pages.templates.errors.fetchFailed"), error);
           router.replace(`/${i18n.language}/templates`);
         } finally {
           setInitialDataLoaded(true);
@@ -173,6 +173,7 @@ const TemplateRoulettePageClient = () => {
     setShowResult,
     setTitle,
     setItems,
+    t,
   ]);
 
   // Fork and save function
@@ -188,13 +189,13 @@ const TemplateRoulettePageClient = () => {
     try {
       await createRoulette({
         user_id: user.id,
-        title: `${title} - ${t("templates.copySuffix")}`,
+        title: `${title} - ${t("pages.templates.copySuffix")}`,
         items: items as unknown as Json,
         supported_languages: [i18n.language],
       });
       router.push(`/${i18n.language}/mypage`);
     } catch (error) {
-      console.error("Failed to fork roulette:", error);
+      console.error(t("pages.templates.errors.forkFailed"), error);
     } finally {
       setIsSaving(false);
     }
@@ -229,7 +230,7 @@ const TemplateRoulettePageClient = () => {
       setIsLiked(!isLiked);
       localStorage.setItem("likedTemplates", JSON.stringify(likedTemplates));
     } catch (error) {
-      console.error("Failed to update like status:", error);
+      console.error(t("pages.templates.errors.likeFailed"), error);
     } finally {
       setIsLiking(false);
     }
@@ -247,9 +248,7 @@ const TemplateRoulettePageClient = () => {
         {template?.user_id === OFFICIAL_USER_ID && (
           <div className="flex items-center justify-center gap-2 text-yellow-400 mt-2">
             <Star className="fill-yellow-400" size={20} />
-            <span className="font-semibold">
-              {t("templates.official", "Official Template")}
-            </span>
+            <span className="font-semibold">{t("common.official")}</span>
           </div>
         )}
       </div>
@@ -266,7 +265,7 @@ const TemplateRoulettePageClient = () => {
           isSaving={isSaving}
           isLoggedIn={!!user}
           showSaveButton={allowFork}
-          saveButtonText={t("templates.forkAndSave")}
+          saveButtonText={t("pages.templates.forkAndSave")}
           showShareButton={true}
           onShareRoulette={() => handleShareUrl(false)}
         />
@@ -294,7 +293,7 @@ const TemplateRoulettePageClient = () => {
                 className={isLiked ? "fill-red-500 text-red-500" : ""}
               />
               <span>
-                {t("templates.like", "いいね")} ({likeCount})
+                {t("common.like")} ({likeCount})
               </span>
             </button>
           </div>
@@ -310,7 +309,7 @@ const TemplateRoulettePageClient = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h2 className="text-2xl font-bold text-white mb-4">
-            {t("templates.creatorProfileTitle")}
+            {t("pages.templates.creatorProfileTitle")}
             <span className="text-sm text-white/70">
               {" "}
               ({creatorProfile.username})
@@ -328,7 +327,7 @@ const TemplateRoulettePageClient = () => {
             </div>
             <p className="text-white/80 whitespace-pre-wrap">
               {creatorProfile.description ||
-                "プロフィールが設定されていません。"}
+                t("pages.profiles.noProfileDescription")}
             </p>
           </Link>
         </motion.div>

@@ -9,8 +9,8 @@ export async function generateMetadata(props: {
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
   const roulette = await getRouletteById(id);
 
-  const title = roulette ? roulette.title : t.title;
-  let description = t.description;
+  const title = roulette ? roulette.title : t.common.appName;
+  let description = t.pages.templates.noExcerpt;
   if (roulette) {
     if (typeof roulette.description === "string") {
       description = roulette.description;
