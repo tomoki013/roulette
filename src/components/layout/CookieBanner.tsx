@@ -68,8 +68,8 @@ const CookieBanner = () => {
               <div className="flex-grow">
                 <p className="text-sm">
                   {declined
-                    ? t("cookie.declineConfirmation")
-                    : t("cookie.bannerText")}
+                    ? t("components.cookieBanner.declineConfirmation")
+                    : t("components.cookieBanner.text")}
                 </p>
               </div>
 
@@ -80,20 +80,20 @@ const CookieBanner = () => {
                     href={`/${locale}/privacy-policy#cookie-info-${locale}`}
                   >
                     <button className="px-4 py-2 bg-white/20 text-white rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
-                      {t("cookie.seeDetails")}
+                      {t("components.cookieBanner.seeDetails")}
                     </button>
                   </Link>
                   <button
                     onClick={handleDecline}
                     className="px-4 py-2 bg-red-500/50 text-white rounded-lg text-sm font-semibold hover:bg-red-500/70 transition-colors"
                   >
-                    {t("cookie.decline")}
+                    {t("components.cookieBanner.decline")}
                   </button>
                   <button
                     onClick={handleAccept}
                     className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg text-sm font-semibold hover:from-yellow-500 hover:to-orange-600 transition-colors"
                   >
-                    {t("cookie.accept")}
+                    {t("components.cookieBanner.accept")}
                   </button>
                 </div>
               )}

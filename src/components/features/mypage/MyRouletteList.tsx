@@ -109,7 +109,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
   return (
     <>
       <h2 className="text-2xl font-bold text-white mb-6">
-        {t("mypage.savedRoulettes")}
+        {t("pages.mypage.savedRoulettes")}
         <span className="text-sm text-white/70"> ({roulettes.length})</span>
       </h2>
       <div className="flex flex-col gap-4">
@@ -130,7 +130,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                   {roulette.title}
                 </h3>
                 <p className="text-sm text-white/70">
-                  {t("mypage.createdAt")}:{" "}
+                  {t("pages.mypage.createdAt")}:{" "}
                   {new Date(roulette.created_at).toLocaleDateString()}
                 </p>
               </div>

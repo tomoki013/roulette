@@ -76,12 +76,12 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
         {isSpinning ? (
           <>
             <Loader2 size={24} className="animate-spin" />
-            {t("roulette.preview.spinning")}
+            {t("components.roulette.preview.spinning")}
           </>
         ) : (
           <>
             <Play size={24} />
-            {t("roulette.preview.spin")}
+            {t("components.roulette.preview.spin")}
           </>
         )}
       </motion.button>
@@ -100,7 +100,7 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
             className="text-white/80"
             style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}
           >
-            {t("roulette.result.title")}
+            {t("components.roulette.result.title")}
           </p>
           <p
             className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400 my-2"
@@ -115,7 +115,7 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
                 className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white"
               >
                 <Share2 size={16} />
-                {t("roulette.shareUrl")}
+                {t("components.roulette.share.url")}
               </button>
             </div>
           )}

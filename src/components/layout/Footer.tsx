@@ -23,7 +23,7 @@ const Footer = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
       >
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* ブランドセクション */}
             <div className="col-span-1">
               <Link
@@ -31,7 +31,9 @@ const Footer = () => {
                 className="flex items-center gap-2 mb-4"
               >
                 <Sparkles className="text-yellow-300" size={28} />
-                <span className="text-2xl font-bold">{t("common.appName")}</span>
+                <span className="text-2xl font-bold">
+                  {t("common.appName")}
+                </span>
               </Link>
               <p className="text-white/70">{t("components.footer.tagline")}</p>
             </div>
