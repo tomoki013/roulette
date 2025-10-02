@@ -19,20 +19,20 @@ import { ROULETTE_COLORS } from "@/constants/roulette";
 const mockTemplates = (t: (key: string) => string) => [
   {
     id: 1,
-    title: t("howToUse.demo.template1_title"),
+    title: t("pages.howToUse.demo.template1.title"),
     items: [
       {
-        name: t("howToUse.demo.template1_item1"),
+        name: t("pages.howToUse.demo.template1.item1"),
         color: ROULETTE_COLORS[0],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template1_item2"),
+        name: t("pages.howToUse.demo.template1.item2"),
         color: ROULETTE_COLORS[1],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template1_item3"),
+        name: t("pages.howToUse.demo.template1.item3"),
         color: ROULETTE_COLORS[2],
         ratio: 1,
       },
@@ -40,25 +40,25 @@ const mockTemplates = (t: (key: string) => string) => [
   },
   {
     id: 2,
-    title: t("howToUse.demo.template2_title"),
+    title: t("pages.howToUse.demo.template2.title"),
     items: [
       {
-        name: t("howToUse.demo.template2_item1"),
+        name: t("pages.howToUse.demo.template2.item1"),
         color: ROULETTE_COLORS[3],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template2_item2"),
+        name: t("pages.howToUse.demo.template2.item2"),
         color: ROULETTE_COLORS[4],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template2_item3"),
+        name: t("pages.howToUse.demo.template2.item3"),
         color: ROULETTE_COLORS[5],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template2_item4"),
+        name: t("pages.howToUse.demo.template2.item4"),
         color: ROULETTE_COLORS[0],
         ratio: 1,
       },
@@ -66,15 +66,15 @@ const mockTemplates = (t: (key: string) => string) => [
   },
   {
     id: 3,
-    title: t("howToUse.demo.template3_title"),
+    title: t("pages.howToUse.demo.template3.title"),
     items: [
       {
-        name: t("howToUse.demo.template3_item1"),
+        name: t("pages.howToUse.demo.template3.item1"),
         color: ROULETTE_COLORS[1],
         ratio: 1,
       },
       {
-        name: t("howToUse.demo.template3_item2"),
+        name: t("pages.howToUse.demo.template3.item2"),
         color: ROULETTE_COLORS[2],
         ratio: 1,
       },
@@ -118,15 +118,15 @@ const HowToUseTemplatesPageClient = ({
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.loggedIn.templates")}
+          {t("pages.howToUse.loggedIn.templates.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.loggedIn.templates_description")}
+          {t("pages.howToUse.loggedIn.templates.description")}
         </p>
 
         <div className="p-4 border border-yellow-300/30 rounded-lg bg-yellow-500/10 mb-8">
           <p className="text-center text-yellow-200">
-            {t("howToUse.demo.notice")}
+            {t("pages.howToUse.demo.notice")}
           </p>
         </div>
 
@@ -134,7 +134,7 @@ const HowToUseTemplatesPageClient = ({
           <div className="flex flex-col items-center gap-6">
             <h2 className="text-2xl font-bold text-yellow-300 flex items-center gap-2">
               <Layers />
-              {t("howToUse.demo.available_templates")}
+              {t("pages.howToUse.demo.availableTemplates")}
             </h2>
             <div className="space-y-3 w-full">
               {templates.map((template) => (
@@ -164,35 +164,23 @@ const HowToUseTemplatesPageClient = ({
             />
             <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105">
               <Download />
-              {t("howToUse.demo.load_template")}
+              {t("pages.howToUse.demo.loadTemplate")}
             </button>
           </div>
         </div>
 
         <div className="space-y-6 mt-12">
           <Step
-            title={t(
-              "howToUse.loggedIn.templates_detail_structured.step1_title"
-            )}
-            content={t(
-              "howToUse.loggedIn.templates_detail_structured.step1_content"
-            )}
+            title={t("pages.howToUse.loggedIn.templates.step1.title")}
+            content={t("pages.howToUse.loggedIn.templates.step1.content")}
           />
           <Step
-            title={t(
-              "howToUse.loggedIn.templates_detail_structured.step2_title"
-            )}
-            content={t(
-              "howToUse.loggedIn.templates_detail_structured.step2_content"
-            )}
+            title={t("pages.howToUse.loggedIn.templates.step2.title")}
+            content={t("pages.howToUse.loggedIn.templates.step2.content")}
           />
           <Step
-            title={t(
-              "howToUse.loggedIn.templates_detail_structured.step3_title"
-            )}
-            content={t(
-              "howToUse.loggedIn.templates_detail_structured.step3_content"
-            )}
+            title={t("pages.howToUse.loggedIn.templates.step3.title")}
+            content={t("pages.howToUse.loggedIn.templates.step3.content")}
           />
         </div>
       </motion.div>
@@ -202,7 +190,7 @@ const HowToUseTemplatesPageClient = ({
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

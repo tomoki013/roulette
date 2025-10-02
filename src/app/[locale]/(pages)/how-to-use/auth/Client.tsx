@@ -39,23 +39,23 @@ const HowToUseAuthPageClient = ({ locale }: HowToUseAuthPageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.account.auth")}
+          {t("pages.howToUse.account.auth.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.account.auth_description")}
+          {t("pages.howToUse.account.auth.description")}
         </p>
         <div className="space-y-6">
           <Step
-            title={t("howToUse.account.auth_detail_structured.step1_title")}
-            content={t("howToUse.account.auth_detail_structured.step1_content")}
+            title={t("pages.howToUse.account.auth.step1.title")}
+            content={t("pages.howToUse.account.auth.step1.content")}
           />
           <Step
-            title={t("howToUse.account.auth_detail_structured.step2_title")}
-            content={t("howToUse.account.auth_detail_structured.step2_content")}
+            title={t("pages.howToUse.account.auth.step2.title")}
+            content={t("pages.howToUse.account.auth.step2.content")}
           />
           <Step
-            title={t("howToUse.account.auth_detail_structured.step3_title")}
-            content={t("howToUse.account.auth_detail_structured.step3_content")}
+            title={t("pages.howToUse.account.auth.step3.title")}
+            content={t("pages.howToUse.account.auth.step3.content")}
           />
         </div>
       </motion.div>
@@ -65,7 +65,7 @@ const HowToUseAuthPageClient = ({ locale }: HowToUseAuthPageClientProps) => {
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

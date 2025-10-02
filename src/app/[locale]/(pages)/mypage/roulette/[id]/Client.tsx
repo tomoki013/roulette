@@ -116,7 +116,7 @@ const EditRoulettePageClient = () => {
     <>
       <div className="mb-8 flex flex-col justify-center gap-2">
         <h1 className="text-4xl font-bold text-white text-center">
-          {title || t("heroSection.createRoulette.title")}
+          {title || t("components.heroSection.createRoulette.title")}
         </h1>
         <p className="text-center text-white">{description}</p>
       </div>
@@ -132,7 +132,7 @@ const EditRoulettePageClient = () => {
           onSave={handleUpdate}
           isSaving={isSaving}
           isLoggedIn={!!user}
-          saveButtonText={t("roulette.settings.save")}
+          saveButtonText={t("components.roulette.settings.saveChanges")}
           showShareButton={false}
         />
 

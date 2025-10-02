@@ -27,11 +27,11 @@ interface HowToUseSpinPageClientProps {
 const HowToUseSpinPageClient = ({ locale }: HowToUseSpinPageClientProps) => {
   const { t } = useTranslation();
   const [items, setItems] = useState<Item[]>([
-    { name: t("howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
-    { name: t("howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
-    { name: t("howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
-    { name: t("howToUse.demo.item4"), color: ROULETTE_COLORS[3], ratio: 1 },
-    { name: t("howToUse.demo.item5"), color: ROULETTE_COLORS[4], ratio: 1 },
+    { name: t("pages.howToUse.demo.item1"), color: ROULETTE_COLORS[0], ratio: 1 },
+    { name: t("pages.howToUse.demo.item2"), color: ROULETTE_COLORS[1], ratio: 1 },
+    { name: t("pages.howToUse.demo.item3"), color: ROULETTE_COLORS[2], ratio: 1 },
+    { name: t("pages.howToUse.demo.item4"), color: ROULETTE_COLORS[3], ratio: 1 },
+    { name: t("pages.howToUse.demo.item5"), color: ROULETTE_COLORS[4], ratio: 1 },
   ]);
   const [rotation, setRotation] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -83,15 +83,15 @@ const HowToUseSpinPageClient = ({ locale }: HowToUseSpinPageClientProps) => {
       >
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
           <BookOpen className="text-yellow-300" />
-          {t("howToUse.basic.spin")}
+          {t("pages.howToUse.basic.spin.title")}
         </h1>
         <p className="text-center text-lg text-white/80 mb-8">
-          {t("howToUse.basic.spin_description")}
+          {t("pages.howToUse.basic.spin.description")}
         </p>
 
         <div className="p-4 border border-yellow-300/30 rounded-lg bg-yellow-500/10 mb-8">
           <p className="text-center text-yellow-200">
-            {t("howToUse.demo.notice")}
+            {t("pages.howToUse.demo.notice")}
           </p>
         </div>
 
@@ -107,7 +107,9 @@ const HowToUseSpinPageClient = ({ locale }: HowToUseSpinPageClientProps) => {
             className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-full shadow-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Play />
-            {isSpinning ? t("roulette.spinning") : t("roulette.spin")}
+            {isSpinning
+              ? t("components.roulette.preview.spinning")
+              : t("components.roulette.preview.spin")}
           </button>
         </div>
 
@@ -119,16 +121,16 @@ const HowToUseSpinPageClient = ({ locale }: HowToUseSpinPageClientProps) => {
 
         <div className="space-y-6 mt-12">
           <Step
-            title={t("howToUse.basic.spin_detail_structured.step1_title")}
-            content={t("howToUse.basic.spin_detail_structured.step1_content")}
+            title={t("pages.howToUse.basic.spin.step1.title")}
+            content={t("pages.howToUse.basic.spin.step1.content")}
           />
           <Step
-            title={t("howToUse.basic.spin_detail_structured.step2_title")}
-            content={t("howToUse.basic.spin_detail_structured.step2_content")}
+            title={t("pages.howToUse.basic.spin.step2.title")}
+            content={t("pages.howToUse.basic.spin.step2.content")}
           />
           <Step
-            title={t("howToUse.basic.spin_detail_structured.step3_title")}
-            content={t("howToUse.basic.spin_detail_structured.step3_content")}
+            title={t("pages.howToUse.basic.spin.step3.title")}
+            content={t("pages.howToUse.basic.spin.step3.content")}
           />
         </div>
       </motion.div>
@@ -138,7 +140,7 @@ const HowToUseSpinPageClient = ({ locale }: HowToUseSpinPageClientProps) => {
           className="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>{t("howToUse.back_to_list")}</span>
+          <span>{t("pages.howToUse.backToList")}</span>
         </Link>
       </div>
     </motion.div>

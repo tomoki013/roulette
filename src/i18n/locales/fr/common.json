@@ -221,14 +221,297 @@
         "button": "Supprimer le Compte",
         "modalTitle": "Confirmer la Suppression du Compte",
         "modalDescription": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
-        "confirmButton": "Supprimer"
-      }
+        "confirmButton": "Supprimer",
+        "error": "La suppression du compte a échoué. Veuillez réessayer plus tard."
+      },
+      "profilePlaceholder": "Saisissez votre biographie...",
+      "noProfileDescription": "Aucune biographie n'a été définie."
+    },
+    "profiles": {
+      "userNotFound": "Utilisateur non trouvé.",
+      "noProfileDescription": "Aucune biographie n'a été définie.",
+      "publicTemplates": "Modèles Publics",
+      "noPublicTemplates": "Aucun modèle public disponible."
     },
     "privacyPolicy": {
-      "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
+      "lastUpdated": "Dernière mise à jour : 24 juillet 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "\"Roulette sur le Web\" (ci-après dénommé \"ce site\") respecte votre vie privée et accorde la plus grande attention à la protection des informations personnelles. Cette politique de confidentialité explique quelles informations ce site collecte, comment elles sont utilisées et comment elles sont protégées."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "1. À propos des cookies"
+        },
+        {
+          "type": "paragraph",
+          "text": "Un cookie est un mécanisme qui stocke temporairement des données sur l'ordinateur d'un utilisateur via le navigateur lorsque l'utilisateur navigue sur un site web. Ce site utilise des cookies pour améliorer nos services et l'expérience utilisateur. Cela nous permet de mémoriser les paramètres de l'utilisateur et d'afficher des publicités plus pertinentes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les utilisateurs peuvent désactiver l'utilisation des cookies en modifiant les paramètres de leur navigateur. Si vous sélectionnez \"Refuser\" sur notre bannière de consentement aux cookies, aucune information ne sera collectée sur ce site. Cependant, veuillez noter que dans de tels cas, certaines fonctions pourraient ne pas être disponibles on certains sites web, y compris celui-ci. Pour savoir comment modifier les paramètres des cookies dans les principaux navigateurs, veuillez consulter les liens ci-dessous."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Chrome",
+              "href": "https://support.google.com/chrome/answer/95647"
+            },
+            {
+              "text": "Mozilla Firefox",
+              "href": "https://support.mozilla.org/fr/kb/effacer-les-cookies-pour-supprimer-les-information"
+            },
+            {
+              "text": "Apple Safari",
+              "href": "https://support.apple.com/fr-fr/105082"
+            },
+            {
+              "text": "Microsoft Edge",
+              "href": "https://support.microsoft.com/fr-fr/windows/supprimer-et-g%C3%A9rer-les-cookies-168dab11-0753-043d-7c16-ede5947fc64d"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2. À propos de la publicité"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Ce site utilise le service de publicité tiers \"Google AdSense\". Les distributeurs de publicité peuvent utiliser des \"cookies\" (qui n'incluent pas votre nom, adresse, adresse e-mail ou numéro de téléphone) pour afficher des publicités pour des produits et services qui correspondent à vos intérêts. Pour plus d'informations sur Google AdSense et sur la manière de désactiver les cookies, veuillez consulter \"",
+          "linkText": "Publicité – Règles et Conditions d'utilisation – Google",
+          "href": "https://policies.google.com/technologies/ads",
+          "afterText": "\"."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3. À propos des outils d'analyse d'audience"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce site utilise \"Google Analytics\", un outil d'analyse d'audience fourni par Google. Google Analytics utilise des cookies pour comprendre comment les utilisateurs interagissent avec le site. Ces données de trafic sont collectées de manière anonyme et ne vous identifient pas personnellement. Les données collectées sont utilisées pour améliorer le site et analyser les modèles d'utilisation."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Désactivation de la collecte de données"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vous pouvez refuser la collecte de ces données en désactivant les cookies dans les paramètres de votre navigateur. Vous pouvez également désactiver la collecte de données par Google Analytics en installant le \"Module complémentaire de désactivation de Google Analytics\" ci-dessous."
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "",
+          "linkText": "Module complémentaire de désactivation de Google Analytics",
+          "href": "https://tools.google.com/dlpage/gaoptout?hl=fr",
+          "afterText": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "Pour plus d'informations sur les conditions d'utilisation et la politique de confidentialité de Google Analytics, veuillez consulter les liens ci-dessous."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Conditions d'utilisation de Google Analytics",
+              "href": "https://marketingplatform.google.com/about/analytics/terms/fr/"
+            },
+            {
+              "text": "Politique de confidentialité de Google",
+              "href": "https://policies.google.com/privacy?hl=fr"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4. À propos de l'inscription des utilisateurs"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Ce site recueille des adresses e-mail pour fournir une fonctionnalité d'enregistrement des utilisateurs. Ces informations sont utilisées uniquement pour l'authentification du compte, la gestion et la communication, comme la réinitialisation des mots de passe. Les données telles que les titres de roulette et les éléments créés par l'utilisateur sont stockées dans la base de données de notre site en association avec le compte de l'utilisateur. Les fonctionnalités d'authentification et la base de données de ce site sont alimentées par Supabase, et les informations des utilisateurs sont gérées en toute sécurité conformément à la ",
+          "linkText": "politique de confidentialité de Supabase",
+          "href": "https://supabase.com/privacy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5. À propos de la fonction de modèle"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce site offre une fonctionnalité permettant de publier les roulettes que vous avez créées en tant que « modèles » que d'autres utilisateurs peuvent utiliser. Si vous publiez une roulette en tant que modèle, les informations suivantes seront visibles par les autres utilisateurs :"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Nom d'utilisateur" },
+            { "text": "Titre de la roulette" },
+            { "text": "Éléments et paramètres de la roulette" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Veuillez faire attention à ne pas inclure d'informations personnelles que vous ne souhaitez pas divulguer ou d'informations qui enfreignent les droits de tiers dans votre nom d'utilisateur ou le contenu de votre roulette. Vous pouvez modifier les paramètres de publication de vos modèles à tout moment depuis votre page personnelle."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6. À propos des informations personnelles collectées via le formulaire de contact"
+        },
+        {
+          "type": "paragraph",
+          "text": "Notre formulaire de contact vous demande de saisir votre nom (un surnom est acceptable) et votre adresse e-mail. Ces informations personnelles seront utilisées uniquement dans le but de répondre à votre demande et ne seront pas divulguées à des tiers sans votre permission."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "7. Clause de non-responsabilité"
+        },
+        {
+          "type": "paragraph",
+          "text": "Veuillez noter que nous ne sommes pas responsables des dommages ou pertes causés par le contenu de ce site."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8. Modifications de cette politique de confidentialité"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce site se conformera aux lois et réglementations japonaises applicables aux informations personnelles et révisera et améliorera cette politique de temps à autre. La dernière politique de confidentialité révisée sera toujours publiée sur cette page."
+        }
+      ]
     },
     "termsOfService": {
-      "lastUpdated": "Dernière mise à jour : 24 juillet 2025"
+      "lastUpdated": "Dernière mise à jour : 24 juillet 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Les présentes Conditions d'utilisation (ci-après dénommées les « Conditions ») définissent les conditions d'utilisation du service « Roulette sur le Web » (ci-après dénommé le « Site »). Les utilisateurs (ci-après dénommés les « Utilisateurs ») utiliseront le Service conformément aux présentes Conditions."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 1 (Application)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Les présentes Conditions s'appliquent à toutes les relations entre l'Utilisateur et le Site concernant l'utilisation du Service."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 2 (Inscription de l'utilisateur)"
+        },
+        {
+          "type": "paragraph",
+          "text": "L'inscription de l'utilisateur peut être requise pour utiliser certaines fonctionnalités de ce site. Les utilisateurs sont responsables de la gestion appropriée de leurs adresses e-mail et mots de passe. Si une connexion est établie avec une combinaison d'adresse e-mail et de mot de passe qui correspond aux informations enregistrées, ce site considérera qu'elle est utilisée par la personne qui a enregistré cet ID utilisateur. Les données de roulette créées par l'utilisateur seront enregistrées en association avec le compte de cet utilisateur."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 3 (Utilisation des cookies)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Ce site utilise des cookies pour améliorer la commodité et pour la diffusion de publicités. Pour plus de détails, veuillez consulter notre ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 4 (Outil d'analyse d'audience)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Ce site utilise Google Analytics pour améliorer nos services. Cela collecte des données d'utilisation d'une manière qui n'identifie pas personnellement les individus. Pour plus de détails, veuillez consulter notre ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 5 (Demandes de renseignements)"
+        },
+        {
+          "type": "paragraph",
+          "text": "En utilisant le formulaire de contact sur ce site, vous êtes réputé avoir accepté notre politique de confidentialité. Veuillez consulter la politique de confidentialité pour plus de détails."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 6 (Interdictions)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Les Utilisateurs ne doivent pas se livrer aux actes suivants lors de l'utilisation du Service."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Actes qui violent les lois et règlements ou l'ordre public et la morale." },
+            { "text": "Actes liés à des actes criminels." },
+            { "text": "Actes qui détruisent ou interfèrent avec les fonctions des serveurs ou du réseau du Site." },
+            { "text": "Tout autre acte que le Site juge inapproprié." }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 7 (Contenu utilisateur)"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Les utilisateurs peuvent publier des roulettes qu'ils ont créées (ci-après dénommées « Contenu utilisateur ») en utilisant la fonction de modèle de ce site.",
+            "L'utilisateur garantit que le Contenu utilisateur ne viole pas les droits d'auteur, les marques de commerce, les droits à la vie privée ou tout autre droit de tiers.",
+            "Si le Site détermine que le Contenu utilisateur est inapproprié, il peut supprimer le Contenu utilisateur sans en avertir l'utilisateur.",
+            "L'utilisateur accorde au Site une licence gratuite d'utilisation du Contenu utilisateur qu'il a créé (y compris la reproduction, la transmission publique, l'adaptation, etc.) dans la mesure nécessaire à la fourniture du service. Cette licence restera en vigueur même après la suppression du compte de l'utilisateur."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 8 (Clause de non-responsabilité)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Le Site ne sera pas responsable des dommages subis par l'Utilisateur découlant du Service."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 9 (Modification du contenu du service, etc.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Le Site peut modifier le contenu du Service ou cesser de fournir le Service sans préavis à l'Utilisateur."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Article 10 (Droit applicable et juridiction)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Les lois du Japon seront le droit applicable pour l'interprétation des présentes Conditions."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fin"
+        }
+      ]
     },
     "templates": {
       "subtitle": "Découvrez des roulettes uniques créées par d'autres utilisateurs et commencez à les utiliser immédiatement.",
@@ -236,11 +519,67 @@
       "useTemplate": "Utiliser ce modèle",
       "copySuffix": " - copie",
       "forkAndSave": "Dupliquer et sauvegarder ce modèle",
-      "creatorProfileTitle": "Profil du créateur"
+      "creatorProfileTitle": "Profil du créateur",
+      "errors": {
+        "configRestoreFailed": "Échec de la restauration des paramètres depuis l'URL",
+        "fetchFailed": "Échec de la récupération des données du modèle",
+        "forkFailed": "Échec de la duplication de la roulette",
+        "likeFailed": "Échec de la mise à jour du statut 'J'aime'"
+      }
+    },
+    "originalRoulette": {
+      "errors": {
+        "configRestoreFailed": "Échec de la restauration des paramètres depuis l'URL",
+        "saveFailed": "Échec de la sauvegarde de la roulette"
+      },
+      "modals": {
+        "saveError": {
+          "title": "Erreur de Sauvegarde",
+          "message": "Une erreur est survenue lors de la sauvegarde de la roulette."
+        },
+        "loginSuccess": {
+          "title": "Connecté",
+          "message": "Sauvegarde de la roulette et redirection vers Ma Page."
+        }
+      }
     },
     "howToUse": {
       "title": "Comment utiliser",
       "description": "Apprenez tout, des bases de 'Roulette sur le Web' aux fonctionnalités pratiques disponibles après la création d'un compte. Maîtrisez la création et le partage de roulettes, l'utilisation de modèles et tirez le meilleur parti de notre site.",
+      "meta": {
+        "account-merit": {
+          "title": "Avantages de l'Inscription",
+          "description": "Découvrez les fonctionnalités pratiques qui deviennent disponibles lorsque vous créez un compte gratuit (par ex. sauvegarde des données)."
+        },
+        "auth": {
+          "title": "Procédures d'Inscription et de Connexion",
+          "description": "Explique comment créer un nouveau compte et les étapes pour se connecter après l'inscription."
+        },
+        "create": {
+          "title": "Comment Créer une Roulette",
+          "description": "Apprenez à créer votre propre roulette originale en définissant librement les éléments, les couleurs et les ratios."
+        },
+        "mypage": {
+          "title": "Comment Gérer sur Ma Page",
+          "description": "Explique comment gérer vos roulettes sauvegardées sur la page dédiée 'Ma Page' pour les utilisateurs connectés."
+        },
+        "original-roulette": {
+          "title": "Comment Utiliser la Roulette Originale",
+          "description": "Apprenez les étapes pour créer votre propre roulette entièrement originale."
+        },
+        "share": {
+          "title": "Comment Partager les Résultats",
+          "description": "Apprenez à partager les résultats de votre roulette avec des amis ou sur les réseaux sociaux via une URL ou sous forme d'image."
+        },
+        "spin": {
+          "title": "Comment Lancer la Roulette",
+          "description": "Explique la procédure pour faire tourner la roulette créée et vérifier les résultats du tirage."
+        },
+        "templates": {
+          "title": "Comment Utiliser la Fonctionnalité de Modèle",
+          "description": "Apprenez à trouver et à utiliser des modèles créés par d'autres utilisateurs, et à publier vos propres roulettes en tant que modèles."
+        }
+      },
       "backToList": "Retour à la liste Comment utiliser",
       "basic": {
         "title": "Utilisation de Base (pour les Invités)",

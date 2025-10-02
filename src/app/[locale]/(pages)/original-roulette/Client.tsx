@@ -83,30 +83,30 @@ const CreateRoulettePageClient = () => {
           return;
         }
       } catch (error) {
-        console.error("URLからの設定復元に失敗しました:", error);
+        console.error(t("pages.originalRoulette.errors.configRestoreFailed"), error);
       }
     }
 
     // Initialize with default items
     const initialItems = [
       {
-        name: `${t("roulette.settings.optionDefault")} 1`,
+        name: `${t("components.roulette.settings.optionDefault")} 1`,
         ratio: 1,
         color: ROULETTE_COLORS[0],
       },
       {
-        name: `${t("roulette.settings.optionDefault")} 2`,
+        name: `${t("components.roulette.settings.optionDefault")} 2`,
         ratio: 1,
         color: ROULETTE_COLORS[1],
       },
       {
-        name: `${t("roulette.settings.optionDefault")} 3`,
+        name: `${t("components.roulette.settings.optionDefault")} 3`,
         ratio: 1,
         color: ROULETTE_COLORS[2],
       },
     ];
     setItems(initialItems);
-    setTitle(t("roulette.preview.title"));
+    setTitle(t("components.roulette.preview.title"));
   }, [
     i18n.isInitialized,
     t,
@@ -136,14 +136,11 @@ const CreateRoulettePageClient = () => {
       });
       router.push(`/${i18n.language}/mypage`);
     } catch (error) {
-      console.error("Failed to save roulette:", error);
+      console.error(t("pages.originalRoulette.errors.saveFailed"), error);
       showModal({
-        title: t("roulette.save.errorTitle", "保存エラー"),
-        message: t(
-          "roulette.save.errorMessage",
-          "保存中にエラーが発生しました。"
-        ),
-        confirmText: t("common.ok", "OK"),
+        title: t("pages.originalRoulette.modals.saveError.title"),
+        message: t("pages.originalRoulette.modals.saveError.message"),
+        confirmText: t("common.ok"),
         onConfirm: closeModal,
         type: "error",
       });
@@ -158,12 +155,9 @@ const CreateRoulettePageClient = () => {
       setSaveActionPending(false);
 
       showModal({
-        title: t("auth.loginSuccessTitle", "ログインしました"),
-        message: t(
-          "auth.loginSuccessMessage",
-          "ルーレットを保存してマイページへ移動します。"
-        ),
-        confirmText: t("common.ok", "OK"),
+        title: t("pages.originalRoulette.modals.loginSuccess.title"),
+        message: t("pages.originalRoulette.modals.loginSuccess.message"),
+        confirmText: t("common.ok"),
         onConfirm: () => {
           closeModal();
           handleSave();
@@ -186,7 +180,7 @@ const CreateRoulettePageClient = () => {
   return (
     <>
       <h1 className="text-4xl font-bold text-white text-center mb-8">
-        {t("heroSection.createRoulette.title")}
+        {t("components.heroSection.createRoulette.title")}
       </h1>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">

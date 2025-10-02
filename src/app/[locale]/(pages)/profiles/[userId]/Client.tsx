@@ -50,7 +50,7 @@ const ProfilePageClient = ({ userId }: ProfilePageClientProps) => {
   if (!profile) {
     return (
       <div className="text-center text-white/80 bg-white/10 p-12 rounded-2xl">
-        <p>{t("mypage.userNotFound", "ユーザーが見つかりません。")}</p>
+        <p>{t("pages.profiles.userNotFound")}</p>
       </div>
     );
   }
@@ -64,17 +64,13 @@ const ProfilePageClient = ({ userId }: ProfilePageClientProps) => {
           <h1 className="text-3xl font-bold text-white">{profile.username}</h1>
         </div>
         <p className="text-white/90 whitespace-pre-wrap">
-          {profile.description ||
-            t(
-              "mypage.noProfileDescription",
-              "プロフィールが設定されていません。"
-            )}
+          {profile.description || t("pages.profiles.noProfileDescription")}
         </p>
       </div>
 
       {/* 公開テンプレート一覧 */}
       <h2 className="text-2xl font-bold text-white mb-4">
-        {t("mypage.publicTemplates", "公開中のテンプレート")}
+        {t("pages.profiles.publicTemplates")}
       </h2>
       {templates.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -84,12 +80,7 @@ const ProfilePageClient = ({ userId }: ProfilePageClientProps) => {
         </div>
       ) : (
         <div className="text-center text-white/80 bg-white/10 p-12 rounded-2xl">
-          <p>
-            {t(
-              "mypage.noPublicTemplates",
-              "公開中のテンプレートはありません。"
-            )}
-          </p>
+          <p>{t("pages.profiles.noPublicTemplates")}</p>
         </div>
       )}
     </div>

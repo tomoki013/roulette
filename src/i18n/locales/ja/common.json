@@ -221,26 +221,365 @@
         "button": "アカウントを削除",
         "modalTitle": "アカウント削除の確認",
         "modalDescription": "本当にアカウントを削除しますか？この操作は元に戻すことができません。",
-        "confirmButton": "削除する"
-      }
+        "confirmButton": "削除する",
+        "error": "アカウントの削除に失敗しました。時間をおいて再度お試しください。"
+      },
+      "profilePlaceholder": "自己紹介文を入力...",
+      "noProfileDescription": "自己紹介文が設定されていません。"
+    },
+    "profiles": {
+      "userNotFound": "ユーザーが見つかりません。",
+      "noProfileDescription": "自己紹介文が設定されていません。",
+      "publicTemplates": "公開中のテンプレート",
+      "noPublicTemplates": "公開中のテンプレートはありません。"
     },
     "privacyPolicy": {
-      "lastUpdated": "最終更新日: 2025年7月24日"
+      "lastUpdated": "最終更新日: 2025年7月24日",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "「Webでルーレット」（以下、「当サイト」といいます。）は、ユーザーの皆様のプライバシーを尊重し、個人情報の保護に最大限の注意を払っています。このプライバシーポリシーは、当サイトが収集する情報、その利用方法、および情報の保護について説明するものです。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "1. Cookie（クッキー）について"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cookieとは、ユーザーがウェブサイトを閲覧した際に、ブラウザを通じてユーザーのコンピュータに一時的にデータを保存する仕組みです。当サイトでは、サービスの向上、およびユーザー体験の改善を目的としてCookieを使用しています。これにより、ユーザーの設定を記憶したり、より関連性の高い広告を表示したりすることが可能になります。"
+        },
+        {
+          "type": "paragraph",
+          "text": "ユーザーは、ブラウザの設定を変更することでCookieの使用を無効にすることができます。また、当サイトのCookie同意バナーで「拒否する」を選択した場合、当サイトで情報が収集されることはありません。ただし、Cookieを無効化すると当サイトに限らず、一部のウェブサイトで機能が正常に利用できなくなる可能性がありますので、あらかじめご了承ください。主要なブラウザのCookie設定変更方法については、以下のリンクをご参照ください。"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Chrome",
+              "href": "https://support.google.com/chrome/answer/95647"
+            },
+            {
+              "text": "Mozilla Firefox",
+              "href": "https://support.mozilla.org/ja/kb/block-websites-storing-cookies-site-data-firefox"
+            },
+            {
+              "text": "Apple Safari",
+              "href": "https://support.apple.com/ja-jp/105082"
+            },
+            {
+              "text": "Microsoft Edge",
+              "href": "https://support.microsoft.com/ja-jp/windows/microsoft-edge-%E3%81%A7%E3%81%AE-cookie-%E3%81%AE%E5%89%8A%E9%99%A4-a7285316-6d9b-1e5f-5e52-094921a46a9a"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2. 広告の配信について"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。 広告配信事業者は、ユーザーの興味に応じた広告を表示するため、当サイトや他サイトへのアクセスに関する情報「Cookie（クッキー）」(氏名、住所、メールアドレス、電話番号は含まれません) を使用することがあります。 Cookieを無効にする設定およびGoogleアドセンスに関する詳細は「",
+          "linkText": "広告 – ポリシーと規約 – Google",
+          "href": "https://policies.google.com/technologies/ads",
+          "afterText": "」をご確認ください。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3. アクセス解析ツールについて"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトでは、Googleによるアクセス解析ツール「Google Analytics（グーグルアナリティクス）」を利用しています。 Google Analyticsは、ユーザーのサイト利用状況を把握するためにCookieを使用します。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。収集されたデータは、サイトの改善や利用状況の分析のために活用されます。"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "データ収集の無効化（オプトアウト）"
+        },
+        {
+          "type": "paragraph",
+          "text": "この機能はCookieを無効にすることで収集を拒否することが出来ます。また、下記の「Googleアナリティクス オプトアウト アドオン」をインストールすることで、Google Analyticsによるデータ収集を無効にすることも可能です。"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "",
+          "linkText": "Googleアナリティクス オプトアウト アドオン",
+          "href": "https://tools.google.com/dlpage/gaoptout?hl=ja",
+          "afterText": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "Google Analyticsの利用規約やプライバシーポリシーに関する詳細は、以下のリンクをご確認ください。"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Analytics利用規約",
+              "href": "https://marketingplatform.google.com/about/analytics/terms/jp/"
+            },
+            {
+              "text": "Googleのプライバシーポリシー",
+              "href": "https://policies.google.com/privacy"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4. ユーザー登録について"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "当サイトでは、ユーザー登録機能の提供にあたり、メールアドレスを取得します。この情報は、アカウントの認証、管理、およびパスワード再設定などの連絡のためにのみ利用されます。ユーザーが作成したルーレットのタイトルや項目などのデータは、ユーザーのアカウントに紐づけて当サイトのデータベースに保存されます。当サイトの認証機能およびデータベースはSupabaseを利用しており、ユーザーの情報は",
+          "linkText": "Supabaseのプライバシーポリシー",
+          "href": "https://supabase.com/privacy",
+          "afterText": "に基づき安全に管理されます。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5. テンプレート機能について"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトでは、ユーザーが作成したルーレットを他のユーザーが利用できる「テンプレート」として公開する機能を提供します。ルーレットをテンプレートとして公開した場合、以下の情報が他のユーザーに表示されます。"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "ユーザー名" },
+            { "text": "ルーレットのタイトル" },
+            { "text": "ルーレットの項目と設定" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "公開されたくない個人情報や第三者の権利を侵害するような情報を、ユーザー名やルーレットの内容に含めないようご注意ください。テンプレートの公開設定は、マイページからいつでも変更できます。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6. お問い合わせフォームで取得する個人情報について"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトのお問い合わせフォームでは、名前（ニックネーム可）とメールアドレスの入力が必須となっています。取得したこれらの個人情報は、お問い合わせに対する返信や連絡のためにのみ利用し、本人の許可なく第三者に開示することはありません。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "7. 免責事項"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8. プライバシーポリシーの変更について"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。 修正された最新のプライバシーポリシーは常に本ページにて開示されます。"
+        }
+      ]
     },
     "termsOfService": {
-      "lastUpdated": "最終更新日: 2025年7月24日"
+      "lastUpdated": "最終更新日: 2025年7月24日",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "この利用規約（以下、「本規約」といいます。）は、「Webでルーレット」（以下、「当サイト」といいます。）の利用条件を定めるものです。ユーザーの皆様（以下、「ユーザー」といいます。）には、本規約に従って本サービスをご利用いただきます。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第1条（適用）"
+        },
+        {
+          "type": "paragraph",
+          "text": "本規約は、ユーザーと当サイトとの間の本サービスの利用に関わる一切の関係に適用されるものとします。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第2条（ユーザー登録）"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトの一部の機能を利用するにあたり、ユーザー登録が必要な場合があります。ユーザーは、自己の責任において、メールアドレス及びパスワードを適切に管理するものとします。当サイトは、入力されたメールアドレスとパスワードの組み合わせが登録情報と一致してログインされた場合には、そのユーザーIDを登録している本人による利用とみなします。ユーザーが作成したルーレットデータは、当該ユーザーのアカウントに紐づけて保存されます。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第3条（Cookieの使用）"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "当サイトでは、利便性の向上と広告配信のためにCookieを使用しています。詳細については、",
+          "linkText": "pages.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "をご確認ください。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第4条（アクセス解析ツール）"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "当サイトでは、サービス向上のためにGoogle Analyticsを利用しています。これにより、個人を特定しない形で利用状況のデータを収集します。詳細は",
+          "linkText": "pages.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "をご確認ください。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第5条（お問い合わせ）"
+        },
+        {
+          "type": "paragraph",
+          "text": "ユーザーが当サイトのお問い合わせフォームを利用する際には、当サイトのプライバシーポリシーに同意したものとみなします。詳細はプライバシーポリシーをご確認ください。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第6条（禁止事項）"
+        },
+        {
+          "type": "paragraph",
+          "text": "ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "法令または公序良俗に違反する行為" },
+            { "text": "犯罪行為に関連する行為" },
+            { "text": "当サイトのサーバーまたはネットワークの機能を破壊したり、妨害したりする行為" },
+            { "text": "その他、当サイトが不適切と判断する行為" }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第7条（ユーザーコンテンツ）"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "ユーザーは、当サイトのテンプレート機能を利用して、自らが作成したルーレット（以下、「ユーザーコンテンツ」といいます。）を公開することができます。",
+            "ユーザーは、ユーザーコンテンツが第三者の著作権、商標権、プライバシー権、その他の権利を侵害しないことを保証するものとします。",
+            "当サイトは、ユーザーコンテンツが不適切であると判断した場合、当該ユーザーに通知することなく、ユーザーコンテンツを削除することができるものとします。",
+            "ユーザーは、自らが作成したユーザーコンテンツに対し、当サイトがサービスを提供する上で必要な範囲において、無償で利用する権利（複製、公衆送信、翻案等を含みます）を許諾するものとします。この権利許諾は、ユーザーがアカウントを削除した後も有効に存続するものとします。"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第8条（免責事項）"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第9条（サービス内容の変更等）"
+        },
+        {
+          "type": "paragraph",
+          "text": "当サイトは、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとします。"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "第10条（準拠法・裁判管轄）"
+        },
+        {
+          "type": "paragraph",
+          "text": "本規約の解釈にあたっては、日本法を準拠法とします。"
+        },
+        {
+          "type": "paragraph",
+          "text": "以上"
+        }
+      ]
     },
     "templates": {
       "subtitle": "他のユーザーが作成したユニークなルーレットを見つけて、すぐに使ってみましょう。",
       "noExcerpt": "説明がありません。",
       "useTemplate": "このテンプレートを使う",
-      "copySuffix": "をコピー",
+      "copySuffix": "のコピー",
       "forkAndSave": "このテンプレートを複製して保存",
-      "creatorProfileTitle": "作成者のプロフィール"
+      "creatorProfileTitle": "作成者のプロフィール",
+      "errors": {
+        "configRestoreFailed": "URLからの設定復元に失敗しました",
+        "fetchFailed": "テンプレートデータの取得に失敗しました",
+        "forkFailed": "ルーレットの複製に失敗しました",
+        "likeFailed": "いいねの状態の更新に失敗しました"
+      }
+    },
+    "originalRoulette": {
+      "errors": {
+        "configRestoreFailed": "URLからの設定復元に失敗しました",
+        "saveFailed": "ルーレットの保存に失敗しました"
+      },
+      "modals": {
+        "saveError": {
+          "title": "保存エラー",
+          "message": "ルーレットの保存中にエラーが発生しました。"
+        },
+        "loginSuccess": {
+          "title": "ログインしました",
+          "message": "ルーレットを保存してマイページへ移動します。"
+        }
+      }
     },
     "howToUse": {
       "title": "使い方",
       "description": "「Webでルーレット」の基本的な使い方から、アカウント登録後の便利な機能までを詳しく解説します。ルーレットの作成、共有、テンプレートの利用方法などをマスターして、もっと便利にサイトを使いこなしましょう。",
+      "meta": {
+        "account-merit": {
+          "title": "アカウント登録のメリット",
+          "description": "アカウント登録をすると使える便利な機能（データ保存など）をご紹介します。"
+        },
+        "auth": {
+          "title": "新規登録とログインの手順",
+          "description": "アカウントの新規作成方法と、登録後のログイン手順について解説します。"
+        },
+        "create": {
+          "title": "ルーレットの作成方法",
+          "description": "ルーレットの項目、色、比率を自由に設定して、オリジナルのルーレットを作成する方法を学びます。"
+        },
+        "mypage": {
+          "title": "マイページでの管理方法",
+          "description": "ログインユーザー専用のマイページで、保存したルーレットを管理する方法を説明します。"
+        },
+        "original-roulette": {
+          "title": "オリジナルルーレットの使い方",
+          "description": "あなただけの完全オリジナルなルーレットを作成する手順を学びます。"
+        },
+        "share": {
+          "title": "結果の共有方法",
+          "description": "ルーレットの抽選結果をURLや画像で友達やSNSに共有する方法を紹介します。"
+        },
+        "spin": {
+          "title": "ルーレットの実行方法",
+          "description": "作成したルーレットを回して、抽選結果を確認する手順を説明します。"
+        },
+        "templates": {
+          "title": "テンプレート機能の使い方",
+          "description": "他のユーザーが作成したテンプレートの探し方や使い方、自分のルーレットをテンプレートとして公開する方法を学びます。"
+        }
+      },
       "backToList": "使い方一覧に戻る",
       "basic": {
         "title": "基本的な使い方（ゲスト向け）",

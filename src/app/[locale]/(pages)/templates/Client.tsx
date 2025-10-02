@@ -50,9 +50,9 @@ const TemplatesPageClient = () => {
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-white">
-          {t("templates.title")}
+          {t("seo.templates.title")}
         </h1>
-        <p className="text-white/80 mt-2">{t("templates.subtitle")}</p>
+        <p className="text-white/80 mt-2">{t("pages.templates.subtitle")}</p>
       </div>
 
       {/* Search and Filter Bar */}
@@ -85,7 +85,7 @@ const TemplatesPageClient = () => {
         </div>
       ) : (
         <div className="text-center text-white/80 bg-white/10 p-12 rounded-2xl">
-          <p>{t("templates.noResults")}</p>
+          <p>{t("common.noResults")}</p>
         </div>
       )}
     </div>

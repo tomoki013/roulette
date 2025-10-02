@@ -8,8 +8,8 @@ export async function generateMetadata(props: {
   const { locale } = await params;
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
-  const title = t.howToUse.advanced.original_roulette;
-  const description = t.howToUse.advanced.original_roulette_description;
+  const title = t.pages.howToUse.advanced.originalRoulette.title;
+  const description = t.pages.howToUse.advanced.originalRoulette.description;
 
   return {
     title: title,
@@ -22,7 +22,7 @@ export async function generateMetadata(props: {
           url: "/favicon.ico",
           width: 1200,
           height: 630,
-          alt: t.title,
+          alt: t.common.appName,
         },
       ],
     },

@@ -221,14 +221,297 @@
         "button": "Eliminar Cuenta",
         "modalTitle": "Confirmar Eliminación de Cuenta",
         "modalDescription": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.",
-        "confirmButton": "Eliminar"
-      }
+        "confirmButton": "Eliminar",
+        "error": "Error al eliminar la cuenta. Por favor, inténtalo de nuevo más tarde."
+      },
+      "profilePlaceholder": "Escribe tu biografía...",
+      "noProfileDescription": "No se ha establecido una biografía."
+    },
+    "profiles": {
+      "userNotFound": "Usuario no encontrado.",
+      "noProfileDescription": "No se ha establecido una biografía.",
+      "publicTemplates": "Plantillas Públicas",
+      "noPublicTemplates": "No hay plantillas públicas disponibles."
     },
     "privacyPolicy": {
-      "lastUpdated": "Última actualización: 24 de julio de 2025"
+      "lastUpdated": "Última actualización: 24 de julio de 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "\"Ruleta en la Web\" (en adelante, \"este sitio\") respeta su privacidad y presta la máxima atención a la protección de la información personal. Esta política de privacidad explica qué información recopila este sitio, cómo se utiliza y cómo se protege."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "1. Acerca de las cookies"
+        },
+        {
+          "type": "paragraph",
+          "text": "Una cookie es un mecanismo que almacena temporalmente datos en el ordenador de un usuario a través del navegador cuando el usuario navega por un sitio web. Este sitio utiliza cookies para mejorar nuestros servicios y la experiencia del usuario. Esto nos permite recordar la configuración del usuario y mostrar anuncios más relevantes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Los usuarios pueden deshabilitar el uso de cookies cambiando la configuración de su navegador. Si selecciona \"Rechazar\" en nuestro banner de consentimiento de cookies, no se recopilará información en este sitio. Sin embargo, tenga en cuenta que, en tales casos, es posible que algunas funciones no estén disponibles en algunos sitios web, sin limitarse a este sitio. Para obtener información sobre cómo cambiar la configuración de cookies en los principales navegadores, consulte los enlaces a continuación."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Google Chrome",
+              "href": "https://support.google.com/chrome/answer/95647"
+            },
+            {
+              "text": "Mozilla Firefox",
+              "href": "https://support.mozilla.org/es/kb/borrar-cookies"
+            },
+            {
+              "text": "Apple Safari",
+              "href": "https://support.apple.com/es-es/105082"
+            },
+            {
+              "text": "Microsoft Edge",
+              "href": "https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2. Acerca de la publicidad"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Este sitio utiliza el servicio de publicidad de terceros \"Google AdSense\". Los distribuidores de publicidad pueden usar \"cookies\" (que no incluyen su nombre, dirección, dirección de correo electrónico o número de teléfono) para mostrar anuncios de productos y servicios que coincidan con sus intereses. Para obtener más información sobre Google AdSense y cómo deshabilitar las cookies, consulte \"",
+          "linkText": "Publicidad – Políticas y Términos – Google",
+          "href": "https://policies.google.com/technologies/ads",
+          "afterText": "\"."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3. Acerca de las herramientas de análisis de acceso"
+        },
+        {
+          "type": "paragraph",
+          "text": "Este sitio utiliza \"Google Analytics\", una herramienta de análisis de acceso proporcionada por Google. Google Analytics utiliza cookies para comprender cómo los usuarios interactúan con el sitio. Estos datos de tráfico se recopilan de forma anónima y no lo identifican personalmente. Los datos recopilados se utilizan para mejorar el sitio y analizar los patrones de uso."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Exclusión de la recopilación de datos"
+        },
+        {
+          "type": "paragraph",
+          "text": "Puede negarse a que se recopilen estos datos desactivando las cookies en la configuración de su navegador. También puede deshabilitar la recopilación de datos por parte de Google Analytics instalando el \"Complemento de inhabilitación para navegadores de Google Analytics\" a continuación."
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "",
+          "linkText": "Complemento de inhabilitación para navegadores de Google Analytics",
+          "href": "https://tools.google.com/dlpage/gaoptout?hl=es",
+          "afterText": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "Para obtener más información sobre los términos de servicio y la política de privacidad de Google Analytics, consulte los enlaces a continuación."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Términos de servicio de Google Analytics",
+              "href": "https://marketingplatform.google.com/about/analytics/terms/es/"
+            },
+            {
+              "text": "Política de privacidad de Google",
+              "href": "https://policies.google.com/privacy?hl=es"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4. Acerca del registro de usuarios"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Este sitio recopila direcciones de correo electrónico para proporcionar la función de registro de usuarios. Esta información se utiliza únicamente para la autenticación de la cuenta, la gestión y la comunicación, como el restablecimiento de contraseñas. Los datos como los títulos de la ruleta y los elementos creados por el usuario se almacenan en la base de datos de nuestro sitio en asociación con la cuenta del usuario. Las funciones de autenticación y la base de datos de este sitio funcionan con Supabase, y la información del usuario se gestiona de forma segura de acuerdo con la ",
+          "linkText": "política de privacidad de Supabase",
+          "href": "https://supabase.com/privacy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5. Acerca de la función de plantilla"
+        },
+        {
+          "type": "paragraph",
+          "text": "Este sitio ofrece una función para publicar las ruletas que ha creado como \"plantillas\" que otros usuarios pueden utilizar. Si publica una ruleta como plantilla, la siguiente información será visible para otros usuarios:"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Nombre de usuario" },
+            { "text": "Título de la ruleta" },
+            { "text": "Elementos y configuración de la ruleta" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Tenga cuidado de no incluir información personal que no desee revelar o información que infrinja los derechos de terceros en su nombre de usuario o en el contenido de su ruleta. Puede cambiar la configuración de publicación de sus plantillas en cualquier momento desde su página personal."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6. Sobre la información personal recopilada a través del formulario de contacto"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nuestro formulario de contacto requiere que introduzca su nombre (se acepta un apodo) y su dirección de correo electrónico. Esta información personal se utilizará únicamente con el fin de responder a su consulta y no se revelará a terceros sin su permiso."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "7. Descargo de responsabilidad"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tenga en cuenta que no somos responsables de ningún daño o pérdida causada por el contenido de este sitio."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8. Cambios en esta Política de Privacidad"
+        },
+        {
+          "type": "paragraph",
+          "text": "Este sitio cumplirá con las leyes y regulaciones japonesas aplicables a la información personal y revisará y mejorará esta política de vez en cuando. La última política de privacidad revisada siempre se publicará en esta página."
+        }
+      ]
     },
     "termsOfService": {
-      "lastUpdated": "Última actualización: 24 de julio de 2025"
+      "lastUpdated": "Última actualización: 24 de julio de 2025",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Estos Términos de servicio (en adelante, los \"Términos\") establecen los términos y condiciones para el uso del servicio \"Ruleta en la Web\" (en adelante, el \"Sitio\"). Los usuarios (en adelante, los \"Usuarios\") utilizarán el Servicio de acuerdo con estos Términos."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 1 (Aplicación)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Estos Términos se aplicarán a todas las relaciones entre el Usuario y el Sitio con respecto al uso del Servicio."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 2 (Registro de usuario)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Es posible que se requiera el registro de usuario para utilizar algunas funciones de este sitio. Los usuarios son responsables de administrar adecuadamente sus direcciones de correo electrónico y contraseñas. Si se inicia sesión con una combinación de dirección de correo electrónico y contraseña que coincide con la información registrada, este sitio lo considerará como un uso por parte de la persona que registró esa ID de usuario. Los datos de la ruleta creados por el usuario se guardarán en asociación con la cuenta de ese usuario."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 3 (Uso de cookies)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Este sitio utiliza cookies para mejorar la comodidad y para la entrega de anuncios. Para obtener más detalles, consulte nuestra ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 4 (Herramienta de análisis de acceso)"
+        },
+        {
+          "type": "paragraphWithLink",
+          "text": "Este sitio utiliza Google Analytics para mejorar nuestros servicios. Esto recopila datos de uso de una manera que no identifica personalmente a las personas. Para obtener más detalles, consulte nuestra ",
+          "linkText": "seo.privacyPolicy.title",
+          "href": "/privacy-policy",
+          "afterText": "."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 5 (Consultas)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Al utilizar el formulario de contacto de este sitio, se considera que ha aceptado nuestra Política de privacidad. Consulte la Política de privacidad para obtener más detalles."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 6 (Asuntos prohibidos)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Los usuarios no participarán en los siguientes actos al utilizar el Servicio."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Actos que violen las leyes y regulaciones o el orden público y la moral." },
+            { "text": "Actos relacionados con actos delictivos." },
+            { "text": "Actos que destruyan o interfieran con las funciones de los servidores o la red del Sitio." },
+            { "text": "Cualquier otro acto que el Sitio considere inapropiado." }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 7 (Contenido del usuario)"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Los usuarios pueden publicar ruletas que hayan creado (en adelante, \"Contenido del usuario\") utilizando la función de plantilla de este sitio.",
+            "El usuario garantiza que el Contenido del usuario no infringe los derechos de autor, marcas comerciales, derechos de privacidad u otros derechos de terceros.",
+            "Si el Sitio determina que el Contenido del usuario es inapropiado, puede eliminar el Contenido del usuario sin notificar al usuario.",
+            "El usuario otorga al Sitio una licencia gratuita para usar el Contenido del usuario que ha creado (incluida la reproducción, transmisión pública, adaptación, etc.) en la medida necesaria para proporcionar el servicio. Esta concesión de licencia seguirá vigente incluso después de que el usuario elimine su cuenta."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 8 (Descargo de responsabilidad)"
+        },
+        {
+          "type": "paragraph",
+          "text": "El Sitio no será responsable de ningún daño incurrido por el Usuario que surja del Servicio."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 9 (Cambios en el contenido del servicio, etc.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "El Sitio puede cambiar el contenido del Servicio o dejar de proporcionar el Servicio sin previo aviso al Usuario."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artículo 10 (Ley aplicable y jurisdicción)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Las leyes de Japón serán la ley aplicable para la interpretación de estos Términos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fin"
+        }
+      ]
     },
     "templates": {
       "subtitle": "Descubre ruletas únicas creadas por otros usuarios y empieza a usarlas de inmediato.",
@@ -236,11 +519,67 @@
       "useTemplate": "Usar esta Plantilla",
       "copySuffix": " - copia",
       "forkAndSave": "Duplicar y Guardar esta Plantilla",
-      "creatorProfileTitle": "Perfil del creador"
+      "creatorProfileTitle": "Perfil del creador",
+      "errors": {
+        "configRestoreFailed": "Error al restaurar la configuración desde la URL",
+        "fetchFailed": "Error al obtener los datos de la plantilla",
+        "forkFailed": "Error al duplicar la ruleta",
+        "likeFailed": "Error al actualizar el estado de 'me gusta'"
+      }
+    },
+    "originalRoulette": {
+      "errors": {
+        "configRestoreFailed": "Error al restaurar la configuración desde la URL",
+        "saveFailed": "Error al guardar la ruleta"
+      },
+      "modals": {
+        "saveError": {
+          "title": "Error al Guardar",
+          "message": "Ocurrió un error al guardar la ruleta."
+        },
+        "loginSuccess": {
+          "title": "Sesión Iniciada",
+          "message": "Guardando la ruleta y redirigiendo a Mi Página."
+        }
+      }
     },
     "howToUse": {
       "title": "Cómo usar",
       "description": "Aprende todo, desde lo básico de 'Ruleta en la Web' hasta las funciones convenientes disponibles después de registrar una cuenta. Domina cómo crear y compartir ruletas, usar plantillas y aprovechar al máximo nuestro sitio.",
+      "meta": {
+        "account-merit": {
+          "title": "Beneficios del Registro de Cuenta",
+          "description": "Descubre las funciones convenientes que se habilitan al registrarte para obtener una cuenta gratuita (por ejemplo, guardado de datos)."
+        },
+        "auth": {
+          "title": "Procedimientos de Nuevo Registro e Inicio de Sesión",
+          "description": "Explica cómo crear una nueva cuenta y los pasos para iniciar sesión después del registro."
+        },
+        "create": {
+          "title": "Cómo Crear una Ruleta",
+          "description": "Aprende a crear tu propia ruleta original configurando libremente los elementos, los colores y las proporciones."
+        },
+        "mypage": {
+          "title": "Cómo Gestionar en Mi Página",
+          "description": "Explica cómo gestionar tus ruletas guardadas en la página dedicada 'Mi Página' para usuarios que han iniciado sesión."
+        },
+        "original-roulette": {
+          "title": "Cómo Usar la Ruleta Original",
+          "description": "Aprende los pasos para crear tu propia ruleta completamente original."
+        },
+        "share": {
+          "title": "Cómo Compartir Resultados",
+          "description": "Aprende a compartir los resultados de tu ruleta con amigos o en redes sociales a través de una URL o como una imagen."
+        },
+        "spin": {
+          "title": "Cómo Girar la Ruleta",
+          "description": "Explica el procedimiento para girar la ruleta creada y comprobar los resultados del sorteo."
+        },
+        "templates": {
+          "title": "Cómo Usar la Función de Plantilla",
+          "description": "Aprende a encontrar y utilizar plantillas creadas por otros usuarios, y a publicar tus propias ruletas como plantillas."
+        }
+      },
       "backToList": "Volver a la lista de Cómo usar",
       "basic": {
         "title": "Uso Básico (para Invitados)",
