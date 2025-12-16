@@ -30,7 +30,7 @@ const EditRoulettePageClient = () => {
   const [isSaving, setIsSaving] = useState(false);
 
   // Custom hooks
-  const { title, setTitle, items, setItems, addItem, removeItem, updateItem } =
+  const { title, setTitle, items, setItems, addItem, removeItem, updateItem, replaceItems } =
     useRouletteSettings();
 
   // Custom hook for roulette wheel logic
@@ -129,6 +129,7 @@ const EditRoulettePageClient = () => {
           onItemAdd={addItem}
           onItemRemove={removeItem}
           onItemUpdate={updateItem}
+          onItemsReplace={replaceItems}
           onSave={handleUpdate}
           isSaving={isSaving}
           isLoggedIn={!!user}

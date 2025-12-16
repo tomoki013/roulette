@@ -53,7 +53,7 @@ const TemplateRoulettePageClient = () => {
   const [isProfilePublic, setIsProfilePublic] = useState(false);
 
   // Custom hooks
-  const { title, setTitle, items, setItems, addItem, removeItem, updateItem } =
+  const { title, setTitle, items, setItems, addItem, removeItem, updateItem, replaceItems } =
     useRouletteSettings();
 
   const {
@@ -261,6 +261,7 @@ const TemplateRoulettePageClient = () => {
           onItemAdd={addItem}
           onItemRemove={removeItem}
           onItemUpdate={updateItem}
+          onItemsReplace={replaceItems}
           onSave={handleForkAndSave}
           isSaving={isSaving}
           isLoggedIn={!!user}
