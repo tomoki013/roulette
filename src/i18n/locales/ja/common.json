@@ -856,8 +856,8 @@
         "excerpt": "説明",
         "excerptPlaceholder": "ルーレットの説明を入力",
         "optionDefault": "オプション",
-        "modeList": "リストモード",
-        "modeText": "テキストモード",
+        "modeList": "項目を細かく設定する",
+        "modeText": "改行で簡単に入力する",
         "textModePlaceholder": "改行区切りでアイテムを入力してください。例：\nアイテム1\nアイテム2\nアイテム3",
         "items": {
           "addItem": "アイテムを追加",
