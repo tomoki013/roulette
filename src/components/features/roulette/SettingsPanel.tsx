@@ -77,32 +77,57 @@ const SettingsPanel = ({
       setTextModeValue(text);
     } else {
       // Text to List
+      // Only update items if we haven't already synced them via text change
       if (onItemsReplace) {
-        const lines = textModeValue.split("\n").filter(line => line.trim() !== "");
-        // If empty, create one default item
-        if (lines.length === 0) {
-           onItemsReplace([{
-             name: t("components.roulette.settings.optionDefault") + " 1",
-             color: ROULETTE_COLORS[0],
-             ratio: 1
-           }]);
-        } else {
+         const lines = textModeValue.split("\n").filter(line => line.trim() !== "");
+         // Re-generate list from current text value to be sure
+         if (lines.length === 0) {
+            onItemsReplace([{
+              name: t("components.roulette.settings.optionDefault") + " 1",
+              color: ROULETTE_COLORS[0],
+              ratio: 1
+            }]);
+         } else {
             const newItems: Item[] = lines.map((line, index) => ({
               name: line,
               color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
               ratio: 1,
             }));
             onItemsReplace(newItems);
-        }
+         }
       }
     }
     setInputMode(mode);
   }, [items, textModeValue, onItemsReplace, t]);
 
   const handleTextModeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const val = e.target.value;
     // Basic DoS protection: limit length
-    if (e.target.value.length > 10000) return;
-    setTextModeValue(e.target.value);
+    if (val.length > 10000) return;
+
+    setTextModeValue(val);
+
+    // Sync to parent items immediately to fix "Save" bug
+    if (onItemsReplace) {
+        const lines = val.split("\n").filter(line => line.trim() !== "");
+        if (lines.length > 0) {
+            const newItems: Item[] = lines.map((line, index) => ({
+              name: line,
+              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+              ratio: 1,
+            }));
+            onItemsReplace(newItems);
+        } else {
+            // If empty, we can choose to set an empty list or a default
+            // If we set empty list, validation might fail elsewhere, but it reflects current text
+            // Let's set a default item if empty to keep it valid
+             onItemsReplace([{
+               name: t("components.roulette.settings.optionDefault") + " 1",
+               color: ROULETTE_COLORS[0],
+               ratio: 1
+             }]);
+        }
+    }
   };
 
   return (
