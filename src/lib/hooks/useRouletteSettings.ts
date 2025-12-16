@@ -42,6 +42,10 @@ export const useRouletteSettings = () => {
     []
   );
 
+  const replaceItems = useCallback((newItems: Item[]) => {
+    setItems(newItems);
+  }, []);
+
   return {
     title,
     setTitle,
@@ -50,5 +54,6 @@ export const useRouletteSettings = () => {
     addItem,
     removeItem,
     updateItem,
+    replaceItems,
   };
 };

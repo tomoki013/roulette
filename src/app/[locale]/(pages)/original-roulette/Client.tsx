@@ -36,7 +36,7 @@ const CreateRoulettePageClient = () => {
   const [saveActionPending, setSaveActionPending] = useState(false);
 
   // Custom hooks
-  const { title, setTitle, items, setItems, addItem, removeItem, updateItem } =
+  const { title, setTitle, items, setItems, addItem, removeItem, updateItem, replaceItems } =
     useRouletteSettings();
 
   const {
@@ -191,6 +191,7 @@ const CreateRoulettePageClient = () => {
           onItemAdd={addItem}
           onItemRemove={removeItem}
           onItemUpdate={updateItem}
+          onItemsReplace={replaceItems}
           onSave={handleSave}
           isSaving={isSaving}
           isLoggedIn={!!user}

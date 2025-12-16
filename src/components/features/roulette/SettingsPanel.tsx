@@ -1,11 +1,13 @@
 "use client";
 
+import React, { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Plus, X, Save, Loader2, Share2, HelpCircle } from "lucide-react";
+import { Plus, X, Save, Loader2, Share2, HelpCircle, Menu, BookText } from "lucide-react";
 import { Item } from "@/types";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { ROULETTE_COLORS } from "@/constants/roulette";
 
 interface SettingsPanelProps {
   title: string;
@@ -20,6 +22,7 @@ interface SettingsPanelProps {
     field: keyof Item,
     value: string | number
   ) => void;
+  onItemsReplace?: (newItems: Item[]) => void;
   onSave: () => void;
   isSaving: boolean;
   isLoggedIn: boolean;
@@ -38,6 +41,7 @@ const SettingsPanel = ({
   onItemAdd,
   onItemRemove,
   onItemUpdate,
+  onItemsReplace,
   onSave: handleSave,
   isSaving,
   saveButtonText,
@@ -47,8 +51,12 @@ const SettingsPanel = ({
 }: SettingsPanelProps) => {
   const { t } = useTranslation();
   const params = useParams();
-  const locale = params.locale;
+  // Safe access to locale
+  const locale = (params && params.locale) ? params.locale : "en";
   const titleMaxLength = 30;
+
+  const [inputMode, setInputMode] = useState<"list" | "text">("list");
+  const [textModeValue, setTextModeValue] = useState("");
 
   const shakeVariants = {
     shake: {
@@ -60,6 +68,41 @@ const SettingsPanel = ({
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onTitleChange(e.target.value.slice(0, titleMaxLength));
+  };
+
+  const handleModeChange = useCallback((mode: "list" | "text") => {
+    if (mode === "text") {
+      // List to Text
+      const text = items.map(item => item.name).join("\n");
+      setTextModeValue(text);
+    } else {
+      // Text to List
+      if (onItemsReplace) {
+        const lines = textModeValue.split("\n").filter(line => line.trim() !== "");
+        // If empty, create one default item
+        if (lines.length === 0) {
+           onItemsReplace([{
+             name: t("components.roulette.settings.optionDefault") + " 1",
+             color: ROULETTE_COLORS[0],
+             ratio: 1
+           }]);
+        } else {
+            const newItems: Item[] = lines.map((line, index) => ({
+              name: line,
+              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+              ratio: 1,
+            }));
+            onItemsReplace(newItems);
+        }
+      }
+    }
+    setInputMode(mode);
+  }, [items, textModeValue, onItemsReplace, t]);
+
+  const handleTextModeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    // Basic DoS protection: limit length
+    if (e.target.value.length > 10000) return;
+    setTextModeValue(e.target.value);
   };
 
   return (
@@ -121,67 +164,113 @@ const SettingsPanel = ({
           </div>
         )}
 
-        <div className="space-y-3">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 p-3 bg-white/5 rounded-lg"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+        {/* Mode Switcher */}
+        {onItemsReplace && (
+          <div className="flex bg-white/10 p-1 rounded-lg mb-4">
+            <button
+              onClick={() => handleModeChange("list")}
+              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
+                inputMode === "list"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-white/60 hover:text-white"
+              }`}
             >
-              {/* カラーピッカー */}
-              <input
-                type="color"
-                value={item.color}
-                onChange={(e) => onItemUpdate(index, "color", e.target.value)}
-                className="w-10 h-10 rounded-full cursor-pointer bg-transparent border-none"
-                style={{ backgroundColor: item.color }}
-              />
+              <Menu size={16} />
+              {t("components.roulette.settings.modeList")}
+            </button>
+            <button
+              onClick={() => handleModeChange("text")}
+              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
+                inputMode === "text"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              <BookText size={16} />
+              {t("components.roulette.settings.modeText")}
+            </button>
+          </div>
+        )}
 
-              {/* 名前入力 */}
-              <input
-                type="text"
-                value={item.name}
-                onChange={(e) => onItemUpdate(index, "name", e.target.value)}
-                className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-              />
-
-              {/* 比率選択 */}
-              <select
-                value={item.ratio}
-                onChange={(e) =>
-                  onItemUpdate(index, "ratio", parseInt(e.target.value))
-                }
-                className="px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+        {inputMode === "list" ? (
+          <div className="space-y-3">
+            {items.map((item, index) => (
+              <motion.div
+                key={index}
+                className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 p-3 bg-white/5 rounded-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                {[1, 2, 3, 4, 5].map((num) => (
-                  <option key={num} value={num} className="bg-gray-800">
-                    {num}
-                  </option>
-                ))}
-              </select>
+                {/* カラーピッカー */}
+                <input
+                  type="color"
+                  value={item.color}
+                  onChange={(e) => onItemUpdate(index, "color", e.target.value)}
+                  className="w-10 h-10 rounded-full cursor-pointer bg-transparent border-none"
+                  style={{ backgroundColor: item.color }}
+                />
 
-              {/* 削除ボタン */}
-              {items.length > 2 && (
-                <button
-                  onClick={() => onItemRemove(index)}
-                  className="flex items-center justify-center p-2 text-red-300 hover:text-red-200 hover:bg-red-500/20 rounded-lg transition-colors"
+                {/* 名前入力 */}
+                <input
+                  type="text"
+                  value={item.name}
+                  onChange={(e) => onItemUpdate(index, "name", e.target.value)}
+                  className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                />
+
+                {/* 比率選択 */}
+                <select
+                  value={item.ratio}
+                  onChange={(e) =>
+                    onItemUpdate(index, "ratio", parseInt(e.target.value))
+                  }
+                  className="px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
                 >
-                  <X size={16} />
-                </button>
-              )}
-            </motion.div>
-          ))}
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <option key={num} value={num} className="bg-gray-800">
+                      {num}
+                    </option>
+                  ))}
+                </select>
 
-          <button
-            onClick={onItemAdd}
-            className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
+                {/* 削除ボタン */}
+                {items.length > 2 && (
+                  <button
+                    onClick={() => onItemRemove(index)}
+                    className="flex items-center justify-center p-2 text-red-300 hover:text-red-200 hover:bg-red-500/20 rounded-lg transition-colors"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </motion.div>
+            ))}
+
+            <button
+              onClick={onItemAdd}
+              className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
+            >
+              <Plus size={20} />
+              {t("components.roulette.settings.items.addItem")}
+            </button>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <Plus size={20} />
-            {t("components.roulette.settings.items.addItem")}
-          </button>
-        </div>
+            <textarea
+              value={textModeValue}
+              onChange={handleTextModeChange}
+              className="w-full h-64 px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-mono leading-relaxed resize-y"
+              placeholder={t("components.roulette.settings.textModePlaceholder")}
+            />
+            <p className="text-white/60 text-xs mt-2 text-right">
+              {textModeValue.length}/10000
+            </p>
+          </motion.div>
+        )}
 
         <div className="flex justify-end items-center mt-6 gap-3">
           {showShareButton && onShareRoulette && (
