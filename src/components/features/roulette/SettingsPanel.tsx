@@ -191,28 +191,40 @@ const SettingsPanel = ({
 
         {/* Mode Switcher */}
         {onItemsReplace && (
-          <div className="flex bg-white/10 p-1 rounded-lg mb-4">
-            <button
-              onClick={() => handleModeChange("list")}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
-                inputMode === "list"
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-white/60 hover:text-white"
-              }`}
-            >
-              <Menu size={16} />
-              {t("components.roulette.settings.modeList")}
-            </button>
+          <div className="flex border-b border-white/10 mb-6">
             <button
               onClick={() => handleModeChange("text")}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
+              className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 text-sm font-medium transition-all relative ${
                 inputMode === "text"
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-white/60 hover:text-white"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white/70"
               }`}
             >
-              <BookText size={16} />
+              <BookText size={18} />
               {t("components.roulette.settings.modeText")}
+              {inputMode === "text" && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500"
+                />
+              )}
+            </button>
+            <button
+              onClick={() => handleModeChange("list")}
+              className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 text-sm font-medium transition-all relative ${
+                inputMode === "list"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white/70"
+              }`}
+            >
+              <Menu size={18} />
+              {t("components.roulette.settings.modeList")}
+              {inputMode === "list" && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500"
+                />
+              )}
             </button>
           </div>
         )}
@@ -222,60 +234,72 @@ const SettingsPanel = ({
             {items.map((item, index) => (
               <motion.div
                 key={index}
-                className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 p-3 bg-white/5 rounded-lg"
+                className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 p-3 bg-white/5 rounded-lg border border-white/5 hover:border-white/10 transition-colors"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 {/* カラーピッカー */}
-                <input
-                  type="color"
-                  value={item.color}
-                  onChange={(e) => onItemUpdate(index, "color", e.target.value)}
-                  className="w-10 h-10 rounded-full cursor-pointer bg-transparent border-none"
-                  style={{ backgroundColor: item.color }}
-                />
+                <div className="relative group">
+                  <div
+                    className="w-8 h-8 rounded-full shadow-lg border-2 border-white/20 group-hover:scale-110 transition-transform"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <input
+                    type="color"
+                    value={item.color}
+                    onChange={(e) => onItemUpdate(index, "color", e.target.value)}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  />
+                </div>
 
                 {/* 名前入力 */}
                 <input
                   type="text"
                   value={item.name}
                   onChange={(e) => onItemUpdate(index, "name", e.target.value)}
-                  className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                  className="w-full px-3 py-2 bg-transparent border-b border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                  placeholder={t("components.roulette.settings.items.itemPlaceholder")}
                 />
 
                 {/* 比率選択 */}
-                <select
-                  value={item.ratio}
-                  onChange={(e) =>
-                    onItemUpdate(index, "ratio", parseInt(e.target.value))
-                  }
-                  className="px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-                >
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <option key={num} value={num} className="bg-gray-800">
-                      {num}
-                    </option>
-                  ))}
-                </select>
+                <div className="flex flex-col items-center">
+                   <span className="text-[10px] text-white/40 mb-0.5">Ratio</span>
+                   <select
+                    value={item.ratio}
+                    onChange={(e) =>
+                      onItemUpdate(index, "ratio", parseInt(e.target.value))
+                    }
+                    className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm text-white focus:outline-none focus:ring-1 focus:ring-white/30 transition-all cursor-pointer"
+                  >
+                    {[1, 2, 3, 4, 5, 10, 20, 50, 100].map((num) => (
+                      <option key={num} value={num} className="bg-gray-800 text-white">
+                        {num}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
                 {/* 削除ボタン */}
-                {items.length > 2 && (
-                  <button
-                    onClick={() => onItemRemove(index)}
-                    className="flex items-center justify-center p-2 text-red-300 hover:text-red-200 hover:bg-red-500/20 rounded-lg transition-colors"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
+                <button
+                  onClick={() => onItemRemove(index)}
+                  className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors ${
+                    items.length <= 2
+                      ? "text-white/10 cursor-not-allowed"
+                      : "text-white/40 hover:text-red-400 hover:bg-white/5"
+                  }`}
+                  disabled={items.length <= 2}
+                >
+                  <X size={16} />
+                </button>
               </motion.div>
             ))}
 
             <button
               onClick={onItemAdd}
-              className="w-full p-3 border-2 border-dashed border-white/30 rounded-lg text-white/80 hover:text-white hover:border-white/50 transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 border border-dashed border-white/20 rounded-lg text-white/60 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all flex items-center justify-center gap-2 mt-4"
             >
-              <Plus size={20} />
+              <Plus size={18} />
               {t("components.roulette.settings.items.addItem")}
             </button>
           </div>
@@ -285,14 +309,20 @@ const SettingsPanel = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <textarea
-              value={textModeValue}
-              onChange={handleTextModeChange}
-              className="w-full h-64 px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-mono leading-relaxed resize-y"
-              placeholder={t("components.roulette.settings.textModePlaceholder")}
-            />
-            <p className="text-white/60 text-xs mt-2 text-right">
-              {textModeValue.length}/10000
+            <div className="relative">
+              <textarea
+                value={textModeValue}
+                onChange={handleTextModeChange}
+                className="w-full h-80 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all font-mono leading-relaxed resize-none scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+                placeholder={t("components.roulette.settings.textModePlaceholder")}
+              />
+              <div className="absolute bottom-3 right-4 text-xs text-white/30 pointer-events-none">
+                {textModeValue.length}/10000
+              </div>
+            </div>
+            <p className="text-white/40 text-xs mt-3 flex items-start gap-2">
+              <BookText size={14} className="mt-0.5 shrink-0" />
+              <span>{t("components.roulette.settings.textModeDescription", "Paste your list here. Each line will become an item on the wheel.")}</span>
             </p>
           </motion.div>
         )}
