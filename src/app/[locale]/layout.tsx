@@ -18,10 +18,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const params = await props.params;
   const { locale } = await params;
   const t = (await import(`@/i18n/locales/${locale}/common.json`)).default;
 
@@ -54,6 +55,7 @@ export async function generateMetadata(props: {
       images: ["favicon.ico"],
       card: "summary_large_image",
     },
+    metadataBase: new URL("https://webroulette.netlify.app"),
   };
 }
 
