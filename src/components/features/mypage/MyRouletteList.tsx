@@ -130,7 +130,7 @@ const MyRouletteList = ({ initialRoulettes }: MyRouletteListProps) => {
                   {roulette.title}
                 </h3>
                 <p className="text-sm text-white/70">
-                  {t("pages.mypage.createdAt")}:{" "}
+                  {t("common.createdAt")}:{" "}
                   {new Date(roulette.created_at).toLocaleDateString()}
                 </p>
               </div>

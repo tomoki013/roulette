@@ -57,6 +57,8 @@ const SettingsPanel = ({
 
   const [inputMode, setInputMode] = useState<"list" | "text">("list");
   const [textModeValue, setTextModeValue] = useState("");
+  // Cache to store items when switching to text mode, allowing us to restore metadata (color, ratio)
+  const [cachedItems, setCachedItems] = useState<Item[]>([]);
 
   const shakeVariants = {
     shake: {
@@ -73,6 +75,7 @@ const SettingsPanel = ({
   const handleModeChange = useCallback((mode: "list" | "text") => {
     if (mode === "text") {
       // List to Text
+      setCachedItems(items); // Save current items to cache
       const text = items.map(item => item.name).join("\n");
       setTextModeValue(text);
     } else {
@@ -88,17 +91,31 @@ const SettingsPanel = ({
               ratio: 1
             }]);
          } else {
-            const newItems: Item[] = lines.map((line, index) => ({
-              name: line,
-              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
-              ratio: 1,
-            }));
+            const newItems: Item[] = lines.map((line, index) => {
+              // Try to find in cache first
+              const cached = cachedItems.find(i => i.name === line);
+              if (cached) {
+                return { ...cached };
+              }
+              // If not in cache, try finding in current items (though likely they are default if text mode updated them)
+              // This is a fallback
+              const current = items.find(i => i.name === line);
+              if (current) {
+                return { ...current };
+              }
+
+              return {
+                name: line,
+                color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+                ratio: 1,
+              };
+            });
             onItemsReplace(newItems);
          }
       }
     }
     setInputMode(mode);
-  }, [items, textModeValue, onItemsReplace, t]);
+  }, [items, textModeValue, onItemsReplace, t, cachedItems]);
 
   const handleTextModeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
@@ -111,11 +128,15 @@ const SettingsPanel = ({
     if (onItemsReplace) {
         const lines = val.split("\n").filter(line => line.trim() !== "");
         if (lines.length > 0) {
-            const newItems: Item[] = lines.map((line, index) => ({
-              name: line,
-              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
-              ratio: 1,
-            }));
+            const newItems: Item[] = lines.map((line, index) => {
+               // Restore from cache if possible
+               const cached = cachedItems.find(i => i.name === line);
+               return {
+                  name: line,
+                  color: cached?.color || ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+                  ratio: cached?.ratio || 1,
+               };
+            });
             onItemsReplace(newItems);
         } else {
             // If empty, we can choose to set an empty list or a default
