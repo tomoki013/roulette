@@ -50,7 +50,7 @@ const CreateRoulettePageClient = () => {
     setShowResult,
   } = useRouletteWheel(items);
 
-  const { handleShareUrl, handleShareImage, getShareUrl } = useRouletteShare({
+  const { handleShareUrl, handleShareImage, isSharing } = useRouletteShare({
     title,
     items,
     result,
@@ -197,6 +197,7 @@ const CreateRoulettePageClient = () => {
           isLoggedIn={!!user}
           onShareRoulette={() => handleShareUrl(false)}
           showShareButton={true}
+          isSharing={isSharing}
         />
 
         <RoulettePreview
@@ -218,7 +219,6 @@ const CreateRoulettePageClient = () => {
         onClose={closeResult}
         onShareImage={handleShareImage}
         onShareUrl={() => handleShareUrl(true)}
-        shareUrl={getShareUrl(true)}
       />
 
       <AuthModal isOpen={isAuthModalOpen} onClose={handleAuthModalClose} />

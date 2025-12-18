@@ -62,6 +62,38 @@ export const getPublicTemplates = async (
 };
 
 /**
+ * Creates a shared roulette (temporary/anonymous)
+ * @param rouletteData - Roulette data (title, items)
+ * @returns The ID of the created roulette
+ */
+export const createSharedRoulette = async (
+  rouletteData: Pick<RouletteInsert, "title" | "items" | "description">
+): Promise<string> => {
+  const supabase = getSupabase();
+  const { data, error } = await supabase
+    .from("roulettes")
+    .insert({
+      ...rouletteData,
+      is_template: false,
+      is_profile_public: false,
+      user_id: null,
+      supported_languages: [], // Default to empty or maybe ["en"]? The table constraint might require it?
+    })
+    .select("id")
+    .single();
+
+  if (error) {
+    handleSupabaseError(error, "createSharedRoulette");
+  }
+
+  if (!data) {
+    throw new Error("Failed to create shared roulette, no data returned.");
+  }
+
+  return data.id;
+};
+
+/**
  * Fetches public templates for a specific user
  * @param userId - User ID
  * @returns Array of user's public templates

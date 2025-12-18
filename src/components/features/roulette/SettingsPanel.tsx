@@ -30,6 +30,7 @@ interface SettingsPanelProps {
   showSaveButton?: boolean;
   onShareRoulette?: () => void;
   showShareButton?: boolean;
+  isSharing?: boolean;
 }
 
 const SettingsPanel = ({
@@ -48,6 +49,7 @@ const SettingsPanel = ({
   showSaveButton = true,
   onShareRoulette,
   showShareButton = false,
+  isSharing = false,
 }: SettingsPanelProps) => {
   const { t } = useTranslation();
   const params = useParams();
@@ -352,11 +354,16 @@ const SettingsPanel = ({
           {showShareButton && onShareRoulette && (
             <motion.button
               onClick={onShareRoulette}
-              className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              disabled={isSharing}
+              className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg disabled:opacity-50"
+              whileHover={!isSharing ? { scale: 1.05 } : {}}
+              whileTap={!isSharing ? { scale: 0.95 } : {}}
             >
-              <Share2 size={16} />
+              {isSharing ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <Share2 size={16} />
+              )}
               {t("components.roulette.share.url")}
             </motion.button>
           )}

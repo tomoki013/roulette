@@ -886,7 +886,9 @@
         "copyError": "Failed to copy the URL.",
         "confirmTitle": "Confirm Share",
         "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
-        "confirmAction": "Share"
+        "confirmAction": "Share",
+        "shareTitle": "Share Roulette",
+        "shareDescription": "Share this link with anyone to let them play this roulette."
       }
     },
     "auth": {

@@ -46,7 +46,11 @@ const Modal = () => {
               <h2 className="text-2xl font-bold text-gray-800 mt-4 mb-2">
                 {title}
               </h2>
-              <p className="text-gray-600 mb-6">{message}</p>
+              {typeof message === "string" ? (
+                <p className="text-gray-600 mb-6">{message}</p>
+              ) : (
+                <div className="text-gray-600 mb-6">{message}</div>
+              )}
               <div className="flex justify-center gap-4">
                 {onCancel && (
                   <button

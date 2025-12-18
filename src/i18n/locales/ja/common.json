@@ -888,7 +888,9 @@
         "copyError": "URLのコピーに失敗しました。",
         "confirmTitle": "共有の確認",
         "confirmMessage": "結果は含まれません。現在のルーレット設定のみを共有します。よろしいですか？",
-        "confirmAction": "共有する"
+        "confirmAction": "共有する",
+        "shareTitle": "ルーレットを共有",
+        "shareDescription": "このリンクを共有して、他の人にこのルーレットを遊んでもらいましょう。"
       }
     },
     "auth": {

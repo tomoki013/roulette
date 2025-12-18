@@ -5,7 +5,7 @@ import Modal from "@/components/elements/common/Modal";
 
 interface ModalContent {
   title: string;
-  message: string;
+  message: string | ReactNode;
   onConfirm?: () => void;
   onCancel?: () => void;
   confirmText?: string;

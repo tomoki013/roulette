@@ -67,7 +67,7 @@ const TemplateRoulettePageClient = () => {
     setShowResult,
   } = useRouletteWheel(items);
 
-  const { handleShareUrl, handleShareImage, getShareUrl } = useRouletteShare({
+  const { handleShareUrl, handleShareImage, isSharing } = useRouletteShare({
     title,
     items,
     result,
@@ -269,6 +269,7 @@ const TemplateRoulettePageClient = () => {
           saveButtonText={t("pages.templates.forkAndSave")}
           showShareButton={true}
           onShareRoulette={() => handleShareUrl(false)}
+          isSharing={isSharing}
         />
 
         <div>
@@ -340,7 +341,6 @@ const TemplateRoulettePageClient = () => {
         onClose={closeResult}
         onShareImage={handleShareImage}
         onShareUrl={() => handleShareUrl(true)}
-        shareUrl={getShareUrl(true)}
       />
     </>
   );
