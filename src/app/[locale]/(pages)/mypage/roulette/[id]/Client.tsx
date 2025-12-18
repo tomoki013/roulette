@@ -48,7 +48,7 @@ const EditRoulettePageClient = () => {
     closeResult,
   } = useRouletteWheel(items);
 
-  const { getShareUrl } = useRouletteShare({
+  const { getShareUrl, getShortShareUrl, handleShareUrl } = useRouletteShare({
     title,
     items,
     result,
@@ -56,6 +56,7 @@ const EditRoulettePageClient = () => {
     closeModal,
     previewRef: roulettePreviewRef,
     t,
+    locale: i18n.language,
   });
 
   // Auth and data loading effect
@@ -149,7 +150,9 @@ const EditRoulettePageClient = () => {
           isSaving={isSaving}
           isLoggedIn={!!user}
           saveButtonText={t("components.roulette.settings.saveChanges")}
-          showShareButton={false}
+          showShareButton={true}
+          onShareRoulette={() => handleShareUrl(false)}
+          getShareUrl={getShortShareUrl}
         />
 
         <RoulettePreview
@@ -167,6 +170,8 @@ const EditRoulettePageClient = () => {
         result={result}
         onClose={closeResult}
         shareUrl={getShareUrl(true)}
+        getShareUrl={getShortShareUrl}
+        onShareUrl={() => handleShareUrl(true)}
       />
     </>
   );

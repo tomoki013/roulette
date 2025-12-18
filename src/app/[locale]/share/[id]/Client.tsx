@@ -48,6 +48,7 @@ const SharePageClient = ({ roulette }: SharePageClientProps) => {
     closeModal,
     previewRef: roulettePreviewRef,
     t,
+    locale: i18n.language,
   });
 
   // Handle result param

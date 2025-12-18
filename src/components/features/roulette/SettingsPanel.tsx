@@ -3,11 +3,12 @@
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Plus, X, Save, Loader2, Share2, HelpCircle, Menu, BookText } from "lucide-react";
+import { Plus, X, Save, Loader2, HelpCircle, Menu, BookText } from "lucide-react";
 import { Item } from "@/types";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ROULETTE_COLORS } from "@/constants/roulette";
+import ShareButtons from "./ShareButtons";
 
 interface SettingsPanelProps {
   title: string;
@@ -30,6 +31,7 @@ interface SettingsPanelProps {
   showSaveButton?: boolean;
   onShareRoulette?: () => void;
   showShareButton?: boolean;
+  getShareUrl?: () => Promise<string>;
 }
 
 const SettingsPanel = ({
@@ -48,6 +50,7 @@ const SettingsPanel = ({
   showSaveButton = true,
   onShareRoulette,
   showShareButton = false,
+  getShareUrl,
 }: SettingsPanelProps) => {
   const { t } = useTranslation();
   const params = useParams();
@@ -349,16 +352,12 @@ const SettingsPanel = ({
         )}
 
         <div className="flex justify-end items-center mt-6 gap-3">
-          {showShareButton && onShareRoulette && (
-            <motion.button
-              onClick={onShareRoulette}
-              className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Share2 size={16} />
-              {t("components.roulette.share.url")}
-            </motion.button>
+          {showShareButton && onShareRoulette && getShareUrl && (
+             <ShareButtons
+               onCopyUrl={async () => { await onShareRoulette(); }}
+               getShareUrl={getShareUrl}
+               shareText={title}
+             />
           )}
 
           {showSaveButton && (
