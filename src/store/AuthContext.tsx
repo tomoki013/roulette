@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from "react";
 import { Session, User } from "@supabase/supabase-js";
+import { useRouter } from "next/navigation";
 import { getSupabase } from "@/lib/supabaseClient";
 import LoadingScreen from "@/components/elements/loadingAnimation/LoadingScreen";
 
@@ -23,15 +24,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const supabase = getSupabase();
     // Supabaseの認証状態の変化を監視
     const { data: authListener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+      (event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
+
+        if (event === "SIGNED_OUT") {
+          router.push("/");
+          router.refresh();
+        }
       }
     );
 

@@ -44,20 +44,28 @@ export const useRouletteShare = ({
     }
   }, [previewRef]);
 
+  const getShareUrl = useCallback(
+    (withResult = false) => {
+      const config = { title, items };
+      const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.searchParams.set("config", encodedConfig);
+
+      if (withResult && result) {
+        url.searchParams.set("result", result.name);
+      }
+      return url.toString();
+    },
+    [title, items, result]
+  );
+
   const handleShareUrl = useCallback(
     (withResult = false) => {
       const copyLink = () => {
-        const config = { title, items };
-        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-        const url = new URL(window.location.href);
-        url.search = "";
-        url.searchParams.set("config", encodedConfig);
+        const url = getShareUrl(withResult);
 
-        if (withResult && result) {
-          url.searchParams.set("result", result.name);
-        }
-
-        navigator.clipboard.writeText(url.toString()).then(() => {
+        navigator.clipboard.writeText(url).then(() => {
           showModal({
             title: t("components.roulette.share.copySuccess"),
             message: withResult
@@ -86,11 +94,12 @@ export const useRouletteShare = ({
         });
       }
     },
-    [title, items, result, showModal, closeModal, t]
+    [getShareUrl, showModal, closeModal, t]
   );
 
   return {
     handleShareImage,
     handleShareUrl,
+    getShareUrl,
   };
 };
