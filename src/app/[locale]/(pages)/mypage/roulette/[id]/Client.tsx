@@ -16,13 +16,18 @@ import {
 import { Json } from "@/types/database.types";
 import { useRouletteWheel } from "@/lib/hooks/useRouletteWheel";
 import { useRouletteSettings } from "@/lib/hooks/useRouletteSettings";
+import { useRouletteShare } from "@/lib/hooks/useRouletteShare";
+import { useModal } from "@/lib/hooks/useModal";
 import { ROULETTE_COLORS } from "@/constants/roulette";
+import { useRef } from "react";
 
 const EditRoulettePageClient = () => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const params = useParams<{ id: string; locale: string }>();
   const { user, loading: authLoading } = useAuth();
+  const { showModal, closeModal } = useModal();
+  const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
   // State management
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
@@ -42,6 +47,16 @@ const EditRoulettePageClient = () => {
     spinRoulette,
     closeResult,
   } = useRouletteWheel(items);
+
+  const { getShareUrl } = useRouletteShare({
+    title,
+    items,
+    result,
+    showModal,
+    closeModal,
+    previewRef: roulettePreviewRef,
+    t,
+  });
 
   // Auth and data loading effect
   useEffect(() => {
@@ -147,7 +162,12 @@ const EditRoulettePageClient = () => {
         />
       </div>
 
-      <ResultModal isOpen={showResult} result={result} onClose={closeResult} />
+      <ResultModal
+        isOpen={showResult}
+        result={result}
+        onClose={closeResult}
+        shareUrl={getShareUrl(true)}
+      />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Share2 } from "lucide-react";
 import { Item } from "@/types";
+import { FaXTwitter, FaLine, FaFacebook } from "react-icons/fa6";
 
 interface ResultModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface ResultModalProps {
   onClose: () => void;
   onShareImage?: () => void;
   onShareUrl?: () => void;
+  shareUrl?: string;
 }
 
 const ResultModal = ({
@@ -19,25 +21,76 @@ const ResultModal = ({
   onClose,
   onShareImage,
   onShareUrl,
+  shareUrl,
 }: ResultModalProps) => {
   const { t } = useTranslation();
 
+  const handleSocialShare = (platform: "twitter" | "line" | "facebook") => {
+    if (!shareUrl) return;
+
+    const text = `${t("components.roulette.result.title")}: ${result?.name}\n`;
+    const encodedText = encodeURIComponent(text);
+    const encodedUrl = encodeURIComponent(shareUrl);
+
+    let url = "";
+    switch (platform) {
+      case "twitter":
+        url = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+        break;
+      case "line":
+        url = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
+        break;
+      case "facebook":
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        break;
+    }
+
+    window.open(url, "_blank", "width=600,height=400");
+  };
+
   const renderActionButtons = () => (
-    <div className="flex flex-col sm:flex-row justify-center gap-3">
-      {onShareImage && onShareUrl && (
-        <button
-          onClick={onShareUrl}
-          className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-600 transition-colors font-semibold flex items-center justify-center gap-2"
-        >
-          <Share2 size={20} /> {t("components.roulette.share.url")}
-        </button>
+    <div className="flex flex-col gap-4">
+      {shareUrl && (
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={() => handleSocialShare("twitter")}
+            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+            title="Share on X"
+          >
+            <FaXTwitter size={20} />
+          </button>
+          <button
+            onClick={() => handleSocialShare("line")}
+            className="p-3 bg-[#06C755] text-white rounded-full hover:bg-[#05b34c] transition-colors"
+            title="Share on LINE"
+          >
+            <FaLine size={20} />
+          </button>
+          <button
+            onClick={() => handleSocialShare("facebook")}
+            className="p-3 bg-[#1877F2] text-white rounded-full hover:bg-[#166fe5] transition-colors"
+            title="Share on Facebook"
+          >
+            <FaFacebook size={20} />
+          </button>
+        </div>
       )}
-      <button
-        onClick={onClose}
-        className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
-      >
-        {t("common.close")}
-      </button>
+      <div className="flex flex-col sm:flex-row justify-center gap-3">
+        {onShareImage && onShareUrl && (
+          <button
+            onClick={onShareUrl}
+            className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-600 transition-colors font-semibold flex items-center justify-center gap-2"
+          >
+            <Share2 size={20} /> {t("components.roulette.share.url")}
+          </button>
+        )}
+        <button
+          onClick={onClose}
+          className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+        >
+          {t("common.close")}
+        </button>
+      </div>
     </div>
   );
 
