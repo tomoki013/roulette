@@ -162,6 +162,9 @@ const EditRoulettePageClient = () => {
           isSpinning={isSpinning}
           onSpin={spinRoulette}
           result={result}
+          onShareImage={() => {}} // No implementation for MyPage yet, but needed for ShareButtons to show up?
+          onShareUrl={() => handleShareUrl(true)} // Enable sharing from MyPage preview
+          getShareUrl={() => getShortShareUrl()}
         />
       </div>
 

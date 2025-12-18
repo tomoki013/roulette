@@ -56,6 +56,7 @@ export const useRouletteShare = ({
         items: items as unknown as Json,
         supported_languages: [], // Default or passed from props if needed
         user_id: null, // Anonymous share
+        is_profile_public: true, // Make sure it's accessible
       });
 
       // Use the provided locale
