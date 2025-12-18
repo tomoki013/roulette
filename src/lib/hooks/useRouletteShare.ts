@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import html2canvas from "html2canvas";
 import { Item } from "@/types";
+import { createRoulette } from "@/lib/services/rouletteService";
+import { Json } from "@/types/database.types";
 
 interface ModalOptions {
   title: string;
@@ -44,8 +46,28 @@ export const useRouletteShare = ({
     }
   }, [previewRef]);
 
+  // Generate a short share URL by saving the roulette to the database
+  const getShortShareUrl = useCallback(async () => {
+    try {
+      const newRoulette = await createRoulette({
+        title,
+        items: items as unknown as Json,
+        supported_languages: [], // Default or passed from props if needed
+        user_id: null, // Anonymous share
+      });
+      // Construct the URL manually to avoid hook dependencies issues with router
+      // Assuming structure is /[locale]/share/[id]
+      const locale = window.location.pathname.split("/")[1] || "en";
+      return `${window.location.origin}/${locale}/share/${newRoulette.id}`;
+    } catch (error) {
+      console.error("Failed to generate short share URL", error);
+      throw error;
+    }
+  }, [title, items]);
+
   const getShareUrl = useCallback(
     (withResult = false) => {
+      // Legacy sync URL generator (state in URL)
       const config = { title, items };
       const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
       const url = new URL(window.location.href);
@@ -61,25 +83,39 @@ export const useRouletteShare = ({
   );
 
   const handleShareUrl = useCallback(
-    (withResult = false) => {
-      const copyLink = () => {
-        const url = getShareUrl(withResult);
+    async (withResult = false) => {
+      const copyLink = async () => {
+        try {
+            // Use short URL preference
+            const url = await getShortShareUrl();
+            const urlObj = new URL(url);
+            if (withResult && result) {
+                urlObj.searchParams.set("result", result.name);
+            }
 
-        navigator.clipboard.writeText(url).then(() => {
-          showModal({
-            title: t("components.roulette.share.copySuccess"),
-            message: withResult
-              ? t("components.roulette.share.copySuccessMessageResult")
-              : t("components.roulette.share.copySuccessMessageRoulette"),
-            onConfirm: closeModal,
-            confirmText: "OK",
-            type: "success",
-          });
-        });
+            navigator.clipboard.writeText(urlObj.toString()).then(() => {
+              showModal({
+                title: t("components.roulette.share.copySuccess"),
+                message: withResult
+                  ? t("components.roulette.share.copySuccessMessageResult")
+                  : t("components.roulette.share.copySuccessMessageRoulette"),
+                onConfirm: closeModal,
+                confirmText: "OK",
+                type: "success",
+              });
+            });
+        } catch (e) {
+             showModal({
+                title: "Error",
+                message: "Failed to generate share link.",
+                confirmText: "OK",
+                type: "error"
+             });
+        }
       };
 
       if (withResult) {
-        copyLink();
+        await copyLink();
       } else {
         showModal({
           title: t("components.roulette.share.confirmTitle"),
@@ -94,12 +130,13 @@ export const useRouletteShare = ({
         });
       }
     },
-    [getShareUrl, showModal, closeModal, t]
+    [getShortShareUrl, showModal, closeModal, t, result]
   );
 
   return {
     handleShareImage,
     handleShareUrl,
     getShareUrl,
+    getShortShareUrl
   };
 };
