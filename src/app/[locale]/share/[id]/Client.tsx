@@ -93,6 +93,7 @@ const SharePageClient = ({ roulette }: SharePageClientProps) => {
                 result={result}
                 onShareImage={handleShareImage}
                 onShareUrl={() => handleShareUrl(true)}
+                getShareUrl={() => getShortShareUrl()}
             />
         </div>
       </div>

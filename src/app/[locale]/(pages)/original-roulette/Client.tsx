@@ -211,6 +211,7 @@ const CreateRoulettePageClient = () => {
           result={result}
           onShareImage={handleShareImage}
           onShareUrl={() => handleShareUrl(true)}
+          getShareUrl={() => getShortShareUrl()}
         />
       </div>
 

@@ -284,6 +284,7 @@ const TemplateRoulettePageClient = () => {
             result={result}
             onShareImage={handleShareImage}
             onShareUrl={() => handleShareUrl(true)}
+            getShareUrl={() => getShortShareUrl()}
           />
           <div className="mt-4 flex justify-center">
             <button
