@@ -2,9 +2,10 @@
 
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, Share2 } from "lucide-react";
+import { Trophy, Share2, Loader2 } from "lucide-react";
 import { Item } from "@/types";
 import { FaXTwitter, FaLine, FaFacebook } from "react-icons/fa6";
+import { useState } from "react";
 
 interface ResultModalProps {
   isOpen: boolean;
@@ -12,7 +13,8 @@ interface ResultModalProps {
   onClose: () => void;
   onShareImage?: () => void;
   onShareUrl?: () => void;
-  shareUrl?: string;
+  shareUrl?: string; // Legacy sync URL
+  getShareUrl?: (withResult?: boolean) => Promise<string>; // New async URL getter
 }
 
 const ResultModal = ({
@@ -21,60 +23,95 @@ const ResultModal = ({
   onClose,
   onShareImage,
   onShareUrl,
-  shareUrl,
+  shareUrl: initialShareUrl, // Rename to avoid confusion
+  getShareUrl, // Passed from hook
 }: ResultModalProps) => {
   const { t } = useTranslation();
+  const [loadingPlatform, setLoadingPlatform] = useState<string | null>(null);
 
-  const handleSocialShare = (platform: "twitter" | "line" | "facebook") => {
-    if (!shareUrl) return;
+  const handleSocialShare = async (platform: "twitter" | "line" | "facebook") => {
+    setLoadingPlatform(platform);
 
-    const text = `${t("components.roulette.result.title")}: ${result?.name}\n`;
-    const encodedText = encodeURIComponent(text);
-    const encodedUrl = encodeURIComponent(shareUrl);
+    let targetUrl = initialShareUrl;
 
-    let url = "";
-    switch (platform) {
-      case "twitter":
-        url = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
-        break;
-      case "line":
-        url = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
-        break;
-      case "facebook":
-        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-        break;
+    try {
+        if (getShareUrl) {
+            targetUrl = await getShareUrl(true);
+        } else if (!targetUrl && onShareUrl) {
+            // Fallback if no URL provided but onShareUrl exists?
+            // onShareUrl in parent might just copy to clipboard.
+            // We need a URL to open social share.
+            return;
+        }
+
+        if (!targetUrl) return;
+
+        // If withResult, we might want to append result param if not already there
+        // The getShareUrl(true) above should handle it if implemented correctly in hook.
+        // If targetUrl comes from initialShareUrl, it might be the long one.
+
+        // Ensure result is attached if simple URL
+        const urlObj = new URL(targetUrl);
+        if (result && !urlObj.searchParams.has("result")) {
+             urlObj.searchParams.set("result", result.name);
+        }
+        targetUrl = urlObj.toString();
+
+
+        const text = `${t("components.roulette.result.title")}: ${result?.name}\n`;
+        const encodedText = encodeURIComponent(text);
+        const encodedUrl = encodeURIComponent(targetUrl);
+
+        let url = "";
+        switch (platform) {
+          case "twitter":
+            url = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+            break;
+          case "line":
+            url = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
+            break;
+          case "facebook":
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+        }
+
+        window.open(url, "_blank", "width=600,height=400");
+    } catch (e) {
+        console.error("Share failed", e);
+    } finally {
+        setLoadingPlatform(null);
     }
-
-    window.open(url, "_blank", "width=600,height=400");
   };
 
   const renderActionButtons = () => (
     <div className="flex flex-col gap-4">
-      {shareUrl && (
-        <div className="flex justify-center gap-4">
-          <button
-            onClick={() => handleSocialShare("twitter")}
-            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-            title="Share on X"
-          >
-            <FaXTwitter size={20} />
-          </button>
-          <button
-            onClick={() => handleSocialShare("line")}
-            className="p-3 bg-[#06C755] text-white rounded-full hover:bg-[#05b34c] transition-colors"
-            title="Share on LINE"
-          >
-            <FaLine size={20} />
-          </button>
-          <button
-            onClick={() => handleSocialShare("facebook")}
-            className="p-3 bg-[#1877F2] text-white rounded-full hover:bg-[#166fe5] transition-colors"
-            title="Share on Facebook"
-          >
-            <FaFacebook size={20} />
-          </button>
-        </div>
-      )}
+      <div className="flex justify-center gap-4">
+        <button
+          onClick={() => handleSocialShare("twitter")}
+          disabled={!!loadingPlatform}
+          className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50"
+          title="Share on X"
+        >
+          {loadingPlatform === "twitter" ? <Loader2 className="animate-spin" size={20} /> : <FaXTwitter size={20} />}
+        </button>
+        <button
+          onClick={() => handleSocialShare("line")}
+          disabled={!!loadingPlatform}
+          className="p-3 bg-[#06C755] text-white rounded-full hover:bg-[#05b34c] transition-colors disabled:opacity-50"
+          title="Share on LINE"
+        >
+           {loadingPlatform === "line" ? <Loader2 className="animate-spin" size={20} /> : <FaLine size={20} />}
+        </button>
+        <button
+          onClick={() => handleSocialShare("facebook")}
+          disabled={!!loadingPlatform}
+          className="p-3 bg-[#1877F2] text-white rounded-full hover:bg-[#166fe5] transition-colors disabled:opacity-50"
+          title="Share on Facebook"
+        >
+           {loadingPlatform === "facebook" ? <Loader2 className="animate-spin" size={20} /> : <FaFacebook size={20} />}
+        </button>
+      </div>
+
       <div className="flex flex-col sm:flex-row justify-center gap-3">
         {onShareImage && onShareUrl && (
           <button
