@@ -67,7 +67,7 @@ const TemplateRoulettePageClient = () => {
     setShowResult,
   } = useRouletteWheel(items);
 
-  const { handleShareUrl, handleShareImage, getShareUrl } = useRouletteShare({
+  const { handleShareUrl, handleShareImage, getShareUrl, getShortShareUrl } = useRouletteShare({
     title,
     items,
     result,
@@ -75,6 +75,7 @@ const TemplateRoulettePageClient = () => {
     closeModal,
     previewRef: roulettePreviewRef,
     t,
+    locale: i18n.language,
   });
 
   // Load template data
@@ -269,6 +270,7 @@ const TemplateRoulettePageClient = () => {
           saveButtonText={t("pages.templates.forkAndSave")}
           showShareButton={true}
           onShareRoulette={() => handleShareUrl(false)}
+          getShareUrl={getShortShareUrl}
         />
 
         <div>
@@ -341,6 +343,7 @@ const TemplateRoulettePageClient = () => {
         onShareImage={handleShareImage}
         onShareUrl={() => handleShareUrl(true)}
         shareUrl={getShareUrl(true)}
+        getShareUrl={getShortShareUrl}
       />
     </>
   );
