@@ -881,6 +881,7 @@
         "copySuccessMessageRoulette": "La URL de la ruleta ha sido copiada a tu portapapeles.",
         "copySuccessMessageResult": "La URL del resultado ha sido copiada a tu portapapeles.",
         "copyError": "Error al copiar la URL.",
+        "failedToShare": "Failed to generate share link. Please try again.",
         "confirmTitle": "Confirmar compartir",
         "confirmMessage": "El resultado no será incluido. Esto solo compartirá la configuración actual de la ruleta. ¿Está bien?",
         "confirmAction": "Compartir"

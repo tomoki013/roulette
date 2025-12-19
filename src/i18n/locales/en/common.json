@@ -884,6 +884,7 @@
         "copySuccessMessageRoulette": "The roulette URL has been copied to your clipboard.",
         "copySuccessMessageResult": "The result URL has been copied to your clipboard.",
         "copyError": "Failed to copy the URL.",
+        "failedToShare": "Failed to generate share link. Please try again.",
         "confirmTitle": "Confirm Share",
         "confirmMessage": "The result will not be included. This will only share the current roulette settings. Is that okay?",
         "confirmAction": "Share"

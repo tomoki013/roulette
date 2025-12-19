@@ -886,6 +886,7 @@
         "copySuccessMessageRoulette": "ルーレットのURLをクリップボードにコピーしました。",
         "copySuccessMessageResult": "結果のURLをクリップボードにコピーしました。",
         "copyError": "URLのコピーに失敗しました。",
+        "failedToShare": "共有リンクの生成に失敗しました。もう一度お試しください。",
         "confirmTitle": "共有の確認",
         "confirmMessage": "結果は含まれません。現在のルーレット設定のみを共有します。よろしいですか？",
         "confirmAction": "共有する"
