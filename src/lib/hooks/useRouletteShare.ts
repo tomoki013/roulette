@@ -63,9 +63,17 @@ export const useRouletteShare = ({
       return `${window.location.origin}/${locale}/share/${newRoulette.id}`;
     } catch (error) {
       console.error("Failed to generate short share URL", error);
-      throw error;
+      showModal({
+        title: t("common.error"),
+        message:
+          t("components.roulette.share.failedToShare") +
+          (error instanceof Error ? "\n" + error.message : ""),
+        confirmText: "OK",
+        type: "error",
+      });
+      return null;
     }
-  }, [title, items, locale]);
+  }, [title, items, locale, t, showModal]);
 
   const getShareUrl = useCallback(
     (withResult = false) => {
@@ -88,32 +96,35 @@ export const useRouletteShare = ({
     async (withResult = false) => {
       const copyLink = async () => {
         try {
-            // Use short URL preference
-            const url = await getShortShareUrl();
-            const urlObj = new URL(url);
-            if (withResult && result) {
-                urlObj.searchParams.set("result", result.name);
-            }
+          // Use short URL preference
+          const url = await getShortShareUrl();
+          if (!url) return;
 
-            await navigator.clipboard.writeText(urlObj.toString());
+          const urlObj = new URL(url);
+          if (withResult && result) {
+            urlObj.searchParams.set("result", result.name);
+          }
 
-            showModal({
-              title: t("components.roulette.share.copySuccess"),
-              message: withResult
-                ? t("components.roulette.share.copySuccessMessageResult")
-                : t("components.roulette.share.copySuccessMessageRoulette"),
-              onConfirm: closeModal,
-              confirmText: "OK",
-              type: "success",
-            });
+          await navigator.clipboard.writeText(urlObj.toString());
+
+          showModal({
+            title: t("components.roulette.share.copySuccess"),
+            message: withResult
+              ? t("components.roulette.share.copySuccessMessageResult")
+              : t("components.roulette.share.copySuccessMessageRoulette"),
+            onConfirm: closeModal,
+            confirmText: "OK",
+            type: "success",
+          });
         } catch (e) {
-             console.error("Failed in handleShareUrl", e);
-             showModal({
-                title: "Error",
-                message: "Failed to generate share link.",
-                confirmText: "OK",
-                type: "error"
-             });
+          console.error("Failed in handleShareUrl", e);
+          // Only show modal for unexpected errors, getShortShareUrl handles its own errors
+          showModal({
+            title: "Error",
+            message: "Failed to copy share link.",
+            confirmText: "OK",
+            type: "error",
+          });
         }
       };
 

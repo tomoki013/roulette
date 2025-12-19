@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface ShareButtonsProps {
   onCopyUrl: () => void;
-  getShareUrl: () => Promise<string>;
+  getShareUrl: () => Promise<string | null>;
   shareText: string;
 }
 

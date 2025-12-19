@@ -17,7 +17,7 @@ interface RoulettePreviewProps {
   result: Item | null;
   onShareImage?: () => void;
   onShareUrl?: () => void;
-  getShareUrl?: (withResult?: boolean) => Promise<string>;
+  getShareUrl?: (withResult?: boolean) => Promise<string | null>;
 }
 
 const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
@@ -120,6 +120,7 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
                   }}
                   getShareUrl={async () => {
                     const url = await getShareUrl(true);
+                    if (!url) return null;
                     const urlObj = new URL(url);
                     if (result && !urlObj.searchParams.has("result")) {
                       urlObj.searchParams.set("result", result.name);

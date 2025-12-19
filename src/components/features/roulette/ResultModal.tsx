@@ -13,7 +13,7 @@ interface ResultModalProps {
   onShareImage?: () => void;
   onShareUrl?: () => void;
   shareUrl?: string; // Legacy sync URL
-  getShareUrl?: (withResult?: boolean) => Promise<string>; // New async URL getter
+  getShareUrl?: (withResult?: boolean) => Promise<string | null>; // New async URL getter
 }
 
 const ResultModal = ({
@@ -36,6 +36,7 @@ const ResultModal = ({
                 getShareUrl={async () => {
                     // Always include result
                     const url = await getShareUrl(true);
+                    if (!url) return null;
                     const urlObj = new URL(url);
                     if (result && !urlObj.searchParams.has("result")) {
                          urlObj.searchParams.set("result", result.name);

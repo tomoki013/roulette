@@ -31,7 +31,7 @@ interface SettingsPanelProps {
   showSaveButton?: boolean;
   onShareRoulette?: () => void;
   showShareButton?: boolean;
-  getShareUrl?: () => Promise<string>;
+  getShareUrl?: () => Promise<string | null>;
 }
 
 const SettingsPanel = ({
