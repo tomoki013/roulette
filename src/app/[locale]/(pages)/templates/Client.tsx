@@ -8,8 +8,7 @@ import LoadingScreen from "@/components/elements/loadingAnimation/LoadingScreen"
 import TemplateCard from "@/components/features/templates/TemplateCard";
 
 type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
-type Profile = Database["public"]["Tables"]["profiles"]["Row"];
-type Template = Roulette & { profiles: Pick<Profile, "username"> | null };
+type Template = Roulette;
 
 const TemplatesPageClient = () => {
   const { t } = useTranslation();

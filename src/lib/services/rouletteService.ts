@@ -29,7 +29,7 @@ export const getPublicTemplates = async (
   const supabase = getSupabase();
   let supabaseQuery = supabase
     .from("roulettes")
-    .select("*, profiles(username)")
+    .select("*")
     .eq("is_template", true);
 
   // Apply search filter
@@ -72,7 +72,7 @@ export const getPublicTemplatesByUserId = async (
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("roulettes")
-    .select("*, profiles(username)")
+    .select("*")
     .eq("user_id", userId)
     .eq("is_template", true)
     .order("created_at", { ascending: false });

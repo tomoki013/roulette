@@ -13,11 +13,7 @@ import {
 } from "@/lib/services/rouletteService";
 
 type Roulette = Database["public"]["Tables"]["roulettes"]["Row"];
-type Profile = Database["public"]["Tables"]["profiles"]["Row"];
-
-type Template = Roulette & {
-  profiles: Pick<Profile, "username"> | null;
-};
+type Template = Roulette;
 
 interface TemplateCardProps {
   template: Template;
@@ -114,7 +110,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
     }
     if (template.is_profile_public) {
       return {
-        text: template.profiles?.username || t("templates.anonymous"),
+        text: t("templates.anonymous"),
         Icon: User,
         isOfficial: false,
       };
