@@ -16,13 +16,18 @@ import {
 import { Json } from "@/types/database.types";
 import { useRouletteWheel } from "@/lib/hooks/useRouletteWheel";
 import { useRouletteSettings } from "@/lib/hooks/useRouletteSettings";
+import { useRouletteShare } from "@/lib/hooks/useRouletteShare";
+import { useModal } from "@/lib/hooks/useModal";
 import { ROULETTE_COLORS } from "@/constants/roulette";
+import { useRef } from "react";
 
 const EditRoulettePageClient = () => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const params = useParams<{ id: string; locale: string }>();
   const { user, loading: authLoading } = useAuth();
+  const { showModal, closeModal } = useModal();
+  const roulettePreviewRef = useRef<HTMLDivElement>(null);
 
   // State management
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
@@ -42,6 +47,17 @@ const EditRoulettePageClient = () => {
     spinRoulette,
     closeResult,
   } = useRouletteWheel(items);
+
+  const { getShareUrl, getShortShareUrl, handleShareUrl } = useRouletteShare({
+    title,
+    items,
+    result,
+    showModal,
+    closeModal,
+    previewRef: roulettePreviewRef,
+    t,
+    locale: i18n.language,
+  });
 
   // Auth and data loading effect
   useEffect(() => {
@@ -134,7 +150,9 @@ const EditRoulettePageClient = () => {
           isSaving={isSaving}
           isLoggedIn={!!user}
           saveButtonText={t("components.roulette.settings.saveChanges")}
-          showShareButton={false}
+          showShareButton={true}
+          onShareRoulette={() => handleShareUrl(false)}
+          getShareUrl={getShortShareUrl}
         />
 
         <RoulettePreview
@@ -144,10 +162,20 @@ const EditRoulettePageClient = () => {
           isSpinning={isSpinning}
           onSpin={spinRoulette}
           result={result}
+          onShareImage={() => {}} // No implementation for MyPage yet, but needed for ShareButtons to show up?
+          onShareUrl={() => handleShareUrl(true)} // Enable sharing from MyPage preview
+          getShareUrl={() => getShortShareUrl()}
         />
       </div>
 
-      <ResultModal isOpen={showResult} result={result} onClose={closeResult} />
+      <ResultModal
+        isOpen={showResult}
+        result={result}
+        onClose={closeResult}
+        shareUrl={getShareUrl(true)}
+        getShareUrl={getShortShareUrl}
+        onShareUrl={() => handleShareUrl(true)}
+      />
     </>
   );
 };

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Play, Loader2, Share2 } from "lucide-react";
 import { Item } from "@/types";
 import RouletteWheel from "./RouletteWheel";
+import ShareButtons from "./ShareButtons";
 
 interface RoulettePreviewProps {
   title: string;
@@ -16,6 +17,7 @@ interface RoulettePreviewProps {
   result: Item | null;
   onShareImage?: () => void;
   onShareUrl?: () => void;
+  getShareUrl?: (withResult?: boolean) => Promise<string | null>;
 }
 
 const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
@@ -29,6 +31,7 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
       result,
       onShareImage,
       onShareUrl,
+      getShareUrl,
     },
     ref
   ) => {
@@ -110,13 +113,33 @@ const RoulettePreview = forwardRef<HTMLDivElement, RoulettePreviewProps>(
           </p>
           {onShareImage && onShareUrl && (
             <div className="flex justify-center gap-2 mt-4">
-              <button
-                onClick={onShareUrl}
-                className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white"
-              >
-                <Share2 size={16} />
-                {t("components.roulette.share.url")}
-              </button>
+              {getShareUrl ? (
+                <ShareButtons
+                  onCopyUrl={async () => {
+                    await onShareUrl();
+                  }}
+                  getShareUrl={async () => {
+                    const url = await getShareUrl(true);
+                    if (!url) return null;
+                    const urlObj = new URL(url);
+                    if (result && !urlObj.searchParams.has("result")) {
+                      urlObj.searchParams.set("result", result.name);
+                    }
+                    return urlObj.toString();
+                  }}
+                  shareText={`${t("components.roulette.result.title")}: ${
+                    result?.name
+                  }`}
+                />
+              ) : (
+                <button
+                  onClick={onShareUrl}
+                  className="flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg hover:bg-white/20 transition-colors text-white"
+                >
+                  <Share2 size={16} />
+                  {t("components.roulette.share.url")}
+                </button>
+              )}
             </div>
           )}
         </motion.div>

@@ -50,7 +50,7 @@ const CreateRoulettePageClient = () => {
     setShowResult,
   } = useRouletteWheel(items);
 
-  const { handleShareUrl, handleShareImage } = useRouletteShare({
+  const { handleShareUrl, handleShareImage, getShareUrl, getShortShareUrl } = useRouletteShare({
     title,
     items,
     result,
@@ -58,6 +58,7 @@ const CreateRoulettePageClient = () => {
     closeModal,
     previewRef: roulettePreviewRef,
     t,
+    locale: i18n.language,
   });
 
   // Initialize items from URL or default
@@ -197,6 +198,7 @@ const CreateRoulettePageClient = () => {
           isLoggedIn={!!user}
           onShareRoulette={() => handleShareUrl(false)}
           showShareButton={true}
+          getShareUrl={getShortShareUrl}
         />
 
         <RoulettePreview
@@ -209,6 +211,7 @@ const CreateRoulettePageClient = () => {
           result={result}
           onShareImage={handleShareImage}
           onShareUrl={() => handleShareUrl(true)}
+          getShareUrl={() => getShortShareUrl()}
         />
       </div>
 
@@ -218,6 +221,8 @@ const CreateRoulettePageClient = () => {
         onClose={closeResult}
         onShareImage={handleShareImage}
         onShareUrl={() => handleShareUrl(true)}
+        shareUrl={getShareUrl(true)}
+        getShareUrl={getShortShareUrl}
       />
 
       <AuthModal isOpen={isAuthModalOpen} onClose={handleAuthModalClose} />

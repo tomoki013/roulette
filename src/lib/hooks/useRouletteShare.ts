@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import html2canvas from "html2canvas";
 import { Item } from "@/types";
+import { createRoulette } from "@/lib/services/rouletteService";
+import { Json } from "@/types/database.types";
 
 interface ModalOptions {
   title: string;
@@ -20,6 +22,7 @@ interface UseRouletteShareProps {
   closeModal: () => void;
   previewRef: React.RefObject<HTMLDivElement | null>;
   t: (key: string) => string;
+  locale?: string;
 }
 
 export const useRouletteShare = ({
@@ -30,6 +33,7 @@ export const useRouletteShare = ({
   closeModal,
   previewRef,
   t,
+  locale = "en",
 }: UseRouletteShareProps) => {
   const handleShareImage = useCallback(async () => {
     if (previewRef.current) {
@@ -44,20 +48,65 @@ export const useRouletteShare = ({
     }
   }, [previewRef]);
 
-  const handleShareUrl = useCallback(
+  // Generate a short share URL by saving the roulette to the database
+  const getShortShareUrl = useCallback(async () => {
+    try {
+      const newRoulette = await createRoulette({
+        title,
+        items: items as unknown as Json,
+        supported_languages: [], // Default or passed from props if needed
+        user_id: null, // Anonymous share
+        is_profile_public: true, // Make sure it's accessible
+      });
+
+      // Use the provided locale
+      return `${window.location.origin}/${locale}/share/${newRoulette.id}`;
+    } catch (error) {
+      console.error("Failed to generate short share URL", error);
+      showModal({
+        title: t("common.error"),
+        message:
+          t("components.roulette.share.failedToShare") +
+          (error instanceof Error ? "\n" + error.message : ""),
+        confirmText: "OK",
+        type: "error",
+      });
+      return null;
+    }
+  }, [title, items, locale, t, showModal]);
+
+  const getShareUrl = useCallback(
     (withResult = false) => {
-      const copyLink = () => {
-        const config = { title, items };
-        const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
-        const url = new URL(window.location.href);
-        url.search = "";
-        url.searchParams.set("config", encodedConfig);
+      // Legacy sync URL generator (state in URL)
+      const config = { title, items };
+      const encodedConfig = btoa(encodeURIComponent(JSON.stringify(config)));
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.searchParams.set("config", encodedConfig);
 
-        if (withResult && result) {
-          url.searchParams.set("result", result.name);
-        }
+      if (withResult && result) {
+        url.searchParams.set("result", result.name);
+      }
+      return url.toString();
+    },
+    [title, items, result]
+  );
 
-        navigator.clipboard.writeText(url.toString()).then(() => {
+  const handleShareUrl = useCallback(
+    async (withResult = false) => {
+      const copyLink = async () => {
+        try {
+          // Use short URL preference
+          const url = await getShortShareUrl();
+          if (!url) return;
+
+          const urlObj = new URL(url);
+          if (withResult && result) {
+            urlObj.searchParams.set("result", result.name);
+          }
+
+          await navigator.clipboard.writeText(urlObj.toString());
+
           showModal({
             title: t("components.roulette.share.copySuccess"),
             message: withResult
@@ -67,11 +116,20 @@ export const useRouletteShare = ({
             confirmText: "OK",
             type: "success",
           });
-        });
+        } catch (e) {
+          console.error("Failed in handleShareUrl", e);
+          // Only show modal for unexpected errors, getShortShareUrl handles its own errors
+          showModal({
+            title: "Error",
+            message: "Failed to copy share link.",
+            confirmText: "OK",
+            type: "error",
+          });
+        }
       };
 
       if (withResult) {
-        copyLink();
+        await copyLink();
       } else {
         showModal({
           title: t("components.roulette.share.confirmTitle"),
@@ -86,11 +144,13 @@ export const useRouletteShare = ({
         });
       }
     },
-    [title, items, result, showModal, closeModal, t]
+    [getShortShareUrl, showModal, closeModal, t, result]
   );
 
   return {
     handleShareImage,
     handleShareUrl,
+    getShareUrl,
+    getShortShareUrl
   };
 };

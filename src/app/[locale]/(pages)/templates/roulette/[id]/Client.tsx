@@ -67,7 +67,7 @@ const TemplateRoulettePageClient = () => {
     setShowResult,
   } = useRouletteWheel(items);
 
-  const { handleShareUrl, handleShareImage } = useRouletteShare({
+  const { handleShareUrl, handleShareImage, getShareUrl, getShortShareUrl } = useRouletteShare({
     title,
     items,
     result,
@@ -75,6 +75,7 @@ const TemplateRoulettePageClient = () => {
     closeModal,
     previewRef: roulettePreviewRef,
     t,
+    locale: i18n.language,
   });
 
   // Load template data
@@ -269,6 +270,7 @@ const TemplateRoulettePageClient = () => {
           saveButtonText={t("pages.templates.forkAndSave")}
           showShareButton={true}
           onShareRoulette={() => handleShareUrl(false)}
+          getShareUrl={getShortShareUrl}
         />
 
         <div>
@@ -282,6 +284,7 @@ const TemplateRoulettePageClient = () => {
             result={result}
             onShareImage={handleShareImage}
             onShareUrl={() => handleShareUrl(true)}
+            getShareUrl={() => getShortShareUrl()}
           />
           <div className="mt-4 flex justify-center">
             <button
@@ -340,6 +343,8 @@ const TemplateRoulettePageClient = () => {
         onClose={closeResult}
         onShareImage={handleShareImage}
         onShareUrl={() => handleShareUrl(true)}
+        shareUrl={getShareUrl(true)}
+        getShareUrl={getShortShareUrl}
       />
     </>
   );

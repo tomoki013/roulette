@@ -2,8 +2,9 @@
 
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, Share2 } from "lucide-react";
+import { Trophy } from "lucide-react";
 import { Item } from "@/types";
+import ShareButtons from "./ShareButtons";
 
 interface ResultModalProps {
   isOpen: boolean;
@@ -11,6 +12,8 @@ interface ResultModalProps {
   onClose: () => void;
   onShareImage?: () => void;
   onShareUrl?: () => void;
+  shareUrl?: string; // Legacy sync URL
+  getShareUrl?: (withResult?: boolean) => Promise<string | null>; // New async URL getter
 }
 
 const ResultModal = ({
@@ -19,25 +22,40 @@ const ResultModal = ({
   onClose,
   onShareImage,
   onShareUrl,
+  shareUrl: initialShareUrl, // Rename to avoid confusion
+  getShareUrl, // Passed from hook
 }: ResultModalProps) => {
   const { t } = useTranslation();
 
   const renderActionButtons = () => (
-    <div className="flex flex-col sm:flex-row justify-center gap-3">
-      {onShareImage && onShareUrl && (
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-center gap-4">
+        {onShareUrl && getShareUrl && (
+            <ShareButtons
+                onCopyUrl={async () => { await onShareUrl(); }}
+                getShareUrl={async () => {
+                    // Always include result
+                    const url = await getShareUrl(true);
+                    if (!url) return null;
+                    const urlObj = new URL(url);
+                    if (result && !urlObj.searchParams.has("result")) {
+                         urlObj.searchParams.set("result", result.name);
+                    }
+                    return urlObj.toString();
+                }}
+                shareText={`${t("components.roulette.result.title")}: ${result?.name}`}
+            />
+        )}
+      </div>
+
+      <div className="flex flex-col sm:flex-row justify-center gap-3">
         <button
-          onClick={onShareUrl}
-          className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-600 transition-colors font-semibold flex items-center justify-center gap-2"
+          onClick={onClose}
+          className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
         >
-          <Share2 size={20} /> {t("components.roulette.share.url")}
+          {t("common.close")}
         </button>
-      )}
-      <button
-        onClick={onClose}
-        className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
-      >
-        {t("common.close")}
-      </button>
+      </div>
     </div>
   );
 

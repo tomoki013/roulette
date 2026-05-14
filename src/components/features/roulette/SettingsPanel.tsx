@@ -3,11 +3,12 @@
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Plus, X, Save, Loader2, Share2, HelpCircle, Menu, BookText } from "lucide-react";
+import { Plus, X, Save, Loader2, HelpCircle, Menu, BookText } from "lucide-react";
 import { Item } from "@/types";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ROULETTE_COLORS } from "@/constants/roulette";
+import ShareButtons from "./ShareButtons";
 
 interface SettingsPanelProps {
   title: string;
@@ -30,6 +31,7 @@ interface SettingsPanelProps {
   showSaveButton?: boolean;
   onShareRoulette?: () => void;
   showShareButton?: boolean;
+  getShareUrl?: () => Promise<string | null>;
 }
 
 const SettingsPanel = ({
@@ -48,6 +50,7 @@ const SettingsPanel = ({
   showSaveButton = true,
   onShareRoulette,
   showShareButton = false,
+  getShareUrl,
 }: SettingsPanelProps) => {
   const { t } = useTranslation();
   const params = useParams();
@@ -57,6 +60,8 @@ const SettingsPanel = ({
 
   const [inputMode, setInputMode] = useState<"list" | "text">("list");
   const [textModeValue, setTextModeValue] = useState("");
+  // Cache to store items when switching to text mode, allowing us to restore metadata (color, ratio)
+  const [cachedItems, setCachedItems] = useState<Item[]>([]);
 
   const shakeVariants = {
     shake: {
@@ -73,6 +78,7 @@ const SettingsPanel = ({
   const handleModeChange = useCallback((mode: "list" | "text") => {
     if (mode === "text") {
       // List to Text
+      setCachedItems(items); // Save current items to cache
       const text = items.map(item => item.name).join("\n");
       setTextModeValue(text);
     } else {
@@ -88,17 +94,31 @@ const SettingsPanel = ({
               ratio: 1
             }]);
          } else {
-            const newItems: Item[] = lines.map((line, index) => ({
-              name: line,
-              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
-              ratio: 1,
-            }));
+            const newItems: Item[] = lines.map((line, index) => {
+              // Try to find in cache first
+              const cached = cachedItems.find(i => i.name === line);
+              if (cached) {
+                return { ...cached };
+              }
+              // If not in cache, try finding in current items (though likely they are default if text mode updated them)
+              // This is a fallback
+              const current = items.find(i => i.name === line);
+              if (current) {
+                return { ...current };
+              }
+
+              return {
+                name: line,
+                color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+                ratio: 1,
+              };
+            });
             onItemsReplace(newItems);
          }
       }
     }
     setInputMode(mode);
-  }, [items, textModeValue, onItemsReplace, t]);
+  }, [items, textModeValue, onItemsReplace, t, cachedItems]);
 
   const handleTextModeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
@@ -111,11 +131,15 @@ const SettingsPanel = ({
     if (onItemsReplace) {
         const lines = val.split("\n").filter(line => line.trim() !== "");
         if (lines.length > 0) {
-            const newItems: Item[] = lines.map((line, index) => ({
-              name: line,
-              color: ROULETTE_COLORS[index % ROULETTE_COLORS.length],
-              ratio: 1,
-            }));
+            const newItems: Item[] = lines.map((line, index) => {
+               // Restore from cache if possible
+               const cached = cachedItems.find(i => i.name === line);
+               return {
+                  name: line,
+                  color: cached?.color || ROULETTE_COLORS[index % ROULETTE_COLORS.length],
+                  ratio: cached?.ratio || 1,
+               };
+            });
             onItemsReplace(newItems);
         } else {
             // If empty, we can choose to set an empty list or a default
@@ -328,16 +352,12 @@ const SettingsPanel = ({
         )}
 
         <div className="flex justify-end items-center mt-6 gap-3">
-          {showShareButton && onShareRoulette && (
-            <motion.button
-              onClick={onShareRoulette}
-              className="px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Share2 size={16} />
-              {t("components.roulette.share.url")}
-            </motion.button>
+          {showShareButton && onShareRoulette && getShareUrl && (
+             <ShareButtons
+               onCopyUrl={async () => { await onShareRoulette(); }}
+               getShareUrl={getShareUrl}
+               shareText={title}
+             />
           )}
 
           {showSaveButton && (
