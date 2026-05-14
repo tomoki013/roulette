@@ -28,7 +28,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
 
   useEffect(() => {
     const likedTemplates = JSON.parse(
-      localStorage.getItem("likedTemplates") || "[]"
+      localStorage.getItem("likedTemplates") || "[]",
     );
     if (likedTemplates.includes(template.id)) {
       setIsLiked(true);
@@ -43,7 +43,7 @@ const TemplateCard = ({ template }: TemplateCardProps) => {
     setIsLiking(true);
 
     const likedTemplates = JSON.parse(
-      localStorage.getItem("likedTemplates") || "[]"
+      localStorage.getItem("likedTemplates") || "[]",
     );
 
     try {

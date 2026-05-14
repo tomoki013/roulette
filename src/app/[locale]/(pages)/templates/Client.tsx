@@ -16,7 +16,7 @@ const TemplatesPageClient = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState<"created_at" | "like_count">(
-    "created_at"
+    "created_at",
   );
   const [languageFilter, setLanguageFilter] = useState<string | null>(null);
 

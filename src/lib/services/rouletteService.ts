@@ -24,7 +24,7 @@ const handleSupabaseError = (error: PostgrestError, context: string) => {
 export const getPublicTemplates = async (
   query: string,
   sortBy: "created_at" | "like_count",
-  language: string | null
+  language: string | null,
 ): Promise<Roulette[]> => {
   const supabase = getSupabase();
   let supabaseQuery = supabase
@@ -35,7 +35,7 @@ export const getPublicTemplates = async (
   // Apply search filter
   if (query) {
     supabaseQuery = supabaseQuery.or(
-      `title.ilike.%${query}%,description::text.ilike.%${query}%`
+      `title.ilike.%${query}%,description::text.ilike.%${query}%`,
     );
   }
 
@@ -67,7 +67,7 @@ export const getPublicTemplates = async (
  * @returns Array of user's public templates
  */
 export const getPublicTemplatesByUserId = async (
-  userId: string
+  userId: string,
 ): Promise<Roulette[]> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -123,7 +123,7 @@ export const getRouletteById = async (id: string): Promise<Roulette | null> => {
  * @returns Created roulette data
  */
 export const createRoulette = async (
-  rouletteData: RouletteInsert
+  rouletteData: RouletteInsert,
 ): Promise<Roulette> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -150,7 +150,7 @@ export const createRoulette = async (
  * @returns Array of user's roulettes
  */
 export const getRoulettesByUserId = async (
-  userId: string
+  userId: string,
 ): Promise<Roulette[]> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -179,7 +179,7 @@ export const getRoulettesByUserId = async (
  */
 export const updateRoulette = async (
   id: string,
-  updates: RouletteUpdate
+  updates: RouletteUpdate,
 ): Promise<Roulette> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -223,7 +223,7 @@ export const deleteRoulette = async (id: string): Promise<void> => {
  * @returns 更新されたいいね数を持つオブジェクト
  */
 export const incrementLikeCount = async (
-  id: string
+  id: string,
 ): Promise<{ id: string; like_count: number }> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -240,7 +240,7 @@ export const incrementLikeCount = async (
   // データが何らかの理由で返ってこなかった場合（例: 該当IDが存在しない）
   if (!data) {
     throw new Error(
-      "Failed to increment like count, roulette not found or no data returned."
+      "Failed to increment like count, roulette not found or no data returned.",
     );
   }
 
@@ -257,7 +257,7 @@ export const incrementLikeCount = async (
  * @returns 更新されたいいね数を持つオブジェクト
  */
 export const decrementLikeCount = async (
-  id: string
+  id: string,
 ): Promise<{ id: string; like_count: number }> => {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -272,7 +272,7 @@ export const decrementLikeCount = async (
 
   if (!data) {
     throw new Error(
-      "Failed to decrement like count, roulette not found or no data returned."
+      "Failed to decrement like count, roulette not found or no data returned.",
     );
   }
 
